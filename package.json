@@ -1,0 +1,27 @@
+{
+  "name": "automate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasha83/testing-automation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasha83/testing-automation/issues"
+  },
+  "homepage": "https://github.com/sasha83/testing-automation#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "csv-stream": "^0.2.0",
+    "exec": "^0.2.1",
+    "fs": "^0.0.1-security",
+    "json-diff": "^1.0.5",
+    "lighthouse": "^10.2.0"
+  }
+}
