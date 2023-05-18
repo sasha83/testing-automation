@@ -1,0 +1,805 @@
+  performance_score:
+    value: performance_score
+    label: performance_score
+    machine_name: performance_score
+    type: csv
+  first_contentful_paint:
+    value: first_contentful_paint
+    label: first_contentful_paint
+    machine_name: first_contentful_paint
+    type: csv
+  interactive:
+    value: interactive
+    label: interactive
+    machine_name: interactive
+    type: csv
+  speed_index:
+    value: speed_index
+    label: speed_index
+    machine_name: speed_index
+    type: csv
+  total_blocking_time:
+    value: total_blocking_time
+    label: total_blocking_time
+    machine_name: total_blocking_time
+    type: csv
+  largest_contentful_paint:
+    value: largest_contentful_paint
+    label: largest_contentful_paint
+    machine_name: largest_contentful_paint
+    type: csv
+  cumulative_layout_shift:
+    value: cumulative_layout_shift
+    label: cumulative_layout_shift
+    machine_name: cumulative_layout_shift
+    type: csv
+  max_potential_fid:
+    value: max_potential_fid
+    label: max_potential_fid
+    machine_name: max_potential_fid
+    type: csv
+  first_meaningful_paint:
+    value: first_meaningful_paint
+    label: first_meaningful_paint
+    machine_name: first_meaningful_paint
+    type: csv
+  render_blocking_resources:
+    value: render_blocking_resources
+    label: render_blocking_resources
+    machine_name: render_blocking_resources
+    type: csv
+  uses_responsive_images:
+    value: uses_responsive_images
+    label: uses_responsive_images
+    machine_name: uses_responsive_images
+    type: csv
+  offscreen_images:
+    value: offscreen_images
+    label: offscreen_images
+    machine_name: offscreen_images
+    type: csv
+  unminified_css:
+    value: unminified_css
+    label: unminified_css
+    machine_name: unminified_css
+    type: csv
+  unminified_javascript:
+    value: unminified_javascript
+    label: unminified_javascript
+    machine_name: unminified_javascript
+    type: csv
+  unused_css_rules:
+    value: unused_css_rules
+    label: unused_css_rules
+    machine_name: unused_css_rules
+    type: csv
+  unused_javascript:
+    value: unused_javascript
+    label: unused_javascript
+    machine_name: unused_javascript
+    type: csv
+  uses_optimized_images:
+    value: uses_optimized_images
+    label: uses_optimized_images
+    machine_name: uses_optimized_images
+    type: csv
+  modern_image_formats:
+    value: modern_image_formats
+    label: modern_image_formats
+    machine_name: modern_image_formats
+    type: csv
+  uses_text_compression:
+    value: uses_text_compression
+    label: uses_text_compression
+    machine_name: uses_text_compression
+    type: csv
+  uses_rel_preconnect:
+    value: uses_rel_preconnect
+    label: uses_rel_preconnect
+    machine_name: uses_rel_preconnect
+    type: csv
+  server_response_time:
+    value: server_response_time
+    label: server_response_time
+    machine_name: server_response_time
+    type: csv
+  redirects:
+    value: redirects
+    label: redirects
+    machine_name: redirects
+    type: csv
+  uses_rel_preload:
+    value: uses_rel_preload
+    label: uses_rel_preload
+    machine_name: uses_rel_preload
+    type: csv
+  uses_http2:
+    value: uses_http2
+    label: uses_http2
+    machine_name: uses_http2
+    type: csv
+  efficient_animated_content:
+    value: efficient_animated_content
+    label: efficient_animated_content
+    machine_name: efficient_animated_content
+    type: csv
+  duplicated_javascript:
+    value: duplicated_javascript
+    label: duplicated_javascript
+    machine_name: duplicated_javascript
+    type: csv
+  legacy_javascript:
+    value: legacy_javascript
+    label: legacy_javascript
+    machine_name: legacy_javascript
+    type: csv
+  preload_lcp_image:
+    value: preload_lcp_image
+    label: preload_lcp_image
+    machine_name: preload_lcp_image
+    type: csv
+  total_byte_weight:
+    value: total_byte_weight
+    label: total_byte_weight
+    machine_name: total_byte_weight
+    type: csv
+  uses_long_cache_ttl:
+    value: uses_long_cache_ttl
+    label: uses_long_cache_ttl
+    machine_name: uses_long_cache_ttl
+    type: csv
+  dom_size:
+    value: dom_size
+    label: dom_size
+    machine_name: dom_size
+    type: csv
+  critical_request_chains:
+    value: critical_request_chains
+    label: critical_request_chains
+    machine_name: critical_request_chains
+    type: csv
+  user_timings:
+    value: user_timings
+    label: user_timings
+    machine_name: user_timings
+    type: csv
+  bootup_time:
+    value: bootup_time
+    label: bootup_time
+    machine_name: bootup_time
+    type: csv
+  mainthread_work_breakdown:
+    value: mainthread_work_breakdown
+    label: mainthread_work_breakdown
+    machine_name: mainthread_work_breakdown
+    type: csv
+  font_display:
+    value: font_display
+    label: font_display
+    machine_name: font_display
+    type: csv
+  resource_summary:
+    value: resource_summary
+    label: resource_summary
+    machine_name: resource_summary
+    type: csv
+  third_party_summary:
+    value: third_party_summary
+    label: third_party_summary
+    machine_name: third_party_summary
+    type: csv
+  third_party_facades:
+    value: third_party_facades
+    label: third_party_facades
+    machine_name: third_party_facades
+    type: csv
+  largest_contentful_paint_element:
+    value: largest_contentful_paint_element
+    label: largest_contentful_paint_element
+    machine_name: largest_contentful_paint_element
+    type: csv
+  lcp_lazy_loaded:
+    value: lcp_lazy_loaded
+    label: lcp_lazy_loaded
+    machine_name: lcp_lazy_loaded
+    type: csv
+  layout_shift_elements:
+    value: layout_shift_elements
+    label: layout_shift_elements
+    machine_name: layout_shift_elements
+    type: csv
+  uses_passive_event_listeners:
+    value: uses_passive_event_listeners
+    label: uses_passive_event_listeners
+    machine_name: uses_passive_event_listeners
+    type: csv
+  no_document_write:
+    value: no_document_write
+    label: no_document_write
+    machine_name: no_document_write
+    type: csv
+  long_tasks:
+    value: long_tasks
+    label: long_tasks
+    machine_name: long_tasks
+    type: csv
+  non_composited_animations:
+    value: non_composited_animations
+    label: non_composited_animations
+    machine_name: non_composited_animations
+    type: csv
+  unsized_images:
+    value: unsized_images
+    label: unsized_images
+    machine_name: unsized_images
+    type: csv
+  viewport:
+    value: viewport
+    label: viewport
+    machine_name: viewport
+    type: csv
+  no_unload_listeners:
+    value: no_unload_listeners
+    label: no_unload_listeners
+    machine_name: no_unload_listeners
+    type: csv
+  performance_budget:
+    value: performance_budget
+    label: performance_budget
+    machine_name: performance_budget
+    type: csv
+  timing_budget:
+    value: timing_budget
+    label: timing_budget
+    machine_name: timing_budget
+    type: csv
+  network_requests:
+    value: network_requests
+    label: network_requests
+    machine_name: network_requests
+    type: csv
+  network_rtt:
+    value: network_rtt
+    label: network_rtt
+    machine_name: network_rtt
+    type: csv
+  network_server_latency:
+    value: network_server_latency
+    label: network_server_latency
+    machine_name: network_server_latency
+    type: csv
+  main_thread_tasks:
+    value: main_thread_tasks
+    label: main_thread_tasks
+    machine_name: main_thread_tasks
+    type: csv
+  diagnostics:
+    value: diagnostics
+    label: diagnostics
+    machine_name: diagnostics
+    type: csv
+  metrics:
+    value: metrics
+    label: metrics
+    machine_name: metrics
+    type: csv
+  screenshot_thumbnails:
+    value: screenshot_thumbnails
+    label: screenshot_thumbnails
+    machine_name: screenshot_thumbnails
+    type: csv
+  final_screenshot:
+    value: final_screenshot
+    label: final_screenshot
+    machine_name: final_screenshot
+    type: csv
+  script_treemap_data:
+    value: script_treemap_data
+    label: script_treemap_data
+    machine_name: script_treemap_data
+    type: csv
+  accessibility_score:
+    value: accessibility_score
+    label: accessibility_score
+    machine_name: accessibility_score
+    type: csv
+  accesskeys:
+    value: accesskeys
+    label: accesskeys
+    machine_name: accesskeys
+    type: csv
+  aria_allowed_attr:
+    value: aria_allowed_attr
+    label: aria_allowed_attr
+    machine_name: aria_allowed_attr
+    type: csv
+  aria_command_name:
+    value: aria_command_name
+    label: aria_command_name
+    machine_name: aria_command_name
+    type: csv
+  aria_hidden_body:
+    value: aria_hidden_body
+    label: aria_hidden_body
+    machine_name: aria_hidden_body
+    type: csv
+  aria_hidden_focus:
+    value: aria_hidden_focus
+    label: aria_hidden_focus
+    machine_name: aria_hidden_focus
+    type: csv
+  aria_input__name:
+    value: aria_input__name
+    label: aria_input__name
+    machine_name: aria_input__name
+    type: csv
+  aria_meter_name:
+    value: aria_meter_name
+    label: aria_meter_name
+    machine_name: aria_meter_name
+    type: csv
+  aria_progressbar_name:
+    value: aria_progressbar_name
+    label: aria_progressbar_name
+    machine_name: aria_progressbar_name
+    type: csv
+  aria_required_attr:
+    value: aria_required_attr
+    label: aria_required_attr
+    machine_name: aria_required_attr
+    type: csv
+  aria_required_children:
+    value: aria_required_children
+    label: aria_required_children
+    machine_name: aria_required_children
+    type: csv
+  aria_required_parent:
+    value: aria_required_parent
+    label: aria_required_parent
+    machine_name: aria_required_parent
+    type: csv
+  aria_roles:
+    value: aria_roles
+    label: aria_roles
+    machine_name: aria_roles
+    type: csv
+  aria_toggle__name:
+    value: aria_toggle__name
+    label: aria_toggle__name
+    machine_name: aria_toggle__name
+    type: csv
+  aria_tooltip_name:
+    value: aria_tooltip_name
+    label: aria_tooltip_name
+    machine_name: aria_tooltip_name
+    type: csv
+  aria_treeitem_name:
+    value: aria_treeitem_name
+    label: aria_treeitem_name
+    machine_name: aria_treeitem_name
+    type: csv
+  aria_valid_attr_value:
+    value: aria_valid_attr_value
+    label: aria_valid_attr_value
+    machine_name: aria_valid_attr_value
+    type: csv
+  aria_valid_attr:
+    value: aria_valid_attr
+    label: aria_valid_attr
+    machine_name: aria_valid_attr
+    type: csv
+  button_name:
+    value: button_name
+    label: button_name
+    machine_name: button_name
+    type: csv
+  bypass:
+    value: bypass
+    label: bypass
+    machine_name: bypass
+    type: csv
+  color_contrast:
+    value: color_contrast
+    label: color_contrast
+    machine_name: color_contrast
+    type: csv
+  definition_list:
+    value: definition_list
+    label: definition_list
+    machine_name: definition_list
+    type: csv
+  dlitem:
+    value: dlitem
+    label: dlitem
+    machine_name: dlitem
+    type: csv
+  document_title:
+    value: document_title
+    label: document_title
+    machine_name: document_title
+    type: csv
+  duplicate_id_active:
+    value: duplicate_id_active
+    label: duplicate_id_active
+    machine_name: duplicate_id_active
+    type: csv
+  duplicate_id_aria:
+    value: duplicate_id_aria
+    label: duplicate_id_aria
+    machine_name: duplicate_id_aria
+    type: csv
+  form__multiple_labels:
+    value: form__multiple_labels
+    label: form__multiple_labels
+    machine_name: form__multiple_labels
+    type: csv
+  frame_title:
+    value: frame_title
+    label: frame_title
+    machine_name: frame_title
+    type: csv
+  heading_order:
+    value: heading_order
+    label: heading_order
+    machine_name: heading_order
+    type: csv
+  html_has_lang:
+    value: html_has_lang
+    label: html_has_lang
+    machine_name: html_has_lang
+    type: csv
+  html_lang_valid:
+    value: html_lang_valid
+    label: html_lang_valid
+    machine_name: html_lang_valid
+    type: csv
+  image_alt:
+    value: image_alt
+    label: image_alt
+    machine_name: image_alt
+    type: csv
+  input_image_alt:
+    value: input_image_alt
+    label: input_image_alt
+    machine_name: input_image_alt
+    type: csv
+  label:
+    value: label
+    label: label
+    machine_name: label
+    type: csv
+  link_name:
+    value: link_name
+    label: link_name
+    machine_name: link_name
+    type: csv
+  list:
+    value: list
+    label: list
+    machine_name: list
+    type: csv
+  listitem:
+    value: listitem
+    label: listitem
+    machine_name: listitem
+    type: csv
+  meta_refresh:
+    value: meta_refresh
+    label: meta_refresh
+    machine_name: meta_refresh
+    type: csv
+  meta_viewport:
+    value: meta_viewport
+    label: meta_viewport
+    machine_name: meta_viewport
+    type: csv
+  object_alt:
+    value: object_alt
+    label: object_alt
+    machine_name: object_alt
+    type: csv
+  tabindex:
+    value: tabindex
+    label: tabindex
+    machine_name: tabindex
+    type: csv
+  td_headers_attr:
+    value: td_headers_attr
+    label: td_headers_attr
+    machine_name: td_headers_attr
+    type: csv
+  th_has_data_cells:
+    value: th_has_data_cells
+    label: th_has_data_cells
+    machine_name: th_has_data_cells
+    type: csv
+  valid_lang:
+    value: valid_lang
+    label: valid_lang
+    machine_name: valid_lang
+    type: csv
+  video_caption:
+    value: video_caption
+    label: video_caption
+    machine_name: video_caption
+    type: csv
+  logical_tab_order:
+    value: logical_tab_order
+    label: logical_tab_order
+    machine_name: logical_tab_order
+    type: csv
+  focusable_controls:
+    value: focusable_controls
+    label: focusable_controls
+    machine_name: focusable_controls
+    type: csv
+  interactive_element_affordance:
+    value: interactive_element_affordance
+    label: interactive_element_affordance
+    machine_name: interactive_element_affordance
+    type: csv
+  managed_focus:
+    value: managed_focus
+    label: managed_focus
+    machine_name: managed_focus
+    type: csv
+  focus_traps:
+    value: focus_traps
+    label: focus_traps
+    machine_name: focus_traps
+    type: csv
+  custom_controls_labels:
+    value: custom_controls_labels
+    label: custom_controls_labels
+    machine_name: custom_controls_labels
+    type: csv
+  custom_controls_roles:
+    value: custom_controls_roles
+    label: custom_controls_roles
+    machine_name: custom_controls_roles
+    type: csv
+  visual_order_follows_dom:
+    value: visual_order_follows_dom
+    label: visual_order_follows_dom
+    machine_name: visual_order_follows_dom
+    type: csv
+  offscreen_content_hidden:
+    value: offscreen_content_hidden
+    label: offscreen_content_hidden
+    machine_name: offscreen_content_hidden
+    type: csv
+  use_landmarks:
+    value: use_landmarks
+    label: use_landmarks
+    machine_name: use_landmarks
+    type: csv
+  best_practices_score:
+    value: best_practices_score
+    label: best_practices_score
+    machine_name: best_practices_score
+    type: csv
+  is_on_https:
+    value: is_on_https
+    label: is_on_https
+    machine_name: is_on_https
+    type: csv
+  geolocation_on_start:
+    value: geolocation_on_start
+    label: geolocation_on_start
+    machine_name: geolocation_on_start
+    type: csv
+  notification_on_start:
+    value: notification_on_start
+    label: notification_on_start
+    machine_name: notification_on_start
+    type: csv
+  no_vulnerable_libraries:
+    value: no_vulnerable_libraries
+    label: no_vulnerable_libraries
+    machine_name: no_vulnerable_libraries
+    type: csv
+  csp_xss:
+    value: csp_xss
+    label: csp_xss
+    machine_name: csp_xss
+    type: csv
+  password_inputs_can_be_pasted_into:
+    value: password_inputs_can_be_pasted_into
+    label: password_inputs_can_be_pasted_into
+    machine_name: password_inputs_can_be_pasted_into
+    type: csv
+  image_aspect_ratio:
+    value: image_aspect_ratio
+    label: image_aspect_ratio
+    machine_name: image_aspect_ratio
+    type: csv
+  image_size_responsive:
+    value: image_size_responsive
+    label: image_size_responsive
+    machine_name: image_size_responsive
+    type: csv
+  preload_fonts:
+    value: preload_fonts
+    label: preload_fonts
+    machine_name: preload_fonts
+    type: csv
+  doctype:
+    value: doctype
+    label: doctype
+    machine_name: doctype
+    type: csv
+  charset:
+    value: charset
+    label: charset
+    machine_name: charset
+    type: csv
+  js_libraries:
+    value: js_libraries
+    label: js_libraries
+    machine_name: js_libraries
+    type: csv
+  deprecations:
+    value: deprecations
+    label: deprecations
+    machine_name: deprecations
+    type: csv
+  errors_in_console:
+    value: errors_in_console
+    label: errors_in_console
+    machine_name: errors_in_console
+    type: csv
+  valid_source_maps:
+    value: valid_source_maps
+    label: valid_source_maps
+    machine_name: valid_source_maps
+    type: csv
+  inspector_issues:
+    value: inspector_issues
+    label: inspector_issues
+    machine_name: inspector_issues
+    type: csv
+  seo_score:
+    value: seo_score
+    label: seo_score
+    machine_name: seo_score
+    type: csv
+  viewport_1:
+    value: viewport_1
+    label: viewport_1
+    machine_name: viewport_1
+    type: csv
+  document_title_1:
+    value: document_title_1
+    label: document_title_1
+    machine_name: document_title_1
+    type: csv
+  meta_description:
+    value: meta_description
+    label: meta_description
+    machine_name: meta_description
+    type: csv
+  http_status_code:
+    value: http_status_code
+    label: http_status_code
+    machine_name: http_status_code
+    type: csv
+  link_text:
+    value: link_text
+    label: link_text
+    machine_name: link_text
+    type: csv
+  crawlable_anchors:
+    value: crawlable_anchors
+    label: crawlable_anchors
+    machine_name: crawlable_anchors
+    type: csv
+  is_crawlable:
+    value: is_crawlable
+    label: is_crawlable
+    machine_name: is_crawlable
+    type: csv
+  robots_txt:
+    value: robots_txt
+    label: robots_txt
+    machine_name: robots_txt
+    type: csv
+  image_alt_1:
+    value: image_alt_1
+    label: image_alt_1
+    machine_name: image_alt_1
+    type: csv
+  hreflang:
+    value: hreflang
+    label: hreflang
+    machine_name: hreflang
+    type: csv
+  canonical:
+    value: canonical
+    label: canonical
+    machine_name: canonical
+    type: csv
+  font_size:
+    value: font_size
+    label: font_size
+    machine_name: font_size
+    type: csv
+  plugins:
+    value: plugins
+    label: plugins
+    machine_name: plugins
+    type: csv
+  tap_targets:
+    value: tap_targets
+    label: tap_targets
+    machine_name: tap_targets
+    type: csv
+  structured_data:
+    value: structured_data
+    label: structured_data
+    machine_name: structured_data
+    type: csv
+  pwa_score:
+    value: pwa_score
+    label: pwa_score
+    machine_name: pwa_score
+    type: csv
+  installable_manifest:
+    value: installable_manifest
+    label: installable_manifest
+    machine_name: installable_manifest
+    type: csv
+  service_worker:
+    value: service_worker
+    label: service_worker
+    machine_name: service_worker
+    type: csv
+  splash_screen:
+    value: splash_screen
+    label: splash_screen
+    machine_name: splash_screen
+    type: csv
+  themed_omnibox:
+    value: themed_omnibox
+    label: themed_omnibox
+    machine_name: themed_omnibox
+    type: csv
+  content_width:
+    value: content_width
+    label: content_width
+    machine_name: content_width
+    type: csv
+  viewport_1_1:
+    value: viewport_1_1
+    label: viewport_1_1
+    machine_name: viewport_1_1
+    type: csv
+  apple_touch_icon:
+    value: apple_touch_icon
+    label: apple_touch_icon
+    machine_name: apple_touch_icon
+    type: csv
+  maskable_icon:
+    value: maskable_icon
+    label: maskable_icon
+    machine_name: maskable_icon
+    type: csv
+  pwa_cross_browser:
+    value: pwa_cross_browser
+    label: pwa_cross_browser
+    machine_name: pwa_cross_browser
+    type: csv
+  pwa_page_transitions:
+    value: pwa_page_transitions
+    label: pwa_page_transitions
+    machine_name: pwa_page_transitions
+    type: csv
+  pwa_each_page_has_url:
+    value: pwa_each_page_has_url
+    label: pwa_each_page_has_url
+    machine_name: pwa_each_page_has_url
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv

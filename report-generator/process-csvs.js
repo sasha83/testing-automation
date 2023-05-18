@@ -6,6 +6,7 @@ let reportObject = {};
 let reportHeaders = [];
 let fieldString = [];
 let reportMappings = [];
+let reportCustomSources = [];
 let usedKeys = {}
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
@@ -34,6 +35,35 @@ function createMappings(key) {
 
     return mapping;
 }
+function customSource(key) {
+    let source = [];
+    let prefix = '';
+    key = key.replace('field_', '_');
+    if(key!='title') { 
+        prefix = 'field_';
+    }
+
+    source.push('  '+key+':');
+    source.push('    value: ' + key);
+    source.push('    label: ' + key);
+    source.push('    machine_name: ' + key);
+    source.push('    type: csv');
+    return source;
+
+    // custom_sources:
+    // performance_score:
+    //   value: performance_score
+    //   label: performance_score
+    //   machine_name: performance_score
+    //   type: csv
+    // accessibility_score:
+    //   value: accessibility_score
+    //   label: accessibility_score
+    //   machine_name: accessibility_score
+    //   type: csv
+  
+}
+
 function fieldType(type) {
     let theType = new String;
     theType = type;
@@ -74,7 +104,7 @@ fs.createReadStream("test.csv")
 
         reportHeaders.push({id: key, title: key});
 
-
+        reportCustomSources = reportCustomSources.concat(customSource(key));
         reportMappings = reportMappings.concat(createMappings(key));
 
 
@@ -95,9 +125,14 @@ fs.createReadStream("test.csv")
         fieldString.push('\n');
     });
     
-
+    reportCustomSources = reportCustomSources.concat(customSource('title'));
     reportMappings = reportMappings.concat(createMappings('title'));
-    
+
+    fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
+        // In case of a error throw err.
+        if (err) throw err;
+    })
+
     fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
         // In case of a error throw err.
         if (err) throw err;
