@@ -50,18 +50,6 @@ function customSource(key) {
     source.push('    type: csv');
     return source;
 
-    // custom_sources:
-    // performance_score:
-    //   value: performance_score
-    //   label: performance_score
-    //   machine_name: performance_score
-    //   type: csv
-    // accessibility_score:
-    //   value: accessibility_score
-    //   label: accessibility_score
-    //   machine_name: accessibility_score
-    //   type: csv
-  
 }
 
 function fieldType(type) {
@@ -74,11 +62,6 @@ function fieldType(type) {
     theType = theType.replaceAll('manual', 'string');
 
     return theType;
-    // numeric
-    // binary
-    // notApplicable
-    // informative
-    // manual
 }
 fs.createReadStream("test.csv")
   .pipe(parse({ delimiter: ",", from_line: 2 }))
@@ -107,15 +90,6 @@ fs.createReadStream("test.csv")
         reportCustomSources = reportCustomSources.concat(customSource(key));
         reportMappings = reportMappings.concat(createMappings(key));
 
-
-        // reportMappings.push('  -');
-        // reportMappings.push('    target: field_' + key.substring(0,26));
-        // reportMappings.push('    map:');
-        // reportMappings.push('      value: ' + key);
-        // reportMappings.push('    settings:');
-        // reportMappings.push('      language: null');
-        // reportMappings.push('    unique: {  }');
-
         
         fieldString.push(key);
         fieldString.push('|');
@@ -142,11 +116,6 @@ fs.createReadStream("test.csv")
         // In case of a error throw err.
         if (err) throw err;
     })
-    // console.log(reportMappings.join('\n'));
-    // console.log(reportHeaders.join('\n'));
-    // console.log(util.inspect(reportMappings, { maxArrayLength: null }))
-
-    // console.log(reportMangs.join('\n'));
 
     reportHeaders.push({id: 'title', title: 'title'});
     reportHeaders.push({id: 'requested_url', title: 'requested_url'});
@@ -157,9 +126,6 @@ fs.createReadStream("test.csv")
     writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
   });
   
-//   lighthouseCSVimport.forEach(function(i){
-//     console.log(i);
-//   });
 
 
 function writeToCSV(filename, headers, content) {
@@ -172,10 +138,3 @@ function writeToCSV(filename, headers, content) {
 		.then(() => console.log('The CSV file was written successfully'));
 
 }
-// 	const data = content;
-
-// 	csvWriter
-// 		.writeRecords(data)
-// 		.then(() => console.log('The CSV file was written successfully'));
-
-// }
