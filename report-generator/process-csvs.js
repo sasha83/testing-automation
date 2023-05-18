@@ -6,7 +6,9 @@ let reportObject = {};
 let reportHeaders = [];
 let fieldString = [];
 let reportMappings = [];
+let usedKeys = {}
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
 function cleanTitles(title) {
     let theTitle;
     theTitle = title;
@@ -15,7 +17,6 @@ function cleanTitles(title) {
     // theTitle = theTitle.replaceAll('', '-');
 }
 function createMappings(key) {
-    // console.log('HERE!!!!!!!!!', key);
     let mapping = [];
     let prefix = '';
     key = key.replace('field_', '_');
@@ -52,23 +53,25 @@ function fieldType(type) {
 fs.createReadStream("test.csv")
   .pipe(parse({ delimiter: ",", from_line: 2 }))
   .on("data", function (row) {
-    // console.log(row[3]);
     lighthouseCSVimport.push(row);
   }).on('end',function() {
-    //do something with csvData
-    // console.log(lighthouseCSVimport);
     lighthouseCSVimport.forEach(function(r) {
-        // console.log();
         let key = r[3];
         key = key.replaceAll("-", "_");
+        if(usedKeys[key]) {
+            while(usedKeys[key]) {
+                key=key+'_1';
+            }    
+        }
+        usedKeys[key]= key;
+
         reportObject[key] = r[6];
         reportObject.requested_url = r[0];
         reportObject.final_url = r[1];
 
         let domain = (new URL(reportObject.final_url));
         reportObject.title = domain.hostname.replace('www.', '');
-        // console.log('reportObject.title: ', reportObject.title);
-        // console.log(reportObject);
+
         reportHeaders.push({id: key, title: key});
 
 
@@ -95,9 +98,20 @@ fs.createReadStream("test.csv")
 
     reportMappings = reportMappings.concat(createMappings('title'));
     
+    fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
+        // In case of a error throw err.
+        if (err) throw err;
+    })
+
+    fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
+        // In case of a error throw err.
+        if (err) throw err;
+    })
+    // console.log(reportMappings.join('\n'));
+    // console.log(reportHeaders.join('\n'));
     // console.log(util.inspect(reportMappings, { maxArrayLength: null }))
 
-    console.log(reportMappings.join('\n'));
+    // console.log(reportMangs.join('\n'));
 
     reportHeaders.push({id: 'title', title: 'title'});
     reportHeaders.push({id: 'requested_url', title: 'requested_url'});
