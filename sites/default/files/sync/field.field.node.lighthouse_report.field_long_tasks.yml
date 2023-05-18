@@ -1,0 +1,19 @@
+uuid: 48682174-d96c-4584-b4ca-5f938a8dc987
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_long_tasks
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_long_tasks
+field_name: field_long_tasks
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoid long mainthread tasks'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

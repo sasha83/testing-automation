@@ -1,0 +1,20 @@
+uuid: cc30ecee-da93-4a3e-aaef-07328969ee60
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_listitem
+field_name: field_listitem
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

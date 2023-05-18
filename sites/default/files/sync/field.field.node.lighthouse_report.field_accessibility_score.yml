@@ -1,0 +1,23 @@
+uuid: 528abbcf-1609-44c2-bbec-dd188865f914
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessibility_score
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_accessibility_score
+field_name: field_accessibility_score
+entity_type: node
+bundle: lighthouse_report
+label: 'Overall Accessibility Category Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

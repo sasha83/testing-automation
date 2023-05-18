@@ -1,0 +1,19 @@
+uuid: 95824b1e-8e3c-4e15-b8bf-61761782244d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logical_tab_order
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_logical_tab_order
+field_name: field_logical_tab_order
+entity_type: node
+bundle: lighthouse_report
+label: 'The page has a logical tab order'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

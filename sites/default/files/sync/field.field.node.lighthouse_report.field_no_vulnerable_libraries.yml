@@ -1,0 +1,23 @@
+uuid: dfe2b46d-b736-4685-a91d-1f777bde7d84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_vulnerable_libraries
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_no_vulnerable_libraries
+field_name: field_no_vulnerable_libraries
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoids frontend JavaScript libraries with known security vulnerabilities'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

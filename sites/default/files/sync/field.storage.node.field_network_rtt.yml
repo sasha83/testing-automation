@@ -1,0 +1,21 @@
+uuid: 1cd6b109-d628-4cc5-85f5-0ed926c0d143
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_network_rtt
+field_name: field_network_rtt
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

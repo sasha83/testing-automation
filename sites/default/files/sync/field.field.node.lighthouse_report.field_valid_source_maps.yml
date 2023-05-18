@@ -1,0 +1,23 @@
+uuid: 48eed1cc-6884-4c97-82ce-1903d25fb40a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_valid_source_maps
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_valid_source_maps
+field_name: field_valid_source_maps
+entity_type: node
+bundle: lighthouse_report
+label: 'Page has valid source maps'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

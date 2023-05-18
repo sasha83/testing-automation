@@ -1,0 +1,19 @@
+uuid: 742058b3-0bc6-4078-827b-0e6e89faae13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_layout_shift_elements
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_layout_shift_elements
+field_name: field_layout_shift_elements
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoid large layout shifts'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

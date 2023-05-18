@@ -1,0 +1,23 @@
+uuid: 817e2283-99ba-4a9e-aad2-1955b4a22ef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plugins
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_plugins
+field_name: field_plugins
+entity_type: node
+bundle: lighthouse_report
+label: 'Document avoids plugins'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

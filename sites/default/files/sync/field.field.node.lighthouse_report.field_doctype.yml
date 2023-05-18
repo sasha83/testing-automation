@@ -1,0 +1,23 @@
+uuid: 35abcace-3fd9-4879-b9dc-6cbbb4e0056e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_doctype
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_doctype
+field_name: field_doctype
+entity_type: node
+bundle: lighthouse_report
+label: 'Page has the HTML doctype'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

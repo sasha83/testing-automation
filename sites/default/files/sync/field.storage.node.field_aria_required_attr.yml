@@ -1,0 +1,20 @@
+uuid: 5fd8a00d-7413-469e-8df2-40b7128387c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_aria_required_attr
+field_name: field_aria_required_attr
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

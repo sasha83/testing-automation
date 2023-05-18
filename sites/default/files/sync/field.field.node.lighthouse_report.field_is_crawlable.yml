@@ -1,0 +1,23 @@
+uuid: f1a92340-6a2b-4d4a-b574-8e69dd08ca7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_crawlable
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_is_crawlable
+field_name: field_is_crawlable
+entity_type: node
+bundle: lighthouse_report
+label: 'Page isnt blocked from indexing'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

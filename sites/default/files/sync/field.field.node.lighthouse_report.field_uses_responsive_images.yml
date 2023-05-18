@@ -1,0 +1,23 @@
+uuid: 0cc76ac1-800c-47cf-8b2a-1791906b2c31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uses_responsive_images
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_uses_responsive_images
+field_name: field_uses_responsive_images
+entity_type: node
+bundle: lighthouse_report
+label: 'Properly size images'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

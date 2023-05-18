@@ -1,0 +1,23 @@
+uuid: 07d38a0a-9241-41ee-8f4a-cf476eeb05d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_required_attr
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_required_attr
+field_name: field_aria_required_attr
+entity_type: node
+bundle: lighthouse_report
+label: 'roles have all required aria attributes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

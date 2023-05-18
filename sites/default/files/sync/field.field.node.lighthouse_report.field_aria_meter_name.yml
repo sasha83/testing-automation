@@ -1,0 +1,19 @@
+uuid: 605e9443-7a3e-4201-988a-3effcdab94cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_meter_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_meter_name
+field_name: field_aria_meter_name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA meter elements have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

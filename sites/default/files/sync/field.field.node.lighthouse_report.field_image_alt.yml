@@ -1,0 +1,23 @@
+uuid: 19d62115-1c6b-4629-a46e-02b71866880b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_alt
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_image_alt
+field_name: field_image_alt
+entity_type: node
+bundle: lighthouse_report
+label: 'Image elements do not have alt attributes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

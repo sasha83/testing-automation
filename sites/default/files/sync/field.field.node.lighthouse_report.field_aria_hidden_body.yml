@@ -1,0 +1,23 @@
+uuid: 7ad75f79-459b-4fd2-822d-aa60fe862e58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_hidden_body
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_hidden_body
+field_name: field_aria_hidden_body
+entity_type: node
+bundle: lighthouse_report
+label: 'ariahidden"true" is not present on the document body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

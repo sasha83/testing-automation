@@ -1,0 +1,23 @@
+uuid: c86363a6-96e1-4d75-8d1c-380b7b8fb3af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_best_practices_score
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_best_practices_score
+field_name: field_best_practices_score
+entity_type: node
+bundle: lighthouse_report
+label: 'Overall Best Practices Category Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

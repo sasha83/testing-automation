@@ -1,0 +1,23 @@
+uuid: 7d0ac2c0-d9c8-420d-8a21-1a459d34f3b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deprecations
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_deprecations
+field_name: field_deprecations
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoids deprecated APIs'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

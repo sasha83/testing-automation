@@ -1,0 +1,23 @@
+uuid: a029d3d0-056a-4780-8ba1-cb27289cfa2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_link_name
+field_name: field_link_name
+entity_type: node
+bundle: lighthouse_report
+label: 'Links do not have a discernible name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

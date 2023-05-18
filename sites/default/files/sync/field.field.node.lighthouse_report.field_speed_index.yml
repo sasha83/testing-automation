@@ -1,0 +1,23 @@
+uuid: 31962934-7b71-4468-9a74-8c8423786611
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_speed_index
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_speed_index
+field_name: field_speed_index
+entity_type: node
+bundle: lighthouse_report
+label: 'Speed Index'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

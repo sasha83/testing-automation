@@ -1,0 +1,23 @@
+uuid: 79f18e57-f903-4311-8ae5-779d413b294d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pwa_score
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_pwa_score
+field_name: field_pwa_score
+entity_type: node
+bundle: lighthouse_report
+label: 'Overall PWA Category Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

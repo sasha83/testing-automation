@@ -1,0 +1,19 @@
+uuid: 7dfaa18c-e7a6-462c-bd34-9c988cc2ce74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_tooltip_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_tooltip_name
+field_name: field_aria_tooltip_name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA tooltip elements have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

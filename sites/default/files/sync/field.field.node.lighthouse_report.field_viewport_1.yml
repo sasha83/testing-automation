@@ -1,0 +1,23 @@
+uuid: f1df60b9-d27f-4ccc-81c8-da4bbbf47517
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_viewport_1
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_viewport_1
+field_name: field_viewport_1
+entity_type: node
+bundle: lighthouse_report
+label: 'Has a meta name"viewport" tag with width or initialscale'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

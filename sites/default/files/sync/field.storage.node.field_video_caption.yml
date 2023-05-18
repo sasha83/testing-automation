@@ -1,0 +1,21 @@
+uuid: 99893f9b-9967-4010-b55e-99b3b3c9a14e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_video_caption
+field_name: field_video_caption
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

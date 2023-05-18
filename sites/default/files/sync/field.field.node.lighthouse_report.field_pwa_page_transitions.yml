@@ -1,0 +1,19 @@
+uuid: 579a0903-0ab0-4408-8034-737aea04680d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pwa_page_transitions
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_pwa_page_transitions
+field_name: field_pwa_page_transitions
+entity_type: node
+bundle: lighthouse_report
+label: 'Page transitions dont feel like they block on the network'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

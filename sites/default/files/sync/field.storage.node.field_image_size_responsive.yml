@@ -1,0 +1,20 @@
+uuid: f5b2d2e8-b8d6-4803-8b31-c747b69542bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_image_size_responsive
+field_name: field_image_size_responsive
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

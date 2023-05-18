@@ -1,0 +1,23 @@
+uuid: cb8c2273-78e4-4577-88b0-f245dd3b1293
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_installable_manifest
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_installable_manifest
+field_name: field_installable_manifest
+entity_type: node
+bundle: lighthouse_report
+label: 'Web app manifest or service worker do not meet the installability requirements'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

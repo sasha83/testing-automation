@@ -1,0 +1,19 @@
+uuid: 49232d81-a07c-4011-a7e3-7786a19c8451
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_performance_budget
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_performance_budget
+field_name: field_performance_budget
+entity_type: node
+bundle: lighthouse_report
+label: 'Performance budget'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

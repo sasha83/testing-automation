@@ -1,0 +1,23 @@
+uuid: 9a2f4bc8-98fd-4e83-9a71-cb1dfce6efd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_third_party_summary
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_third_party_summary
+field_name: field_third_party_summary
+entity_type: node
+bundle: lighthouse_report
+label: 'Minimize thirdparty usage'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

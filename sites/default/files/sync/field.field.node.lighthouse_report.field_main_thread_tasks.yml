@@ -1,0 +1,19 @@
+uuid: adfbd560-1f10-47e6-bc6d-c602151892ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_thread_tasks
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_main_thread_tasks
+field_name: field_main_thread_tasks
+entity_type: node
+bundle: lighthouse_report
+label: Tasks
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

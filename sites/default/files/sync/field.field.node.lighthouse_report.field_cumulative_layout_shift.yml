@@ -1,0 +1,23 @@
+uuid: 2a0895e0-d6d0-4118-b10c-c70817037e82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cumulative_layout_shift
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_cumulative_layout_shift
+field_name: field_cumulative_layout_shift
+entity_type: node
+bundle: lighthouse_report
+label: 'Cumulative Layout Shift'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

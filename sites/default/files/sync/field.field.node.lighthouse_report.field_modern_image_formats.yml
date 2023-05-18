@@ -1,0 +1,23 @@
+uuid: 5b383caa-2c9f-4ba7-97ff-c4b20f080229
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modern_image_formats
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_modern_image_formats
+field_name: field_modern_image_formats
+entity_type: node
+bundle: lighthouse_report
+label: 'Serve images in nextgen formats'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

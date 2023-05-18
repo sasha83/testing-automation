@@ -1,0 +1,19 @@
+uuid: f5fbc715-b755-4c4d-a1fe-d7659ae26067
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_use_landmarks
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_use_landmarks
+field_name: field_use_landmarks
+entity_type: node
+bundle: lighthouse_report
+label: 'HTML landmark elements are used to improve navigation'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

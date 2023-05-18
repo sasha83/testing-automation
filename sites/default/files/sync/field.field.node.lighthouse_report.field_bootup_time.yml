@@ -1,0 +1,23 @@
+uuid: ee566c75-6298-4eec-bb4b-fa4c7f878cc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bootup_time
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_bootup_time
+field_name: field_bootup_time
+entity_type: node
+bundle: lighthouse_report
+label: 'JavaScript execution time'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

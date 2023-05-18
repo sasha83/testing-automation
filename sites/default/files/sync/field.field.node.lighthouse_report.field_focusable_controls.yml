@@ -1,0 +1,19 @@
+uuid: 45e1a545-7096-4971-9bb2-be88ea434881
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_focusable_controls
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_focusable_controls
+field_name: field_focusable_controls
+entity_type: node
+bundle: lighthouse_report
+label: 'Interactive controls are keyboard focusable'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

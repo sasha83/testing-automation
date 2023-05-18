@@ -1,0 +1,23 @@
+uuid: bf040b95-eefa-49e5-bc4b-1ed11eb8f117
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uses_rel_preconnect
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_uses_rel_preconnect
+field_name: field_uses_rel_preconnect
+entity_type: node
+bundle: lighthouse_report
+label: 'Preconnect to required origins'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,23 @@
+uuid: 4ecd6d2e-e812-4c8c-874a-ff8136a3d991
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duplicated_javascript
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_duplicated_javascript
+field_name: field_duplicated_javascript
+entity_type: node
+bundle: lighthouse_report
+label: 'Remove duplicate modules in JavaScript bundles'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

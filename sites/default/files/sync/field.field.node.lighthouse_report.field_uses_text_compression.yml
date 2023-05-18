@@ -1,0 +1,23 @@
+uuid: 9a3816e3-23ba-49ad-a3ca-dac0c0707d1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uses_text_compression
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_uses_text_compression
+field_name: field_uses_text_compression
+entity_type: node
+bundle: lighthouse_report
+label: 'Enable text compression'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,23 @@
+uuid: 38962e44-ee14-44d3-809a-b171a5c08109
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_robots_txt
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_robots_txt
+field_name: field_robots_txt
+entity_type: node
+bundle: lighthouse_report
+label: 'robotstxt is valid'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

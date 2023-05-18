@@ -1,0 +1,23 @@
+uuid: 5dc6eeb0-9198-4a64-a5f4-d5313291af4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_apple_touch_icon
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_apple_touch_icon
+field_name: field_apple_touch_icon
+entity_type: node
+bundle: lighthouse_report
+label: 'Does not provide a valid appletouchicon'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

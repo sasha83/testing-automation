@@ -1,0 +1,23 @@
+uuid: 25984c6f-52ce-4cc3-9031-181f249de388
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_errors_in_console
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_errors_in_console
+field_name: field_errors_in_console
+entity_type: node
+bundle: lighthouse_report
+label: 'No browser errors logged to the console'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

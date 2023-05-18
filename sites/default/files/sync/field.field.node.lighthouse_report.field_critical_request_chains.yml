@@ -1,0 +1,19 @@
+uuid: 74cf172b-9bce-430f-9dcb-da89cf5a4745
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_critical_request_chains
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_critical_request_chains
+field_name: field_critical_request_chains
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoid chaining critical requests'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: 6fcae497-0060-4bf0-9597-b201e8ac931a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_viewport_1
+field_name: field_viewport_1
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

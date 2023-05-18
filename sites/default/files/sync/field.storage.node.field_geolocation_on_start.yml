@@ -1,0 +1,20 @@
+uuid: faddf3a9-2152-49ee-a757-b0311d45b596
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_geolocation_on_start
+field_name: field_geolocation_on_start
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

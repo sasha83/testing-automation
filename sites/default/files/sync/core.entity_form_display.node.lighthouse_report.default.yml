@@ -1,0 +1,1407 @@
+uuid: bdd052b8-08ad-4e5f-b0cf-f234836ea669
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.lighthouse_report.feeds_item
+    - field.field.node.lighthouse_report.field_accessibility_score
+    - field.field.node.lighthouse_report.field_accesskeys
+    - field.field.node.lighthouse_report.field_apple_touch_icon
+    - field.field.node.lighthouse_report.field_aria_allowed_attr
+    - field.field.node.lighthouse_report.field_aria_command_name
+    - field.field.node.lighthouse_report.field_aria_hidden_body
+    - field.field.node.lighthouse_report.field_aria_hidden_focus
+    - field.field.node.lighthouse_report.field_aria_input__name
+    - field.field.node.lighthouse_report.field_aria_meter_name
+    - field.field.node.lighthouse_report.field_aria_progressbar_name
+    - field.field.node.lighthouse_report.field_aria_required_attr
+    - field.field.node.lighthouse_report.field_aria_required_children
+    - field.field.node.lighthouse_report.field_aria_required_parent
+    - field.field.node.lighthouse_report.field_aria_roles
+    - field.field.node.lighthouse_report.field_aria_toggle__name
+    - field.field.node.lighthouse_report.field_aria_tooltip_name
+    - field.field.node.lighthouse_report.field_aria_treeitem_name
+    - field.field.node.lighthouse_report.field_aria_valid_attr
+    - field.field.node.lighthouse_report.field_aria_valid_attr_value
+    - field.field.node.lighthouse_report.field_best_practices_score
+    - field.field.node.lighthouse_report.field_bootup_time
+    - field.field.node.lighthouse_report.field_button_name
+    - field.field.node.lighthouse_report.field_bypass
+    - field.field.node.lighthouse_report.field_canonical
+    - field.field.node.lighthouse_report.field_charset
+    - field.field.node.lighthouse_report.field_color_contrast
+    - field.field.node.lighthouse_report.field_content_width
+    - field.field.node.lighthouse_report.field_crawlable_anchors
+    - field.field.node.lighthouse_report.field_critical_request_chains
+    - field.field.node.lighthouse_report.field_csp_xss
+    - field.field.node.lighthouse_report.field_cumulative_layout_shift
+    - field.field.node.lighthouse_report.field_custom_controls_labels
+    - field.field.node.lighthouse_report.field_custom_controls_roles
+    - field.field.node.lighthouse_report.field_definition_list
+    - field.field.node.lighthouse_report.field_deprecations
+    - field.field.node.lighthouse_report.field_diagnostics
+    - field.field.node.lighthouse_report.field_dlitem
+    - field.field.node.lighthouse_report.field_doctype
+    - field.field.node.lighthouse_report.field_document_title
+    - field.field.node.lighthouse_report.field_document_title_1
+    - field.field.node.lighthouse_report.field_dom_size
+    - field.field.node.lighthouse_report.field_duplicate_id_active
+    - field.field.node.lighthouse_report.field_duplicate_id_aria
+    - field.field.node.lighthouse_report.field_duplicated_javascript
+    - field.field.node.lighthouse_report.field_efficient_animated_content
+    - field.field.node.lighthouse_report.field_errors_in_console
+    - field.field.node.lighthouse_report.field_final_screenshot
+    - field.field.node.lighthouse_report.field_first_contentful_paint
+    - field.field.node.lighthouse_report.field_first_meaningful_paint
+    - field.field.node.lighthouse_report.field_focus_traps
+    - field.field.node.lighthouse_report.field_focusable_controls
+    - field.field.node.lighthouse_report.field_font_display
+    - field.field.node.lighthouse_report.field_font_size
+    - field.field.node.lighthouse_report.field_form__multiple_labels
+    - field.field.node.lighthouse_report.field_frame_title
+    - field.field.node.lighthouse_report.field_geolocation_on_start
+    - field.field.node.lighthouse_report.field_heading_order
+    - field.field.node.lighthouse_report.field_hreflang
+    - field.field.node.lighthouse_report.field_html_has_lang
+    - field.field.node.lighthouse_report.field_html_lang_valid
+    - field.field.node.lighthouse_report.field_http_status_code
+    - field.field.node.lighthouse_report.field_image_alt
+    - field.field.node.lighthouse_report.field_image_alt_1
+    - field.field.node.lighthouse_report.field_image_aspect_ratio
+    - field.field.node.lighthouse_report.field_image_size_responsive
+    - field.field.node.lighthouse_report.field_input_image_alt
+    - field.field.node.lighthouse_report.field_inspector_issues
+    - field.field.node.lighthouse_report.field_installable_manifest
+    - field.field.node.lighthouse_report.field_interactive
+    - field.field.node.lighthouse_report.field_interactive_element_afford
+    - field.field.node.lighthouse_report.field_is_crawlable
+    - field.field.node.lighthouse_report.field_is_on_https
+    - field.field.node.lighthouse_report.field_js_libraries
+    - field.field.node.lighthouse_report.field_label
+    - field.field.node.lighthouse_report.field_largest_contentful_paint
+    - field.field.node.lighthouse_report.field_largest_contentful_paint_e
+    - field.field.node.lighthouse_report.field_layout_shift_elements
+    - field.field.node.lighthouse_report.field_lcp_lazy_loaded
+    - field.field.node.lighthouse_report.field_legacy_javascript
+    - field.field.node.lighthouse_report.field_link_name
+    - field.field.node.lighthouse_report.field_link_text
+    - field.field.node.lighthouse_report.field_list
+    - field.field.node.lighthouse_report.field_listitem
+    - field.field.node.lighthouse_report.field_logical_tab_order
+    - field.field.node.lighthouse_report.field_long_tasks
+    - field.field.node.lighthouse_report.field_main_thread_tasks
+    - field.field.node.lighthouse_report.field_mainthread_work_breakdown
+    - field.field.node.lighthouse_report.field_managed_focus
+    - field.field.node.lighthouse_report.field_maskable_icon
+    - field.field.node.lighthouse_report.field_max_potential_fid
+    - field.field.node.lighthouse_report.field_meta_description
+    - field.field.node.lighthouse_report.field_meta_refresh
+    - field.field.node.lighthouse_report.field_meta_viewport
+    - field.field.node.lighthouse_report.field_metrics
+    - field.field.node.lighthouse_report.field_modern_image_formats
+    - field.field.node.lighthouse_report.field_network_requests
+    - field.field.node.lighthouse_report.field_network_rtt
+    - field.field.node.lighthouse_report.field_network_server_latency
+    - field.field.node.lighthouse_report.field_no_document_write
+    - field.field.node.lighthouse_report.field_no_unload_listeners
+    - field.field.node.lighthouse_report.field_no_vulnerable_libraries
+    - field.field.node.lighthouse_report.field_non_composited_animations
+    - field.field.node.lighthouse_report.field_notification_on_start
+    - field.field.node.lighthouse_report.field_object_alt
+    - field.field.node.lighthouse_report.field_offscreen_content_hidden
+    - field.field.node.lighthouse_report.field_offscreen_images
+    - field.field.node.lighthouse_report.field_password_inputs_can_be_pas
+    - field.field.node.lighthouse_report.field_performance_budget
+    - field.field.node.lighthouse_report.field_performance_score
+    - field.field.node.lighthouse_report.field_plugins
+    - field.field.node.lighthouse_report.field_preload_fonts
+    - field.field.node.lighthouse_report.field_preload_lcp_image
+    - field.field.node.lighthouse_report.field_pwa_cross_browser
+    - field.field.node.lighthouse_report.field_pwa_each_page_has_url
+    - field.field.node.lighthouse_report.field_pwa_page_transitions
+    - field.field.node.lighthouse_report.field_pwa_score
+    - field.field.node.lighthouse_report.field_redirects
+    - field.field.node.lighthouse_report.field_render_blocking_resources
+    - field.field.node.lighthouse_report.field_resource_summary
+    - field.field.node.lighthouse_report.field_robots_txt
+    - field.field.node.lighthouse_report.field_screenshot_thumbnails
+    - field.field.node.lighthouse_report.field_script_treemap_data
+    - field.field.node.lighthouse_report.field_seo_score
+    - field.field.node.lighthouse_report.field_server_response_time
+    - field.field.node.lighthouse_report.field_service_worker
+    - field.field.node.lighthouse_report.field_speed_index
+    - field.field.node.lighthouse_report.field_splash_screen
+    - field.field.node.lighthouse_report.field_structured_data
+    - field.field.node.lighthouse_report.field_tabindex
+    - field.field.node.lighthouse_report.field_tap_targets
+    - field.field.node.lighthouse_report.field_td_headers_attr
+    - field.field.node.lighthouse_report.field_th_has_data_cells
+    - field.field.node.lighthouse_report.field_themed_omnibox
+    - field.field.node.lighthouse_report.field_third_party_facades
+    - field.field.node.lighthouse_report.field_third_party_summary
+    - field.field.node.lighthouse_report.field_timing_budget
+    - field.field.node.lighthouse_report.field_total_blocking_time
+    - field.field.node.lighthouse_report.field_total_byte_weight
+    - field.field.node.lighthouse_report.field_unminified_css
+    - field.field.node.lighthouse_report.field_unminified_javascript
+    - field.field.node.lighthouse_report.field_unsized_images
+    - field.field.node.lighthouse_report.field_unused_css_rules
+    - field.field.node.lighthouse_report.field_unused_javascript
+    - field.field.node.lighthouse_report.field_use_landmarks
+    - field.field.node.lighthouse_report.field_user_timings
+    - field.field.node.lighthouse_report.field_uses_http2
+    - field.field.node.lighthouse_report.field_uses_long_cache_ttl
+    - field.field.node.lighthouse_report.field_uses_optimized_images
+    - field.field.node.lighthouse_report.field_uses_passive_event_listene
+    - field.field.node.lighthouse_report.field_uses_rel_preconnect
+    - field.field.node.lighthouse_report.field_uses_rel_preload
+    - field.field.node.lighthouse_report.field_uses_responsive_images
+    - field.field.node.lighthouse_report.field_uses_text_compression
+    - field.field.node.lighthouse_report.field_valid_lang
+    - field.field.node.lighthouse_report.field_valid_source_maps
+    - field.field.node.lighthouse_report.field_video_caption
+    - field.field.node.lighthouse_report.field_viewport
+    - field.field.node.lighthouse_report.field_viewport_1
+    - field.field.node.lighthouse_report.field_viewport_1_1
+    - field.field.node.lighthouse_report.field_visual_order_follows_dom
+    - node.type.lighthouse_report
+  module:
+    - path
+id: node.lighthouse_report.default
+targetEntityType: node
+bundle: lighthouse_report
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_accessibility_score:
+    type: number
+    weight: 181
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_accesskeys:
+    type: string_textfield
+    weight: 182
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_apple_touch_icon:
+    type: number
+    weight: 276
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_allowed_attr:
+    type: number
+    weight: 183
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_command_name:
+    type: string_textfield
+    weight: 184
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_hidden_body:
+    type: number
+    weight: 185
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_hidden_focus:
+    type: number
+    weight: 186
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_input__name:
+    type: string_textfield
+    weight: 187
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_meter_name:
+    type: string_textfield
+    weight: 188
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_progressbar_name:
+    type: string_textfield
+    weight: 189
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_required_attr:
+    type: number
+    weight: 190
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_required_children:
+    type: string_textfield
+    weight: 191
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_required_parent:
+    type: string_textfield
+    weight: 192
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_roles:
+    type: number
+    weight: 193
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_toggle__name:
+    type: string_textfield
+    weight: 194
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_tooltip_name:
+    type: string_textfield
+    weight: 195
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_treeitem_name:
+    type: string_textfield
+    weight: 196
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_valid_attr:
+    type: number
+    weight: 198
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_aria_valid_attr_value:
+    type: number
+    weight: 197
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_best_practices_score:
+    type: number
+    weight: 236
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_bootup_time:
+    type: number
+    weight: 154
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_button_name:
+    type: number
+    weight: 199
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_bypass:
+    type: number
+    weight: 200
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_canonical:
+    type: number
+    weight: 264
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_charset:
+    type: number
+    weight: 247
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_color_contrast:
+    type: number
+    weight: 201
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_content_width:
+    type: number
+    weight: 274
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_crawlable_anchors:
+    type: number
+    weight: 259
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_critical_request_chains:
+    type: string_textfield
+    weight: 152
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_csp_xss:
+    type: string_textfield
+    weight: 241
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cumulative_layout_shift:
+    type: number
+    weight: 127
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_custom_controls_labels:
+    type: string_textfield
+    weight: 231
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_custom_controls_roles:
+    type: string_textfield
+    weight: 232
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_definition_list:
+    type: string_textfield
+    weight: 202
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_deprecations:
+    type: number
+    weight: 249
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_diagnostics:
+    type: string_textfield
+    weight: 176
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dlitem:
+    type: string_textfield
+    weight: 203
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_doctype:
+    type: number
+    weight: 246
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_document_title:
+    type: number
+    weight: 204
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_document_title_1:
+    type: number
+    weight: 255
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dom_size:
+    type: number
+    weight: 151
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_duplicate_id_active:
+    type: number
+    weight: 205
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_duplicate_id_aria:
+    type: string_textfield
+    weight: 206
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_duplicated_javascript:
+    type: number
+    weight: 146
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_efficient_animated_content:
+    type: number
+    weight: 145
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_errors_in_console:
+    type: number
+    weight: 250
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_final_screenshot:
+    type: string_textfield
+    weight: 179
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_first_contentful_paint:
+    type: number
+    weight: 122
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_first_meaningful_paint:
+    type: number
+    weight: 129
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_focus_traps:
+    type: string_textfield
+    weight: 230
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_focusable_controls:
+    type: string_textfield
+    weight: 227
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_font_display:
+    type: number
+    weight: 156
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_font_size:
+    type: number
+    weight: 265
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_form__multiple_labels:
+    type: string_textfield
+    weight: 207
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_frame_title:
+    type: string_textfield
+    weight: 208
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_geolocation_on_start:
+    type: number
+    weight: 238
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_heading_order:
+    type: number
+    weight: 209
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_hreflang:
+    type: number
+    weight: 263
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_html_has_lang:
+    type: number
+    weight: 210
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_html_lang_valid:
+    type: number
+    weight: 211
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_http_status_code:
+    type: number
+    weight: 257
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_alt:
+    type: number
+    weight: 212
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_alt_1:
+    type: number
+    weight: 262
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_aspect_ratio:
+    type: number
+    weight: 243
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_size_responsive:
+    type: number
+    weight: 244
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_input_image_alt:
+    type: string_textfield
+    weight: 213
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_inspector_issues:
+    type: number
+    weight: 252
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_installable_manifest:
+    type: number
+    weight: 270
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_interactive:
+    type: number
+    weight: 123
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_interactive_element_afford:
+    type: string_textfield
+    weight: 228
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_is_crawlable:
+    type: number
+    weight: 260
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_is_on_https:
+    type: number
+    weight: 237
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_js_libraries:
+    type: string_textfield
+    weight: 248
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_label:
+    type: number
+    weight: 214
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_largest_contentful_paint:
+    type: number
+    weight: 126
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_largest_contentful_paint_e:
+    type: string_textfield
+    weight: 160
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_layout_shift_elements:
+    type: string_textfield
+    weight: 162
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_lazy_loaded:
+    type: number
+    weight: 161
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_legacy_javascript:
+    type: number
+    weight: 147
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_link_name:
+    type: number
+    weight: 215
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_link_text:
+    type: number
+    weight: 258
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_list:
+    type: number
+    weight: 216
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_listitem:
+    type: number
+    weight: 217
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_logical_tab_order:
+    type: string_textfield
+    weight: 226
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_long_tasks:
+    type: string_textfield
+    weight: 165
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_main_thread_tasks:
+    type: string_textfield
+    weight: 175
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mainthread_work_breakdown:
+    type: number
+    weight: 155
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_managed_focus:
+    type: string_textfield
+    weight: 229
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_maskable_icon:
+    type: number
+    weight: 277
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_max_potential_fid:
+    type: number
+    weight: 128
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_meta_description:
+    type: number
+    weight: 256
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_meta_refresh:
+    type: string_textfield
+    weight: 218
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_meta_viewport:
+    type: number
+    weight: 219
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_metrics:
+    type: string_textfield
+    weight: 177
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_modern_image_formats:
+    type: number
+    weight: 138
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_network_requests:
+    type: string_textfield
+    weight: 172
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_network_rtt:
+    type: string_textfield
+    weight: 173
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_network_server_latency:
+    type: string_textfield
+    weight: 174
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_no_document_write:
+    type: number
+    weight: 164
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_no_unload_listeners:
+    type: number
+    weight: 169
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_no_vulnerable_libraries:
+    type: number
+    weight: 240
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_non_composited_animations:
+    type: string_textfield
+    weight: 166
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_notification_on_start:
+    type: number
+    weight: 239
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_object_alt:
+    type: string_textfield
+    weight: 220
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_offscreen_content_hidden:
+    type: string_textfield
+    weight: 234
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_offscreen_images:
+    type: number
+    weight: 132
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_password_inputs_can_be_pas:
+    type: number
+    weight: 242
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_performance_budget:
+    type: string_textfield
+    weight: 170
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_performance_score:
+    type: number
+    weight: 121
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_plugins:
+    type: number
+    weight: 266
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_preload_fonts:
+    type: string_textfield
+    weight: 245
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_preload_lcp_image:
+    type: number
+    weight: 148
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_pwa_cross_browser:
+    type: string_textfield
+    weight: 278
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pwa_each_page_has_url:
+    type: string_textfield
+    weight: 280
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pwa_page_transitions:
+    type: string_textfield
+    weight: 279
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pwa_score:
+    type: number
+    weight: 269
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_redirects:
+    type: number
+    weight: 142
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_render_blocking_resources:
+    type: number
+    weight: 130
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_resource_summary:
+    type: string_textfield
+    weight: 157
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_robots_txt:
+    type: number
+    weight: 261
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_screenshot_thumbnails:
+    type: string_textfield
+    weight: 178
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_script_treemap_data:
+    type: string_textfield
+    weight: 180
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_seo_score:
+    type: number
+    weight: 253
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_server_response_time:
+    type: number
+    weight: 141
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_service_worker:
+    type: number
+    weight: 271
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_speed_index:
+    type: number
+    weight: 124
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_splash_screen:
+    type: number
+    weight: 272
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_structured_data:
+    type: string_textfield
+    weight: 268
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tabindex:
+    type: string_textfield
+    weight: 221
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tap_targets:
+    type: number
+    weight: 267
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_td_headers_attr:
+    type: string_textfield
+    weight: 222
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_th_has_data_cells:
+    type: string_textfield
+    weight: 223
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_themed_omnibox:
+    type: number
+    weight: 273
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_third_party_facades:
+    type: string_textfield
+    weight: 159
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_third_party_summary:
+    type: number
+    weight: 158
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_timing_budget:
+    type: string_textfield
+    weight: 171
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_total_blocking_time:
+    type: number
+    weight: 125
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_total_byte_weight:
+    type: number
+    weight: 149
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_unminified_css:
+    type: number
+    weight: 133
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_unminified_javascript:
+    type: number
+    weight: 134
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_unsized_images:
+    type: number
+    weight: 167
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_unused_css_rules:
+    type: number
+    weight: 135
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_unused_javascript:
+    type: number
+    weight: 136
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_use_landmarks:
+    type: string_textfield
+    weight: 235
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_user_timings:
+    type: string_textfield
+    weight: 153
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_http2:
+    type: number
+    weight: 144
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_long_cache_ttl:
+    type: number
+    weight: 150
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_optimized_images:
+    type: number
+    weight: 137
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_passive_event_listene:
+    type: number
+    weight: 163
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_rel_preconnect:
+    type: number
+    weight: 140
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_rel_preload:
+    type: string_textfield
+    weight: 143
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_responsive_images:
+    type: number
+    weight: 131
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_uses_text_compression:
+    type: number
+    weight: 139
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_valid_lang:
+    type: string_textfield
+    weight: 224
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_valid_source_maps:
+    type: number
+    weight: 251
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_video_caption:
+    type: string_textfield
+    weight: 225
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_viewport:
+    type: number
+    weight: 168
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_viewport_1:
+    type: number
+    weight: 254
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_viewport_1_1:
+    type: number
+    weight: 275
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_visual_order_follows_dom:
+    type: string_textfield
+    weight: 233
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  feeds_item: true

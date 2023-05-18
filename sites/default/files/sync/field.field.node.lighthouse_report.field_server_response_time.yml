@@ -1,0 +1,23 @@
+uuid: fe0b57e5-1ecf-4c7a-928e-0606899b8050
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_server_response_time
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_server_response_time
+field_name: field_server_response_time
+entity_type: node
+bundle: lighthouse_report
+label: 'Initial server response time was short'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

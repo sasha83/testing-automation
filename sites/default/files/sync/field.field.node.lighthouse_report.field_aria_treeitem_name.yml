@@ -1,0 +1,19 @@
+uuid: bcd48164-13ca-4099-a5c4-3bdb56e41f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_treeitem_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_treeitem_name
+field_name: field_aria_treeitem_name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA treeitem elements have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

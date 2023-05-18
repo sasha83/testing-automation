@@ -1,0 +1,23 @@
+uuid: 748c7464-be4a-4b48-9f59-a87529787be4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspector_issues
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_inspector_issues
+field_name: field_inspector_issues
+entity_type: node
+bundle: lighthouse_report
+label: 'No issues in the Issues panel in Chrome Devtools'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+uuid: cea9f26a-0849-4c30-ba0f-d1c6d45e33d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_required_children
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_required_children
+field_name: field_aria_required_children
+entity_type: node
+bundle: lighthouse_report
+label: 'Elements with an ARIA role that require children to contain a specific role have all required children'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: d581a7fd-0245-4a7f-9404-abd797e3d2e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_main_thread_tasks
+field_name: field_main_thread_tasks
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 32e3c94c-e606-4327-9d6f-a0d6126a2ccb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tap_targets
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_tap_targets
+field_name: field_tap_targets
+entity_type: node
+bundle: lighthouse_report
+label: 'Tap targets are not sized appropriately'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

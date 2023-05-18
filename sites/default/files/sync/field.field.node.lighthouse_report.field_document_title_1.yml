@@ -1,0 +1,23 @@
+uuid: 2d0c334f-c0e1-4d36-bb35-f21475177aaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document_title_1
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_document_title_1
+field_name: field_document_title_1
+entity_type: node
+bundle: lighthouse_report
+label: 'Document has a title element'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

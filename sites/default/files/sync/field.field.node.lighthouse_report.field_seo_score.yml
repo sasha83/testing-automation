@@ -1,0 +1,23 @@
+uuid: 48d6bc0c-e158-4787-8b59-ff5cff17c361
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo_score
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_seo_score
+field_name: field_seo_score
+entity_type: node
+bundle: lighthouse_report
+label: 'Overall SEO Category Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

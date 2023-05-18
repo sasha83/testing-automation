@@ -1,0 +1,23 @@
+uuid: 60346ba0-ee53-4a37-81aa-889b58026d9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bypass
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_bypass
+field_name: field_bypass
+entity_type: node
+bundle: lighthouse_report
+label: 'The page contains a heading, skip link, or landmark region'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
