@@ -5,13 +5,22 @@ let reportObject = {};
 let reportHeaders = [];
 let fieldString = [];
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+function cleanTitles(title) {
+    let theTitle;
+    theTitle = title;
+    theTitle = theTitle.replace(/[^a-z," "]/gi, '');
+    return theTitle;
+    // theTitle = theTitle.replaceAll('', '-');
+}
 function fieldType(type) {
-    let theType;
-    theType = type.replace('numeric', 'number_decimal');
-    theType = type.replace('binary', 'number_integer');
-    theType = type.replace('notApplicable', 'text');
-    theType = type.replace('informative', 'text');
-    theType = type.replace('manual', 'text');
+    let theType = new String;
+    theType = type;
+    theType = theType.replaceAll('numeric', 'decimal');
+    theType = theType.replaceAll('binary', 'integer');
+    theType = theType.replaceAll('notApplicable', 'string');
+    theType = theType.replaceAll('informative', 'string');
+    theType = theType.replaceAll('manual', 'string');
+
     return theType;
     // numeric
     // binary
@@ -36,7 +45,7 @@ fs.createReadStream("test.csv")
         reportHeaders.push({id: key, title: key});
         fieldString.push(key);
         fieldString.push('|');
-        fieldString.push(r[4]);
+        fieldString.push(cleanTitles(r[4]));
         fieldString.push('|');
         fieldString.push(fieldType(r[5]));
         fieldString.push('\n');

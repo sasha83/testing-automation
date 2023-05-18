@@ -1,162 +1,160 @@
-performance_score|Overall Performance Category Score|numeric
-first_contentful_paint|First Contentful Paint|numeric
-interactive|Time to Interactive|numeric
-speed_index|Speed Index|numeric
-total_blocking_time|Total Blocking Time|numeric
-largest_contentful_paint|Largest Contentful Paint|numeric
-cumulative_layout_shift|Cumulative Layout Shift|numeric
-max_potential_fid|Max Potential First Input Delay|numeric
-first_meaningful_paint|First Meaningful Paint|numeric
-render_blocking_resources|Eliminate render-blocking resources|numeric
-uses_responsive_images|Properly size images|numeric
-offscreen_images|Defer offscreen images|numeric
-unminified_css|Minify CSS|numeric
-unminified_javascript|Minify JavaScript|numeric
-unused_css_rules|Reduce unused CSS|numeric
-unused_javascript|Reduce unused JavaScript|numeric
-uses_optimized_images|Efficiently encode images|numeric
-modern_image_formats|Serve images in next-gen formats|numeric
-uses_text_compression|Enable text compression|numeric
-uses_rel_preconnect|Preconnect to required origins|numeric
-server_response_time|Initial server response time was short|binary
-redirects|Avoid multiple page redirects|numeric
-uses_rel_preload|Preload key requests|notApplicable
-uses_http2|Use HTTP/2|numeric
-efficient_animated_content|Use video formats for animated content|numeric
-duplicated_javascript|Remove duplicate modules in JavaScript bundles|numeric
-legacy_javascript|Avoid serving legacy JavaScript to modern browsers|numeric
-preload_lcp_image|Preload Largest Contentful Paint image|notApplicable
-total_byte_weight|Avoids enormous network payloads|numeric
-uses_long_cache_ttl|Serve static assets with an efficient cache policy|numeric
-dom_size|Avoids an excessive DOM size|numeric
-critical_request_chains|Avoid chaining critical requests|informative
-user_timings|User Timing marks and measures|notApplicable
-bootup_time|JavaScript execution time|numeric
-mainthread_work_breakdown|Minimizes main-thread work|numeric
-font_display|Ensure text remains visible during webfont load|binary
-resource_summary|Keep request counts low and transfer sizes small|informative
-third_party_summary|Minimize third-party usage|binary
-third_party_facades|Lazy load third-party resources with facades|notApplicable
-largest_contentful_paint_element|Largest Contentful Paint element|informative
-lcp_lazy_loaded|Largest Contentful Paint image was not lazily loaded|notApplicable
-layout_shift_elements|Avoid large layout shifts|informative
-uses_passive_event_listeners|Uses passive listeners to improve scrolling performance|binary
-no_document_write|Avoids `document.write()`|binary
-long_tasks|Avoid long main-thread tasks|informative
-non_composited_animations|Avoid non-composited animations|notApplicable
-unsized_images|Image elements do not have explicit `width` and `height`|binary
-viewport|Has a `<meta name="viewport">` tag with `width` or `initial-scale`|binary
-no_unload_listeners|Avoids `unload` event listeners|binary
-performance_budget|Performance budget|notApplicable
-timing_budget|Timing budget|notApplicable
-network_requests|Network Requests|informative
-network_rtt|Network Round Trip Times|informative
-network_server_latency|Server Backend Latencies|informative
-main_thread_tasks|Tasks|informative
-diagnostics|Diagnostics|informative
-metrics|Metrics|informative
-screenshot_thumbnails|Screenshot Thumbnails|informative
-final_screenshot|Final Screenshot|informative
-script_treemap_data|Script Treemap Data|informative
-accessibility_score|Overall Accessibility Category Score|numeric
-accesskeys|`[accesskey]` values are unique|notApplicable
-aria_allowed_attr|`[aria-*]` attributes match their roles|binary
-aria_command_name|`button`, `link`, and `menuitem` elements have accessible names|notApplicable
-aria_hidden_body|`[aria-hidden="true"]` is not present on the document `<body>`|binary
-aria_hidden_focus|`[aria-hidden="true"]` elements do not contain focusable descendents|binary
-aria_input_field_name|ARIA input fields have accessible names|notApplicable
-aria_meter_name|ARIA `meter` elements have accessible names|notApplicable
-aria_progressbar_name|ARIA `progressbar` elements have accessible names|notApplicable
-aria_required_attr|`[role]`s have all required `[aria-*]` attributes|binary
-aria_required_children|Elements with an ARIA `[role]` that require children to contain a specific `[role]` have all required children.|notApplicable
-aria_required_parent|`[role]`s are contained by their required parent element|notApplicable
-aria_roles|`[role]` values are valid|binary
-aria_toggle_field_name|ARIA toggle fields have accessible names|notApplicable
-aria_tooltip_name|ARIA `tooltip` elements have accessible names|notApplicable
-aria_treeitem_name|ARIA `treeitem` elements have accessible names|notApplicable
-aria_valid_attr_value|`[aria-*]` attributes have valid values|binary
-aria_valid_attr|`[aria-*]` attributes are valid and not misspelled|binary
-button_name|Buttons do not have an accessible name|binary
-bypass|The page contains a heading, skip link, or landmark region|binary
-color_contrast|Background and foreground colors do not have a sufficient contrast ratio.|binary
-definition_list|`<dl>`'s contain only properly-ordered `<dt>` and `<dd>` groups, `<script>`, `<template>` or `<div>` elements.|notApplicable
-dlitem|Definition list items are wrapped in `<dl>` elements|notApplicable
-document_title|Document has a `<title>` element|binary
-duplicate_id_active|`[id]` attributes on active, focusable elements are unique|binary
-duplicate_id_aria|ARIA IDs are unique|notApplicable
-form_field_multiple_labels|No form fields have multiple labels|notApplicable
-frame_title|`<frame>` or `<iframe>` elements have a title|notApplicable
-heading_order|Heading elements are not in a sequentially-descending order|binary
-html_has_lang|`<html>` element has a `[lang]` attribute|binary
-html_lang_valid|`<html>` element has a valid value for its `[lang]` attribute|binary
-image_alt|Image elements do not have `[alt]` attributes|binary
-input_image_alt|`<input type="image">` elements have `[alt]` text|notApplicable
-label|Form elements have associated labels|binary
-link_name|Links do not have a discernible name|binary
-list|Lists contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).|binary
-listitem|List items (`<li>`) are contained within `<ul>` or `<ol>` parent elements|binary
-meta_refresh|The document does not use `<meta http-equiv="refresh">`|notApplicable
-meta_viewport|`[user-scalable="no"]` is not used in the `<meta name="viewport">` element and the `[maximum-scale]` attribute is not less than 5.|binary
-object_alt|`<object>` elements have alternate text|notApplicable
-tabindex|No element has a `[tabindex]` value greater than 0|notApplicable
-td_headers_attr|Cells in a `<table>` element that use the `[headers]` attribute refer to table cells within the same table.|notApplicable
-th_has_data_cells|`<th>` elements and elements with `[role="columnheader"/"rowheader"]` have data cells they describe.|notApplicable
-valid_lang|`[lang]` attributes have a valid value|notApplicable
-video_caption|`<video>` elements contain a `<track>` element with `[kind="captions"]`|notApplicable
-logical_tab_order|The page has a logical tab order|text
-focusable_controls|Interactive controls are keyboard focusable|text
-interactive_element_affordance|Interactive elements indicate their purpose and state|text
-managed_focus|The user's focus is directed to new content added to the page|text
-focus_traps|User focus is not accidentally trapped in a region|text
-custom_controls_labels|Custom controls have associated labels|text
-custom_controls_roles|Custom controls have ARIA roles|text
-visual_order_follows_dom|Visual order on the page follows DOM order|text
-offscreen_content_hidden|Offscreen content is hidden from assistive technology|text
-use_landmarks|HTML5 landmark elements are used to improve navigation|text
-best_practices_score|Overall Best Practices Category Score|numeric
-is_on_https|Uses HTTPS|binary
-geolocation_on_start|Avoids requesting the geolocation permission on page load|binary
-notification_on_start|Avoids requesting the notification permission on page load|binary
-no_vulnerable_libraries|Avoids front-end JavaScript libraries with known security vulnerabilities|binary
-csp_xss|Ensure CSP is effective against XSS attacks|informative
-password_inputs_can_be_pasted_into|Allows users to paste into password fields|binary
-image_aspect_ratio|Displays images with correct aspect ratio|binary
-image_size_responsive|Serves images with appropriate resolution|binary
-preload_fonts|Fonts with `font-display: optional` are preloaded|notApplicable
-doctype|Page has the HTML doctype|binary
-charset|Properly defines charset|binary
-js_libraries|Detected JavaScript libraries|informative
-deprecations|Avoids deprecated APIs|binary
-errors_in_console|No browser errors logged to the console|binary
-valid_source_maps|Page has valid source maps|binary
-inspector_issues|No issues in the `Issues` panel in Chrome Devtools|binary
-seo_score|Overall SEO Category Score|numeric
-viewport|Has a `<meta name="viewport">` tag with `width` or `initial-scale`|binary
-document_title|Document has a `<title>` element|binary
-meta_description|Document does not have a meta description|binary
-http_status_code|Page has successful HTTP status code|binary
-link_text|Links have descriptive text|binary
-crawlable_anchors|Links are crawlable|binary
-is_crawlable|Page isn’t blocked from indexing|binary
-robots_txt|robots.txt is valid|binary
-image_alt|Image elements do not have `[alt]` attributes|binary
-hreflang|Document has a valid `hreflang`|binary
-canonical|Document has a valid `rel=canonical`|binary
-font_size|Document uses legible font sizes|binary
-plugins|Document avoids plugins|binary
-tap_targets|Tap targets are not sized appropriately|binary
-structured_data|Structured data is valid|text
-pwa_score|Overall PWA Category Score|numeric
-installable_manifest|Web app manifest or service worker do not meet the installability requirements|binary
-service_worker|Does not register a service worker that controls page and `start_url`|binary
-splash_screen|Is not configured for a custom splash screen|binary
-themed_omnibox|Does not set a theme color for the address bar.|binary
-content_width|Content is sized correctly for the viewport|binary
-viewport|Has a `<meta name="viewport">` tag with `width` or `initial-scale`|binary
-apple_touch_icon|Does not provide a valid `apple-touch-icon`|binary
-maskable_icon|Manifest doesn't have a maskable icon|binary
-pwa_cross_browser|Site works cross-browser|text
-pwa_page_transitions|Page transitions don't feel like they block on the network|text
-pwa_each_page_has_url|Each page has a URL|text
-
-The CSV file was written successfully
+performance_score|Overall Performance Category Score|decimal
+first_contentful_paint|First Contentful Paint|decimal
+interactive|Time to Interactive|decimal
+speed_index|Speed Index|decimal
+total_blocking_time|Total Blocking Time|decimal
+largest_contentful_paint|Largest Contentful Paint|decimal
+cumulative_layout_shift|Cumulative Layout Shift|decimal
+max_potential_fid|Max Potential First Input Delay|decimal
+first_meaningful_paint|First Meaningful Paint|decimal
+render_blocking_resources|Eliminate renderblocking resources|decimal
+uses_responsive_images|Properly size images|decimal
+offscreen_images|Defer offscreen images|decimal
+unminified_css|Minify CSS|decimal
+unminified_javascript|Minify JavaScript|decimal
+unused_css_rules|Reduce unused CSS|decimal
+unused_javascript|Reduce unused JavaScript|decimal
+uses_optimized_images|Efficiently encode images|decimal
+modern_image_formats|Serve images in nextgen formats|decimal
+uses_text_compression|Enable text compression|decimal
+uses_rel_preconnect|Preconnect to required origins|decimal
+server_response_time|Initial server response time was short|integer
+redirects|Avoid multiple page redirects|decimal
+uses_rel_preload|Preload key requests|string
+uses_http2|Use HTTP|decimal
+efficient_animated_content|Use video formats for animated content|decimal
+duplicated_javascript|Remove duplicate modules in JavaScript bundles|decimal
+legacy_javascript|Avoid serving legacy JavaScript to modern browsers|decimal
+preload_lcp_image|Preload Largest Contentful Paint image|string
+total_byte_weight|Avoids enormous network payloads|decimal
+uses_long_cache_ttl|Serve static assets with an efficient cache policy|decimal
+dom_size|Avoids an excessive DOM size|decimal
+critical_request_chains|Avoid chaining critical requests|string
+user_timings|User Timing marks and measures|string
+bootup_time|JavaScript execution time|decimal
+mainthread_work_breakdown|Minimizes mainthread work|decimal
+font_display|Ensure text remains visible during webfont load|integer
+resource_summary|Keep request counts low and transfer sizes small|string
+third_party_summary|Minimize thirdparty usage|integer
+third_party_facades|Lazy load thirdparty resources with facades|string
+largest_contentful_paint_element|Largest Contentful Paint element|string
+lcp_lazy_loaded|Largest Contentful Paint image was not lazily loaded|string
+layout_shift_elements|Avoid large layout shifts|string
+uses_passive_event_listeners|Uses passive listeners to improve scrolling performance|integer
+no_document_write|Avoids documentwrite|integer
+long_tasks|Avoid long mainthread tasks|string
+non_composited_animations|Avoid noncomposited animations|string
+unsized_images|Image elements do not have explicit width and height|integer
+viewport|Has a meta name"viewport" tag with width or initialscale|integer
+no_unload_listeners|Avoids unload event listeners|integer
+performance_budget|Performance budget|string
+timing_budget|Timing budget|string
+network_requests|Network Requests|string
+network_rtt|Network Round Trip Times|string
+network_server_latency|Server Backend Latencies|string
+main_thread_tasks|Tasks|string
+diagnostics|Diagnostics|string
+metrics|Metrics|string
+screenshot_thumbnails|Screenshot Thumbnails|string
+final_screenshot|Final Screenshot|string
+script_treemap_data|Script Treemap Data|string
+accessibility_score|Overall Accessibility Category Score|decimal
+accesskeys|accesskey values are unique|string
+aria_allowed_attr|aria attributes match their roles|integer
+aria_command_name|button, link, and menuitem elements have accessible names|string
+aria_hidden_body|ariahidden"true" is not present on the document body|integer
+aria_hidden_focus|ariahidden"true" elements do not contain focusable descendents|integer
+aria_input_field_name|ARIA input fields have accessible names|string
+aria_meter_name|ARIA meter elements have accessible names|string
+aria_progressbar_name|ARIA progressbar elements have accessible names|string
+aria_required_attr|roles have all required aria attributes|integer
+aria_required_children|Elements with an ARIA role that require children to contain a specific role have all required children|string
+aria_required_parent|roles are contained by their required parent element|string
+aria_roles|role values are valid|integer
+aria_toggle_field_name|ARIA toggle fields have accessible names|string
+aria_tooltip_name|ARIA tooltip elements have accessible names|string
+aria_treeitem_name|ARIA treeitem elements have accessible names|string
+aria_valid_attr_value|aria attributes have valid values|integer
+aria_valid_attr|aria attributes are valid and not misspelled|integer
+button_name|Buttons do not have an accessible name|integer
+bypass|The page contains a heading, skip link, or landmark region|integer
+color_contrast|Background and foreground colors do not have a sufficient contrast ratio|integer
+definition_list|dls contain only properlyordered dt and dd groups, script, template or div elements|string
+dlitem|Definition list items are wrapped in dl elements|string
+document_title|Document has a title element|integer
+duplicate_id_active|id attributes on active, focusable elements are unique|integer
+duplicate_id_aria|ARIA IDs are unique|string
+form_field_multiple_labels|No form fields have multiple labels|string
+frame_title|frame or iframe elements have a title|string
+heading_order|Heading elements are not in a sequentiallydescending order|integer
+html_has_lang|html element has a lang attribute|integer
+html_lang_valid|html element has a valid value for its lang attribute|integer
+image_alt|Image elements do not have alt attributes|integer
+input_image_alt|input type"image" elements have alt text|string
+label|Form elements have associated labels|integer
+link_name|Links do not have a discernible name|integer
+list|Lists contain only li elements and script supporting elements script and template|integer
+listitem|List items li are contained within ul or ol parent elements|integer
+meta_refresh|The document does not use meta httpequiv"refresh"|string
+meta_viewport|userscalable"no" is not used in the meta name"viewport" element and the maximumscale attribute is not less than |integer
+object_alt|object elements have alternate text|string
+tabindex|No element has a tabindex value greater than |string
+td_headers_attr|Cells in a table element that use the headers attribute refer to table cells within the same table|string
+th_has_data_cells|th elements and elements with role"columnheader""rowheader" have data cells they describe|string
+valid_lang|lang attributes have a valid value|string
+video_caption|video elements contain a track element with kind"captions"|string
+logical_tab_order|The page has a logical tab order|string
+focusable_controls|Interactive controls are keyboard focusable|string
+interactive_element_affordance|Interactive elements indicate their purpose and state|string
+managed_focus|The users focus is directed to new content added to the page|string
+focus_traps|User focus is not accidentally trapped in a region|string
+custom_controls_labels|Custom controls have associated labels|string
+custom_controls_roles|Custom controls have ARIA roles|string
+visual_order_follows_dom|Visual order on the page follows DOM order|string
+offscreen_content_hidden|Offscreen content is hidden from assistive technology|string
+use_landmarks|HTML landmark elements are used to improve navigation|string
+best_practices_score|Overall Best Practices Category Score|decimal
+is_on_https|Uses HTTPS|integer
+geolocation_on_start|Avoids requesting the geolocation permission on page load|integer
+notification_on_start|Avoids requesting the notification permission on page load|integer
+no_vulnerable_libraries|Avoids frontend JavaScript libraries with known security vulnerabilities|integer
+csp_xss|Ensure CSP is effective against XSS attacks|string
+password_inputs_can_be_pasted_into|Allows users to paste into password fields|integer
+image_aspect_ratio|Displays images with correct aspect ratio|integer
+image_size_responsive|Serves images with appropriate resolution|integer
+preload_fonts|Fonts with fontdisplay optional are preloaded|string
+doctype|Page has the HTML doctype|integer
+charset|Properly defines charset|integer
+js_libraries|Detected JavaScript libraries|string
+deprecations|Avoids deprecated APIs|integer
+errors_in_console|No browser errors logged to the console|integer
+valid_source_maps|Page has valid source maps|integer
+inspector_issues|No issues in the Issues panel in Chrome Devtools|integer
+seo_score|Overall SEO Category Score|decimal
+viewport|Has a meta name"viewport" tag with width or initialscale|integer
+document_title|Document has a title element|integer
+meta_description|Document does not have a meta description|integer
+http_status_code|Page has successful HTTP status code|integer
+link_text|Links have descriptive text|integer
+crawlable_anchors|Links are crawlable|integer
+is_crawlable|Page isnt blocked from indexing|integer
+robots_txt|robotstxt is valid|integer
+image_alt|Image elements do not have alt attributes|integer
+hreflang|Document has a valid hreflang|integer
+canonical|Document has a valid relcanonical|integer
+font_size|Document uses legible font sizes|integer
+plugins|Document avoids plugins|integer
+tap_targets|Tap targets are not sized appropriately|integer
+structured_data|Structured data is valid|string
+pwa_score|Overall PWA Category Score|decimal
+installable_manifest|Web app manifest or service worker do not meet the installability requirements|integer
+service_worker|Does not register a service worker that controls page and starturl|integer
+splash_screen|Is not configured for a custom splash screen|integer
+themed_omnibox|Does not set a theme color for the address bar|integer
+content_width|Content is sized correctly for the viewport|integer
+viewport|Has a meta name"viewport" tag with width or initialscale|integer
+apple_touch_icon|Does not provide a valid appletouchicon|integer
+maskable_icon|Manifest doesnt have a maskable icon|integer
+pwa_cross_browser|Site works crossbrowser|string
+pwa_page_transitions|Page transitions dont feel like they block on the network|string
+pwa_each_page_has_url|Each page has a URL|string
