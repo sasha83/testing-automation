@@ -1,14 +1,15 @@
 const util = require('util')
 const fs = require("fs");
 const { parse } = require("csv-parse");
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+let fieldString = [];
 let lighthouseCSVimport = [];
 let reportObject = {};
-let reportHeaders = [];
-let fieldString = [];
-let reportMappings = [];
 let reportCustomSources = [];
+let reportHeaders = [];
+let reportMappings = [];
 let usedKeys = {}
-const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
 
 function cleanTitles(title) {
     let theTitle;
