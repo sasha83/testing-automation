@@ -1,0 +1,8 @@
+uuid: cfd9f450-5924-4529-96ab-2c7ae3f27813
+langcode: en
+status: true
+dependencies: {  }
+name: 'Metric category'
+vid: metric_category
+description: ''
+weight: 0

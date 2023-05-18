@@ -7,7 +7,7 @@ npm-debug.log
 .DS_Store
 
 
-
+/report-generator/lighthouse
 /vendor
 /core
 /modules/contrib/

@@ -2,8 +2,17 @@ const { exec } = require("child_process");
 // let jsonDiff = require('json-diff');
 
 const timeStamp = Date.now();
+let client = {};
+client.name='Natali Gill';
+client.machine_name='natalia-gill';
+client.url = 'https://www.nataliagill.com';
 
-exec("lighthouse https://www.nataliagill.com/ --output-path=./report-anappetiteforjoy-"+timeStamp+".json --output json", (error, stdout, stderr) => {
+client.name='Skillpointe';
+client.machine_name='skillpointe';
+client.url = 'https://skillpointe.com';
+
+
+exec("lighthouse "+client.url+" --output-path=./report-"+client.machine_name+"-"+timeStamp+".json --output json", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
