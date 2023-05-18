@@ -158,3 +158,5 @@ maskable_icon|Manifest doesnt have a maskable icon|integer
 pwa_cross_browser|Site works crossbrowser|string
 pwa_page_transitions|Page transitions dont feel like they block on the network|string
 pwa_each_page_has_url|Each page has a URL|string
+
+The CSV file was written successfully
