@@ -7,26 +7,41 @@ client.name='Natali Gill';
 client.machine_name='natalia-gill';
 client.url = 'https://www.nataliagill.com';
 
-client.name='Skillpointe';
-client.machine_name='skillpointe';
-client.url = 'https://skillpointe.com';
+// const testFolder = './tests/';
+// const fs = require('fs');
+
+// fs.readdir(testFolder, (err, files) => {
+//   files.forEach(file => {
+//     console.log(file);
+//   });
+// });
 
 
-exec("lighthouse "+client.url+" --output-path=./report-"+client.machine_name+"-"+timeStamp+".json --output json", (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`stdout: ${stdout}`);
-});
+function run() {
+    exec("lighthouse "+client.url+" --output-path=./test-reports/lighthouse-report-"+client.machine_name+"-"+timeStamp+".json --output json", (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
+    
+}
 
 
+run();
 
 
+// client.name='Skillpointe';
+// client.machine_name='skillpointe';
+// client.url = 'https://skillpointe.com';
+
+
+// run();
 // import { diffString, diff } from 'json-diff';
 // import * as fs from 'fs';
 
