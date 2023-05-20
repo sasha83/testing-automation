@@ -11,6 +11,84 @@ let reportMappings = [];
 let usedKeys = {}
 
 
+fs.createReadStream("www.nataliagill.com_blog-posts_3-major-benefits-to-eatong-solid-breakfast.mobile.report.csv")
+  .pipe(parse({ delimiter: ",", from_line: 2 }))
+  .on("data", function (row) {
+    lighthouseCSVimport.push(row);
+  }).on('end',function() {
+    lighthouseCSVimport.forEach(function(r) {
+        let key = r[3];
+        key = key.replaceAll("-", "_");
+        if(usedKeys[key]) {
+            while(usedKeys[key]) {
+                key=key+'_1';
+            }    
+        }
+        usedKeys[key]= key;
+
+        reportObject[key] = r[6];
+        reportObject.requested_url = r[0];
+        reportObject.final_url = r[1];
+
+        let domain = (new URL(reportObject.final_url));
+        reportObject.title = domain.hostname.replace('www.', '');
+        reportObject.domain = domain.hostname.replace('www.', '');
+
+        reportHeaders.push({id: key, title: key});
+
+        reportCustomSources = reportCustomSources.concat(customSource(key));
+        reportMappings = reportMappings.concat(createMappings(key));
+
+        
+        fieldString.push(key);
+        fieldString.push('|');
+        fieldString.push(cleanTitles(r[4]));
+        fieldString.push('|');
+        fieldString.push(fieldType(r[5]));
+        fieldString.push('\n');
+    });
+    
+    reportCustomSources = reportCustomSources.concat(customSource('title'));
+    reportMappings = reportMappings.concat(createMappings('title'));
+
+    // fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
+    //     // In case of a error throw err.
+    //     if (err) throw err;
+    // })
+
+    // fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
+    //     // In case of a error throw err.
+    //     if (err) throw err;
+    // })
+
+    // fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
+    //     // In case of a error throw err.
+    //     if (err) throw err;
+    // })
+
+    reportHeaders.push({id: 'title', title: 'title'});
+    reportHeaders.push({id: 'requested_url', title: 'requested_url'});
+    reportHeaders.push({id: 'final_url', title: 'final_url'});
+
+
+
+    // writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
+    writeToCSV('_test-report-2.csv', reportHeaders, [reportObject]);
+    
+  });
+  
+
+
+function writeToCSV(filename, headers, content) {
+	const csvWriter = createCsvWriter({
+		path: '/Users/alexandreswetlowski/testing-automation/report-generator/' + filename,
+		header: headers,
+	});
+	csvWriter
+		.writeRecords(content)
+		.then(() => console.log('The CSV file was written successfully'));
+
+}
 function cleanTitles(title) {
     let theTitle;
     theTitle = title;
@@ -63,79 +141,4 @@ function fieldType(type) {
     theType = theType.replaceAll('manual', 'string');
 
     return theType;
-}
-fs.createReadStream("test.csv")
-  .pipe(parse({ delimiter: ",", from_line: 2 }))
-  .on("data", function (row) {
-    lighthouseCSVimport.push(row);
-  }).on('end',function() {
-    lighthouseCSVimport.forEach(function(r) {
-        let key = r[3];
-        key = key.replaceAll("-", "_");
-        if(usedKeys[key]) {
-            while(usedKeys[key]) {
-                key=key+'_1';
-            }    
-        }
-        usedKeys[key]= key;
-
-        reportObject[key] = r[6];
-        reportObject.requested_url = r[0];
-        reportObject.final_url = r[1];
-
-        let domain = (new URL(reportObject.final_url));
-        reportObject.title = domain.hostname.replace('www.', '');
-
-        reportHeaders.push({id: key, title: key});
-
-        reportCustomSources = reportCustomSources.concat(customSource(key));
-        reportMappings = reportMappings.concat(createMappings(key));
-
-        
-        fieldString.push(key);
-        fieldString.push('|');
-        fieldString.push(cleanTitles(r[4]));
-        fieldString.push('|');
-        fieldString.push(fieldType(r[5]));
-        fieldString.push('\n');
-    });
-    
-    reportCustomSources = reportCustomSources.concat(customSource('title'));
-    reportMappings = reportMappings.concat(createMappings('title'));
-
-    fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
-        // In case of a error throw err.
-        if (err) throw err;
-    })
-
-    fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
-        // In case of a error throw err.
-        if (err) throw err;
-    })
-
-    fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
-        // In case of a error throw err.
-        if (err) throw err;
-    })
-
-    reportHeaders.push({id: 'title', title: 'title'});
-    reportHeaders.push({id: 'requested_url', title: 'requested_url'});
-    reportHeaders.push({id: 'final_url', title: 'final_url'});
-
-
-
-    writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
-  });
-  
-
-
-function writeToCSV(filename, headers, content) {
-	const csvWriter = createCsvWriter({
-		path: '/Users/alexandreswetlowski/testing-automation/report-generator/' + filename,
-		header: headers,
-	});
-	csvWriter
-		.writeRecords(content)
-		.then(() => console.log('The CSV file was written successfully'));
-
 }
