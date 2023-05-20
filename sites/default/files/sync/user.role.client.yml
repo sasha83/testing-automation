@@ -1,9 +1,0 @@
-uuid: f78a001d-2bdd-4e9f-be8b-89055268fa4b
-langcode: en
-status: true
-dependencies: {  }
-id: client
-label: Client
-weight: 4
-is_admin: null
-permissions: {  }
