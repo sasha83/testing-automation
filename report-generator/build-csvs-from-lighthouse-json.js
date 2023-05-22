@@ -6,6 +6,7 @@ const { report } = require('process');
 const { parse } = require("csv-parse");
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 let fieldString = [];
+
 let lighthouseCSVimport = [];
 let reportObject = {};
 let reportCustomSources = [];
@@ -63,7 +64,7 @@ fs.readdirSync(inFolder).forEach(file => {
     
 });
   
-console.log(processQueue);
+// console.log(processQueue);
 
 // report-generator/_pre_lh-report-feed-yml.txt
 // ../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml
@@ -81,8 +82,12 @@ let reportCustomSourcesFromJSON = [];
 
 let outfile = 0;
 processQueue.forEach(function(lhJSONFilename){
-
+    var outFileName = lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
+    outFileName = outFileName.replace('.json', '.csv');
+    console.log('filename: ', outFileName);
+    
     if(lhJSONFilename.indexOf('.json')>-1) {
+
         const rawdata = fs.readFileSync(lhJSONFilename);
         console.log(rawdata);
         const data = JSON.parse(rawdata);
@@ -112,21 +117,21 @@ processQueue.forEach(function(lhJSONFilename){
         reportObjectFromJSON.title = domain.hostname.replace('www.', '');
         reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
     
-        // reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'main_document_url', 'title': 'Main Document URL', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'final_displayed_url', 'title': 'Final Displayed URL', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'final_url', 'title': 'Final URL', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'fetch_time', 'title': 'Fetch Time', 'type': 'string'});  //temp using string.  need to import as a date eventually (soon).
-        // reportBasedFields.push({'machine_name': 'gather_mode', 'title': 'Gather Mode', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'run_warnings', 'title': 'Run Warnings', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'user_agent', 'title': 'User Agent', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'environment', 'title': 'Environment', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'categories', 'title': 'Categories', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
-        // reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'main_document_url', 'title': 'Main Document URL', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'final_displayed_url', 'title': 'Final Displayed URL', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'final_url', 'title': 'Final URL', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'fetch_time', 'title': 'Fetch Time', 'type': 'string'});  //temp using string.  need to import as a date eventually (soon).
+        reportBasedFields.push({'machine_name': 'gather_mode', 'title': 'Gather Mode', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'run_warnings', 'title': 'Run Warnings', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'user_agent', 'title': 'User Agent', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'environment', 'title': 'Environment', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'categories', 'title': 'Categories', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
+        reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
     
     
         // console.log('reportObjectFromJSON: ', reportObjectFromJSON);
@@ -137,7 +142,7 @@ processQueue.forEach(function(lhJSONFilename){
             reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
             // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
         });
-        writeToCSV(outFolder+'/_csv-from-json--'+outfile+'.csv', reportHeadersFromJSON, [reportObjectFromJSON]);
+        writeToCSV(outFolder+'/001/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
         // outputCSV
         outfile++;
     }
