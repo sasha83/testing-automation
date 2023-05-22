@@ -12,14 +12,66 @@ let reportCustomSources = [];
 let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
-const outFolder = 'lighthouse_out';
+const outFolder = './lighthouse_out';
+const inFolder = './lighthouse';
+
+
+
+
+
+
+
+
+
+
+
+// console.log(fs.readdirSync(inFolder));
+// let testFolderPaths = fs.readdirSync(inFolder);
+// testFolderPaths.forEach(function(dir){
+//     console.log(dir, fs.existsSync('./'+dir));    
+      
+// });
+// fs.existsSync("./directory-name")
+
+// fs.readdirSync(inFolder).forEach(file => {
+//     // console.log(file);
+//     // console.log(file, fs.existsSync('./'+file));    
+//     console.log("dirent.isDirectory('./'+file'): ", dirent.isDirectory('./'+file));
+//     if(fs.existsSync('./'+file)==false) {
+//         console.log(inFolder+'/'+file, fs.existsSync(inFolder+'/'+file));    
+//     }
+// });
+let processQueue = [];
+fs.readdirSync(inFolder).forEach(file => {
+
+    console.log(fs.lstatSync("./lighthouse/"+file).isDirectory() );
+
+    // fs.access("./lighthouse/"+file, function(error) {
+    //     if (error) {
+    //       console.log("Directory does not exist.", file)
+    //     } else {
+    //       console.log("Directory exists.", file)
+    //     }
+    //   })
+    let lhReportPath = "./lighthouse/"+file;
+    if(fs.lstatSync(lhReportPath).isDirectory()) {
+        // processQueue.push(lhReportPath);
+        fs.readdirSync(lhReportPath).forEach(filename => {
+            processQueue.push(lhReportPath+"/"+filename);
+        });
+    }
+    
+});
+  
+console.log(processQueue);
+
 // report-generator/_pre_lh-report-feed-yml.txt
 // ../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml
-let preYMLFile = "_pre_lh-report-feed-yml.txt";
-let outputYMLFile = "../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml";
+// let preYMLFile = "_pre_lh-report-feed-yml.txt";
+// let outputYMLFile = "../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml";
 
-const rawdata = fs.readFileSync('./test-reports/_lighthouse-report-template-example.json');
-const data = JSON.parse(rawdata);
+// const rawdata = fs.readFileSync('./test-reports/_lighthouse-report-template-example.json');
+// const data = JSON.parse(rawdata);
 let reportObjectFromJSON = {};
 let reportHeadersFromJSON = [];
 let reportTitlesFromJSON = [];
@@ -27,88 +79,70 @@ let reportBasedFields = [];
 let reportMappingsFromJSON = [];
 let reportCustomSourcesFromJSON = [];
 
+let outfile = 0;
+processQueue.forEach(function(lhJSONFilename){
 
+    if(lhJSONFilename.indexOf('.json')>-1) {
+        const rawdata = fs.readFileSync(lhJSONFilename);
+        console.log(rawdata);
+        const data = JSON.parse(rawdata);
+    
+        // add attributes from data.audits object
+        Object.keys(data.audits).forEach(function(key) {
+            let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
+            reportObjectFromJSON[key] = data.audits[key].score;
+            reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
+        });
+    
+        // add attributes that aren't in the data.audits object
+        reportObjectFromJSON.lighthouse_version = data.lighthouseVersion;
+        reportObjectFromJSON.requested_url = data.requestedUrl;
+        reportObjectFromJSON.main_document_url = data.mainDocumentUrl;
+        reportObjectFromJSON.final_displayed_url = data.finalDisplayedUrl;
+        reportObjectFromJSON.final_url = data.finalUrl;
+        reportObjectFromJSON.fetch_time = data.fetchTime;
+        reportObjectFromJSON.gather_mode = data.gatherMode;
+        reportObjectFromJSON.run_warnings = JSON.stringify(data.runWarnings);
+        reportObjectFromJSON.user_agent = data.userAgent;
+        reportObjectFromJSON.environment = JSON.stringify(data.environment);
+        reportObjectFromJSON.config_settings = JSON.stringify(data.configSettings);
+        reportObjectFromJSON.categories = JSON.stringify(data.categories);
+        reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
+        let domain = (new URL(reportObjectFromJSON.final_url));
+        reportObjectFromJSON.title = domain.hostname.replace('www.', '');
+        reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
+    
+        // reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'main_document_url', 'title': 'Main Document URL', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'final_displayed_url', 'title': 'Final Displayed URL', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'final_url', 'title': 'Final URL', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'fetch_time', 'title': 'Fetch Time', 'type': 'string'});  //temp using string.  need to import as a date eventually (soon).
+        // reportBasedFields.push({'machine_name': 'gather_mode', 'title': 'Gather Mode', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'run_warnings', 'title': 'Run Warnings', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'user_agent', 'title': 'User Agent', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'environment', 'title': 'Environment', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'categories', 'title': 'Categories', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
+    
+    
+        // console.log('reportObjectFromJSON: ', reportObjectFromJSON);
+        // build the Quick Add Fields config
+    
+        // let reportOutputForCSV = {};
+        reportBasedFields.forEach(function(reportField){
+            reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
+            // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
+        });
+        writeToCSV(outFolder+'/_csv-from-json--'+outfile+'.csv', reportHeadersFromJSON, [reportObjectFromJSON]);
+        // outputCSV
+        outfile++;
+    }
 
-// add attributes from data.audits object
-Object.keys(data.audits).forEach(function(key) {
-    let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
-    reportObjectFromJSON[key] = data.audits[key].score;
-    reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
 });
-// console.log('reportBasedFields: ', reportBasedFields);
-
-// **** additional attributes list for reference. ****
-// lighthouseVersion
-// requestedUrl
-// mainDocumentUrl
-// finalDisplayedUrl
-// finalUrl
-// fetchTime
-// gatherMode
-// runWarnings
-// userAgent
-// environment
-// audits
-// configSettings
-// categories
-// categoryGroups
-// stackPacks
-// entities
-// fullPageScreenshot
-// timing
-// i18n
-
-
-
-
-
-// add attributes that aren't in the data.audits object
-reportObjectFromJSON.lighthouse_version = data.lighthouseVersion;
-reportObjectFromJSON.requested_url = data.requestedUrl;
-reportObjectFromJSON.main_document_url = data.mainDocumentUrl;
-reportObjectFromJSON.final_displayed_url = data.finalDisplayedUrl;
-reportObjectFromJSON.final_url = data.finalUrl;
-reportObjectFromJSON.fetch_time = data.fetchTime;
-reportObjectFromJSON.gather_mode = data.gatherMode;
-reportObjectFromJSON.run_warnings = JSON.stringify(data.runWarnings);
-reportObjectFromJSON.user_agent = data.userAgent;
-reportObjectFromJSON.environment = JSON.stringify(data.environment);
-reportObjectFromJSON.config_settings = JSON.stringify(data.configSettings);
-reportObjectFromJSON.categories = JSON.stringify(data.categories);
-reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
-let domain = (new URL(reportObjectFromJSON.final_url));
-reportObjectFromJSON.title = domain.hostname.replace('www.', '');
-reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
-
-
-reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'main_document_url', 'title': 'Main Document URL', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'final_displayed_url', 'title': 'Final Displayed URL', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'final_url', 'title': 'Final URL', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'fetch_time', 'title': 'Fetch Time', 'type': 'string'});  //temp using string.  need to import as a date eventually (soon).
-reportBasedFields.push({'machine_name': 'gather_mode', 'title': 'Gather Mode', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'run_warnings', 'title': 'Run Warnings', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'user_agent', 'title': 'User Agent', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'environment', 'title': 'Environment', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'categories', 'title': 'Categories', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
-reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
-
-
-console.log('reportObjectFromJSON: ', reportObjectFromJSON);
-// build the Quick Add Fields config
-
-// let reportOutputForCSV = {};
-reportBasedFields.forEach(function(reportField){
-    reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
-    // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
-});
-writeToCSV('_test-report-csv-from-json.csv', reportHeadersFromJSON, [reportObjectFromJSON]);
-// outputCSV
-
 // Object.keys(reportObjectFromJSON).forEach(function(key){
     // console.log('console.log(key, reportBasedFields[key]); ', key, reportBasedFields[key]);
     // fieldStringNew.push(reportBasedFields[key].machine_name);
