@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_aria_command_name
     - field.field.node.lighthouse_report.field_aria_hidden_body
     - field.field.node.lighthouse_report.field_aria_hidden_focus
+    - field.field.node.lighthouse_report.field_aria_input__name
     - field.field.node.lighthouse_report.field_aria_meter_name
     - field.field.node.lighthouse_report.field_aria_progressbar_name
     - field.field.node.lighthouse_report.field_aria_required_attr
@@ -24,11 +25,8 @@ dependencies:
     - field.field.node.lighthouse_report.field_button_name
     - field.field.node.lighthouse_report.field_bypass
     - field.field.node.lighthouse_report.field_canonical
-    - field.field.node.lighthouse_report.field_categories
-    - field.field.node.lighthouse_report.field_category_groups
     - field.field.node.lighthouse_report.field_charset
     - field.field.node.lighthouse_report.field_color_contrast
-    - field.field.node.lighthouse_report.field_config_settings
     - field.field.node.lighthouse_report.field_content_width
     - field.field.node.lighthouse_report.field_crawlable_anchors
     - field.field.node.lighthouse_report.field_critical_request_chains
@@ -48,7 +46,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
     - field.field.node.lighthouse_report.field_efficient_animated_content
-    - field.field.node.lighthouse_report.field_environment
     - field.field.node.lighthouse_report.field_errors_in_console
     - field.field.node.lighthouse_report.field_fetch_time
     - field.field.node.lighthouse_report.field_final_displayed_url
@@ -207,7 +204,7 @@ processor_configuration:
     type: lighthouse_report
   langcode: en
   insert_new: 1
-  update_existing: 0
+  update_existing: 1
   update_non_existent: _keep
   skip_hash_check: false
   authorize: true
@@ -217,8 +214,8 @@ processor_configuration:
   owner_id: 0
 custom_sources:
   is-on-https:
-    value: is-on-https
-    label: is-on-https
+    value: is_on_https
+    label: is_on_https
     machine_name: field_is_on_https
     type: csv
   service-worker:
@@ -529,7 +526,7 @@ custom_sources:
   aria-input-field-name:
     value: aria-input-field-name
     label: aria-input-field-name
-    machine_name: field_aria_input_field_name
+    machine_name: field_aria_input__name
     type: csv
   aria-meter-name:
     value: aria-meter-name
@@ -1045,7 +1042,7 @@ mappings:
   -
     target: field_is_on_https
     map:
-      value: is-on-https
+      value: is_on_https
     settings:
       language: null
     unique: {  }
@@ -1409,35 +1406,35 @@ mappings:
   -
     target: field_csp_xss
     map:
-      value: ''
+      value: csp-xss
     settings:
       language: null
     unique: {  }
   -
     target: field_script_treemap_data
     map:
-      value: ''
+      value: script-treemap-data
     settings:
       language: null
     unique: {  }
   -
     target: field_pwa_cross_browser
     map:
-      value: ''
+      value: pwa-cross-browser
     settings:
       language: null
     unique: {  }
   -
     target: field_pwa_page_transitions
     map:
-      value: ''
+      value: pwa-page-transitions
     settings:
       language: null
     unique: {  }
   -
     target: field_pwa_each_page_has_url
     map:
-      value: ''
+      value: pwa-each-page-has-url
     settings:
       language: null
     unique: {  }
@@ -1451,33 +1448,33 @@ mappings:
   -
     target: field_aria_allowed_attr
     map:
-      value: ''
+      value: aria-allowed-attr
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_command_name
     map:
-      value: ''
+      value: aria-command-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_hidden_body
     map:
-      value: ''
+      value: aria-hidden-body
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_hidden_focus
     map:
-      value: ''
+      value: aria-hidden-focus
     settings:
       language: null
     unique: {  }
   -
-    target: field_aria_input___name
+    target: field_aria_input__name
     map:
       value: aria-input-field-name
     settings:
@@ -1486,84 +1483,84 @@ mappings:
   -
     target: field_aria_meter_name
     map:
-      value: ''
+      value: aria-meter-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_progressbar_name
     map:
-      value: ''
+      value: aria-progressbar-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_attr
     map:
-      value: ''
+      value: aria-required-attr
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_children
     map:
-      value: ''
+      value: aria-required-children
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_parent
     map:
-      value: ''
+      value: aria-required-parent
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_roles
     map:
-      value: ''
+      value: aria-roles
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_toggle__name
     map:
-      value: ''
+      value: aria-toggle-field-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_tooltip_name
     map:
-      value: ''
+      value: aria-tooltip-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_treeitem_name
     map:
-      value: ''
+      value: aria-treeitem-name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_valid_attr_value
     map:
-      value: ''
+      value: aria-valid-attr-value
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_valid_attr
     map:
-      value: ''
+      value: aria-valid-attr
     settings:
       language: null
     unique: {  }
   -
     target: field_button_name
     map:
-      value: ''
+      value: button-name
     settings:
       language: null
     unique: {  }
@@ -1577,14 +1574,14 @@ mappings:
   -
     target: field_color_contrast
     map:
-      value: ''
+      value: color-contrast
     settings:
       language: null
     unique: {  }
   -
     target: field_definition_list
     map:
-      value: ''
+      value: definition-list
     settings:
       language: null
     unique: {  }
@@ -1598,70 +1595,70 @@ mappings:
   -
     target: field_document_title
     map:
-      value: ''
+      value: document-title
     settings:
       language: null
     unique: {  }
   -
     target: field_duplicate_id_active
     map:
-      value: ''
+      value: duplicate-id-active
     settings:
       language: null
     unique: {  }
   -
     target: field_duplicate_id_aria
     map:
-      value: ''
+      value: duplicate-id-aria
     settings:
       language: null
     unique: {  }
   -
     target: field_form__multiple_labels
     map:
-      value: ''
+      value: form-field-multiple-labels
     settings:
       language: null
     unique: {  }
   -
     target: field_frame_title
     map:
-      value: ''
+      value: frame-title
     settings:
       language: null
     unique: {  }
   -
     target: field_heading_order
     map:
-      value: ''
+      value: heading-order
     settings:
       language: null
     unique: {  }
   -
     target: field_html_has_lang
     map:
-      value: ''
+      value: html-has-lang
     settings:
       language: null
     unique: {  }
   -
     target: field_html_lang_valid
     map:
-      value: ''
+      value: html-lang-valid
     settings:
       language: null
     unique: {  }
   -
     target: field_image_alt
     map:
-      value: ''
+      value: image-alt
     settings:
       language: null
     unique: {  }
   -
     target: field_input_image_alt
     map:
-      value: ''
+      value: input-image-alt
     settings:
       language: null
     unique: {  }
@@ -1696,21 +1693,21 @@ mappings:
   -
     target: field_meta_refresh
     map:
-      value: ''
+      value: meta-refresh
     settings:
       language: null
     unique: {  }
   -
     target: field_meta_viewport
     map:
-      value: ''
+      value: meta-viewport
     settings:
       language: null
     unique: {  }
   -
     target: field_object_alt
     map:
-      value: ''
+      value: object-alt
     settings:
       language: null
     unique: {  }
@@ -1724,49 +1721,49 @@ mappings:
   -
     target: field_td_headers_attr
     map:
-      value: ''
+      value: td-headers-attr
     settings:
       language: null
     unique: {  }
   -
     target: field_th_has_data_cells
     map:
-      value: ''
+      value: th-has-data-cells
     settings:
       language: null
     unique: {  }
   -
     target: field_valid_lang
     map:
-      value: ''
+      value: valid-lang
     settings:
       language: null
     unique: {  }
   -
     target: field_video_caption
     map:
-      value: ''
+      value: video-caption
     settings:
       language: null
     unique: {  }
   -
     target: field_custom_controls_labels
     map:
-      value: ''
+      value: custom-controls-labels
     settings:
       language: null
     unique: {  }
   -
     target: field_custom_controls_roles
     map:
-      value: ''
+      value: custom-controls-roles
     settings:
       language: null
     unique: {  }
   -
     target: field_focus_traps
     map:
-      value: ''
+      value: focus-traps
     settings:
       language: null
     unique: {  }
@@ -2081,14 +2078,14 @@ mappings:
   -
     target: field_structured_data
     map:
-      value: ''
+      value: structured-data
     settings:
       language: null
     unique: {  }
   -
     target: field_bf_cache
     map:
-      value: ''
+      value: bf-cache
     settings:
       language: null
     unique: {  }
@@ -2152,34 +2149,6 @@ mappings:
     target: field_user_agent
     map:
       value: user_agent
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_environment
-    map:
-      value: environment
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_config_settings
-    map:
-      value: config_settings
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_categories
-    map:
-      value: categories
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_category_groups
-    map:
-      value: category_groups
     settings:
       language: null
     unique: {  }
