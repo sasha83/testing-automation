@@ -1,0 +1,19 @@
+uuid: d9bbe1b6-e962-4e0e-9bdd-511f810c360f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_network_requests
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_network_requests
+field_name: field_network_requests
+entity_type: node
+bundle: lighthouse_report
+label: 'Network Requests'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

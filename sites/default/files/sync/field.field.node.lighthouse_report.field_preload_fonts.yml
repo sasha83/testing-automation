@@ -1,0 +1,19 @@
+uuid: e68e9197-84d7-4d9b-8db3-c13ba6fe299e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_preload_fonts
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_preload_fonts
+field_name: field_preload_fonts
+entity_type: node
+bundle: lighthouse_report
+label: 'Fonts with fontdisplay optional are preloaded'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

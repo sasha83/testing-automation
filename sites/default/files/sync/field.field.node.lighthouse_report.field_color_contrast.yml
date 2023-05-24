@@ -1,0 +1,23 @@
+uuid: bc161369-9828-4a52-99f2-3fa87a2e7199
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color_contrast
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_color_contrast
+field_name: field_color_contrast
+entity_type: node
+bundle: lighthouse_report
+label: 'Background and foreground colors do not have a sufficient contrast ratio'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

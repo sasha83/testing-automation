@@ -1,0 +1,19 @@
+uuid: ffb6e25a-9424-4a2a-b856-8e103f705a91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_screenshot_thumbnails
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_screenshot_thumbnails
+field_name: field_screenshot_thumbnails
+entity_type: node
+bundle: lighthouse_report
+label: 'Screenshot Thumbnails'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

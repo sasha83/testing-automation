@@ -1,0 +1,20 @@
+uuid: 027d0463-7c5e-4ecc-93fc-1f65b9983aa8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uses_passive_event_listene
+field_name: field_uses_passive_event_listene
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

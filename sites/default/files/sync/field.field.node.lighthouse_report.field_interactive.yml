@@ -1,0 +1,23 @@
+uuid: 3c56e979-c91d-4437-b953-e6cf8edccdd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interactive
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_interactive
+field_name: field_interactive
+entity_type: node
+bundle: lighthouse_report
+label: 'Time to Interactive'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

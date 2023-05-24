@@ -1,0 +1,23 @@
+uuid: 87effafa-13b7-4bc3-9adb-bc8693988b10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_roles
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_roles
+field_name: field_aria_roles
+entity_type: node
+bundle: lighthouse_report
+label: 'role values are valid'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

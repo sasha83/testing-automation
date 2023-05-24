@@ -1,0 +1,19 @@
+uuid: 64b14293-8f73-497f-aeb6-c5640ce83bdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_required_parent
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_required_parent
+field_name: field_aria_required_parent
+entity_type: node
+bundle: lighthouse_report
+label: 'roles are contained by their required parent element'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

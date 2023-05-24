@@ -1,0 +1,23 @@
+uuid: 9d4b0783-5773-4148-93c4-6954b5b6f359
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.lighthouse_report
+  module:
+    - feeds
+id: node.lighthouse_report.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: lighthouse_report
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

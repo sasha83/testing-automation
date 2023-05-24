@@ -1,0 +1,19 @@
+uuid: c7f61a15-0066-4468-910c-1e42f4a30401
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metrics
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_metrics
+field_name: field_metrics
+entity_type: node
+bundle: lighthouse_report
+label: Metrics
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

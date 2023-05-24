@@ -1,0 +1,19 @@
+uuid: a0b0efc3-1d20-4fd5-9c3b-eadb325a2d07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pwa_each_page_has_url
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_pwa_each_page_has_url
+field_name: field_pwa_each_page_has_url
+entity_type: node
+bundle: lighthouse_report
+label: 'Each page has a URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

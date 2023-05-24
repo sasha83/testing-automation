@@ -1,0 +1,23 @@
+uuid: 1b8a4370-15bd-4849-9b4a-0155f2d6d3b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_blocking_time
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_total_blocking_time
+field_name: field_total_blocking_time
+entity_type: node
+bundle: lighthouse_report
+label: 'Total Blocking Time'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

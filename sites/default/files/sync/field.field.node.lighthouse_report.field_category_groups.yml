@@ -1,0 +1,19 @@
+uuid: 75e25a2e-8251-437f-ba58-650a1a7f9334
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category_groups
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_category_groups
+field_name: field_category_groups
+entity_type: node
+bundle: lighthouse_report
+label: 'Category Groups'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

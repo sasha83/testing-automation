@@ -1,0 +1,19 @@
+uuid: 61090f24-2426-44ad-9629-b89d6c52312d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dlitem
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_dlitem
+field_name: field_dlitem
+entity_type: node
+bundle: lighthouse_report
+label: 'Definition list items are wrapped in dl elements'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

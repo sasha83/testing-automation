@@ -1,0 +1,19 @@
+uuid: 6f68b72f-738a-47c7-bbcd-a507c0a67a4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_progressbar_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_progressbar_name
+field_name: field_aria_progressbar_name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA progressbar elements have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

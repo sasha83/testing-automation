@@ -1,0 +1,23 @@
+uuid: e6636200-88a1-4b65-97a3-64ae07cdfcd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mainthread_work_breakdown
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_mainthread_work_breakdown
+field_name: field_mainthread_work_breakdown
+entity_type: node
+bundle: lighthouse_report
+label: 'Minimize mainthread work'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

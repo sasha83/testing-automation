@@ -1,0 +1,23 @@
+uuid: 6e909fb7-693e-4995-aadb-544d2e3b8d41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_command_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_command_name
+field_name: field_aria_command_name
+entity_type: node
+bundle: lighthouse_report
+label: 'button, link, and menuitem elements have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

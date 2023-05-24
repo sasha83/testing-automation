@@ -1,0 +1,23 @@
+uuid: 23e42a5d-2bde-4797-9a65-01a6ce6ffa20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unminified_css
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_unminified_css
+field_name: field_unminified_css
+entity_type: node
+bundle: lighthouse_report
+label: 'Minify CSS'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

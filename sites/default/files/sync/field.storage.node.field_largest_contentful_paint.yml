@@ -1,0 +1,20 @@
+uuid: 04705631-94ea-426d-ba97-af52f0cff8fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_largest_contentful_paint
+field_name: field_largest_contentful_paint
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

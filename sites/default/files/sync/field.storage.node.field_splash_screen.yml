@@ -1,0 +1,20 @@
+uuid: c559831c-35bf-4c51-98fd-e6b73677d208
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_splash_screen
+field_name: field_splash_screen
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

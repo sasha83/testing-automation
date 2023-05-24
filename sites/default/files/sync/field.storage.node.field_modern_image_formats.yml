@@ -1,0 +1,20 @@
+uuid: 99a5408e-a38c-4294-893a-3102098e6c2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_modern_image_formats
+field_name: field_modern_image_formats
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

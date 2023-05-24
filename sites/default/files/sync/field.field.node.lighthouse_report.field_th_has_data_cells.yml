@@ -1,0 +1,19 @@
+uuid: 95ba4891-e898-4203-bcf6-ed24ec11e53b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_th_has_data_cells
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_th_has_data_cells
+field_name: field_th_has_data_cells
+entity_type: node
+bundle: lighthouse_report
+label: 'th elements and elements with role"columnheader""rowheader" have data cells they describe'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 6edcbe45-5b8b-4f88-b11b-ab91739c4a9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_environment
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_environment
+field_name: field_environment
+entity_type: node
+bundle: lighthouse_report
+label: Environment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

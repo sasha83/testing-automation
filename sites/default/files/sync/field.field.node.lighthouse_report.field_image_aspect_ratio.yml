@@ -1,0 +1,23 @@
+uuid: 312b784a-5ce5-4dab-ad6f-80c6ab4b456c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_aspect_ratio
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_image_aspect_ratio
+field_name: field_image_aspect_ratio
+entity_type: node
+bundle: lighthouse_report
+label: 'Displays images with correct aspect ratio'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

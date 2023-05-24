@@ -1,0 +1,23 @@
+uuid: 46cdf4e3-5d5b-4d65-abc0-8cdea7df07ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prioritize_lcp_image
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_prioritize_lcp_image
+field_name: field_prioritize_lcp_image
+entity_type: node
+bundle: lighthouse_report
+label: 'Preload Largest Contentful Paint image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

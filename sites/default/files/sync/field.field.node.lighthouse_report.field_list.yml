@@ -1,0 +1,19 @@
+uuid: 4665f2b8-8c55-4510-a1cb-9c913cecdf97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_list
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_list
+field_name: field_list
+entity_type: node
+bundle: lighthouse_report
+label: 'Lists contain only li elements and script supporting elements script and template'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: c3ec9557-c419-4a81-a908-52dcdedbe9da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_worker
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_service_worker
+field_name: field_service_worker
+entity_type: node
+bundle: lighthouse_report
+label: 'Does not register a service worker that controls page and starturl'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

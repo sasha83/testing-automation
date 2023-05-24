@@ -94,11 +94,29 @@ processQueue.forEach(function(lhJSONFilename){
     
         // add attributes from data.audits object
         Object.keys(data.audits).forEach(function(key) {
-            let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
-            reportObjectFromJSON[key] = data.audits[key].score;
-            reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
+            console.log(key);
+            // if(key=='is-on-https') {
+                let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
+                if(fieldTypeFromJSON=="string") {
+                    reportObjectFromJSON[key] = String(data.audits[key].score);
+                } else if (fieldTypeFromJSON=="integer") {
+                    reportObjectFromJSON[key] = parseInt(data.audits[key].score);
+                } else {
+                    reportObjectFromJSON[key] = data.audits[key].score;
+                }
+                console.log(data.audits[key].score, reportObjectFromJSON[key]);
+                reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
+            // }
+            
+            
         });
     
+
+
+
+
+
+
         // add attributes that aren't in the data.audits object
         reportObjectFromJSON.lighthouse_version = data.lighthouseVersion;
         reportObjectFromJSON.requested_url = data.requestedUrl;
@@ -133,6 +151,12 @@ processQueue.forEach(function(lhJSONFilename){
         reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
         reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
     
+
+
+
+
+
+
     
         // console.log('reportObjectFromJSON: ', reportObjectFromJSON);
         // build the Quick Add Fields config
@@ -322,7 +346,7 @@ function customSource(key) {
     source.push('  '+key+':');
     source.push('    value: ' + key);
     source.push('    label: ' + key);
-    source.push('    machine_name: ' + key);
+    source.push('    machine_name: ' + prefix + key);
     source.push('    type: csv');
     return source;
 

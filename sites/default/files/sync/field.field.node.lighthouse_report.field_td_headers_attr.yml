@@ -1,0 +1,19 @@
+uuid: e2a2e9ff-add7-4111-9a8e-d318f334622a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_td_headers_attr
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_td_headers_attr
+field_name: field_td_headers_attr
+entity_type: node
+bundle: lighthouse_report
+label: 'Cells in a table element that use the headers attribute refer to table cells within the same table'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

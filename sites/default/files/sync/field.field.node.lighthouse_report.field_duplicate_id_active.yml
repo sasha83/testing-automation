@@ -1,0 +1,19 @@
+uuid: f88ece06-76d0-451c-beb8-4f7b6c711d82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duplicate_id_active
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_duplicate_id_active
+field_name: field_duplicate_id_active
+entity_type: node
+bundle: lighthouse_report
+label: 'id attributes on active, focusable elements are unique'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

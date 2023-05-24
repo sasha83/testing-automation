@@ -1,0 +1,19 @@
+uuid: bd8017e6-1b2b-480d-bad1-642ec20ef4d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_final_screenshot
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_final_screenshot
+field_name: field_final_screenshot
+entity_type: node
+bundle: lighthouse_report
+label: 'Final Screenshot'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

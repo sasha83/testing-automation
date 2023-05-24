@@ -1,0 +1,23 @@
+uuid: bbd31fa3-0ac0-408b-938c-c5ab4a599e2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_valid_attr_value
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_valid_attr_value
+field_name: field_aria_valid_attr_value
+entity_type: node
+bundle: lighthouse_report
+label: 'aria attributes have valid values'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

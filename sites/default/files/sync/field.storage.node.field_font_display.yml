@@ -1,0 +1,20 @@
+uuid: f6cfafd3-0a68-4d5a-a310-fa3ba8b853b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_font_display
+field_name: field_font_display
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

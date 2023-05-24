@@ -1,0 +1,20 @@
+uuid: b389b887-9f8b-4fa7-a204-31c5b1ad88e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_no_unload_listeners
+field_name: field_no_unload_listeners
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

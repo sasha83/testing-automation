@@ -1,0 +1,19 @@
+uuid: ac5a6ed1-3421-49cc-9b72-c16bd73e6ffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_toggle__name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_toggle__name
+field_name: field_aria_toggle__name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA toggle fields have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: b1d29197-5572-4d6e-9810-c6e2968ecce7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geolocation_on_start
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_geolocation_on_start
+field_name: field_geolocation_on_start
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoids requesting the geolocation permission on page load'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

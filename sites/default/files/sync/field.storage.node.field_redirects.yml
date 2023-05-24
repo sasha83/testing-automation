@@ -1,0 +1,20 @@
+uuid: bfaf3f07-f088-4556-a2db-fc62ebb96c9a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_redirects
+field_name: field_redirects
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

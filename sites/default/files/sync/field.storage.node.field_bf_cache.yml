@@ -1,0 +1,20 @@
+uuid: 3cbe30b0-309e-48cb-83a0-9f9a8b389365
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bf_cache
+field_name: field_bf_cache
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 673f1872-4336-49e0-8833-5df581d94655
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aria_input__name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_aria_input__name
+field_name: field_aria_input__name
+entity_type: node
+bundle: lighthouse_report
+label: 'ARIA input fields have accessible names'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

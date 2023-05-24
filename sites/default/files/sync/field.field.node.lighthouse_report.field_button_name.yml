@@ -1,0 +1,23 @@
+uuid: fe15c238-b2e6-466a-92f2-7dc8a7b1dfab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_button_name
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_button_name
+field_name: field_button_name
+entity_type: node
+bundle: lighthouse_report
+label: 'Buttons do not have an accessible name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

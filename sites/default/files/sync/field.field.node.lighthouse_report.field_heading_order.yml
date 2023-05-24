@@ -1,0 +1,23 @@
+uuid: 5f3e4188-e9e8-4d4a-b90f-555100ff297d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_heading_order
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_heading_order
+field_name: field_heading_order
+entity_type: node
+bundle: lighthouse_report
+label: 'Heading elements are not in a sequentiallydescending order'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

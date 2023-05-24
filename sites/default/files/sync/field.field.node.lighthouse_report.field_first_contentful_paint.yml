@@ -1,0 +1,23 @@
+uuid: bd22bb4c-4077-4f98-884a-a73266221914
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_contentful_paint
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_first_contentful_paint
+field_name: field_first_contentful_paint
+entity_type: node
+bundle: lighthouse_report
+label: 'First Contentful Paint'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,19 @@
+uuid: dfc25818-6874-40aa-8740-6134d2b26165
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_final_displayed_url
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_final_displayed_url
+field_name: field_final_displayed_url
+entity_type: node
+bundle: lighthouse_report
+label: 'Final Displayed URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

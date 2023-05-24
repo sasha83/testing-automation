@@ -1,0 +1,23 @@
+uuid: 521a5515-b8a4-4f6e-951e-ebcdece1f161
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_efficient_animated_content
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_efficient_animated_content
+field_name: field_efficient_animated_content
+entity_type: node
+bundle: lighthouse_report
+label: 'Use video formats for animated content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,20 @@
+uuid: 19ff47cf-149b-4ae5-ac8d-40a0c385c976
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_errors_in_console
+field_name: field_errors_in_console
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

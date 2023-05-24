@@ -1,0 +1,20 @@
+uuid: 0938d76d-d7dc-4a47-8a6c-300ad83b995b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_charset
+field_name: field_charset
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

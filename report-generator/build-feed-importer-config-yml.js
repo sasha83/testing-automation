@@ -136,7 +136,7 @@ let lighthouse_report_importyml = content(preYMLFile).then(function(result){
 
 let fieldStringNew = [];
 reportBasedFields.forEach(function(reportField){
-    fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
+    fieldStringNew.push(undash(reportField.machine_name)+'|'+reportField.title+'|'+reportField.type);
 });
 fs.writeFile('../_quick-add-fields-from-lighthouse-json.txt', fieldStringNew.join('\n'), (err) => {
     if (err) throw err;
@@ -199,77 +199,80 @@ fs.writeFile('../_quick-add-fields-from-lighthouse-json.txt', fieldStringNew.joi
 
 
 
-function processCSVs() {
-    fs.createReadStream("www.nataliagill.com_blog-posts_3-major-benefits-to-eatong-solid-breakfast.mobile.report.csv")
-    .pipe(parse({ delimiter: ",", from_line: 2 }))
-    .on("data", function (row) {
-      lighthouseCSVimport.push(row);
-    }).on('end',function() {
-      lighthouseCSVimport.forEach(function(r) {
-          let key = r[3];
-        //   console.log(key);
-          key = key.replace(new RegExp("-", "g"), '_');
+// function processCSVs() {
+//     fs.createReadStream("www.nataliagill.com_blog-posts_3-major-benefits-to-eatong-solid-breakfast.mobile.report.csv")
+//     .pipe(parse({ delimiter: ",", from_line: 2 }))
+//     .on("data", function (row) {
+//       lighthouseCSVimport.push(row);
+//     }).on('end',function() {
+//       lighthouseCSVimport.forEach(function(r) {
+//           let key = r[3];
+//         //   console.log(key);
+//           key = undash(key);
           
-          if(usedKeys[key]) {
-              while(usedKeys[key]) {
-                  key=key+'_1';
-              }    
-          }
-          usedKeys[key]= key;
+//           if(usedKeys[key]) {
+//               while(usedKeys[key]) {
+//                   key=key+'_1';
+//               }    
+//           }
+//           usedKeys[key]= key;
   
-          reportObject[key] = r[6];
-          reportObject.requested_url = r[0];
-          reportObject.final_url = r[1];
+//           reportObject[key] = r[6];
+//           reportObject.requested_url = r[0];
+//           reportObject.final_url = r[1];
   
-          let domain = (new URL(reportObject.final_url));
-          reportObject.title = domain.hostname.replace('www.', '');
-          reportObject.domain = domain.hostname.replace('www.', '');
+//           let domain = (new URL(reportObject.final_url));
+//           reportObject.title = domain.hostname.replace('www.', '');
+//           reportObject.domain = domain.hostname.replace('www.', '');
   
-          reportHeaders.push({id: key, title: key});
+//           reportHeaders.push({id: key, title: key});
   
-          reportCustomSources = reportCustomSources.concat(customSource(key));
-          reportMappings = reportMappings.concat(createMappings(key));
+//           reportCustomSources = reportCustomSources.concat(customSource(key));
+//           reportMappings = reportMappings.concat(createMappings(key));
   
           
-          fieldString.push(key);
-          fieldString.push('|');
-          fieldString.push(cleanTitles(r[4]));
-          fieldString.push('|');
-          fieldString.push(fieldType(r[5]));
-          fieldString.push('\n');
-      });
+//           fieldString.push(key);
+//           fieldString.push('|');
+//           fieldString.push(cleanTitles(r[4]));
+//           fieldString.push('|');
+//           fieldString.push(fieldType(r[5]));
+//           fieldString.push('\n');
+//       });
       
-      reportCustomSources = reportCustomSources.concat(customSource('title'));
-      reportMappings = reportMappings.concat(createMappings('title'));
+//       reportCustomSources = reportCustomSources.concat(customSource('title'));
+//       reportMappings = reportMappings.concat(createMappings('title'));
   
-      // fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
+//       // fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
+//       //     // In case of a error throw err.
+//       //     if (err) throw err;
+//       // })
   
-      // fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
+//       // fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
+//       //     // In case of a error throw err.
+//       //     if (err) throw err;
+//       // })
   
-      // fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
+//       // fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
+//       //     // In case of a error throw err.
+//       //     if (err) throw err;
+//       // })
   
-    //   reportHeaders.push({id: 'title', title: 'title'});
-    //   reportHeaders.push({id: 'requested_url', title: 'requested_url'});
-    //   reportHeaders.push({id: 'final_url', title: 'final_url'});
+//     //   reportHeaders.push({id: 'title', title: 'title'});
+//     //   reportHeaders.push({id: 'requested_url', title: 'requested_url'});
+//     //   reportHeaders.push({id: 'final_url', title: 'final_url'});
   
   
   
-      // writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
-    //   writeToCSV('_test-report-2.csv', reportHeaders, [reportObject]);
+//       // writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
+//     //   writeToCSV('_test-report-2.csv', reportHeaders, [reportObject]);
       
-    });
-}
+//     });
+// }
   
 // processCSVs();
+function undash(key) {
+    return key.replace(new RegExp("-", "g"), '_');
+}
 
 function writeToCSV(filename, headers, content) {
 	const csvWriter = createCsvWriter({
@@ -295,7 +298,7 @@ function createMappings(key) {
     if(key!='title') { 
         prefix = 'field_';
     }
-    key = key.replace(new RegExp("-", "g"), '_');
+    key = undash(key);
     mapping.push('  -');
     mapping.push('    target: ' + prefix + key.substring(0,26));
     mapping.push('    map:');
@@ -317,7 +320,7 @@ function customSource(key) {
     source.push('  '+key+':');
     source.push('    value: ' + key);
     source.push('    label: ' + key);
-    source.push('    machine_name: ' + key);
+    source.push('    machine_name: ' + prefix+undash(key));
     source.push('    type: csv');
     return source;
 

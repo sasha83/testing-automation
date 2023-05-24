@@ -1,0 +1,23 @@
+uuid: 6cc7688f-6cf1-406b-a9d6-e26052265561
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_potential_fid
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_max_potential_fid
+field_name: field_max_potential_fid
+entity_type: node
+bundle: lighthouse_report
+label: 'Max Potential First Input Delay'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

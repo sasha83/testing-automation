@@ -1,0 +1,23 @@
+uuid: 45150512-0dc4-4e98-a38b-9a3d24629ded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_canonical
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_canonical
+field_name: field_canonical
+entity_type: node
+bundle: lighthouse_report
+label: 'Document has a valid relcanonical'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

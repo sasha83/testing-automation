@@ -1,0 +1,20 @@
+uuid: fbcb7dd3-ca3b-4e05-a28c-58d99041234d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_maskable_icon
+field_name: field_maskable_icon
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

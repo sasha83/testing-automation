@@ -1,0 +1,19 @@
+uuid: 5988b938-97f5-47ba-a387-6e2d86c16d7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user_timings
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_user_timings
+field_name: field_user_timings
+entity_type: node
+bundle: lighthouse_report
+label: 'User Timing marks and measures'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: ed56e0b2-8f92-4eca-b6f2-f246d9fa37af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_text
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_link_text
+field_name: field_link_text
+entity_type: node
+bundle: lighthouse_report
+label: 'Links do not have descriptive text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

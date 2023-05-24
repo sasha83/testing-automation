@@ -1,0 +1,23 @@
+uuid: 0b25559e-0914-402b-a004-af41c70de2f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tabindex
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_tabindex
+field_name: field_tabindex
+entity_type: node
+bundle: lighthouse_report
+label: 'No element has a tabindex value greater than'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

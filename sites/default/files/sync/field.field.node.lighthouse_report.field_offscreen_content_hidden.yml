@@ -1,0 +1,19 @@
+uuid: 7f51a16c-41c9-43f5-852e-b5e38d354624
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offscreen_content_hidden
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_offscreen_content_hidden
+field_name: field_offscreen_content_hidden
+entity_type: node
+bundle: lighthouse_report
+label: 'Offscreen content is hidden from assistive technology'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

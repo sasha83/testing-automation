@@ -1,0 +1,20 @@
+uuid: 16bb1499-f2f8-41ac-aeb6-a28e76876082
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_speed_index
+field_name: field_speed_index
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

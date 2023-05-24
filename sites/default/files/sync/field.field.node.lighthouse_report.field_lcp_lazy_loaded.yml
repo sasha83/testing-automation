@@ -1,0 +1,23 @@
+uuid: c50fd9d1-80c5-44f3-9ed4-67d024d28a18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lcp_lazy_loaded
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_lcp_lazy_loaded
+field_name: field_lcp_lazy_loaded
+entity_type: node
+bundle: lighthouse_report
+label: 'Largest Contentful Paint image was lazily loaded'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

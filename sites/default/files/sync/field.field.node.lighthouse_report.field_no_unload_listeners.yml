@@ -1,0 +1,23 @@
+uuid: d8855e23-5e6d-48b4-9ebb-2c268898c410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_unload_listeners
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_no_unload_listeners
+field_name: field_no_unload_listeners
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoids unload event listeners'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

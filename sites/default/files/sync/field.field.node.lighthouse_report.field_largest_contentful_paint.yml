@@ -1,0 +1,23 @@
+uuid: f5d2e321-dffb-4245-9419-02d8319a39ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_largest_contentful_paint
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_largest_contentful_paint
+field_name: field_largest_contentful_paint
+entity_type: node
+bundle: lighthouse_report
+label: 'Largest Contentful Paint'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

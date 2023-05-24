@@ -1,0 +1,23 @@
+uuid: 49fdb894-2135-4eef-912f-591225650ef1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paste_preventing_inputs
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_paste_preventing_inputs
+field_name: field_paste_preventing_inputs
+entity_type: node
+bundle: lighthouse_report
+label: 'Allows users to paste into input fields'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

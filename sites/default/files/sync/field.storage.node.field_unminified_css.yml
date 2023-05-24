@@ -1,0 +1,20 @@
+uuid: 9c3aebd8-4d23-4484-9d86-22fe2d9be42e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_unminified_css
+field_name: field_unminified_css
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

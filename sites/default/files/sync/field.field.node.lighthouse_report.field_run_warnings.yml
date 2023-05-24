@@ -1,0 +1,19 @@
+uuid: 4153da94-c377-4625-b8bd-3daae9c67331
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_run_warnings
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_run_warnings
+field_name: field_run_warnings
+entity_type: node
+bundle: lighthouse_report
+label: 'Run Warnings'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

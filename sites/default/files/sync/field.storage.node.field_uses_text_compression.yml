@@ -1,0 +1,20 @@
+uuid: 02afe39e-9e1e-452e-af05-9f30b4821733
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uses_text_compression
+field_name: field_uses_text_compression
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: c9eafc6d-5938-46ab-863d-57cb45fda862
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_is_crawlable
+field_name: field_is_crawlable
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

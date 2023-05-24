@@ -1,0 +1,23 @@
+uuid: 0295677f-239a-4b4e-af7e-08c8ad7e4a04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unused_css_rules
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_unused_css_rules
+field_name: field_unused_css_rules
+entity_type: node
+bundle: lighthouse_report
+label: 'Reduce unused CSS'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

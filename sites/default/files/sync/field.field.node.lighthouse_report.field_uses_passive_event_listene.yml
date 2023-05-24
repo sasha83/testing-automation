@@ -1,0 +1,23 @@
+uuid: 51bf3f70-d5bf-4efe-8cd3-70d374325cc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uses_passive_event_listene
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_uses_passive_event_listene
+field_name: field_uses_passive_event_listene
+entity_type: node
+bundle: lighthouse_report
+label: 'Uses passive listeners to improve scrolling performance'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

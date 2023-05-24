@@ -1,0 +1,23 @@
+uuid: 0935e320-e285-479c-8602-493e6ea7be23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bf_cache
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_bf_cache
+field_name: field_bf_cache
+entity_type: node
+bundle: lighthouse_report
+label: 'Page didnt prevent backforward cache restoration'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

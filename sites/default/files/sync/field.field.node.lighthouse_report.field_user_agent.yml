@@ -1,0 +1,19 @@
+uuid: ad0348a9-ca09-4816-8482-0636c7e7a61d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user_agent
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_user_agent
+field_name: field_user_agent
+entity_type: node
+bundle: lighthouse_report
+label: 'User Agent'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

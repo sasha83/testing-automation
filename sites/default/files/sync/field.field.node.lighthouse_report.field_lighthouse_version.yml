@@ -1,0 +1,19 @@
+uuid: b0d7501f-8826-4274-ac94-6029656478a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lighthouse_version
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_lighthouse_version
+field_name: field_lighthouse_version
+entity_type: node
+bundle: lighthouse_report
+label: 'Lighthouse Version'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

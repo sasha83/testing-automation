@@ -1,0 +1,23 @@
+uuid: 6b712cd5-a65c-4d99-b693-63d3366ee235
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_html_has_lang
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_html_has_lang
+field_name: field_html_has_lang
+entity_type: node
+bundle: lighthouse_report
+label: 'html element has a lang attribute'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

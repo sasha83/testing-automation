@@ -1,0 +1,23 @@
+uuid: 2d09c927-0f6d-4bc2-85a9-2f109c3475ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unsized_images
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_unsized_images
+field_name: field_unsized_images
+entity_type: node
+bundle: lighthouse_report
+label: 'Image elements do not have explicit width and height'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,20 @@
+uuid: 1e6b9350-ae62-43ca-8002-b6b9c3f3833c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_themed_omnibox
+field_name: field_themed_omnibox
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

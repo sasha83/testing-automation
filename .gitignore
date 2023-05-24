@@ -68,3 +68,9 @@ report-generator/test-reports/report-skillpointe-1684594171666.report.csv
 report-generator/test-reports/report-skillpointe-1684594171666.report.json
 report-generator/www.nataliagill.com_blog-posts_3-major-benefits-to-eatong-solid-breakfast.mobile.report.csv
 sites/default/files/feeds/_test-report-2.csv
+report-generator/_test-config-from-json.txt
+report-generator/_test-queue.sh
+report-generator/_test-report-csv-from-json.csv
+report-generator/lighthouse_out/001/nataliagill.com-about--out.csv
+report-generator/lighthouse_out/001/nataliagill.com-contact--out.csv
+report-generator/lighthouse_out/001/nataliagill.com-home--out.csv

@@ -1,0 +1,23 @@
+uuid: 0714a465-346c-4ef3-832d-5ce5000587da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hreflang
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_hreflang
+field_name: field_hreflang
+entity_type: node
+bundle: lighthouse_report
+label: 'Document has a valid hreflang'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

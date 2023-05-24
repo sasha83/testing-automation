@@ -1,0 +1,19 @@
+uuid: 36e88d07-45d7-4398-933a-00a8a3ee3d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_final_url
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_final_url
+field_name: field_final_url
+entity_type: node
+bundle: lighthouse_report
+label: 'Final URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

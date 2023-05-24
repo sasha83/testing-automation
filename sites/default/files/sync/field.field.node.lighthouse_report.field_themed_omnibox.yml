@@ -1,0 +1,23 @@
+uuid: 5bcdfdbd-e6b1-4cbf-956e-8b98d5e33773
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_themed_omnibox
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_themed_omnibox
+field_name: field_themed_omnibox
+entity_type: node
+bundle: lighthouse_report
+label: 'Does not set a theme color for the address bar'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

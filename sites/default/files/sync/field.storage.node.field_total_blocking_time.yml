@@ -1,0 +1,20 @@
+uuid: e044bb58-d5f0-411a-9782-63d2e78e6f0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_total_blocking_time
+field_name: field_total_blocking_time
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

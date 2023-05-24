@@ -1,0 +1,19 @@
+uuid: f13fb3dd-8369-4355-a113-2c2258ef24b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interactive_element_afford
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_interactive_element_afford
+field_name: field_interactive_element_afford
+entity_type: node
+bundle: lighthouse_report
+label: 'Interactive elements indicate their purpose and state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

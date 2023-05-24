@@ -1,0 +1,19 @@
+uuid: c4e31e1a-8d4a-4267-aece-7c84da9e4add
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_network_server_latency
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_network_server_latency
+field_name: field_network_server_latency
+entity_type: node
+bundle: lighthouse_report
+label: 'Server Backend Latencies'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

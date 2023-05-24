@@ -1,0 +1,23 @@
+uuid: b4fdf107-140f-4a7f-934c-b7d43f6b1d7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dom_size
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_dom_size
+field_name: field_dom_size
+entity_type: node
+bundle: lighthouse_report
+label: 'Avoid an excessive DOM size'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

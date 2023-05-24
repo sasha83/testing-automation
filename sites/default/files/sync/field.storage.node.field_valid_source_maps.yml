@@ -1,0 +1,20 @@
+uuid: b0255f39-7314-48e3-9cd1-10022afe7c5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_valid_source_maps
+field_name: field_valid_source_maps
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

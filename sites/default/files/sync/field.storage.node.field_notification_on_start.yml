@@ -1,0 +1,20 @@
+uuid: fdf849e7-9c24-4bd3-933b-2aa33f17de7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_notification_on_start
+field_name: field_notification_on_start
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 0e284834-710d-4cc3-973d-7613ec8551d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_crawlable_anchors
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_crawlable_anchors
+field_name: field_crawlable_anchors
+entity_type: node
+bundle: lighthouse_report
+label: 'Links are not crawlable'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

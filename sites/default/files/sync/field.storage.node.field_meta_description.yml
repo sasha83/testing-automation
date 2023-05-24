@@ -1,0 +1,20 @@
+uuid: 977f8b23-6b23-46e7-98e7-22e2f23e95c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_meta_description
+field_name: field_meta_description
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

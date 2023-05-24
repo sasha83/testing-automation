@@ -1,0 +1,23 @@
+uuid: 515617ae-6452-4be6-b809-0141ab6cc693
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_width
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_content_width
+field_name: field_content_width
+entity_type: node
+bundle: lighthouse_report
+label: 'Content is sized correctly for the viewport'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

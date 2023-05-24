@@ -1,0 +1,23 @@
+uuid: 2a0dfca4-371a-41bd-89a1-6aa015865176
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_font_size
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_font_size
+field_name: field_font_size
+entity_type: node
+bundle: lighthouse_report
+label: 'Document uses legible font sizes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

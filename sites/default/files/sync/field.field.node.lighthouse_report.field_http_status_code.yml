@@ -1,0 +1,23 @@
+uuid: 68c25d25-8d52-41fd-b578-2a04d2c9f845
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_http_status_code
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_http_status_code
+field_name: field_http_status_code
+entity_type: node
+bundle: lighthouse_report
+label: 'Page has successful HTTP status code'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
