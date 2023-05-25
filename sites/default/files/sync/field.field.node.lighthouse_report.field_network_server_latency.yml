@@ -1,4 +1,4 @@
-uuid: c4e31e1a-8d4a-4267-aece-7c84da9e4add
+uuid: 555e6b4b-d1e0-4e7f-bc68-8dca4f20c5bc
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ bundle: lighthouse_report
 label: 'Server Backend Latencies'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

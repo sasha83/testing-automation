@@ -1,19 +1,21 @@
-uuid: c5fb8eba-a5c3-484f-aeba-84b36b745494
+uuid: c0d78f60-7deb-4780-9a3d-18c6421f2891
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_csp_xss
+    - field.storage.node.field_ensure_csp_xss
     - node.type.lighthouse_report
-id: node.lighthouse_report.field_csp_xss
-field_name: field_csp_xss
+  module:
+    - json_field
+id: node.lighthouse_report.field_ensure_csp_xss
+field_name: field_ensure_csp_xss
 entity_type: node
 bundle: lighthouse_report
 label: 'Ensure CSP is effective against XSS attacks'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: json_native

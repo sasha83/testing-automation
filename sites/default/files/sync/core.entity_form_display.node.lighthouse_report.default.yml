@@ -35,13 +35,12 @@ dependencies:
     - field.field.node.lighthouse_report.field_content_width
     - field.field.node.lighthouse_report.field_crawlable_anchors
     - field.field.node.lighthouse_report.field_critical_request_chains
-    - field.field.node.lighthouse_report.field_csp_xss
     - field.field.node.lighthouse_report.field_cumulative_layout_shift
     - field.field.node.lighthouse_report.field_custom_controls_labels
     - field.field.node.lighthouse_report.field_custom_controls_roles
     - field.field.node.lighthouse_report.field_definition_list
     - field.field.node.lighthouse_report.field_deprecations
-    - field.field.node.lighthouse_report.field_diagnostics
+    - field.field.node.lighthouse_report.field_detected_javascript_librar
     - field.field.node.lighthouse_report.field_dlitem
     - field.field.node.lighthouse_report.field_doctype
     - field.field.node.lighthouse_report.field_document_title
@@ -51,6 +50,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
     - field.field.node.lighthouse_report.field_efficient_animated_content
+    - field.field.node.lighthouse_report.field_ensure_csp_xss
     - field.field.node.lighthouse_report.field_environment
     - field.field.node.lighthouse_report.field_errors_in_console
     - field.field.node.lighthouse_report.field_fetch_time
@@ -82,7 +82,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_interactive_element_afford
     - field.field.node.lighthouse_report.field_is_crawlable
     - field.field.node.lighthouse_report.field_is_on_https
-    - field.field.node.lighthouse_report.field_js_libraries
     - field.field.node.lighthouse_report.field_label
     - field.field.node.lighthouse_report.field_largest_contentful_paint
     - field.field.node.lighthouse_report.field_largest_contentful_paint_e
@@ -171,6 +170,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_visual_order_follows_dom
     - node.type.lighthouse_report
   module:
+    - json_field
     - path
 id: node.lighthouse_report.default
 targetEntityType: node
@@ -409,19 +409,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_critical_request_chains:
-    type: string_textfield
-    weight: 137
+    type: string_textarea
+    weight: 290
     region: content
     settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_csp_xss:
-    type: string_textfield
-    weight: 173
-    region: content
-    settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_cumulative_layout_shift:
@@ -462,12 +454,12 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_diagnostics:
-    type: string_textfield
-    weight: 153
+  field_detected_javascript_librar:
+    type: string_textarea
+    weight: 293
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_dlitem:
@@ -537,6 +529,14 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_ensure_csp_xss:
+    type: json_textarea
+    weight: 291
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_environment:
     type: string_textarea
     weight: 285
@@ -569,11 +569,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_final_screenshot:
-    type: string_textfield
-    weight: 129
+    type: string_textarea
+    weight: 292
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_final_url:
@@ -766,14 +766,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_js_libraries:
-    type: string_textfield
-    weight: 253
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_label:
     type: number
     weight: 210
@@ -789,19 +781,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_largest_contentful_paint_e:
-    type: string_textfield
-    weight: 164
+    type: string_textarea
+    weight: 294
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_layout_shift_elements:
-    type: string_textfield
-    weight: 166
+    type: string_textarea
+    weight: 295
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_lcp_lazy_loaded:
@@ -865,11 +857,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_long_tasks:
-    type: string_textfield
-    weight: 167
+    type: string_textarea
+    weight: 296
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_main_document_url:
@@ -881,11 +873,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_main_thread_tasks:
-    type: string_textfield
-    weight: 157
+    type: string_textarea
+    weight: 297
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_mainthread_work_breakdown:
@@ -940,11 +932,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_metrics:
-    type: string_textfield
-    weight: 158
+    type: string_textarea
+    weight: 298
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_modern_image_formats:
@@ -955,27 +947,27 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_network_requests:
-    type: string_textfield
-    weight: 154
+    type: string_textarea
+    weight: 299
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_network_rtt:
-    type: string_textfield
-    weight: 155
+    type: string_textarea
+    weight: 300
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_network_server_latency:
-    type: string_textfield
-    weight: 156
+    type: string_textarea
+    weight: 301
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_no_document_write:
@@ -1114,11 +1106,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_resource_summary:
-    type: string_textfield
-    weight: 161
+    type: string_textarea
+    weight: 302
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_robots_txt:
@@ -1137,19 +1129,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_screenshot_thumbnails:
-    type: string_textfield
-    weight: 128
+    type: string_textarea
+    weight: 303
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_script_treemap_data:
-    type: string_textfield
-    weight: 174
+    type: string_textarea
+    weight: 304
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_server_response_time:

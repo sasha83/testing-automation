@@ -1,4 +1,4 @@
-uuid: 418609cc-7a82-4cb8-9ddd-253b6324f058
+uuid: 6fff8ab5-0175-4260-8b1a-5b1153174314
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_metrics
 field_name: field_metrics
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

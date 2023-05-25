@@ -1,19 +1,19 @@
-uuid: 08c2694a-3919-4ade-9e1e-435768733150
+uuid: db2622a1-9459-4aa5-b8e0-379e71848559
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_js_libraries
+    - field.storage.node.field_detected_javascript_librar
     - node.type.lighthouse_report
-id: node.lighthouse_report.field_js_libraries
-field_name: field_js_libraries
+id: node.lighthouse_report.field_detected_javascript_librar
+field_name: field_detected_javascript_librar
 entity_type: node
 bundle: lighthouse_report
 label: 'Detected JavaScript libraries'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

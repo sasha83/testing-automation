@@ -1,4 +1,4 @@
-uuid: 25324c99-4f93-46cc-854a-699dbc27cdee
+uuid: 8fd1d682-c109-40a5-bc91-6c6781821fd2
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_script_treemap_data
 field_name: field_script_treemap_data
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

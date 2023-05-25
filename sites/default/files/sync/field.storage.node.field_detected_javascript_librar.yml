@@ -1,17 +1,15 @@
-uuid: 33426411-edc9-4eed-9ee4-3a8a31a21e6b
+uuid: 3d20c0f1-d92a-4f31-9a1e-7e6d2a617114
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_diagnostics
-field_name: field_diagnostics
+id: node.field_detected_javascript_librar
+field_name: field_detected_javascript_librar
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

@@ -1,4 +1,4 @@
-uuid: fa0e7f31-f224-4ac8-b572-186f26370342
+uuid: d834213e-c4d8-4dd4-8ccf-d7f8f49d3e83
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_main_thread_tasks
 field_name: field_main_thread_tasks
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

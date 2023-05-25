@@ -13,7 +13,7 @@ let reportCustomSources = [];
 let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
-const outFolder = './lighthouse_out';
+const outFolder = '../sites/default/files/_lighthouse_report_staging';
 const inFolder = './lighthouse';
 
 
@@ -45,7 +45,7 @@ const inFolder = './lighthouse';
 let processQueue = [];
 fs.readdirSync(inFolder).forEach(file => {
 
-    console.log(fs.lstatSync("./lighthouse/"+file).isDirectory() );
+    // console.log(fs.lstatSync("./lighthouse/"+file).isDirectory() );
 
     // fs.access("./lighthouse/"+file, function(error) {
     //     if (error) {
@@ -81,30 +81,38 @@ let reportMappingsFromJSON = [];
 let reportCustomSourcesFromJSON = [];
 
 let outfile = 0;
+// console.log(processQueue);
 processQueue.forEach(function(lhJSONFilename){
+    reportObjectFromJSON = {};
+    reportHeadersFromJSON = [];
+    reportBasedFields = [];
     var outFileName = lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
     outFileName = outFileName.replace('.json', '.csv');
-    console.log('filename: ', outFileName);
+    
+    // console.log('filename: ', outFileName);
     
     if(lhJSONFilename.indexOf('.json')>-1) {
 
         const rawdata = fs.readFileSync(lhJSONFilename);
-        console.log(rawdata);
+        console.log(lhJSONFilename, rawdata);
         const data = JSON.parse(rawdata);
     
         // add attributes from data.audits object
         Object.keys(data.audits).forEach(function(key) {
-            console.log(key);
+            // console.log(key);
             // if(key=='is-on-https') {
                 let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
+
                 if(fieldTypeFromJSON=="string") {
                     reportObjectFromJSON[key] = String(data.audits[key].score);
                 } else if (fieldTypeFromJSON=="integer") {
                     reportObjectFromJSON[key] = parseInt(data.audits[key].score);
+                } else if (fieldTypeFromJSON=="informative") {
+                    reportObjectFromJSON[key] = JSON.stringify(data.audits[key].details);
                 } else {
                     reportObjectFromJSON[key] = data.audits[key].score;
                 }
-                console.log(data.audits[key].score, reportObjectFromJSON[key]);
+                // console.log(data.audits[key].score, reportObjectFromJSON[key]);
                 reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
             // }
             
@@ -132,7 +140,8 @@ processQueue.forEach(function(lhJSONFilename){
         reportObjectFromJSON.categories = JSON.stringify(data.categories);
         reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
         let domain = (new URL(reportObjectFromJSON.final_url));
-        reportObjectFromJSON.title = domain.hostname.replace('www.', '');
+        // reportObjectFromJSON.title = domain.hostname.replace('www.', '');
+        reportObjectFromJSON.title = data.requestedUrl;
         reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
     
         reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
@@ -166,7 +175,8 @@ processQueue.forEach(function(lhJSONFilename){
             reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
             // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
         });
-        writeToCSV(outFolder+'/001/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
+        console.log(reportObjectFromJSON);
+        writeToCSV(outFolder+'/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
         // outputCSV
         outfile++;
     }

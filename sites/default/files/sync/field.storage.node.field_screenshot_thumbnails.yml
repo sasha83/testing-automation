@@ -1,4 +1,4 @@
-uuid: a3c1a5d0-c129-4a55-b2e8-07045edffaf9
+uuid: 69580ebd-c0c7-4236-9e74-9463a7b1d38b
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_screenshot_thumbnails
 field_name: field_screenshot_thumbnails
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

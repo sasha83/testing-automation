@@ -1,18 +1,16 @@
-uuid: e84421d4-b3b3-4767-b11e-1fa10b79e032
+uuid: 83364cda-aa6b-4719-90c2-d4cc17943458
 langcode: en
 status: true
 dependencies:
   module:
+    - json_field
     - node
-id: node.field_csp_xss
-field_name: field_csp_xss
+id: node.field_ensure_csp_xss
+field_name: field_ensure_csp_xss
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+type: json_native
+settings: {  }
+module: json_field
 locked: false
 cardinality: 1
 translatable: true

@@ -1,4 +1,4 @@
-uuid: bd8017e6-1b2b-480d-bad1-642ec20ef4d2
+uuid: c3f0f97b-80b2-46a5-b099-7b340cf98f6d
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ bundle: lighthouse_report
 label: 'Final Screenshot'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

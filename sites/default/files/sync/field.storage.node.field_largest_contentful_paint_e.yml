@@ -1,4 +1,4 @@
-uuid: 398456b0-908c-48fc-84d9-20e1cf6673c2
+uuid: f88458f8-d3fa-4ade-a51d-21c5068b9a45
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_largest_contentful_paint_e
 field_name: field_largest_contentful_paint_e
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

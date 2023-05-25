@@ -1,4 +1,4 @@
-uuid: 16e7feb0-d109-42bd-8ace-53bad58a4d01
+uuid: 57c5b0bf-7a44-4d28-824a-b478a6bfa9c9
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_layout_shift_elements
 field_name: field_layout_shift_elements
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

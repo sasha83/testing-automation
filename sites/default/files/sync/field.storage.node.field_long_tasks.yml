@@ -1,4 +1,4 @@
-uuid: 20ab3e53-0084-41ad-a99b-326f44eb0588
+uuid: 3b71a539-73a9-49c7-a639-9cac2610a4ba
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_long_tasks
 field_name: field_long_tasks
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

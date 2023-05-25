@@ -1,4 +1,4 @@
-uuid: 56c5a09d-0e02-47e6-b365-fd20d6c678c1
+uuid: c4665733-d465-450e-8af5-6ffd97474f81
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ bundle: lighthouse_report
 label: 'Avoid long mainthread tasks'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

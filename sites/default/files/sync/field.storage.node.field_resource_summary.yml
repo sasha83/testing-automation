@@ -1,4 +1,4 @@
-uuid: a9a8fee6-34ab-4c94-b3db-3333814c6878
+uuid: 531bb4a3-6a7d-41cd-88ad-975e56f0f454
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_resource_summary
 field_name: field_resource_summary
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

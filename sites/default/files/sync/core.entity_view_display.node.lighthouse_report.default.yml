@@ -35,13 +35,12 @@ dependencies:
     - field.field.node.lighthouse_report.field_content_width
     - field.field.node.lighthouse_report.field_crawlable_anchors
     - field.field.node.lighthouse_report.field_critical_request_chains
-    - field.field.node.lighthouse_report.field_csp_xss
     - field.field.node.lighthouse_report.field_cumulative_layout_shift
     - field.field.node.lighthouse_report.field_custom_controls_labels
     - field.field.node.lighthouse_report.field_custom_controls_roles
     - field.field.node.lighthouse_report.field_definition_list
     - field.field.node.lighthouse_report.field_deprecations
-    - field.field.node.lighthouse_report.field_diagnostics
+    - field.field.node.lighthouse_report.field_detected_javascript_librar
     - field.field.node.lighthouse_report.field_dlitem
     - field.field.node.lighthouse_report.field_doctype
     - field.field.node.lighthouse_report.field_document_title
@@ -51,6 +50,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
     - field.field.node.lighthouse_report.field_efficient_animated_content
+    - field.field.node.lighthouse_report.field_ensure_csp_xss
     - field.field.node.lighthouse_report.field_environment
     - field.field.node.lighthouse_report.field_errors_in_console
     - field.field.node.lighthouse_report.field_fetch_time
@@ -82,7 +82,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_interactive_element_afford
     - field.field.node.lighthouse_report.field_is_crawlable
     - field.field.node.lighthouse_report.field_is_on_https
-    - field.field.node.lighthouse_report.field_js_libraries
     - field.field.node.lighthouse_report.field_label
     - field.field.node.lighthouse_report.field_largest_contentful_paint
     - field.field.node.lighthouse_report.field_largest_contentful_paint_e
@@ -171,6 +170,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_visual_order_follows_dom
     - node.type.lighthouse_report
   module:
+    - json_field
     - user
 id: node.lighthouse_report.default
 targetEntityType: node
@@ -431,20 +431,11 @@ content:
     weight: 242
     region: content
   field_critical_request_chains:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 117
-    region: content
-  field_csp_xss:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 153
+    weight: 270
     region: content
   field_cumulative_layout_shift:
     type: number_decimal
@@ -490,13 +481,12 @@ content:
     third_party_settings: {  }
     weight: 127
     region: content
-  field_diagnostics:
-    type: string
+  field_detected_javascript_librar:
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 133
+    weight: 273
     region: content
   field_dlitem:
     type: string
@@ -581,6 +571,14 @@ content:
     third_party_settings: {  }
     weight: 224
     region: content
+  field_ensure_csp_xss:
+    type: json
+    label: above
+    settings:
+      attach_library: true
+    third_party_settings: {  }
+    weight: 271
+    region: content
   field_environment:
     type: basic_string
     label: above
@@ -614,12 +612,11 @@ content:
     weight: 254
     region: content
   field_final_screenshot:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 109
+    weight: 272
     region: content
   field_final_url:
     type: string
@@ -853,14 +850,6 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_js_libraries:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 233
-    region: content
   field_label:
     type: number_integer
     label: above
@@ -882,20 +871,18 @@ content:
     weight: 105
     region: content
   field_largest_contentful_paint_e:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 144
+    weight: 274
     region: content
   field_layout_shift_elements:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 146
+    weight: 275
     region: content
   field_lcp_lazy_loaded:
     type: number_integer
@@ -968,12 +955,11 @@ content:
     weight: 207
     region: content
   field_long_tasks:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 147
+    weight: 276
     region: content
   field_main_document_url:
     type: string
@@ -984,12 +970,11 @@ content:
     weight: 253
     region: content
   field_main_thread_tasks:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 137
+    weight: 277
     region: content
   field_mainthread_work_breakdown:
     type: number_decimal
@@ -1057,12 +1042,11 @@ content:
     weight: 195
     region: content
   field_metrics:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 138
+    weight: 278
     region: content
   field_modern_image_formats:
     type: number_decimal
@@ -1076,28 +1060,25 @@ content:
     weight: 220
     region: content
   field_network_requests:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 134
+    weight: 279
     region: content
   field_network_rtt:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 135
+    weight: 280
     region: content
   field_network_server_latency:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 136
+    weight: 281
     region: content
   field_no_document_write:
     type: number_integer
@@ -1261,12 +1242,11 @@ content:
     weight: 252
     region: content
   field_resource_summary:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 141
+    weight: 282
     region: content
   field_robots_txt:
     type: number_integer
@@ -1286,20 +1266,18 @@ content:
     weight: 258
     region: content
   field_screenshot_thumbnails:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 108
+    weight: 283
     region: content
   field_script_treemap_data:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 154
+    weight: 284
     region: content
   field_server_response_time:
     type: number_integer
