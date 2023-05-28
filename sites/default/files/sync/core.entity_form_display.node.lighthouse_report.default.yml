@@ -154,7 +154,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_unused_javascript
     - field.field.node.lighthouse_report.field_use_landmarks
     - field.field.node.lighthouse_report.field_user_agent
-    - field.field.node.lighthouse_report.field_user_timings
+    - field.field.node.lighthouse_report.field_user_timing
     - field.field.node.lighthouse_report.field_uses_http2
     - field.field.node.lighthouse_report.field_uses_long_cache_ttl
     - field.field.node.lighthouse_report.field_uses_optimized_images
@@ -1305,12 +1305,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_user_timings:
-    type: string_textfield
-    weight: 136
+  field_user_timing:
+    type: string_textarea
+    weight: 305
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_uses_http2:

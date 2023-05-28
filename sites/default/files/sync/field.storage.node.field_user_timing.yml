@@ -1,17 +1,15 @@
-uuid: c507cd20-f05c-48da-b2aa-db1eef128ce2
+uuid: abe204f6-a6b1-4992-ad48-21f0313bc911
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_user_timings
-field_name: field_user_timings
+id: node.field_user_timing
+field_name: field_user_timing
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

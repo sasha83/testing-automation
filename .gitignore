@@ -39,3 +39,7 @@ npm-debug.log
 /robots.txt
 /update.php
 /web.config
+*.csv
+/report-generator/*.csv
+*.json
+/report-generator/*.json

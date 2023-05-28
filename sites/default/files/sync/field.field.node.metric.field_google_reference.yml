@@ -1,0 +1,19 @@
+uuid: 6a41e0d3-383f-49ff-81d5-ff3768f624a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_reference
+    - node.type.metric
+id: node.metric.field_google_reference
+field_name: field_google_reference
+entity_type: node
+bundle: metric
+label: 'Google Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

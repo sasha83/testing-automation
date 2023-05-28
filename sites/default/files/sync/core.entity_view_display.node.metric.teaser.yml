@@ -1,0 +1,32 @@
+uuid: 147d08ed-f705-4fcc-9a97-fe2163f8e26e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.metric.body
+    - field.field.node.metric.field_google_reference
+    - node.type.metric
+  module:
+    - text
+    - user
+id: node.metric.teaser
+targetEntityType: node
+bundle: metric
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_google_reference: true

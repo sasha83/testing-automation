@@ -1,19 +1,19 @@
-uuid: 5988b938-97f5-47ba-a387-6e2d86c16d7f
+uuid: a2580167-66a4-4f14-a7ac-fca8f3828571
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_user_timings
+    - field.storage.node.field_user_timing
     - node.type.lighthouse_report
-id: node.lighthouse_report.field_user_timings
-field_name: field_user_timings
+id: node.lighthouse_report.field_user_timing
+field_name: field_user_timing
 entity_type: node
 bundle: lighthouse_report
 label: 'User Timing marks and measures'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long
