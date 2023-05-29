@@ -1,0 +1,21 @@
+uuid: cd49d87f-bdfe-4f5b-8201-a1fff0ec387a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url
+    - node.type.full_path
+  module:
+    - options
+id: node.full_path.field_url
+field_name: field_url
+entity_type: node
+bundle: full_path
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

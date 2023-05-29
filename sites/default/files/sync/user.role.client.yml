@@ -1,0 +1,9 @@
+uuid: 146f31bd-ce8f-43f7-bdcc-95e7c45cce48
+langcode: en
+status: true
+dependencies: {  }
+id: client
+label: Client
+weight: 4
+is_admin: null
+permissions: {  }
