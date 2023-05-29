@@ -3,6 +3,7 @@ build
 npm-debug.log
 .nyc
 *.css.gz
+*.sql.gz
 .env
 .DS_Store
 
