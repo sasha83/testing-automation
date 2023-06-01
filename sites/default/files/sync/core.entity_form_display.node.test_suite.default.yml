@@ -1,18 +1,17 @@
-uuid: 2928132d-3779-48b1-9959-4296e6bfd2e3
+uuid: b79b8df0-4f6a-401c-a9a2-ac015ab19108
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.domain.body
-    - field.field.node.domain.field_root
-    - field.field.node.domain.field_site
-    - node.type.domain
+    - field.field.node.test_suite.body
+    - field.field.node.test_suite.field_domains
+    - node.type.test_suite
   module:
     - path
     - text
-id: node.domain.default
+id: node.test_suite.default
 targetEntityType: node
-bundle: domain
+bundle: test_suite
 mode: default
 content:
   body:
@@ -31,19 +30,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_root:
-    type: string_textfield
+  field_domains:
+    type: entity_reference_autocomplete
     weight: 122
     region: content
     settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_site:
-    type: string_textfield
-    weight: 123
-    region: content
-    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }

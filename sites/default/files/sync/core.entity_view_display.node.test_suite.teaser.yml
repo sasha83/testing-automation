@@ -1,19 +1,18 @@
-uuid: d8626c4c-4919-4b60-8d35-4b071bbb01d9
+uuid: 0530c7df-cbdb-4795-9feb-3518f06e3afe
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.domain.body
-    - field.field.node.domain.field_root
-    - field.field.node.domain.field_site
-    - node.type.domain
+    - field.field.node.test_suite.body
+    - field.field.node.test_suite.field_domains
+    - node.type.test_suite
   module:
     - text
     - user
-id: node.domain.teaser
+id: node.test_suite.teaser
 targetEntityType: node
-bundle: domain
+bundle: test_suite
 mode: teaser
 content:
   body:
@@ -30,5 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_root: true
-  field_site: true
+  field_domains: true

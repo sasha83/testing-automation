@@ -1,0 +1,10 @@
+uuid: c37f1117-299a-4188-926d-cb4c17148046
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.test_suite_rest_domain
+label: 'Test Suite Rest Domain'
+targetEntityType: node
+cache: true

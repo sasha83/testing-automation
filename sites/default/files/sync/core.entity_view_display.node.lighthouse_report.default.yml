@@ -140,6 +140,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_tabindex
     - field.field.node.lighthouse_report.field_tap_targets
     - field.field.node.lighthouse_report.field_td_headers_attr
+    - field.field.node.lighthouse_report.field_test_suite_id
     - field.field.node.lighthouse_report.field_th_has_data_cells
     - field.field.node.lighthouse_report.field_themed_omnibox
     - field.field.node.lighthouse_report.field_third_party_facades
@@ -1099,12 +1100,11 @@ content:
     weight: 148
     region: content
   field_non_composited_animations:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 149
+    weight: 286
     region: content
   field_notification_on_start:
     type: number_integer
@@ -1350,6 +1350,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 198
+    region: content
+  field_test_suite_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 287
     region: content
   field_th_has_data_cells:
     type: string

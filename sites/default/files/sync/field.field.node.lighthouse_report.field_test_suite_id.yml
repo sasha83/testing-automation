@@ -1,0 +1,29 @@
+uuid: 4c945cf9-895a-4494-8b3a-6768b2668b53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_test_suite_id
+    - node.type.lighthouse_report
+    - node.type.test_suite
+id: node.lighthouse_report.field_test_suite_id
+field_name: field_test_suite_id
+entity_type: node
+bundle: lighthouse_report
+label: 'Test Suite ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      test_suite: test_suite
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,15 +1,15 @@
-uuid: 98b50bb4-4a62-4204-a649-4f7be3a44c7c
+uuid: 3a6606a1-5954-4c25-82e5-93546d1d63c8
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_non_composited_animations
-field_name: field_non_composited_animations
+id: node.field_test_suite_id
+field_name: field_test_suite_id
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: node
 module: core
 locked: false
 cardinality: 1

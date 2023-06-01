@@ -13,8 +13,8 @@ let reportCustomSources = [];
 let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
-const outFolder = '~/testing-automation/sites/default/files/_lighthouse_report_staging';
-const inFolder = '~/testing-automation/report-generator/lighthouse';
+const outFolder = '../sites/default/files/_lighthouse_report_staging';
+const inFolder = './_lighthouse-report-queue/test-suite-1091';
 
 
 
@@ -46,7 +46,7 @@ let processQueue = [];
 fs.readdirSync(inFolder).forEach(file => {
 
     // console.log(fs.lstatSync("./lighthouse/"+file).isDirectory() );
-
+    // console.log(inFolder, file);
     // fs.access("./lighthouse/"+file, function(error) {
     //     if (error) {
     //       console.log("Directory does not exist.", file)
@@ -54,17 +54,22 @@ fs.readdirSync(inFolder).forEach(file => {
     //       console.log("Directory exists.", file)
     //     }
     //   })
-    let lhReportPath = "./lighthouse/"+file;
+    let lhReportPath = inFolder+"/"+file;
     if(fs.lstatSync(lhReportPath).isDirectory()) {
         // processQueue.push(lhReportPath);
         fs.readdirSync(lhReportPath).forEach(filename => {
             processQueue.push(lhReportPath+"/"+filename);
         });
+    } else {
+        if(file.indexOf('.json')>-1) {
+            // console.log("it's JSON");
+            processQueue.push(lhReportPath);
+        }
     }
     
 });
   
-// console.log(processQueue);
+console.log('processQueue: ', processQueue);
 
 // report-generator/_pre_lh-report-feed-yml.txt
 // ../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml
@@ -73,28 +78,31 @@ fs.readdirSync(inFolder).forEach(file => {
 
 // const rawdata = fs.readFileSync('./test-reports/_lighthouse-report-template-example.json');
 // const data = JSON.parse(rawdata);
-let reportObjectFromJSON = {};
-let reportHeadersFromJSON = [];
-let reportTitlesFromJSON = [];
-let reportBasedFields = [];
-let reportMappingsFromJSON = [];
-let reportCustomSourcesFromJSON = [];
 
 let outfile = 0;
 // console.log(processQueue);
 processQueue.forEach(function(lhJSONFilename){
+    let reportObjectFromJSON = {};
+    let reportHeadersFromJSON = [];
+    let reportTitlesFromJSON = [];
+    let reportBasedFields = [];
+    let reportMappingsFromJSON = [];
+    let reportCustomSourcesFromJSON = [];
+    
     reportObjectFromJSON = {};
     reportHeadersFromJSON = [];
     reportBasedFields = [];
     var outFileName = lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
     outFileName = outFileName.replace('.json', '.csv');
+
+    
     
     // console.log('filename: ', outFileName);
     
     if(lhJSONFilename.indexOf('.json')>-1) {
 
         const rawdata = fs.readFileSync(lhJSONFilename);
-        console.log(lhJSONFilename, rawdata);
+        // console.log(lhJSONFilename, rawdata);
         const data = JSON.parse(rawdata);
     
         // add attributes from data.audits object
@@ -143,6 +151,8 @@ processQueue.forEach(function(lhJSONFilename){
         // reportObjectFromJSON.title = domain.hostname.replace('www.', '');
         reportObjectFromJSON.title = data.requestedUrl;
         reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
+        // reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
+        
     
         reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
         reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});
@@ -159,6 +169,7 @@ processQueue.forEach(function(lhJSONFilename){
         reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
         reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
         reportBasedFields.push({'machine_name': 'domain', 'title': 'Domain', 'type': 'string'});
+        // reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
     
 
 
@@ -175,7 +186,8 @@ processQueue.forEach(function(lhJSONFilename){
             reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
             // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
         });
-        console.log(reportObjectFromJSON);
+        // console.log(reportObjectFromJSON);
+        console.log(outFolder+'/'+outFileName);
         writeToCSV(outFolder+'/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
         // outputCSV
         outfile++;
@@ -312,7 +324,7 @@ function processCSVs() {
 
 function writeToCSV(filename, headers, content) {
 	const csvWriter = createCsvWriter({
-		path: '/Users/alexandreswetlowski/testing-automation/report-generator/' + filename,
+		path: filename,
 		header: headers,
 	});
 	csvWriter
