@@ -13,8 +13,8 @@ let reportCustomSources = [];
 let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
-const outFolder = '../sites/default/files/_lighthouse_report_staging';
-const inFolder = './lighthouse';
+const outFolder = '~/testing-automation/sites/default/files/_lighthouse_report_staging';
+const inFolder = '~/testing-automation/report-generator/lighthouse';
 
 
 

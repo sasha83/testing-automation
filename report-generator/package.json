@@ -24,7 +24,9 @@
     "csv-writer": "^1.6.0",
     "exec": "^0.2.1",
     "fs": "^0.0.1-security",
+    "get-sitemap-links": "^1.1.0",
     "json-diff": "^1.0.5",
-    "lighthouse": "^10.2.0"
+    "lighthouse": "^10.2.0",
+    "sitemap-urls": "^3.0.0"
   }
 }
