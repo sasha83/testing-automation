@@ -113,7 +113,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_render_blocking_resources
     - field.field.node.lighthouse_report.field_requested_url
     - field.field.node.lighthouse_report.field_robots_txt
-    - field.field.node.lighthouse_report.field_run_warnings
     - field.field.node.lighthouse_report.field_server_response_time
     - field.field.node.lighthouse_report.field_service_worker
     - field.field.node.lighthouse_report.field_speed_index
@@ -1032,18 +1031,113 @@ custom_sources:
     label: test_suite_id
     machine_name: test_suite_id
     type: csv
+  is_on_https:
+    value: is_on_https
+    label: is_on_https
+    machine_name: is_on_https
+    type: csv
+  service_worker:
+    value: service_worker
+    label: service_worker
+    machine_name: service_worker
+    type: csv
+  first_contentful_paint:
+    value: first_contentful_paint
+    label: first_contentful_paint
+    machine_name: first_contentful_paint
+    type: csv
+  largest_contentful_paint:
+    value: largest_contentful_paint
+    label: largest_contentful_paint
+    machine_name: largest_contentful_paint
+    type: csv
+  first_meaningful_paint:
+    value: first_meaningful_paint
+    label: first_meaningful_paint
+    machine_name: first_meaningful_paint
+    type: csv
+  speed_index:
+    value: speed_index
+    label: speed_index
+    machine_name: speed_index
+    type: csv
+  total_blocking_time:
+    value: total_blocking_time
+    label: total_blocking_time
+    machine_name: total_blocking_time
+    type: csv
+  max_potential_fid:
+    value: max_potential_fid
+    label: max_potential_fid
+    machine_name: max_potential_fid
+    type: csv
+  cumulative_layout_shift:
+    value: cumulative_layout_shift
+    label: cumulative_layout_shift
+    machine_name: cumulative_layout_shift
+    type: csv
+  errors_in_console:
+    value: errors_in_console
+    label: errors_in_console
+    machine_name: errors_in_console
+    type: csv
+  server_response_time:
+    value: server_response_time
+    label: server_response_time
+    machine_name: server_response_time
+    type: csv
+  installable_manifest:
+    value: installable_manifest
+    label: installable_manifest
+    machine_name: installable_manifest
+    type: csv
+  splash_screen:
+    value: splash_screen
+    label: splash_screen
+    machine_name: splash_screen
+    type: csv
+  themed_omnibox:
+    value: themed_omnibox
+    label: themed_omnibox
+    machine_name: themed_omnibox
+    type: csv
+  maskable_icon:
+    value: maskable_icon
+    label: maskable_icon
+    machine_name: maskable_icon
+    type: csv
+  content_width:
+    value: content_width
+    label: content_width
+    machine_name: content_width
+    type: csv
+  image_aspect_ratio:
+    value: image_aspect_ratio
+    label: image_aspect_ratio
+    machine_name: image_aspect_ratio
+    type: csv
+  image_size_responsive:
+    value: image_size_responsive
+    label: image_size_responsive
+    machine_name: image_size_responsive
+    type: csv
+  preload_fonts:
+    value: preload_fonts
+    label: preload_fonts
+    machine_name: preload_fonts
+    type: csv
 mappings:
   -
     target: field_is_on_https
     map:
-      value: ''
+      value: is_on_https
     settings:
       language: null
     unique: {  }
   -
     target: field_service_worker
     map:
-      value: ''
+      value: service_worker
     settings:
       language: null
     unique: {  }
@@ -1057,63 +1151,63 @@ mappings:
   -
     target: field_first_contentful_paint
     map:
-      value: ''
+      value: first_contentful_paint
     settings:
       language: null
     unique: {  }
   -
     target: field_largest_contentful_paint
     map:
-      value: ''
+      value: largest_contentful_paint
     settings:
       language: null
     unique: {  }
   -
     target: field_first_meaningful_paint
     map:
-      value: ''
+      value: first_meaningful_paint
     settings:
       language: null
     unique: {  }
   -
     target: field_speed_index
     map:
-      value: ''
+      value: speed_index
     settings:
       language: null
     unique: {  }
   -
     target: field_total_blocking_time
     map:
-      value: ''
+      value: total_blocking_time
     settings:
       language: null
     unique: {  }
   -
     target: field_max_potential_fid
     map:
-      value: ''
+      value: max_potential_fid
     settings:
       language: null
     unique: {  }
   -
     target: field_cumulative_layout_shift
     map:
-      value: ''
+      value: cumulative_layout_shift
     settings:
       language: null
     unique: {  }
   -
     target: field_errors_in_console
     map:
-      value: ''
+      value: errors_in_console
     settings:
       language: null
     unique: {  }
   -
     target: field_server_response_time
     map:
-      value: ''
+      value: server_response_time
     settings:
       language: null
     unique: {  }
@@ -1134,56 +1228,56 @@ mappings:
   -
     target: field_installable_manifest
     map:
-      value: ''
+      value: installable_manifest
     settings:
       language: null
     unique: {  }
   -
     target: field_splash_screen
     map:
-      value: ''
+      value: splash_screen
     settings:
       language: null
     unique: {  }
   -
     target: field_themed_omnibox
     map:
-      value: ''
+      value: themed_omnibox
     settings:
       language: null
     unique: {  }
   -
     target: field_maskable_icon
     map:
-      value: ''
+      value: maskable_icon
     settings:
       language: null
     unique: {  }
   -
     target: field_content_width
     map:
-      value: ''
+      value: content_width
     settings:
       language: null
     unique: {  }
   -
     target: field_image_aspect_ratio
     map:
-      value: ''
+      value: image_aspect_ratio
     settings:
       language: null
     unique: {  }
   -
     target: field_image_size_responsive
     map:
-      value: ''
+      value: image_size_responsive
     settings:
       language: null
     unique: {  }
   -
     target: field_preload_fonts
     map:
-      value: ''
+      value: preload_fonts
     settings:
       language: null
     unique: {  }
@@ -2003,13 +2097,6 @@ mappings:
     target: field_gather_mode
     map:
       value: gather_mode
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_run_warnings
-    map:
-      value: run_warnings
     settings:
       language: null
     unique: {  }

@@ -1258,12 +1258,11 @@ content:
     weight: 244
     region: content
   field_run_warnings:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 258
+    weight: 288
     region: content
   field_screenshot_thumbnails:
     type: basic_string

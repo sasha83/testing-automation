@@ -1122,11 +1122,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_run_warnings:
-    type: string_textfield
-    weight: 278
+    type: string_textarea
+    weight: 308
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_screenshot_thumbnails:
