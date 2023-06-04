@@ -1,0 +1,2036 @@
+uuid: b9ddcf04-d619-463d-b9e5-6a198d05d7f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.lighthouse_report
+  module:
+    - feeds_log
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+label: 'Lighthouse report import'
+id: lighthouse_report_import
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: lighthouse_report
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  is-on-https:
+    value: is-on-https
+    label: is-on-https
+    machine_name: is-on-https
+    type: csv
+  service-worker:
+    value: service-worker
+    label: service-worker
+    machine_name: service-worker
+    type: csv
+  viewport:
+    value: viewport
+    label: viewport
+    machine_name: viewport
+    type: csv
+  first-contentful-paint:
+    value: first-contentful-paint
+    label: first-contentful-paint
+    machine_name: first-contentful-paint
+    type: csv
+  largest-contentful-paint:
+    value: largest-contentful-paint
+    label: largest-contentful-paint
+    machine_name: largest-contentful-paint
+    type: csv
+  first-meaningful-paint:
+    value: first-meaningful-paint
+    label: first-meaningful-paint
+    machine_name: first-meaningful-paint
+    type: csv
+  speed-index:
+    value: speed-index
+    label: speed-index
+    machine_name: speed-index
+    type: csv
+  screenshot-thumbnails:
+    value: screenshot-thumbnails
+    label: screenshot-thumbnails
+    machine_name: screenshot-thumbnails
+    type: csv
+  final-screenshot:
+    value: final-screenshot
+    label: final-screenshot
+    machine_name: final-screenshot
+    type: csv
+  total-blocking-time:
+    value: total-blocking-time
+    label: total-blocking-time
+    machine_name: total-blocking-time
+    type: csv
+  max-potential-fid:
+    value: max-potential-fid
+    label: max-potential-fid
+    machine_name: max-potential-fid
+    type: csv
+  cumulative-layout-shift:
+    value: cumulative-layout-shift
+    label: cumulative-layout-shift
+    machine_name: cumulative-layout-shift
+    type: csv
+  errors-in-console:
+    value: errors-in-console
+    label: errors-in-console
+    machine_name: errors-in-console
+    type: csv
+  server-response-time:
+    value: server-response-time
+    label: server-response-time
+    machine_name: server-response-time
+    type: csv
+  interactive:
+    value: interactive
+    label: interactive
+    machine_name: interactive
+    type: csv
+  user-timings:
+    value: user-timings
+    label: user-timings
+    machine_name: user-timings
+    type: csv
+  critical-request-chains:
+    value: critical-request-chains
+    label: critical-request-chains
+    machine_name: critical-request-chains
+    type: csv
+  redirects:
+    value: redirects
+    label: redirects
+    machine_name: redirects
+    type: csv
+  installable-manifest:
+    value: installable-manifest
+    label: installable-manifest
+    machine_name: installable-manifest
+    type: csv
+  splash-screen:
+    value: splash-screen
+    label: splash-screen
+    machine_name: splash-screen
+    type: csv
+  themed-omnibox:
+    value: themed-omnibox
+    label: themed-omnibox
+    machine_name: themed-omnibox
+    type: csv
+  maskable-icon:
+    value: maskable-icon
+    label: maskable-icon
+    machine_name: maskable-icon
+    type: csv
+  content-width:
+    value: content-width
+    label: content-width
+    machine_name: content-width
+    type: csv
+  image-aspect-ratio:
+    value: image-aspect-ratio
+    label: image-aspect-ratio
+    machine_name: image-aspect-ratio
+    type: csv
+  image-size-responsive:
+    value: image-size-responsive
+    label: image-size-responsive
+    machine_name: image-size-responsive
+    type: csv
+  preload-fonts:
+    value: preload-fonts
+    label: preload-fonts
+    machine_name: preload-fonts
+    type: csv
+  deprecations:
+    value: deprecations
+    label: deprecations
+    machine_name: deprecations
+    type: csv
+  mainthread-work-breakdown:
+    value: mainthread-work-breakdown
+    label: mainthread-work-breakdown
+    machine_name: mainthread-work-breakdown
+    type: csv
+  bootup-time:
+    value: bootup-time
+    label: bootup-time
+    machine_name: bootup-time
+    type: csv
+  uses-rel-preload:
+    value: uses-rel-preload
+    label: uses-rel-preload
+    machine_name: uses-rel-preload
+    type: csv
+  uses-rel-preconnect:
+    value: uses-rel-preconnect
+    label: uses-rel-preconnect
+    machine_name: uses-rel-preconnect
+    type: csv
+  font-display:
+    value: font-display
+    label: font-display
+    machine_name: font-display
+    type: csv
+  diagnostics:
+    value: diagnostics
+    label: diagnostics
+    machine_name: diagnostics
+    type: csv
+  network-requests:
+    value: network-requests
+    label: network-requests
+    machine_name: network-requests
+    type: csv
+  network-rtt:
+    value: network-rtt
+    label: network-rtt
+    machine_name: network-rtt
+    type: csv
+  network-server-latency:
+    value: network-server-latency
+    label: network-server-latency
+    machine_name: network-server-latency
+    type: csv
+  main-thread-tasks:
+    value: main-thread-tasks
+    label: main-thread-tasks
+    machine_name: main-thread-tasks
+    type: csv
+  metrics:
+    value: metrics
+    label: metrics
+    machine_name: metrics
+    type: csv
+  performance-budget:
+    value: performance-budget
+    label: performance-budget
+    machine_name: performance-budget
+    type: csv
+  timing-budget:
+    value: timing-budget
+    label: timing-budget
+    machine_name: timing-budget
+    type: csv
+  resource-summary:
+    value: resource-summary
+    label: resource-summary
+    machine_name: resource-summary
+    type: csv
+  third-party-summary:
+    value: third-party-summary
+    label: third-party-summary
+    machine_name: third-party-summary
+    type: csv
+  third-party-facades:
+    value: third-party-facades
+    label: third-party-facades
+    machine_name: third-party-facades
+    type: csv
+  largest-contentful-paint-element:
+    value: largest-contentful-paint-element
+    label: largest-contentful-paint-element
+    machine_name: largest-contentful-paint-element
+    type: csv
+  lcp-lazy-loaded:
+    value: lcp-lazy-loaded
+    label: lcp-lazy-loaded
+    machine_name: lcp-lazy-loaded
+    type: csv
+  layout-shift-elements:
+    value: layout-shift-elements
+    label: layout-shift-elements
+    machine_name: layout-shift-elements
+    type: csv
+  long-tasks:
+    value: long-tasks
+    label: long-tasks
+    machine_name: long-tasks
+    type: csv
+  no-unload-listeners:
+    value: no-unload-listeners
+    label: no-unload-listeners
+    machine_name: no-unload-listeners
+    type: csv
+  non-composited-animations:
+    value: non-composited-animations
+    label: non-composited-animations
+    machine_name: non-composited-animations
+    type: csv
+  unsized-images:
+    value: unsized-images
+    label: unsized-images
+    machine_name: unsized-images
+    type: csv
+  valid-source-maps:
+    value: valid-source-maps
+    label: valid-source-maps
+    machine_name: valid-source-maps
+    type: csv
+  prioritize-lcp-image:
+    value: prioritize-lcp-image
+    label: prioritize-lcp-image
+    machine_name: prioritize-lcp-image
+    type: csv
+  csp-xss:
+    value: csp-xss
+    label: csp-xss
+    machine_name: csp-xss
+    type: csv
+  script-treemap-data:
+    value: script-treemap-data
+    label: script-treemap-data
+    machine_name: script-treemap-data
+    type: csv
+  pwa-cross-browser:
+    value: pwa-cross-browser
+    label: pwa-cross-browser
+    machine_name: pwa-cross-browser
+    type: csv
+  pwa-page-transitions:
+    value: pwa-page-transitions
+    label: pwa-page-transitions
+    machine_name: pwa-page-transitions
+    type: csv
+  pwa-each-page-has-url:
+    value: pwa-each-page-has-url
+    label: pwa-each-page-has-url
+    machine_name: pwa-each-page-has-url
+    type: csv
+  accesskeys:
+    value: accesskeys
+    label: accesskeys
+    machine_name: accesskeys
+    type: csv
+  aria-allowed-attr:
+    value: aria-allowed-attr
+    label: aria-allowed-attr
+    machine_name: aria-allowed-attr
+    type: csv
+  aria-command-name:
+    value: aria-command-name
+    label: aria-command-name
+    machine_name: aria-command-name
+    type: csv
+  aria-hidden-body:
+    value: aria-hidden-body
+    label: aria-hidden-body
+    machine_name: aria-hidden-body
+    type: csv
+  aria-hidden-focus:
+    value: aria-hidden-focus
+    label: aria-hidden-focus
+    machine_name: aria-hidden-focus
+    type: csv
+  aria-input-field-name:
+    value: aria-input-field-name
+    label: aria-input-field-name
+    machine_name: aria-input-field-name
+    type: csv
+  aria-meter-name:
+    value: aria-meter-name
+    label: aria-meter-name
+    machine_name: aria-meter-name
+    type: csv
+  aria-progressbar-name:
+    value: aria-progressbar-name
+    label: aria-progressbar-name
+    machine_name: aria-progressbar-name
+    type: csv
+  aria-required-attr:
+    value: aria-required-attr
+    label: aria-required-attr
+    machine_name: aria-required-attr
+    type: csv
+  aria-required-children:
+    value: aria-required-children
+    label: aria-required-children
+    machine_name: aria-required-children
+    type: csv
+  aria-required-parent:
+    value: aria-required-parent
+    label: aria-required-parent
+    machine_name: aria-required-parent
+    type: csv
+  aria-roles:
+    value: aria-roles
+    label: aria-roles
+    machine_name: aria-roles
+    type: csv
+  aria-toggle-field-name:
+    value: aria-toggle-field-name
+    label: aria-toggle-field-name
+    machine_name: aria-toggle-field-name
+    type: csv
+  aria-tooltip-name:
+    value: aria-tooltip-name
+    label: aria-tooltip-name
+    machine_name: aria-tooltip-name
+    type: csv
+  aria-treeitem-name:
+    value: aria-treeitem-name
+    label: aria-treeitem-name
+    machine_name: aria-treeitem-name
+    type: csv
+  aria-valid-attr-value:
+    value: aria-valid-attr-value
+    label: aria-valid-attr-value
+    machine_name: aria-valid-attr-value
+    type: csv
+  aria-valid-attr:
+    value: aria-valid-attr
+    label: aria-valid-attr
+    machine_name: aria-valid-attr
+    type: csv
+  button-name:
+    value: button-name
+    label: button-name
+    machine_name: button-name
+    type: csv
+  bypass:
+    value: bypass
+    label: bypass
+    machine_name: bypass
+    type: csv
+  color-contrast:
+    value: color-contrast
+    label: color-contrast
+    machine_name: color-contrast
+    type: csv
+  definition-list:
+    value: definition-list
+    label: definition-list
+    machine_name: definition-list
+    type: csv
+  dlitem:
+    value: dlitem
+    label: dlitem
+    machine_name: dlitem
+    type: csv
+  document-title:
+    value: document-title
+    label: document-title
+    machine_name: document-title
+    type: csv
+  duplicate-id-active:
+    value: duplicate-id-active
+    label: duplicate-id-active
+    machine_name: duplicate-id-active
+    type: csv
+  duplicate-id-aria:
+    value: duplicate-id-aria
+    label: duplicate-id-aria
+    machine_name: duplicate-id-aria
+    type: csv
+  form-field-multiple-labels:
+    value: form-field-multiple-labels
+    label: form-field-multiple-labels
+    machine_name: form-field-multiple-labels
+    type: csv
+  frame-title:
+    value: frame-title
+    label: frame-title
+    machine_name: frame-title
+    type: csv
+  heading-order:
+    value: heading-order
+    label: heading-order
+    machine_name: heading-order
+    type: csv
+  html-has-lang:
+    value: html-has-lang
+    label: html-has-lang
+    machine_name: html-has-lang
+    type: csv
+  html-lang-valid:
+    value: html-lang-valid
+    label: html-lang-valid
+    machine_name: html-lang-valid
+    type: csv
+  image-alt:
+    value: image-alt
+    label: image-alt
+    machine_name: image-alt
+    type: csv
+  input-image-alt:
+    value: input-image-alt
+    label: input-image-alt
+    machine_name: input-image-alt
+    type: csv
+  label:
+    value: label
+    label: label
+    machine_name: label
+    type: csv
+  link-name:
+    value: link-name
+    label: link-name
+    machine_name: link-name
+    type: csv
+  list:
+    value: list
+    label: list
+    machine_name: list
+    type: csv
+  listitem:
+    value: listitem
+    label: listitem
+    machine_name: listitem
+    type: csv
+  meta-refresh:
+    value: meta-refresh
+    label: meta-refresh
+    machine_name: meta-refresh
+    type: csv
+  meta-viewport:
+    value: meta-viewport
+    label: meta-viewport
+    machine_name: meta-viewport
+    type: csv
+  object-alt:
+    value: object-alt
+    label: object-alt
+    machine_name: object-alt
+    type: csv
+  tabindex:
+    value: tabindex
+    label: tabindex
+    machine_name: tabindex
+    type: csv
+  td-headers-attr:
+    value: td-headers-attr
+    label: td-headers-attr
+    machine_name: td-headers-attr
+    type: csv
+  th-has-data-cells:
+    value: th-has-data-cells
+    label: th-has-data-cells
+    machine_name: th-has-data-cells
+    type: csv
+  valid-lang:
+    value: valid-lang
+    label: valid-lang
+    machine_name: valid-lang
+    type: csv
+  video-caption:
+    value: video-caption
+    label: video-caption
+    machine_name: video-caption
+    type: csv
+  custom-controls-labels:
+    value: custom-controls-labels
+    label: custom-controls-labels
+    machine_name: custom-controls-labels
+    type: csv
+  custom-controls-roles:
+    value: custom-controls-roles
+    label: custom-controls-roles
+    machine_name: custom-controls-roles
+    type: csv
+  focus-traps:
+    value: focus-traps
+    label: focus-traps
+    machine_name: focus-traps
+    type: csv
+  focusable-controls:
+    value: focusable-controls
+    label: focusable-controls
+    machine_name: focusable-controls
+    type: csv
+  interactive-element-affordance:
+    value: interactive-element-affordance
+    label: interactive-element-affordance
+    machine_name: interactive-element-affordance
+    type: csv
+  logical-tab-order:
+    value: logical-tab-order
+    label: logical-tab-order
+    machine_name: logical-tab-order
+    type: csv
+  managed-focus:
+    value: managed-focus
+    label: managed-focus
+    machine_name: managed-focus
+    type: csv
+  offscreen-content-hidden:
+    value: offscreen-content-hidden
+    label: offscreen-content-hidden
+    machine_name: offscreen-content-hidden
+    type: csv
+  use-landmarks:
+    value: use-landmarks
+    label: use-landmarks
+    machine_name: use-landmarks
+    type: csv
+  visual-order-follows-dom:
+    value: visual-order-follows-dom
+    label: visual-order-follows-dom
+    machine_name: visual-order-follows-dom
+    type: csv
+  uses-long-cache-ttl:
+    value: uses-long-cache-ttl
+    label: uses-long-cache-ttl
+    machine_name: uses-long-cache-ttl
+    type: csv
+  total-byte-weight:
+    value: total-byte-weight
+    label: total-byte-weight
+    machine_name: total-byte-weight
+    type: csv
+  offscreen-images:
+    value: offscreen-images
+    label: offscreen-images
+    machine_name: offscreen-images
+    type: csv
+  render-blocking-resources:
+    value: render-blocking-resources
+    label: render-blocking-resources
+    machine_name: render-blocking-resources
+    type: csv
+  unminified-css:
+    value: unminified-css
+    label: unminified-css
+    machine_name: unminified-css
+    type: csv
+  unminified-javascript:
+    value: unminified-javascript
+    label: unminified-javascript
+    machine_name: unminified-javascript
+    type: csv
+  unused-css-rules:
+    value: unused-css-rules
+    label: unused-css-rules
+    machine_name: unused-css-rules
+    type: csv
+  unused-javascript:
+    value: unused-javascript
+    label: unused-javascript
+    machine_name: unused-javascript
+    type: csv
+  modern-image-formats:
+    value: modern-image-formats
+    label: modern-image-formats
+    machine_name: modern-image-formats
+    type: csv
+  uses-optimized-images:
+    value: uses-optimized-images
+    label: uses-optimized-images
+    machine_name: uses-optimized-images
+    type: csv
+  uses-text-compression:
+    value: uses-text-compression
+    label: uses-text-compression
+    machine_name: uses-text-compression
+    type: csv
+  uses-responsive-images:
+    value: uses-responsive-images
+    label: uses-responsive-images
+    machine_name: uses-responsive-images
+    type: csv
+  efficient-animated-content:
+    value: efficient-animated-content
+    label: efficient-animated-content
+    machine_name: efficient-animated-content
+    type: csv
+  duplicated-javascript:
+    value: duplicated-javascript
+    label: duplicated-javascript
+    machine_name: duplicated-javascript
+    type: csv
+  legacy-javascript:
+    value: legacy-javascript
+    label: legacy-javascript
+    machine_name: legacy-javascript
+    type: csv
+  doctype:
+    value: doctype
+    label: doctype
+    machine_name: doctype
+    type: csv
+  charset:
+    value: charset
+    label: charset
+    machine_name: charset
+    type: csv
+  dom-size:
+    value: dom-size
+    label: dom-size
+    machine_name: dom-size
+    type: csv
+  geolocation-on-start:
+    value: geolocation-on-start
+    label: geolocation-on-start
+    machine_name: geolocation-on-start
+    type: csv
+  inspector-issues:
+    value: inspector-issues
+    label: inspector-issues
+    machine_name: inspector-issues
+    type: csv
+  no-document-write:
+    value: no-document-write
+    label: no-document-write
+    machine_name: no-document-write
+    type: csv
+  js-libraries:
+    value: js-libraries
+    label: js-libraries
+    machine_name: js-libraries
+    type: csv
+  notification-on-start:
+    value: notification-on-start
+    label: notification-on-start
+    machine_name: notification-on-start
+    type: csv
+  paste-preventing-inputs:
+    value: paste-preventing-inputs
+    label: paste-preventing-inputs
+    machine_name: paste-preventing-inputs
+    type: csv
+  uses-http2:
+    value: uses-http2
+    label: uses-http2
+    machine_name: uses-http2
+    type: csv
+  uses-passive-event-listeners:
+    value: uses-passive-event-listeners
+    label: uses-passive-event-listeners
+    machine_name: uses-passive-event-listeners
+    type: csv
+  meta-description:
+    value: meta-description
+    label: meta-description
+    machine_name: meta-description
+    type: csv
+  http-status-code:
+    value: http-status-code
+    label: http-status-code
+    machine_name: http-status-code
+    type: csv
+  font-size:
+    value: font-size
+    label: font-size
+    machine_name: font-size
+    type: csv
+  link-text:
+    value: link-text
+    label: link-text
+    machine_name: link-text
+    type: csv
+  crawlable-anchors:
+    value: crawlable-anchors
+    label: crawlable-anchors
+    machine_name: crawlable-anchors
+    type: csv
+  is-crawlable:
+    value: is-crawlable
+    label: is-crawlable
+    machine_name: is-crawlable
+    type: csv
+  robots-txt:
+    value: robots-txt
+    label: robots-txt
+    machine_name: robots-txt
+    type: csv
+  tap-targets:
+    value: tap-targets
+    label: tap-targets
+    machine_name: tap-targets
+    type: csv
+  hreflang:
+    value: hreflang
+    label: hreflang
+    machine_name: hreflang
+    type: csv
+  plugins:
+    value: plugins
+    label: plugins
+    machine_name: plugins
+    type: csv
+  canonical:
+    value: canonical
+    label: canonical
+    machine_name: canonical
+    type: csv
+  structured-data:
+    value: structured-data
+    label: structured-data
+    machine_name: structured-data
+    type: csv
+  bf-cache:
+    value: bf-cache
+    label: bf-cache
+    machine_name: bf-cache
+    type: csv
+  lighthouseVersion:
+    value: lighthouseVersion
+    label: lighthouseVersion
+    machine_name: lighthouseVersion
+    type: csv
+  requestedUrl:
+    value: requestedUrl
+    label: requestedUrl
+    machine_name: requestedUrl
+    type: csv
+  mainDocumentUrl:
+    value: mainDocumentUrl
+    label: mainDocumentUrl
+    machine_name: mainDocumentUrl
+    type: csv
+  finalDisplayedUrl:
+    value: finalDisplayedUrl
+    label: finalDisplayedUrl
+    machine_name: finalDisplayedUrl
+    type: csv
+  finalUrl:
+    value: finalUrl
+    label: finalUrl
+    machine_name: finalUrl
+    type: csv
+  fetchTime:
+    value: fetchTime
+    label: fetchTime
+    machine_name: fetchTime
+    type: csv
+  gatherMode:
+    value: gatherMode
+    label: gatherMode
+    machine_name: gatherMode
+    type: csv
+  runWarnings:
+    value: runWarnings
+    label: runWarnings
+    machine_name: runWarnings
+    type: csv
+  userAgent:
+    value: userAgent
+    label: userAgent
+    machine_name: userAgent
+    type: csv
+  environment:
+    value: environment
+    label: environment
+    machine_name: environment
+    type: csv
+  configSettings:
+    value: configSettings
+    label: configSettings
+    machine_name: configSettings
+    type: csv
+  categories:
+    value: categories
+    label: categories
+    machine_name: categories
+    type: csv
+  categoryGroups:
+    value: categoryGroups
+    label: categoryGroups
+    machine_name: categoryGroups
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  domain:
+    value: domain
+    label: domain
+    machine_name: domain
+    type: csv
+mappings:
+  -
+    target: field_is-on-https
+    map:
+      value: is-on-https
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_service-worker
+    map:
+      value: service-worker
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_viewport
+    map:
+      value: viewport
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_first-contentful-paint
+    map:
+      value: first-contentful-paint
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_largest-contentful-paint
+    map:
+      value: largest-contentful-paint
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_first-meaningful-paint
+    map:
+      value: first-meaningful-paint
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_speed-index
+    map:
+      value: speed-index
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_screenshot-thumbnails
+    map:
+      value: screenshot-thumbnails
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_final-screenshot
+    map:
+      value: final-screenshot
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_total-blocking-time
+    map:
+      value: total-blocking-time
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_max-potential-fid
+    map:
+      value: max-potential-fid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cumulative-layout-shift
+    map:
+      value: cumulative-layout-shift
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_errors-in-console
+    map:
+      value: errors-in-console
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_server-response-time
+    map:
+      value: server-response-time
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_interactive
+    map:
+      value: interactive
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_user-timings
+    map:
+      value: user-timings
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_critical-request-chains
+    map:
+      value: critical-request-chains
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_redirects
+    map:
+      value: redirects
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_installable-manifest
+    map:
+      value: installable-manifest
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_splash-screen
+    map:
+      value: splash-screen
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_themed-omnibox
+    map:
+      value: themed-omnibox
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_maskable-icon
+    map:
+      value: maskable-icon
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_content-width
+    map:
+      value: content-width
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_image-aspect-ratio
+    map:
+      value: image-aspect-ratio
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_image-size-responsive
+    map:
+      value: image-size-responsive
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_preload-fonts
+    map:
+      value: preload-fonts
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_deprecations
+    map:
+      value: deprecations
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_mainthread-work-breakdown
+    map:
+      value: mainthread-work-breakdown
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_bootup-time
+    map:
+      value: bootup-time
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-rel-preload
+    map:
+      value: uses-rel-preload
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-rel-preconnect
+    map:
+      value: uses-rel-preconnect
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_font-display
+    map:
+      value: font-display
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_diagnostics
+    map:
+      value: diagnostics
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_network-requests
+    map:
+      value: network-requests
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_network-rtt
+    map:
+      value: network-rtt
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_network-server-latency
+    map:
+      value: network-server-latency
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_main-thread-tasks
+    map:
+      value: main-thread-tasks
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_metrics
+    map:
+      value: metrics
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_performance-budget
+    map:
+      value: performance-budget
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_timing-budget
+    map:
+      value: timing-budget
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_resource-summary
+    map:
+      value: resource-summary
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_third-party-summary
+    map:
+      value: third-party-summary
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_third-party-facades
+    map:
+      value: third-party-facades
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_largest-contentful-paint-e
+    map:
+      value: largest-contentful-paint-element
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp-lazy-loaded
+    map:
+      value: lcp-lazy-loaded
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_layout-shift-elements
+    map:
+      value: layout-shift-elements
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_long-tasks
+    map:
+      value: long-tasks
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_no-unload-listeners
+    map:
+      value: no-unload-listeners
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_non-composited-animations
+    map:
+      value: non-composited-animations
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unsized-images
+    map:
+      value: unsized-images
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_valid-source-maps
+    map:
+      value: valid-source-maps
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_prioritize-lcp-image
+    map:
+      value: prioritize-lcp-image
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_csp-xss
+    map:
+      value: csp-xss
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_script-treemap-data
+    map:
+      value: script-treemap-data
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pwa-cross-browser
+    map:
+      value: pwa-cross-browser
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pwa-page-transitions
+    map:
+      value: pwa-page-transitions
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pwa-each-page-has-url
+    map:
+      value: pwa-each-page-has-url
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_accesskeys
+    map:
+      value: accesskeys
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-allowed-attr
+    map:
+      value: aria-allowed-attr
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-command-name
+    map:
+      value: aria-command-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-hidden-body
+    map:
+      value: aria-hidden-body
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-hidden-focus
+    map:
+      value: aria-hidden-focus
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-input-field-name
+    map:
+      value: aria-input-field-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-meter-name
+    map:
+      value: aria-meter-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-progressbar-name
+    map:
+      value: aria-progressbar-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-required-attr
+    map:
+      value: aria-required-attr
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-required-children
+    map:
+      value: aria-required-children
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-required-parent
+    map:
+      value: aria-required-parent
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-roles
+    map:
+      value: aria-roles
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-toggle-field-name
+    map:
+      value: aria-toggle-field-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-tooltip-name
+    map:
+      value: aria-tooltip-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-treeitem-name
+    map:
+      value: aria-treeitem-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-valid-attr-value
+    map:
+      value: aria-valid-attr-value
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aria-valid-attr
+    map:
+      value: aria-valid-attr
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_button-name
+    map:
+      value: button-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_bypass
+    map:
+      value: bypass
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_color-contrast
+    map:
+      value: color-contrast
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_definition-list
+    map:
+      value: definition-list
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_dlitem
+    map:
+      value: dlitem
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_document-title
+    map:
+      value: document-title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_duplicate-id-active
+    map:
+      value: duplicate-id-active
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_duplicate-id-aria
+    map:
+      value: duplicate-id-aria
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_form-field-multiple-labels
+    map:
+      value: form-field-multiple-labels
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_frame-title
+    map:
+      value: frame-title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_heading-order
+    map:
+      value: heading-order
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_html-has-lang
+    map:
+      value: html-has-lang
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_html-lang-valid
+    map:
+      value: html-lang-valid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_image-alt
+    map:
+      value: image-alt
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_input-image-alt
+    map:
+      value: input-image-alt
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_label
+    map:
+      value: label
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_link-name
+    map:
+      value: link-name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_list
+    map:
+      value: list
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_listitem
+    map:
+      value: listitem
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_meta-refresh
+    map:
+      value: meta-refresh
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_meta-viewport
+    map:
+      value: meta-viewport
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_object-alt
+    map:
+      value: object-alt
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tabindex
+    map:
+      value: tabindex
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_td-headers-attr
+    map:
+      value: td-headers-attr
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_th-has-data-cells
+    map:
+      value: th-has-data-cells
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_valid-lang
+    map:
+      value: valid-lang
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_video-caption
+    map:
+      value: video-caption
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_custom-controls-labels
+    map:
+      value: custom-controls-labels
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_custom-controls-roles
+    map:
+      value: custom-controls-roles
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_focus-traps
+    map:
+      value: focus-traps
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_focusable-controls
+    map:
+      value: focusable-controls
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_interactive-element-afford
+    map:
+      value: interactive-element-affordance
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_logical-tab-order
+    map:
+      value: logical-tab-order
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_managed-focus
+    map:
+      value: managed-focus
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_offscreen-content-hidden
+    map:
+      value: offscreen-content-hidden
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_use-landmarks
+    map:
+      value: use-landmarks
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_visual-order-follows-dom
+    map:
+      value: visual-order-follows-dom
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-long-cache-ttl
+    map:
+      value: uses-long-cache-ttl
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_total-byte-weight
+    map:
+      value: total-byte-weight
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_offscreen-images
+    map:
+      value: offscreen-images
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_render-blocking-resources
+    map:
+      value: render-blocking-resources
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unminified-css
+    map:
+      value: unminified-css
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unminified-javascript
+    map:
+      value: unminified-javascript
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unused-css-rules
+    map:
+      value: unused-css-rules
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unused-javascript
+    map:
+      value: unused-javascript
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_modern-image-formats
+    map:
+      value: modern-image-formats
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-optimized-images
+    map:
+      value: uses-optimized-images
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-text-compression
+    map:
+      value: uses-text-compression
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-responsive-images
+    map:
+      value: uses-responsive-images
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_efficient-animated-content
+    map:
+      value: efficient-animated-content
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_duplicated-javascript
+    map:
+      value: duplicated-javascript
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_legacy-javascript
+    map:
+      value: legacy-javascript
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_doctype
+    map:
+      value: doctype
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_charset
+    map:
+      value: charset
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_dom-size
+    map:
+      value: dom-size
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_geolocation-on-start
+    map:
+      value: geolocation-on-start
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_inspector-issues
+    map:
+      value: inspector-issues
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_no-document-write
+    map:
+      value: no-document-write
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_js-libraries
+    map:
+      value: js-libraries
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_notification-on-start
+    map:
+      value: notification-on-start
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_paste-preventing-inputs
+    map:
+      value: paste-preventing-inputs
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-http2
+    map:
+      value: uses-http2
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uses-passive-event-listene
+    map:
+      value: uses-passive-event-listeners
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_meta-description
+    map:
+      value: meta-description
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_http-status-code
+    map:
+      value: http-status-code
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_font-size
+    map:
+      value: font-size
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_link-text
+    map:
+      value: link-text
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_crawlable-anchors
+    map:
+      value: crawlable-anchors
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_is-crawlable
+    map:
+      value: is-crawlable
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_robots-txt
+    map:
+      value: robots-txt
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tap-targets
+    map:
+      value: tap-targets
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_hreflang
+    map:
+      value: hreflang
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_plugins
+    map:
+      value: plugins
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_canonical
+    map:
+      value: canonical
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_structured-data
+    map:
+      value: structured-data
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_bf-cache
+    map:
+      value: bf-cache
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lighthouseVersion
+    map:
+      value: lighthouseVersion
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_requestedUrl
+    map:
+      value: requestedUrl
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_mainDocumentUrl
+    map:
+      value: mainDocumentUrl
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_finalDisplayedUrl
+    map:
+      value: finalDisplayedUrl
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_finalUrl
+    map:
+      value: finalUrl
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fetchTime
+    map:
+      value: fetchTime
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_gatherMode
+    map:
+      value: gatherMode
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_runWarnings
+    map:
+      value: runWarnings
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_userAgent
+    map:
+      value: userAgent
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_environment
+    map:
+      value: environment
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_configSettings
+    map:
+      value: configSettings
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_categories
+    map:
+      value: categories
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_categoryGroups
+    map:
+      value: categoryGroups
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_domain
+    map:
+      value: domain
+    settings:
+      language: null
+    unique: {  }

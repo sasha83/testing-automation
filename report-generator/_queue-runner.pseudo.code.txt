@@ -1,0 +1,33 @@
+testSuiteInstanceID = test_queue_id + current_timestamp
+Get domains
+    Build sh script that runs 
+    'mkdir _lighthouse_reports/_lighthouse-results-[testSuiteInstanceID]'
+    forEach domain {
+        add line "sh build-lighthouse-sh-file.js [DOMAIN.field_sitemap_url] [testSuiteInstanceID]"
+    }
+
+Get URLs
+    forEach domain {
+        add line "lighthouse [URL] > formatted_URL.json OPTIONS"
+        // shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+reportPath+'.json');
+    }
+print file
+Run the new script
+
+
+
+
+
+need to add testSuiteRunID to csvs during json reformatting.
+full report summary in a summary file.
+    "report summary"+testSuiteInstanceID.csv
+        testSuiteID
+        instanceID
+        timeStamp
+        list all urls
+            maybe status codes?
+
+Need summary folder for importing report summary CSVs to summary content type in CMS
+    report summary gets a "test suite" reference field.  feeds will add that ID from summary CSV collumn. 
+Drupal needs to delete imported CSVs
+

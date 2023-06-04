@@ -1,0 +1,164 @@
+field_is_on_https|Uses HTTPS|integer|number
+field_service_worker|Does not register a service worker that controls page and starturl|integer|number
+field_viewport|Has a meta name"viewport" tag with width or initialscale|integer|number
+field_first_contentful_paint|First Contentful Paint|decimal|number
+field_largest_contentful_paint|Largest Contentful Paint|decimal|number
+field_first_meaningful_paint|First Meaningful Paint|decimal|number
+field_speed_index|Speed Index|decimal|number
+field_total_blocking_time|Total Blocking Time|decimal|number
+field_max_potential_fid|Max Potential First Input Delay|decimal|number
+field_cumulative_layout_shift|Cumulative Layout Shift|decimal|number
+field_errors_in_console|No browser errors logged to the console|integer|number
+field_server_response_time|Initial server response time was short|integer|number
+field_interactive|Time to Interactive|decimal|number
+field_redirects|Avoid multiple page redirects|decimal|number
+field_installable_manifest|Web app manifest or service worker do not meet the installability requirements|integer|number
+field_splash_screen|Is not configured for a custom splash screen|integer|number
+field_themed_omnibox|Does not set a theme color for the address bar|integer|number
+field_maskable_icon|Manifest doesnt have a maskable icon|integer|number
+field_content_width|Content is sized correctly for the viewport|integer|number
+field_image_aspect_ratio|Displays images with correct aspect ratio|integer|number
+field_image_size_responsive|Serves images with appropriate resolution|integer|number
+field_preload_fonts|Fonts with fontdisplay optional are preloaded|string|string_textfield
+field_deprecations|Avoids deprecated APIs|integer|number
+field_mainthread_work_breakdown|Minimize mainthread work|decimal|number
+field_bootup_time|Reduce JavaScript execution time|decimal|number
+field_uses_rel_preload|Preload key requests|string|string_textfield
+field_uses_rel_preconnect|Preconnect to required origins|decimal|number
+field_font_display|Ensure text remains visible during webfont load|integer|number
+field_performance_budget|Performance budget|string|string_textfield
+field_timing_budget|Timing budget|string|string_textfield
+field_third_party_summary|Reduce the impact of thirdparty code|integer|number
+field_third_party_facades|Lazy load thirdparty resources with facades|string|string_textfield
+field_lcp_lazy_loaded|Largest Contentful Paint image was lazily loaded|integer|number
+field_no_unload_listeners|Avoids unload event listeners|integer|number
+field_unsized_images|Image elements do not have explicit width and height|integer|number
+field_valid_source_maps|Page has valid source maps|integer|number
+field_prioritize_lcp_image|Preload Largest Contentful Paint image|decimal|number
+field_pwa_cross_browser|Site works crossbrowser|string|string_textfield
+field_pwa_page_transitions|Page transitions dont feel like they block on the network|string|string_textfield
+field_pwa_each_page_has_url|Each page has a URL|string|string_textfield
+field_accesskeys|accesskey values are unique|string|string_textfield
+field_aria_allowed_attr|aria attributes match their roles|integer|number
+field_aria_command_name|button, link, and menuitem elements have accessible names|integer|number
+field_aria_hidden_body|ariahidden"true" is not present on the document body|integer|number
+field_aria_hidden_focus|ariahidden"true" elements do not contain focusable descendents|string|string_textfield
+field_aria_input__name|ARIA input fields have accessible names|string|string_textfield
+field_aria_meter_name|ARIA meter elements have accessible names|string|string_textfield
+field_aria_progressbar_name|ARIA progressbar elements have accessible names|string|string_textfield
+field_aria_required_attr|roles have all required aria attributes|integer|number
+field_aria_required_children|Elements with an ARIA role that require children to contain a specific role have all required children|string|string_textfield
+field_aria_required_parent|roles are contained by their required parent element|string|string_textfield
+field_aria_roles|role values are valid|integer|number
+field_aria_toggle__name|ARIA toggle fields have accessible names|string|string_textfield
+field_aria_tooltip_name|ARIA tooltip elements have accessible names|string|string_textfield
+field_aria_treeitem_name|ARIA treeitem elements have accessible names|string|string_textfield
+field_aria_valid_attr_value|aria attributes have valid values|integer|number
+field_aria_valid_attr|aria attributes are valid and not misspelled|integer|number
+field_button_name|Buttons do not have an accessible name|integer|number
+field_bypass|The page contains a heading, skip link, or landmark region|string|string_textfield
+field_color_contrast|Background and foreground colors do not have a sufficient contrast ratio|integer|number
+field_definition_list|dls contain only properlyordered dt and dd groups, script, template or div elements|string|string_textfield
+field_dlitem|Definition list items are wrapped in dl elements|string|string_textfield
+field_document_title|Document has a title element|integer|number
+field_duplicate_id_active|id attributes on active, focusable elements are unique|string|string_textfield
+field_duplicate_id_aria|ARIA IDs are unique|string|string_textfield
+field_form__multiple_labels|No form fields have multiple labels|string|string_textfield
+field_frame_title|frame or iframe elements have a title|string|string_textfield
+field_heading_order|Heading elements are not in a sequentiallydescending order|integer|number
+field_html_has_lang|html element has a lang attribute|integer|number
+field_html_lang_valid|html element has a valid value for its lang attribute|integer|number
+field_image_alt|Image elements do not have alt attributes|integer|number
+field_input_image_alt|input type"image" elements have alt text|string|string_textfield
+field_label|Form elements have associated labels|integer|number
+field_link_name|Links have a discernible name|integer|number
+field_list|Lists contain only li elements and script supporting elements script and template|string|string_textfield
+field_listitem|List items li are contained within ul, ol or menu parent elements|string|string_textfield
+field_meta_refresh|The document does not use meta httpequiv"refresh"|string|string_textfield
+field_meta_viewport|userscalable"no" is not used in the meta name"viewport" element and the maximumscale attribute is not less than|integer|number
+field_object_alt|object elements have alternate text|string|string_textfield
+field_tabindex|No element has a tabindex value greater than|integer|number
+field_td_headers_attr|Cells in a table element that use the headers attribute refer to table cells within the same table|string|string_textfield
+field_th_has_data_cells|th elements and elements with role"columnheader""rowheader" have data cells they describe|string|string_textfield
+field_valid_lang|lang attributes have a valid value|string|string_textfield
+field_video_caption|video elements contain a track element with kind"captions"|string|string_textfield
+field_custom_controls_labels|Custom controls have associated labels|string|string_textfield
+field_custom_controls_roles|Custom controls have ARIA roles|string|string_textfield
+field_focus_traps|User focus is not accidentally trapped in a region|string|string_textfield
+field_focusable_controls|Interactive controls are keyboard focusable|string|string_textfield
+field_interactive_element_afford|Interactive elements indicate their purpose and state|string|string_textfield
+field_logical_tab_order|The page has a logical tab order|string|string_textfield
+field_managed_focus|The users focus is directed to new content added to the page|string|string_textfield
+field_offscreen_content_hidden|Offscreen content is hidden from assistive technology|string|string_textfield
+field_use_landmarks|HTML landmark elements are used to improve navigation|string|string_textfield
+field_visual_order_follows_dom|Visual order on the page follows DOM order|string|string_textfield
+field_uses_long_cache_ttl|Serve static assets with an efficient cache policy|decimal|number
+field_total_byte_weight|Avoid enormous network payloads|decimal|number
+field_offscreen_images|Defer offscreen images|decimal|number
+field_render_blocking_resources|Eliminate renderblocking resources|decimal|number
+field_unminified_css|Minify CSS|decimal|number
+field_unminified_javascript|Minify JavaScript|decimal|number
+field_unused_css_rules|Reduce unused CSS|decimal|number
+field_unused_javascript|Reduce unused JavaScript|decimal|number
+field_modern_image_formats|Serve images in nextgen formats|decimal|number
+field_uses_optimized_images|Efficiently encode images|decimal|number
+field_uses_text_compression|Enable text compression|decimal|number
+field_uses_responsive_images|Properly size images|decimal|number
+field_efficient_animated_content|Use video formats for animated content|decimal|number
+field_duplicated_javascript|Remove duplicate modules in JavaScript bundles|decimal|number
+field_legacy_javascript|Avoid serving legacy JavaScript to modern browsers|decimal|number
+field_doctype|Page has the HTML doctype|integer|number
+field_charset|Properly defines charset|integer|number
+field_dom_size|Avoid an excessive DOM size|decimal|number
+field_geolocation_on_start|Avoids requesting the geolocation permission on page load|integer|number
+field_inspector_issues|No issues in the Issues panel in Chrome Devtools|integer|number
+field_no_document_write|Avoids documentwrite|integer|number
+field_notification_on_start|Avoids requesting the notification permission on page load|integer|number
+field_paste_preventing_inputs|Allows users to paste into input fields|integer|number
+field_uses_http2|Use HTTP|decimal|number
+field_uses_passive_event_listene|Uses passive listeners to improve scrolling performance|integer|number
+field_meta_description|Document has a meta description|integer|number
+field_http_status_code|Page has successful HTTP status code|integer|number
+field_font_size|Document uses legible font sizes|integer|number
+field_link_text|Links do not have descriptive text|integer|number
+field_crawlable_anchors|Links are not crawlable|integer|number
+field_is_crawlable|Page isnt blocked from indexing|integer|number
+field_robots_txt|robotstxt is valid|integer|number
+field_tap_targets|Tap targets are not sized appropriately|integer|number
+field_hreflang|Document has a valid hreflang|integer|number
+field_plugins|Document avoids plugins|integer|number
+field_canonical|Document has a valid relcanonical|integer|number
+field_structured_data|Structured data is valid|string|string_textfield
+field_bf_cache|Page didnt prevent backforward cache restoration|integer|number
+field_lighthouse_version|Lighthouse Version|string|string_textfield
+field_requested_url|Requested URL|string|string_textfield
+field_main_document_url|Main Document URL|string|string_textfield
+field_final_displayed_url|Final Displayed URL|string|string_textfield
+field_final_url|Final URL|string|string_textfield
+field_fetch_time|Fetch Time|string|string_textfield
+field_gather_mode|Gather Mode|string|string_textfield
+field_user_agent|User Agent|string|string_textfield
+field_domain|Domain|string|string_textfield
+field_environment|Environment|string_long|string_textarea
+field_config_settings|Config Settings|string_long|string_textarea
+field_category_|Category Groups|string_long|string_textarea
+field_category_groups|Category Groups|string_long|string_textarea
+field_categories|Categories|string_long|string_textarea
+field_critical_request_chains|Critical Request Chains|string_long|string_textarea
+field_final_screenshot|Final Screenshot|string_long|string_textarea
+field_detected_javascript_librar|Detected JavaScript libraries|string_long|string_textarea
+field_largest_contentful_paint_e|Largest Contentful Paint element|string_long|string_textarea
+field_layout_shift_elements|Avoid large layout shifts|string_long|string_textarea
+field_long_tasks|Avoid long mainthread tasks|string_long|string_textarea
+field_main_thread_tasks|Tasks|string_long|string_textarea
+field_metrics|Metrics|string_long|string_textarea
+field_network_requests|Network Requests|string_long|string_textarea
+field_network_rtt|Network Round Trip Times|string_long|string_textarea
+field_network_server_latency|Server Backend Latencies|string_long|string_textarea
+field_resource_summary|Keep request counts low and transfer sizes small|string_long|string_textarea
+field_screenshot_thumbnails|Screenshot Thumbnails|string_long|string_textarea
+field_script_treemap_data|Script Treemap Data|string_long|string_textarea
+field_user_timing|User Timing marks and measures|string_long|string_textarea
+field_non_composited_animations|Avoid noncomposited animations|string_long|string_textarea
+field_test_suite_id|Test Suite ID|entity_reference|entity_reference_autocomplete
+field_run_warnings|Run Warnings|string_long|string_textarea
