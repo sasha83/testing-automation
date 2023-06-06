@@ -14,7 +14,7 @@ let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
 const outFolder = '../sites/default/files/_lighthouse_report_staging';
-const inFolder = './_lighthouse-report-queue/test-suite-1091';
+const inFolder = './_lighthouse-report-queue/1091';
 
 
 
@@ -151,6 +151,7 @@ processQueue.forEach(function(lhJSONFilename){
         // reportObjectFromJSON.title = domain.hostname.replace('www.', '');
         reportObjectFromJSON.title = data.requestedUrl;
         reportObjectFromJSON.domain = domain.hostname.replace('www.', '');
+        reportObjectFromJSON.domain = 949;
         // reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
         
     
@@ -293,34 +294,10 @@ function processCSVs() {
       reportCustomSources = reportCustomSources.concat(customSource('title'));
       reportMappings = reportMappings.concat(createMappings('title'));
   
-      // fs.writeFile('_custom-sources.txt', reportCustomSources.join('\n'), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
-  
-      // fs.writeFile('_mappings.txt', reportMappings.join('\n'), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
-  
-      // fs.writeFile('_fieldString.txt', fieldString.join(''), (err) => {
-      //     // In case of a error throw err.
-      //     if (err) throw err;
-      // })
-  
-    //   reportHeaders.push({id: 'title', title: 'title'});
-    //   reportHeaders.push({id: 'requested_url', title: 'requested_url'});
-    //   reportHeaders.push({id: 'final_url', title: 'final_url'});
-  
-  
-  
-      // writeToCSV('_test-write-csv.csv', reportHeaders, [reportObject]);
-    //   writeToCSV('_test-report-2.csv', reportHeaders, [reportObject]);
       
     });
 }
   
-// processCSVs();
 
 function writeToCSV(filename, headers, content) {
 	const csvWriter = createCsvWriter({
@@ -337,7 +314,6 @@ function cleanTitles(title) {
     theTitle = title;
     theTitle = theTitle.replace(/[^a-z," "]/gi, '');
     return theTitle;
-    // theTitle = theTitle.replaceAll('', '-');
 }
 function createMappings(key) {
     let mapping = [];
@@ -386,10 +362,6 @@ function fieldType(type) {
     return theType;
 }
 
-// function feed_config() {
-//     // "../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml"
-//     return ;
-// }
 async function content(path) {  
     return await readFile(path, 'utf8')
   }

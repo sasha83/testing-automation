@@ -8,7 +8,7 @@ let testNodes;
 let shFile = [];
 let domainArray = [];
 let siteMapURL;
-const maxTestRuns = 10;
+const maxTestRuns = 4;
 let i = 0;
 process.argv.forEach(function (val, index, array) {
     console.log(val, i);
@@ -64,64 +64,3 @@ function getStringOf(link) {
 }
 
 
-
-
-// const url = 'http://automate.ddev.site/test-suite-rest?test_suite_id='+testSuiteID;
-
-// async function doRequest(url) {
-// 	return new Promise(function (resolve, reject) {
-// 		request(url, function (error, res, body) {
-// 			if (!error && res.statusCode == 200) {
-// 				resolve(body);
-// 			} else {
-// 				reject(error);
-// 			}
-// 		});
-// 	});
-// }
-
-
-
-
-
-// async function getDomains() {
-// 	await doRequest(url).then(function(nodes){
-// 		testNodes = JSON.parse(nodes);
-//         domainArray = JSON.parse(nodes);
-//         domainArray.forEach(element => {
-//             console.log(element);
-//             shFile.push('sitemap-urls ' + element.field_root + '/sitemap.xml sitemap-urls > ' + element.field_root + '.csv');
-//         });
-// 	});
-// }
-
-
-
-// generateSH();    
-
-
-
-// async function generateSH(){
-//     console.log('here1');
-//     await getDomains();
-//     console.log('here2');
-//     console.log('domainArray: ', domainArray);
-//     for(n=0; n<domainArray.length; n++) {
-//         let theDomain = domainArray[n].field_root;
-//         console.log('theDomain: ', theDomain);
-//         const array = await GetSitemapLinks(
-//             theDomain
-//           );
-//           console.log('array: ', array);
-//         array.forEach(function(link){
-//             console.log(link);
-//             shFile.push('lighthouse ' + link);
-//         })
-//     }
-
-//     console.log('here3');
-//     shFile = shFile.join('\n');
-//     fs.writeFile('test-suite-id-'+testSuiteID+'.sh', shFile, (err) => {
-//         if (err) throw err;
-//     }) 
-// }
