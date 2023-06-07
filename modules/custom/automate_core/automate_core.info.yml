@@ -1,0 +1,6 @@
+name: Automate Core
+type: module
+description: 'Provides customization of Automate Core.'
+package: Automate
+core_version_requirement: ^8 || ^9 || ^10
+version: '10.x-1.0'

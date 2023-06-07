@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains clearesult_register.module.
+ */
+
+// use Drupal\Component\Serialization\Json;
+// use Drupal\Core\Routing\RouteMatchInterface;
+// use Drupal\Core\Form\FormStateInterface;
+// use Drupal\Core\Url;
+// use Drupal\views\ViewExecutable;
+// use Drupal\Core\Entity\EntityInterface;
+// use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+// use Drupal\Core\Language\LanguageInterface;
+// use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_help().
+ */
+function automate_core_node_presave($node) {
+	$typeName = $node->bundle();
+	if($typeName==="lighthouse_report") {
+        $domain_id = $node->get('field_domain_id')->value;
+        $node->set('field_domain', $domain_id);
+		// $job_type = $node->field_rec_job_type->first()->entity->getTitle();
+		// $industry = $node->field_rec_job_type->first()->entity->get('field_industry')->first()->entity->getName();
+		// $node->field_search = [$job_type, $industry];
+	}
+//   elseif ($typeName==="program") {
+//     // Set rabbit hole settings to display page if the program has a degree type of "earn/learn"
+//     /** @var \Drupal\taxonomy\TermInterface $degree_type_term  */
+//     $degree_type_term = $node->field_program_degree_type->entity;
+//     if (!empty($degree_type_term) && $degree_type_term->id() == 286) {
+//       // Earn + Learn degree type: display page.
+//       $node->set('rh_action', 'display_page');
+//     }
+//     else {
+//       // Other degree types: use the default set in the content type.
+//       $node->set('rh_action', 'bundle_default');
+//     }
+
+//     // Job type placeholder field is a workaround for using feeds to update a multi-value reference field.
+// 		$job_type_string = trim($node->get('field_job_type_placeholder')->value);
+// 		if($job_type_string!='') {
+// 			$job_type_array = explode('+', $job_type_string);
+// 		    $node->set('field_program_job_type', []);
+// 			foreach($job_type_array as $job_type_ID) {
+// /*
+// 				$query = \Drupal::entityQuery('node')
+// 				  ->condition('type', 'job_type')
+// 				  ->condition('field_title', $title);
+// 				$result = $query.execute();
+// */
+// 			    $node->get('field_program_job_type')->appendItem([
+// 			      'target_id' => $job_type_ID,
+// 			    ]);
+// 			}
+// 		    // $node->set('field_job_type_placeholder', '');
+// 		}
+// 	}
+}
