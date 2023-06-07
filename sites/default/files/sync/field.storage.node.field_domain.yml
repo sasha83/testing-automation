@@ -1,4 +1,4 @@
-uuid: cdc05464-a40c-4ddd-b24f-284607bf7fc6
+uuid: 3b3215f2-4d9d-4c9c-a8cf-553b714ad5d0
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_domain
 field_name: field_domain
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: node
 module: core
 locked: false
 cardinality: 1

@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.node.test_suite.body
     - field.field.node.test_suite.field_domains
+    - field.field.node.test_suite.field_max_parallel_tests
     - node.type.test_suite
   module:
+    - options
     - text
     - user
 id: node.test_suite.default
@@ -28,6 +30,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_max_parallel_tests:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }

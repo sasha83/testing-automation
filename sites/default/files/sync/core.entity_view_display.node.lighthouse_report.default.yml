@@ -46,6 +46,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_document_title
     - field.field.node.lighthouse_report.field_dom_size
     - field.field.node.lighthouse_report.field_domain
+    - field.field.node.lighthouse_report.field_domain_id
     - field.field.node.lighthouse_report.field_duplicate_id_active
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
@@ -141,6 +142,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_tap_targets
     - field.field.node.lighthouse_report.field_td_headers_attr
     - field.field.node.lighthouse_report.field_test_suite_id
+    - field.field.node.lighthouse_report.field_test_suite_reference
     - field.field.node.lighthouse_report.field_th_has_data_cells
     - field.field.node.lighthouse_report.field_themed_omnibox
     - field.field.node.lighthouse_report.field_third_party_facades
@@ -527,12 +529,21 @@ content:
     weight: 229
     region: content
   field_domain:
-    type: string
+    type: entity_reference_label
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    weight: 264
+    weight: 289
+    region: content
+  field_domain_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 290
     region: content
   field_duplicate_id_active:
     type: string
@@ -1351,12 +1362,21 @@ content:
     weight: 198
     region: content
   field_test_suite_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 292
+    region: content
+  field_test_suite_reference:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 287
+    weight: 291
     region: content
   field_th_has_data_cells:
     type: string

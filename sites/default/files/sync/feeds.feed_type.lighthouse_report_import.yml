@@ -41,7 +41,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_doctype
     - field.field.node.lighthouse_report.field_document_title
     - field.field.node.lighthouse_report.field_dom_size
-    - field.field.node.lighthouse_report.field_domain
+    - field.field.node.lighthouse_report.field_domain_id
     - field.field.node.lighthouse_report.field_duplicate_id_active
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
@@ -121,7 +121,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_tabindex
     - field.field.node.lighthouse_report.field_tap_targets
     - field.field.node.lighthouse_report.field_td_headers_attr
-    - field.field.node.lighthouse_report.field_test_suite_id
     - field.field.node.lighthouse_report.field_th_has_data_cells
     - field.field.node.lighthouse_report.field_themed_omnibox
     - field.field.node.lighthouse_report.field_third_party_facades
@@ -1125,6 +1124,16 @@ custom_sources:
     value: preload_fonts
     label: preload_fonts
     machine_name: preload_fonts
+    type: csv
+  '':
+    value: domain
+    label: domain
+    machine_name: ''
+    type: csv
+  domain_id:
+    value: domain_id
+    label: domain_id
+    machine_name: domain_id
     type: csv
 mappings:
   -
@@ -2143,18 +2152,9 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_domain
+    target: field_domain_id
     map:
-      value: domain
+      value: domain_id
     settings:
       language: null
     unique: {  }
-  -
-    target: field_test_suite_id
-    map:
-      target_id: test_suite_id
-    settings:
-      language: null
-      reference_by: title
-      autocreate: false
-      feeds_item: false

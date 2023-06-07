@@ -1,16 +1,16 @@
-uuid: d46ae1f3-2f2e-4a28-8c67-0bf5d6910ed2
+uuid: ab74026f-cf44-4795-9a27-6eb5ec45120f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_domain
-    - node.type.domain
+    - field.storage.node.field_test_suite_reference
     - node.type.lighthouse_report
-id: node.lighthouse_report.field_domain
-field_name: field_domain
+    - node.type.test_suite
+id: node.lighthouse_report.field_test_suite_reference
+field_name: field_test_suite_reference
 entity_type: node
 bundle: lighthouse_report
-label: Domain
+label: 'Test Suite Reference'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      domain: domain
+      test_suite: test_suite
     sort:
       field: _none
       direction: ASC

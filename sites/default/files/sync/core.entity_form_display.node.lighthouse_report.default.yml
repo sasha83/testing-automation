@@ -46,6 +46,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_document_title
     - field.field.node.lighthouse_report.field_dom_size
     - field.field.node.lighthouse_report.field_domain
+    - field.field.node.lighthouse_report.field_domain_id
     - field.field.node.lighthouse_report.field_duplicate_id_active
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
@@ -141,6 +142,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_tap_targets
     - field.field.node.lighthouse_report.field_td_headers_attr
     - field.field.node.lighthouse_report.field_test_suite_id
+    - field.field.node.lighthouse_report.field_test_suite_reference
     - field.field.node.lighthouse_report.field_th_has_data_cells
     - field.field.node.lighthouse_report.field_themed_omnibox
     - field.field.node.lighthouse_report.field_third_party_facades
@@ -493,11 +495,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_domain:
-    type: string_textfield
-    weight: 284
+    type: entity_reference_autocomplete
+    weight: 309
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_id:
+    type: number
+    weight: 310
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_duplicate_id_active:
@@ -1204,8 +1215,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_test_suite_id:
+    type: number
+    weight: 312
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_test_suite_reference:
     type: entity_reference_autocomplete
-    weight: 307
+    weight: 311
     region: content
     settings:
       match_operator: CONTAINS

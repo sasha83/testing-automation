@@ -1,0 +1,23 @@
+uuid: 51df4bf1-1932-4d74-a611-a15d3d603a11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_parallel_tests
+    - node.type.test_suite
+  module:
+    - options
+id: node.test_suite.field_max_parallel_tests
+field_name: field_max_parallel_tests
+entity_type: node
+bundle: test_suite
+label: 'Max Parallel Tests'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 4
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
