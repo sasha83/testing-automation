@@ -22,7 +22,9 @@ function automate_core_node_presave($node) {
 	$typeName = $node->bundle();
 	if($typeName==="lighthouse_report") {
         $domain_id = $node->get('field_domain_id')->value;
+        // $fetch_time = $node->get('field_fetch_time')->value;
         $node->set('field_domain', $domain_id);
+        // $node->set('created', $fetch_time);
 		// $job_type = $node->field_rec_job_type->first()->entity->getTitle();
 		// $industry = $node->field_rec_job_type->first()->entity->get('field_industry')->first()->entity->getName();
 		// $node->field_search = [$job_type, $industry];
