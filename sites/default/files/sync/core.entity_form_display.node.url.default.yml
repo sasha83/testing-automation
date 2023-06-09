@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.url.body
-    - field.field.node.url.field_domains
+    - field.field.node.url.field_domain
     - field.field.node.url.field_path
     - node.type.url
   module:
@@ -31,7 +31,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_domains:
+  field_domain:
     type: entity_reference_autocomplete
     weight: 123
     region: content

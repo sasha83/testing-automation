@@ -10,10 +10,12 @@
 // use Drupal\Core\Form\FormStateInterface;
 // use Drupal\Core\Url;
 // use Drupal\views\ViewExecutable;
-// use Drupal\Core\Entity\EntityInterface;
-// use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 // use Drupal\Core\Language\LanguageInterface;
 // use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
 
 /**
  * Implements hook_help().
@@ -22,12 +24,54 @@ function automate_core_node_presave($node) {
 	$typeName = $node->bundle();
 	if($typeName==="lighthouse_report") {
         $domain_id = $node->get('field_domain_id')->value;
+        
         // $fetch_time = $node->get('field_fetch_time')->value;
         $node->set('field_domain', $domain_id);
         // $node->set('created', $fetch_time);
 		// $job_type = $node->field_rec_job_type->first()->entity->getTitle();
 		// $industry = $node->field_rec_job_type->first()->entity->get('field_industry')->first()->entity->getName();
 		// $node->field_search = [$job_type, $industry];
+
+
+
+        // reference URL node, and create the URL node if doesn't exist.
+
+
+
+
+        $url = $node->get('field_requested_url')->value;
+
+        // $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');    
+        $ids = \Drupal::entityQuery('node')
+          ->accessCheck(FALSE)
+          ->condition('title', $url)
+          ->condition('type', 'url')
+          ->execute();
+
+        // $urls = $nodeStorage->loadMultiple($ids);
+        // print_r($ids);
+        if(sizeof($ids)<1) {
+            $url_node = Node::create(['type' => 'url']);
+            $url_node->set('title', $url);
+            $url_node->set('field_domain', $domain_id);
+            $url_node->enforceIsNew(FALSE);
+            $node->set('field_url_reference', $url_node->id());
+            $url_node->save();
+        } else {
+            $node->set('field_url_reference', array_pop($ids));
+        }
+    
+        // $values = \Drupal::entityQuery('node')->condition('field_title', $url)->execute();
+        // $node_exists = !empty($values);
+
+        // if(!$node_exists) {
+        //     $url_node = Node::create(['type' => 'url']);
+        //     $url_node->set('title', $url);
+        //     $url_node->enforceIsNew();
+        //     $url_node->save();
+        // }
+
+
 	}
 //   elseif ($typeName==="program") {
 //     // Set rabbit hole settings to display page if the program has a degree type of "earn/learn"

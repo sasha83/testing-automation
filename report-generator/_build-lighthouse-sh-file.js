@@ -8,24 +8,30 @@ let testNodes;
 let shFile = [];
 let domainArray = [];
 let siteMapURL;
+let instanceID;
+
 const maxTestRuns = 4;
 let i = 0;
 process.argv.forEach(function (val, index, array) {
     console.log(val, i);
     if(i==2) {
         siteMapURL = val;
-    } if(i==3) {
+    } else if(i==3) {
         testSuiteID = val;
+    } else if(i==4) {
+        instanceID = val;
     }
+
     i++;
 });
-console.log(siteMapURL, testSuiteID);
+console.log(siteMapURL, testSuiteID, instanceID);
 async function generatesSH() {
     const array = await GetSitemapLinks(
         siteMapURL
     );
     // console.log('array: ', array);        
     shFile.push('mkdir _lighthouse-report-queue/'+testSuiteID);
+    shFile.push('mkdir _lighthouse-report-queue/'+testSuiteID+'/'+instanceID);
     let sim = 0;
     array.forEach(function(link){
         
@@ -38,7 +44,7 @@ async function generatesSH() {
             sim = 0;
         }
 
-        shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+reportPath+'.json'+simString);
+        shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+instanceID+'/'+reportPath+'.json'+simString);
 
         sim ++;
     })

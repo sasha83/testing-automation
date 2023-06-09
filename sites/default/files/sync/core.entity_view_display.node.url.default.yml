@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.url.body
-    - field.field.node.url.field_domains
+    - field.field.node.url.field_domain
     - field.field.node.url.field_path
     - node.type.url
   module:
@@ -22,7 +22,7 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_domains:
+  field_domain:
     type: entity_reference_label
     label: above
     settings:

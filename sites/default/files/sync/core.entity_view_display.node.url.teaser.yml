@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.url.body
-    - field.field.node.url.field_domains
+    - field.field.node.url.field_domain
     - field.field.node.url.field_path
     - node.type.url
   module:
@@ -30,5 +30,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domains: true
+  field_domain: true
   field_path: true

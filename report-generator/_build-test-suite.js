@@ -8,6 +8,7 @@ let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
 
+// console.log("instanceID: ", instanceID);
 
 let i = 0;
 process.argv.forEach(function (val, index, array) {
@@ -33,7 +34,7 @@ async function doRequest(url) {
 				resolve(body);
                 domainArray.forEach(function(domain){
                     // console.log(domain);
-                    shOutput.push('node _build-lighthouse-sh-file.js '+domain.field_site+' '+testSuiteID);
+                    shOutput.push('node _build-lighthouse-sh-file.js '+domain.field_site+' '+testSuiteID+' '+instanceID);
                     shOutput.push('sh test-suite-id-'+testSuiteID+'_'+getStringOf(domain.field_site)+'.sh &');
                 });
                 console.log(shOutput);

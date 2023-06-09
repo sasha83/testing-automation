@@ -16,7 +16,7 @@ let reportHeaders = [];
 let reportMappings = [];
 let usedKeys = {}
 const outFolder = '../sites/default/files/_lighthouse_report_staging';
-const inFolder = './_lighthouse-report-queue/1091';
+const inFolder = './_lighthouse-report-queue';
 
 
 
@@ -32,35 +32,29 @@ async function doRequest(url) {
                 domainArray.forEach(function(domain){
                     key_domainArray.push({[domain.title]: domain.nid});
                 });
-                console.log(key_domainArray);
                 let processQueue = [];
-                fs.readdirSync(inFolder).forEach(file => {
-                
-                    // console.log(fs.lstatSync("./lighthouse/"+file).isDirectory() );
-                    // console.log(inFolder, file);
-                    // fs.access("./lighthouse/"+file, function(error) {
-                    //     if (error) {
-                    //       console.log("Directory does not exist.", file)
-                    //     } else {
-                    //       console.log("Directory exists.", file)
-                    //     }
-                    //   })
-                    let lhReportPath = inFolder+"/"+file;
-                    if(fs.lstatSync(lhReportPath).isDirectory()) {
-                        // processQueue.push(lhReportPath);
-                        fs.readdirSync(lhReportPath).forEach(filename => {
-                            processQueue.push(lhReportPath+"/"+filename);
+                fs.readdirSync(inFolder).forEach(testSuiteID => {
+                    if(fs.lstatSync(inFolder+"/"+testSuiteID).isDirectory()) {
+                        fs.readdirSync(inFolder+'/'+testSuiteID).forEach(instanceID => {
+                            if(fs.lstatSync(inFolder+"/"+testSuiteID+"/"+instanceID).isDirectory()) {
+                                fs.readdirSync(inFolder+"/"+testSuiteID+"/"+instanceID).forEach(file => {
+                                    let lhReportPath = inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file;
+                                    // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
+                                    if(fs.lstatSync(lhReportPath).isDirectory()) {
+
+
+                                    } else {
+                                        if(file.indexOf('.json')>-1) {
+                                            processQueue.push({'testSuiteID': testSuiteID, 'instanceID': instanceID, 'lhReportPath': lhReportPath});
+                                        }
+                                    }
+                                });
+                            }
                         });
-                    } else {
-                        if(file.indexOf('.json')>-1) {
-                            // console.log("it's JSON");
-                            processQueue.push(lhReportPath);
-                        }
-                    }
-                    
+                    }    
                 });
                   
-                // console.log('processQueue: ', processQueue);
+
                 
                 // report-generator/_pre_lh-report-feed-yml.txt
                 // ../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml
@@ -71,8 +65,9 @@ async function doRequest(url) {
                 // const data = JSON.parse(rawdata);
                 
                 let outfile = 0;
-                // console.log(processQueue);
-                processQueue.forEach(function(lhJSONFilename){
+
+                processQueue.forEach(function(process){
+                    let lhJSONFilename = process.lhJSONFilename;
                     let reportObjectFromJSON = {};
                     let reportHeadersFromJSON = [];
                     let reportTitlesFromJSON = [];
@@ -83,23 +78,22 @@ async function doRequest(url) {
                     reportObjectFromJSON = {};
                     reportHeadersFromJSON = [];
                     reportBasedFields = [];
-                    var outFileName = lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
-                    outFileName = outFileName.replace('.json', '.csv');
+                    // console.log('process: ', process);
+                    // var outFileName = process.lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
+
                 
                     
                     
-                    // console.log('filename: ', outFileName);
+
                     
-                    if(lhJSONFilename.indexOf('.json')>-1) {
+                    if(process.lhReportPath.indexOf('.json')>-1) {
                 
-                        const rawdata = fs.readFileSync(lhJSONFilename);
-                        // console.log(lhJSONFilename, rawdata);
+                        const rawdata = fs.readFileSync(process.lhReportPath);
+
                         const data = JSON.parse(rawdata);
                     
                         // add attributes from data.audits object
                         Object.keys(data.audits).forEach(function(key) {
-                            // console.log(key);
-                            // if(key=='is-on-https') {
                                 let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
                 
                                 if(fieldTypeFromJSON=="string") {
@@ -111,7 +105,7 @@ async function doRequest(url) {
                                 } else {
                                     reportObjectFromJSON[key] = data.audits[key].score;
                                 }
-                                // console.log(data.audits[key].score, reportObjectFromJSON[key]);
+
                                 reportBasedFields.push({'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON)});
                             // }
                             
@@ -142,11 +136,9 @@ async function doRequest(url) {
                         reportObjectFromJSON.title = data.requestedUrl;
 
                         // reportObjectFromJSON.domain = key_domainArray[domain.hostname.replace('www.', '')];
-                        // console.log(reportObjectFromJSON.domain);
-                        // console.log(domain.hostname.replace('www.', ''));
                         let domainID = getDomainID(domain.origin.replace('www.', '').replace('https://', '').replace('http://', ''));
                         reportObjectFromJSON.domain_id = domainID;
-                        // console.log(domainID, domain);
+
 
                         
                         
@@ -173,8 +165,8 @@ async function doRequest(url) {
                 
                 
                 
-                    
-                        // console.log('reportObjectFromJSON: ', reportObjectFromJSON);
+
+
                         // build the Quick Add Fields config
                     
                         // let reportOutputForCSV = {};
@@ -182,8 +174,12 @@ async function doRequest(url) {
                             reportHeadersFromJSON.push({id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_')})
                             // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
                         });
-                        // console.log(reportObjectFromJSON);
-                        // console.log(outFolder+'/'+outFileName);
+                        
+                        // var fn = reportObjectFromJSON.requested_url.split("/");
+                        console.log(getStringOf(reportObjectFromJSON.requested_url));
+                        var outFileName = process.instanceID+"_"+process.testSuiteID+"_"+getStringOf(reportObjectFromJSON.requested_url);
+                        outFileName = outFileName.replace('.json', '.csv');
+
                         writeToCSV(outFolder+'/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
                         // outputCSV
                         outfile++;
@@ -201,140 +197,33 @@ function getDomainID(domainString) {
     let domainID;
     domainArray.forEach(function(domain){
         if(domain.title==domainString) {
-            console.log(domainString, domain.title);
+
             domainID=domain.nid;
         }
-        // console.log(domain);
+
     });
     return domainID;
 }
 
 
 doRequest('http://automate.ddev.site/domains').then(function(){
-    console.log(domainArray);
+
 });
 
 
-
-// console.log(fs.readdirSync(inFolder));
-// let testFolderPaths = fs.readdirSync(inFolder);
-// testFolderPaths.forEach(function(dir){
-//     console.log(dir, fs.existsSync('./'+dir));    
-      
-// });
-// fs.existsSync("./directory-name")
-
-// fs.readdirSync(inFolder).forEach(file => {
-//     // console.log(file);
-//     // console.log(file, fs.existsSync('./'+file));    
-//     console.log("dirent.isDirectory('./'+file'): ", dirent.isDirectory('./'+file));
-//     if(fs.existsSync('./'+file)==false) {
-//         console.log(inFolder+'/'+file, fs.existsSync(inFolder+'/'+file));    
-//     }
-// });
-// Object.keys(reportObjectFromJSON).forEach(function(key){
-    // console.log('console.log(key, reportBasedFields[key]); ', key, reportBasedFields[key]);
-    // fieldStringNew.push(reportBasedFields[key].machine_name);
-    // fieldStringNew.push('|');
-    // fieldStringNew.push(reportBasedFields[key].title);
-    // fieldStringNew.push('|');
-    // fieldStringNew.push(reportBasedFields[key].type);
-
-
-
-
-
-
-
-    // console.log(key);
-    // fieldString.push(key);
-    // fieldString.push('|');
-    // fieldString.push(cleanTitles(r[4]));
-    // fieldString.push('|');
-    // fieldString.push(fieldType(r[5]));
-    // fieldString.push('\n');
-
-
-    // fieldString.push(key);
-    // fieldString.push('|');
-    // fieldString.push(cleanTitles(r[4]));
-    // fieldString.push('|');
-    // fieldString.push(fieldType(r[5]));
-    // fieldString.push('\n');
-
-    // reportCustomSourcesFromJSON = reportCustomSourcesFromJSON.concat(customSource(key));
-    // reportMappingsFromJSON = reportMappingsFromJSON.concat(createMappings(key));
-// });
-
-
-
-
-
-// // build CSV headers
-// Object.keys(reportObjectFromJSON).forEach(function(key){
-//     reportHeadersFromJSON.push({id: key, 'title': key});
-// });
-// // dump to random file for now.
-// writeToCSV('_test-report-from-json.csv', reportHeadersFromJSON, [reportObjectFromJSON]);
-
-
-
-
-
-
-
-
-
-
-
-
-function processCSVs() {
-    fs.createReadStream("www.nataliagill.com_blog-posts_3-major-benefits-to-eatong-solid-breakfast.mobile.report.csv")
-    .pipe(parse({ delimiter: ",", from_line: 2 }))
-    .on("data", function (row) {
-      lighthouseCSVimport.push(row);
-    }).on('end',function() {
-      lighthouseCSVimport.forEach(function(r) {
-          let key = r[3];
-        //   console.log(key);
-          key = key.replace(new RegExp("-", "g"), '_');
-          
-          if(usedKeys[key]) {
-              while(usedKeys[key]) {
-                  key=key+'_1';
-              }    
-          }
-          usedKeys[key]= key;
-  
-          reportObject[key] = r[6];
-          reportObject.requested_url = r[0];
-          reportObject.final_url = r[1];
-  
-          let domain = (new URL(reportObject.final_url));
-          reportObject.title = domain.hostname.replace('www.', '');
-          reportObject.domain = domain.hostname.replace('www.', '');
-  
-          reportHeaders.push({id: key, title: key});
-  
-          reportCustomSources = reportCustomSources.concat(customSource(key));
-          reportMappings = reportMappings.concat(createMappings(key));
-  
-          
-          fieldString.push(key);
-          fieldString.push('|');
-          fieldString.push(cleanTitles(r[4]));
-          fieldString.push('|');
-          fieldString.push(fieldType(r[5]));
-          fieldString.push('\n');
-      });
-      
-      reportCustomSources = reportCustomSources.concat(customSource('title'));
-      reportMappings = reportMappings.concat(createMappings('title'));
-  
-      
-    });
+function getStringOf(link) {
+    let reportPath = link;
+    reportPath = reportPath.replace('http://', '');
+    reportPath = reportPath.replace('https://', '');
+    reportPath = reportPath.replace('www.', '');
+    reportPath = reportPath.replace('www.', '');
+    reportPath = reportPath.replace('sitemap.xml', '');
+    reportPath = reportPath.replaceAll('/', '_');
+    reportPath = reportPath.replaceAll(' ', '_');
+    
+    return reportPath;
 }
-  
+
 
 function writeToCSV(filename, headers, content) {
 	const csvWriter = createCsvWriter({

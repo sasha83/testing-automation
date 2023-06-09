@@ -155,6 +155,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_unsized_images
     - field.field.node.lighthouse_report.field_unused_css_rules
     - field.field.node.lighthouse_report.field_unused_javascript
+    - field.field.node.lighthouse_report.field_url_reference
     - field.field.node.lighthouse_report.field_use_landmarks
     - field.field.node.lighthouse_report.field_user_agent
     - field.field.node.lighthouse_report.field_user_timing
@@ -1316,6 +1317,16 @@ content:
     weight: 239
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_url_reference:
+    type: entity_reference_autocomplete
+    weight: 313
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_use_landmarks:

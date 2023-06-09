@@ -9,7 +9,7 @@ id: node.url.field_path
 field_name: field_path
 entity_type: node
 bundle: url
-label: 'Relative Path'
+label: Path
 description: ''
 required: false
 translatable: false
