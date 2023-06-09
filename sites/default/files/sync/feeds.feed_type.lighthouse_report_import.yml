@@ -1142,6 +1142,376 @@ custom_sources:
     label: instance_id
     machine_name: instance_id
     type: csv
+  uses_rel_preload:
+    value: uses_rel_preload
+    label: uses_rel_preload
+    machine_name: uses_rel_preload
+    type: csv
+  uses_rel_preconnect:
+    value: uses_rel_preconnect
+    label: uses_rel_preconnect
+    machine_name: uses_rel_preconnect
+    type: csv
+  font_display:
+    value: font_display
+    label: font_display
+    machine_name: font_display
+    type: csv
+  performance_budget:
+    value: performance_budget
+    label: performance_budget
+    machine_name: performance_budget
+    type: csv
+  timing_budget:
+    value: timing_budget
+    label: timing_budget
+    machine_name: timing_budget
+    type: csv
+  document_title:
+    value: document_title
+    label: document_title
+    machine_name: document_title
+    type: csv
+  duplicate_id_active:
+    value: duplicate_id_active
+    label: duplicate_id_active
+    machine_name: duplicate_id_active
+    type: csv
+  duplicate_id_aria:
+    value: duplicate_id_aria
+    label: duplicate_id_aria
+    machine_name: duplicate_id_aria
+    type: csv
+  form_field_multiple_labels:
+    value: form_field_multiple_labels
+    label: form_field_multiple_labels
+    machine_name: form_field_multiple_labels
+    type: csv
+  frame_title:
+    value: frame_title
+    label: frame_title
+    machine_name: frame_title
+    type: csv
+  heading_order:
+    value: heading_order
+    label: heading_order
+    machine_name: heading_order
+    type: csv
+  html_has_lang:
+    value: html_has_lang
+    label: html_has_lang
+    machine_name: html_has_lang
+    type: csv
+  html_lang_valid:
+    value: html_lang_valid
+    label: html_lang_valid
+    machine_name: html_lang_valid
+    type: csv
+  image_alt:
+    value: image_alt
+    label: image_alt
+    machine_name: image_alt
+    type: csv
+  input_image_alt:
+    value: input_image_alt
+    label: input_image_alt
+    machine_name: input_image_alt
+    type: csv
+  link_name:
+    value: link_name
+    label: link_name
+    machine_name: link_name
+    type: csv
+  meta_refresh:
+    value: meta_refresh
+    label: meta_refresh
+    machine_name: meta_refresh
+    type: csv
+  meta_viewport:
+    value: meta_viewport
+    label: meta_viewport
+    machine_name: meta_viewport
+    type: csv
+  object_alt:
+    value: object_alt
+    label: object_alt
+    machine_name: object_alt
+    type: csv
+  td_headers_attr:
+    value: td_headers_attr
+    label: td_headers_attr
+    machine_name: td_headers_attr
+    type: csv
+  th_has_data_cells:
+    value: th_has_data_cells
+    label: th_has_data_cells
+    machine_name: th_has_data_cells
+    type: csv
+  valid_lang:
+    value: valid_lang
+    label: valid_lang
+    machine_name: valid_lang
+    type: csv
+  video_caption:
+    value: video_caption
+    label: video_caption
+    machine_name: video_caption
+    type: csv
+  custom_controls_labels:
+    value: custom_controls_labels
+    label: custom_controls_labels
+    machine_name: custom_controls_labels
+    type: csv
+  custom_controls_roles:
+    value: custom_controls_roles
+    label: custom_controls_roles
+    machine_name: custom_controls_roles
+    type: csv
+  focus_traps:
+    value: focus_traps
+    label: focus_traps
+    machine_name: focus_traps
+    type: csv
+  focusable_controls:
+    value: focusable_controls
+    label: focusable_controls
+    machine_name: focusable_controls
+    type: csv
+  interactive_element_affordance:
+    value: interactive_element_affordance
+    label: interactive_element_affordance
+    machine_name: interactive_element_affordance
+    type: csv
+  logical_tab_order:
+    value: logical_tab_order
+    label: logical_tab_order
+    machine_name: logical_tab_order
+    type: csv
+  managed_focus:
+    value: managed_focus
+    label: managed_focus
+    machine_name: managed_focus
+    type: csv
+  offscreen_content_hidden:
+    value: offscreen_content_hidden
+    label: offscreen_content_hidden
+    machine_name: offscreen_content_hidden
+    type: csv
+  use_landmarks:
+    value: use_landmarks
+    label: use_landmarks
+    machine_name: use_landmarks
+    type: csv
+  visual_order_follows_dom:
+    value: visual_order_follows_dom
+    label: visual_order_follows_dom
+    machine_name: visual_order_follows_dom
+    type: csv
+  uses_long_cache_ttl:
+    value: uses_long_cache_ttl
+    label: uses_long_cache_ttl
+    machine_name: uses_long_cache_ttl
+    type: csv
+  total_byte_weight:
+    value: total_byte_weight
+    label: total_byte_weight
+    machine_name: total_byte_weight
+    type: csv
+  offscreen_images:
+    value: offscreen_images
+    label: offscreen_images
+    machine_name: offscreen_images
+    type: csv
+  render_blocking_resources:
+    value: render_blocking_resources
+    label: render_blocking_resources
+    machine_name: render_blocking_resources
+    type: csv
+  unminified_css:
+    value: unminified_css
+    label: unminified_css
+    machine_name: unminified_css
+    type: csv
+  unminified_javascript:
+    value: unminified_javascript
+    label: unminified_javascript
+    machine_name: unminified_javascript
+    type: csv
+  unused_css_rules:
+    value: unused_css_rules
+    label: unused_css_rules
+    machine_name: unused_css_rules
+    type: csv
+  unused_javascript:
+    value: unused_javascript
+    label: unused_javascript
+    machine_name: unused_javascript
+    type: csv
+  modern_image_formats:
+    value: modern_image_formats
+    label: modern_image_formats
+    machine_name: modern_image_formats
+    type: csv
+  uses_optimized_images:
+    value: uses_optimized_images
+    label: uses_optimized_images
+    machine_name: uses_optimized_images
+    type: csv
+  meta_description:
+    value: meta_description
+    label: meta_description
+    machine_name: meta_description
+    type: csv
+  http_status_code:
+    value: http_status_code
+    label: http_status_code
+    machine_name: http_status_code
+    type: csv
+  font_size:
+    value: font_size
+    label: font_size
+    machine_name: font_size
+    type: csv
+  link_text:
+    value: link_text
+    label: link_text
+    machine_name: link_text
+    type: csv
+  crawlable_anchors:
+    value: crawlable_anchors
+    label: crawlable_anchors
+    machine_name: crawlable_anchors
+    type: csv
+  is_crawlable:
+    value: is_crawlable
+    label: is_crawlable
+    machine_name: is_crawlable
+    type: csv
+  tap_targets:
+    value: tap_targets
+    label: tap_targets
+    machine_name: tap_targets
+    type: csv
+  structured_data:
+    value: structured_data
+    label: structured_data
+    machine_name: structured_data
+    type: csv
+  bf_cache:
+    value: bf_cache
+    label: bf_cache
+    machine_name: bf_cache
+    type: csv
+  third_party_summary:
+    value: third_party_summary
+    label: third_party_summary
+    machine_name: third_party_summary
+    type: csv
+  third_party_facades:
+    value: third_party_facades
+    label: third_party_facades
+    machine_name: third_party_facades
+    type: csv
+  lcp_lazy_loaded:
+    value: lcp_lazy_loaded
+    label: lcp_lazy_loaded
+    machine_name: lcp_lazy_loaded
+    type: csv
+  no_unload_listeners:
+    value: no_unload_listeners
+    label: no_unload_listeners
+    machine_name: no_unload_listeners
+    type: csv
+  unsized_images:
+    value: unsized_images
+    label: unsized_images
+    machine_name: unsized_images
+    type: csv
+  valid_source_maps:
+    value: valid_source_maps
+    label: valid_source_maps
+    machine_name: valid_source_maps
+    type: csv
+  prioritize_lcp_image:
+    value: prioritize_lcp_image
+    label: prioritize_lcp_image
+    machine_name: prioritize_lcp_image
+    type: csv
+  pwa_cross_browser:
+    value: pwa_cross_browser
+    label: pwa_cross_browser
+    machine_name: pwa_cross_browser
+    type: csv
+  pwa_page_transitions:
+    value: pwa_page_transitions
+    label: pwa_page_transitions
+    machine_name: pwa_page_transitions
+    type: csv
+  uses_text_compression:
+    value: uses_text_compression
+    label: uses_text_compression
+    machine_name: uses_text_compression
+    type: csv
+  uses_responsive_images:
+    value: uses_responsive_images
+    label: uses_responsive_images
+    machine_name: uses_responsive_images
+    type: csv
+  efficient_animated_content:
+    value: efficient_animated_content
+    label: efficient_animated_content
+    machine_name: efficient_animated_content
+    type: csv
+  duplicated_javascript:
+    value: duplicated_javascript
+    label: duplicated_javascript
+    machine_name: duplicated_javascript
+    type: csv
+  legacy_javascript:
+    value: legacy_javascript
+    label: legacy_javascript
+    machine_name: legacy_javascript
+    type: csv
+  dom_size:
+    value: dom_size
+    label: dom_size
+    machine_name: dom_size
+    type: csv
+  geolocation_on_start:
+    value: geolocation_on_start
+    label: geolocation_on_start
+    machine_name: geolocation_on_start
+    type: csv
+  inspector_issues:
+    value: inspector_issues
+    label: inspector_issues
+    machine_name: inspector_issues
+    type: csv
+  no_document_write:
+    value: no_document_write
+    label: no_document_write
+    machine_name: no_document_write
+    type: csv
+  notification_on_start:
+    value: notification_on_start
+    label: notification_on_start
+    machine_name: notification_on_start
+    type: csv
+  paste_preventing_inputs:
+    value: paste_preventing_inputs
+    label: paste_preventing_inputs
+    machine_name: paste_preventing_inputs
+    type: csv
+  uses_http2:
+    value: uses_http2
+    label: uses_http2
+    machine_name: uses_http2
+    type: csv
+  uses_passive_event_listeners:
+    value: uses_passive_event_listeners
+    label: uses_passive_event_listeners
+    machine_name: uses_passive_event_listeners
+    type: csv
 mappings:
   -
     target: field_is_on_https
@@ -1321,98 +1691,98 @@ mappings:
   -
     target: field_uses_rel_preload
     map:
-      value: ''
+      value: uses_rel_preload
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_rel_preconnect
     map:
-      value: ''
+      value: uses_rel_preconnect
     settings:
       language: null
     unique: {  }
   -
     target: field_font_display
     map:
-      value: ''
+      value: font_display
     settings:
       language: null
     unique: {  }
   -
     target: field_performance_budget
     map:
-      value: ''
+      value: performance_budget
     settings:
       language: null
     unique: {  }
   -
     target: field_timing_budget
     map:
-      value: ''
+      value: timing_budget
     settings:
       language: null
     unique: {  }
   -
     target: field_third_party_summary
     map:
-      value: ''
+      value: third_party_summary
     settings:
       language: null
     unique: {  }
   -
     target: field_third_party_facades
     map:
-      value: ''
+      value: third_party_facades
     settings:
       language: null
     unique: {  }
   -
     target: field_lcp_lazy_loaded
     map:
-      value: ''
+      value: lcp_lazy_loaded
     settings:
       language: null
     unique: {  }
   -
     target: field_no_unload_listeners
     map:
-      value: ''
+      value: no_unload_listeners
     settings:
       language: null
     unique: {  }
   -
     target: field_unsized_images
     map:
-      value: ''
+      value: unsized_images
     settings:
       language: null
     unique: {  }
   -
     target: field_valid_source_maps
     map:
-      value: ''
+      value: valid_source_maps
     settings:
       language: null
     unique: {  }
   -
     target: field_prioritize_lcp_image
     map:
-      value: ''
+      value: prioritize_lcp_image
     settings:
       language: null
     unique: {  }
   -
     target: field_pwa_cross_browser
     map:
-      value: ''
+      value: pwa_cross_browser
     settings:
       language: null
     unique: {  }
   -
     target: field_pwa_page_transitions
     map:
-      value: ''
+      value: pwa_page_transitions
     settings:
       language: null
     unique: {  }
@@ -1580,70 +1950,70 @@ mappings:
   -
     target: field_document_title
     map:
-      value: document-title
+      value: document_title
     settings:
       language: null
     unique: {  }
   -
     target: field_duplicate_id_active
     map:
-      value: duplicate-id-active
+      value: duplicate_id_active
     settings:
       language: null
     unique: {  }
   -
     target: field_duplicate_id_aria
     map:
-      value: ''
+      value: duplicate_id_aria
     settings:
       language: null
     unique: {  }
   -
     target: field_form__multiple_labels
     map:
-      value: ''
+      value: form_field_multiple_labels
     settings:
       language: null
     unique: {  }
   -
     target: field_frame_title
     map:
-      value: ''
+      value: frame_title
     settings:
       language: null
     unique: {  }
   -
     target: field_heading_order
     map:
-      value: ''
+      value: heading_order
     settings:
       language: null
     unique: {  }
   -
     target: field_html_has_lang
     map:
-      value: ''
+      value: html_has_lang
     settings:
       language: null
     unique: {  }
   -
     target: field_html_lang_valid
     map:
-      value: ''
+      value: html_lang_valid
     settings:
       language: null
     unique: {  }
   -
     target: field_image_alt
     map:
-      value: ''
+      value: image_alt
     settings:
       language: null
     unique: {  }
   -
     target: field_input_image_alt
     map:
-      value: ''
+      value: input_image_alt
     settings:
       language: null
     unique: {  }
@@ -1657,7 +2027,7 @@ mappings:
   -
     target: field_link_name
     map:
-      value: ''
+      value: link_name
     settings:
       language: null
     unique: {  }
@@ -1678,21 +2048,21 @@ mappings:
   -
     target: field_meta_refresh
     map:
-      value: ''
+      value: meta_refresh
     settings:
       language: null
     unique: {  }
   -
     target: field_meta_viewport
     map:
-      value: ''
+      value: meta_viewport
     settings:
       language: null
     unique: {  }
   -
     target: field_object_alt
     map:
-      value: ''
+      value: object_alt
     settings:
       language: null
     unique: {  }
@@ -1706,203 +2076,203 @@ mappings:
   -
     target: field_td_headers_attr
     map:
-      value: ''
+      value: td_headers_attr
     settings:
       language: null
     unique: {  }
   -
     target: field_th_has_data_cells
     map:
-      value: ''
+      value: th_has_data_cells
     settings:
       language: null
     unique: {  }
   -
     target: field_valid_lang
     map:
-      value: ''
+      value: valid_lang
     settings:
       language: null
     unique: {  }
   -
     target: field_video_caption
     map:
-      value: ''
+      value: video_caption
     settings:
       language: null
     unique: {  }
   -
     target: field_custom_controls_labels
     map:
-      value: ''
+      value: custom_controls_labels
     settings:
       language: null
     unique: {  }
   -
     target: field_custom_controls_roles
     map:
-      value: ''
+      value: custom_controls_roles
     settings:
       language: null
     unique: {  }
   -
     target: field_focus_traps
     map:
-      value: ''
+      value: focus_traps
     settings:
       language: null
     unique: {  }
   -
     target: field_focusable_controls
     map:
-      value: ''
+      value: focusable_controls
     settings:
       language: null
     unique: {  }
   -
     target: field_interactive_element_afford
     map:
-      value: ''
+      value: interactive_element_affordance
     settings:
       language: null
     unique: {  }
   -
     target: field_logical_tab_order
     map:
-      value: ''
+      value: logical_tab_order
     settings:
       language: null
     unique: {  }
   -
     target: field_managed_focus
     map:
-      value: ''
+      value: managed_focus
     settings:
       language: null
     unique: {  }
   -
     target: field_offscreen_content_hidden
     map:
-      value: ''
+      value: offscreen_content_hidden
     settings:
       language: null
     unique: {  }
   -
     target: field_use_landmarks
     map:
-      value: ''
+      value: use_landmarks
     settings:
       language: null
     unique: {  }
   -
     target: field_visual_order_follows_dom
     map:
-      value: ''
+      value: visual_order_follows_dom
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_long_cache_ttl
     map:
-      value: ''
+      value: uses_long_cache_ttl
     settings:
       language: null
     unique: {  }
   -
     target: field_total_byte_weight
     map:
-      value: ''
+      value: total_byte_weight
     settings:
       language: null
     unique: {  }
   -
     target: field_offscreen_images
     map:
-      value: ''
+      value: offscreen_images
     settings:
       language: null
     unique: {  }
   -
     target: field_render_blocking_resources
     map:
-      value: ''
+      value: render_blocking_resources
     settings:
       language: null
     unique: {  }
   -
     target: field_unminified_css
     map:
-      value: ''
+      value: unminified_css
     settings:
       language: null
     unique: {  }
   -
     target: field_unminified_javascript
     map:
-      value: ''
+      value: unminified_javascript
     settings:
       language: null
     unique: {  }
   -
     target: field_unused_css_rules
     map:
-      value: ''
+      value: unused_css_rules
     settings:
       language: null
     unique: {  }
   -
     target: field_unused_javascript
     map:
-      value: ''
+      value: unused_javascript
     settings:
       language: null
     unique: {  }
   -
     target: field_modern_image_formats
     map:
-      value: ''
+      value: modern_image_formats
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_optimized_images
     map:
-      value: ''
+      value: uses_optimized_images
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_text_compression
     map:
-      value: ''
+      value: uses_text_compression
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_responsive_images
     map:
-      value: ''
+      value: uses_responsive_images
     settings:
       language: null
     unique: {  }
   -
     target: field_efficient_animated_content
     map:
-      value: ''
+      value: efficient_animated_content
     settings:
       language: null
     unique: {  }
   -
     target: field_duplicated_javascript
     map:
-      value: ''
+      value: duplicated_javascript
     settings:
       language: null
     unique: {  }
   -
     target: field_legacy_javascript
     map:
-      value: ''
+      value: legacy_javascript
     settings:
       language: null
     unique: {  }
@@ -1923,98 +2293,98 @@ mappings:
   -
     target: field_dom_size
     map:
-      value: ''
+      value: dom_size
     settings:
       language: null
     unique: {  }
   -
     target: field_geolocation_on_start
     map:
-      value: ''
+      value: geolocation_on_start
     settings:
       language: null
     unique: {  }
   -
     target: field_inspector_issues
     map:
-      value: ''
+      value: inspector_issues
     settings:
       language: null
     unique: {  }
   -
     target: field_no_document_write
     map:
-      value: ''
+      value: no_document_write
     settings:
       language: null
     unique: {  }
   -
     target: field_notification_on_start
     map:
-      value: ''
+      value: notification_on_start
     settings:
       language: null
     unique: {  }
   -
     target: field_paste_preventing_inputs
     map:
-      value: ''
+      value: paste_preventing_inputs
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_http2
     map:
-      value: ''
+      value: uses_http2
     settings:
       language: null
     unique: {  }
   -
     target: field_uses_passive_event_listene
     map:
-      value: ''
+      value: uses_passive_event_listeners
     settings:
       language: null
     unique: {  }
   -
     target: field_meta_description
     map:
-      value: ''
+      value: meta_description
     settings:
       language: null
     unique: {  }
   -
     target: field_http_status_code
     map:
-      value: ''
+      value: http_status_code
     settings:
       language: null
     unique: {  }
   -
     target: field_font_size
     map:
-      value: ''
+      value: font_size
     settings:
       language: null
     unique: {  }
   -
     target: field_link_text
     map:
-      value: ''
+      value: link_text
     settings:
       language: null
     unique: {  }
   -
     target: field_crawlable_anchors
     map:
-      value: ''
+      value: crawlable_anchors
     settings:
       language: null
     unique: {  }
   -
     target: field_is_crawlable
     map:
-      value: ''
+      value: is_crawlable
     settings:
       language: null
     unique: {  }
@@ -2028,7 +2398,7 @@ mappings:
   -
     target: field_tap_targets
     map:
-      value: ''
+      value: tap_targets
     settings:
       language: null
     unique: {  }
@@ -2056,14 +2426,14 @@ mappings:
   -
     target: field_structured_data
     map:
-      value: ''
+      value: structured_data
     settings:
       language: null
     unique: {  }
   -
     target: field_bf_cache
     map:
-      value: ''
+      value: bf_cache
     settings:
       language: null
     unique: {  }
