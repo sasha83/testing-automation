@@ -142,7 +142,7 @@ async function doRequest(url) {
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = process.instanceID;
                         let domain = (new URL(reportObjectFromJSON.final_url));
-                        reportObjectFromJSON.title = data.requestedUrl+"_"+process.testSuiteID+"_"+process.instanceID;
+                        reportObjectFromJSON.title = data.requestedUrl+" "+process.testSuiteID+" "+process.instanceID;
 
                         // reportObjectFromJSON.domain = key_domainArray[domain.hostname.replace('www.', '')];
                         let domainID = getDomainID(domain.origin.replace('www.', '').replace('https://', '').replace('http://', ''));
