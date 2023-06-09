@@ -1,0 +1,19 @@
+uuid: 2627808b-ed6a-4efc-b3c3-31e84a809657
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instance_id
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_instance_id
+field_name: field_instance_id
+entity_type: node
+bundle: lighthouse_report
+label: 'Instance ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -79,6 +79,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_input_image_alt
     - field.field.node.lighthouse_report.field_inspector_issues
     - field.field.node.lighthouse_report.field_installable_manifest
+    - field.field.node.lighthouse_report.field_instance_id
     - field.field.node.lighthouse_report.field_interactive
     - field.field.node.lighthouse_report.field_interactive_element_afford
     - field.field.node.lighthouse_report.field_is_crawlable
@@ -748,6 +749,14 @@ content:
     weight: 139
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_instance_id:
+    type: string_textfield
+    weight: 314
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_interactive:

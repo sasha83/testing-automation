@@ -14,7 +14,7 @@ npm-debug.log
 /modules/contrib/
 /modules/README.txt
 /profiles/README.txt
-/sites/default/files/css/
+/sites/default/files/css/}}
 /sites/default/files/js/
 /sites/default/files/php/
 /sites/development.services.yml
@@ -41,6 +41,9 @@ npm-debug.log
 /update.php
 /web.config
 *.csv
+/report-generator/*/*/*.json
 /report-generator/*.csv
-*.json
 /report-generator/*.json
+/sites/default/files/feeds/log/*/items/*.json
+/sites/default/files/css/*.css
+/report-generator/_lighthouse_report_queue/*/*/*

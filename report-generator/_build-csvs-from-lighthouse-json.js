@@ -8,7 +8,8 @@ const { parse } = require("csv-parse");
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 let fieldString = [];
 
-
+let testSuiteID;
+let instanceID;
 let lighthouseCSVimport = [];
 let reportObject = {};
 let reportCustomSources = [];
@@ -33,22 +34,28 @@ async function doRequest(url) {
                     key_domainArray.push({[domain.title]: domain.nid});
                 });
                 let processQueue = [];
-                fs.readdirSync(inFolder).forEach(testSuiteID => {
-                    if(fs.lstatSync(inFolder+"/"+testSuiteID).isDirectory()) {
-                        fs.readdirSync(inFolder+'/'+testSuiteID).forEach(instanceID => {
-                            if(fs.lstatSync(inFolder+"/"+testSuiteID+"/"+instanceID).isDirectory()) {
-                                fs.readdirSync(inFolder+"/"+testSuiteID+"/"+instanceID).forEach(file => {
-                                    let lhReportPath = inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file;
-                                    // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
-                                    if(fs.lstatSync(lhReportPath).isDirectory()) {
-
-
-                                    } else {
-                                        if(file.indexOf('.json')>-1) {
-                                            processQueue.push({'testSuiteID': testSuiteID, 'instanceID': instanceID, 'lhReportPath': lhReportPath});
+                fs.readdirSync(inFolder).forEach(tsid => {
+                    testSuiteID=tsid;
+                    if(fs.lstatSync(inFolder+"/"+tsid).isDirectory()) {
+                        fs.readdirSync(inFolder+'/'+tsid).forEach(iid => {
+                            if(iid==parseInt(iid)) {
+                                instanceID=iid;
+                                if(fs.lstatSync(inFolder+"/"+tsid+"/"+iid).isDirectory()) {
+                                    fs.readdirSync(inFolder+"/"+tsid+"/"+iid).forEach(file => {
+                                        let lhReportPath = inFolder+"/"+tsid+"/"+iid+"/"+file;
+                                        // lhReportPath=lhReportPath.replace('.json','.csv');
+                                        // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
+                                        if(fs.lstatSync(lhReportPath).isDirectory()) {
+    
+    
+                                        } else {
+                                            if(file.indexOf('.json')>-1) {
+                                                processQueue.push({'testSuiteID': tsid, 'instanceID': iid, 'lhReportPath': lhReportPath});
+                                            }
                                         }
-                                    }
-                                });
+                                    });
+                                }
+    
                             }
                         });
                     }    
@@ -132,8 +139,10 @@ async function doRequest(url) {
                         reportObjectFromJSON.config_settings = JSON.stringify(data.configSettings);
                         reportObjectFromJSON.categories = JSON.stringify(data.categories);
                         reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
+                        reportObjectFromJSON.test_suite_id = process.testSuiteID;
+                        reportObjectFromJSON.instance_id = process.instanceID;
                         let domain = (new URL(reportObjectFromJSON.final_url));
-                        reportObjectFromJSON.title = data.requestedUrl;
+                        reportObjectFromJSON.title = data.requestedUrl+"_"+process.testSuiteID+"_"+process.instanceID;
 
                         // reportObjectFromJSON.domain = key_domainArray[domain.hostname.replace('www.', '')];
                         let domainID = getDomainID(domain.origin.replace('www.', '').replace('https://', '').replace('http://', ''));
@@ -155,6 +164,8 @@ async function doRequest(url) {
                         reportBasedFields.push({'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'categories', 'title': 'Categories', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string'});
+                        reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
+                        reportBasedFields.push({'machine_name': 'instance_id', 'title': 'Instance ID', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'domain_id', 'title': 'Domain ID', 'type': 'string'});
                         // reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
@@ -177,8 +188,8 @@ async function doRequest(url) {
                         
                         // var fn = reportObjectFromJSON.requested_url.split("/");
                         console.log(getStringOf(reportObjectFromJSON.requested_url));
-                        var outFileName = process.instanceID+"_"+process.testSuiteID+"_"+getStringOf(reportObjectFromJSON.requested_url);
-                        outFileName = outFileName.replace('.json', '.csv');
+                        var outFileName = process.instanceID+"_"+process.testSuiteID+"_"+getStringOf(reportObjectFromJSON.requested_url)+'.csv';
+                        // outFileName = outFileName.replace('.json', '.csv');
 
                         writeToCSV(outFolder+'/'+outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
                         // outputCSV
