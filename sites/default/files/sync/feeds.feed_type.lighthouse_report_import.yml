@@ -1512,6 +1512,101 @@ custom_sources:
     label: uses_passive_event_listeners
     machine_name: uses_passive_event_listeners
     type: csv
+  aria_command_name:
+    value: aria_command_name
+    label: aria_command_name
+    machine_name: aria_command_name
+    type: csv
+  aria_hidden_body:
+    value: aria_hidden_body
+    label: aria_hidden_body
+    machine_name: aria_hidden_body
+    type: csv
+  aria_hidden_focus:
+    value: aria_hidden_focus
+    label: aria_hidden_focus
+    machine_name: aria_hidden_focus
+    type: csv
+  aria_input__name:
+    value: aria_input__name
+    label: aria_input__name
+    machine_name: aria_input__name
+    type: csv
+  aria_meter_name:
+    value: aria_meter_name
+    label: aria_meter_name
+    machine_name: aria_meter_name
+    type: csv
+  aria_progressbar_name:
+    value: aria_progressbar_name
+    label: aria_progressbar_name
+    machine_name: aria_progressbar_name
+    type: csv
+  aria_required_attr:
+    value: aria_required_attr
+    label: aria_required_attr
+    machine_name: aria_required_attr
+    type: csv
+  aria_required_children:
+    value: aria_required_children
+    label: aria_required_children
+    machine_name: aria_required_children
+    type: csv
+  aria_required_parent:
+    value: aria_required_parent
+    label: aria_required_parent
+    machine_name: aria_required_parent
+    type: csv
+  aria_roles:
+    value: aria_roles
+    label: aria_roles
+    machine_name: aria_roles
+    type: csv
+  aria_toggle_field_name:
+    value: aria_toggle_field_name
+    label: aria_toggle_field_name
+    machine_name: aria_toggle_field_name
+    type: csv
+  aria_tooltip_name:
+    value: aria_tooltip_name
+    label: aria_tooltip_name
+    machine_name: aria_tooltip_name
+    type: csv
+  aria_treeitem_name:
+    value: aria_treeitem_name
+    label: aria_treeitem_name
+    machine_name: aria_treeitem_name
+    type: csv
+  aria_allowed_attr:
+    value: aria_allowed_attr
+    label: aria_allowed_attr
+    machine_name: aria_allowed_attr
+    type: csv
+  aria_valid_attr_value:
+    value: aria_valid_attr_value
+    label: aria_valid_attr_value
+    machine_name: aria_valid_attr_value
+    type: csv
+  aria_valid_attr:
+    value: aria_valid_attr
+    label: aria_valid_attr
+    machine_name: aria_valid_attr
+    type: csv
+  button_name:
+    value: button_name
+    label: button_name
+    machine_name: button_name
+    type: csv
+  color_contrast:
+    value: color_contrast
+    label: color_contrast
+    machine_name: color_contrast
+    type: csv
+  definition_list:
+    value: definition_list
+    label: definition_list
+    machine_name: definition_list
+    type: csv
 mappings:
   -
     target: field_is_on_https
@@ -1803,119 +1898,119 @@ mappings:
   -
     target: field_aria_allowed_attr
     map:
-      value: ''
+      value: aria_allowed_attr
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_command_name
     map:
-      value: ''
+      value: aria_command_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_hidden_body
     map:
-      value: ''
+      value: aria_hidden_body
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_hidden_focus
     map:
-      value: ''
+      value: aria_hidden_focus
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_input__name
     map:
-      value: ''
+      value: aria_input__name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_meter_name
     map:
-      value: ''
+      value: aria_meter_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_progressbar_name
     map:
-      value: ''
+      value: aria_progressbar_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_attr
     map:
-      value: ''
+      value: aria_required_attr
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_children
     map:
-      value: ''
+      value: aria_required_children
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_required_parent
     map:
-      value: ''
+      value: aria_required_parent
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_roles
     map:
-      value: ''
+      value: aria_roles
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_toggle__name
     map:
-      value: ''
+      value: aria_toggle_field_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_tooltip_name
     map:
-      value: ''
+      value: aria_tooltip_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_treeitem_name
     map:
-      value: ''
+      value: aria_treeitem_name
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_valid_attr_value
     map:
-      value: ''
+      value: aria_valid_attr_value
     settings:
       language: null
     unique: {  }
   -
     target: field_aria_valid_attr
     map:
-      value: ''
+      value: aria_valid_attr
     settings:
       language: null
     unique: {  }
   -
     target: field_button_name
     map:
-      value: ''
+      value: button_name
     settings:
       language: null
     unique: {  }
@@ -1929,14 +2024,14 @@ mappings:
   -
     target: field_color_contrast
     map:
-      value: ''
+      value: color_contrast
     settings:
       language: null
     unique: {  }
   -
     target: field_definition_list
     map:
-      value: ''
+      value: definition_list
     settings:
       language: null
     unique: {  }
