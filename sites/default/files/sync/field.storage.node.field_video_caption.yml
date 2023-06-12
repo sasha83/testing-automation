@@ -1,4 +1,4 @@
-uuid: 536e411f-49ed-4a9a-87b3-9cafc2c58c00
+uuid: 64eea92b-2e40-4b6d-96bb-5407f63d19b9
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,9 @@ dependencies:
 id: node.field_video_caption
 field_name: field_video_caption
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

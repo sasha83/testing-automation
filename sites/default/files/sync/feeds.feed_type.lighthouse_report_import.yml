@@ -57,7 +57,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_focusable_controls
     - field.field.node.lighthouse_report.field_font_display
     - field.field.node.lighthouse_report.field_font_size
-    - field.field.node.lighthouse_report.field_form__multiple_labels
     - field.field.node.lighthouse_report.field_frame_title
     - field.field.node.lighthouse_report.field_gather_mode
     - field.field.node.lighthouse_report.field_geolocation_on_start
@@ -147,7 +146,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_uses_text_compression
     - field.field.node.lighthouse_report.field_valid_lang
     - field.field.node.lighthouse_report.field_valid_source_maps
-    - field.field.node.lighthouse_report.field_video_caption
     - field.field.node.lighthouse_report.field_viewport
     - field.field.node.lighthouse_report.field_visual_order_follows_dom
     - node.type.lighthouse_report
@@ -175,7 +173,7 @@ label: 'Lighthouse report import'
 id: lighthouse_report_import
 description: ''
 help: ''
-import_period: -1
+import_period: 0
 fetcher: directory
 fetcher_configuration:
   allowed_extensions: 'txt csv tsv xml opml'
@@ -198,7 +196,7 @@ processor_configuration:
   skip_hash_check: false
   authorize: true
   revision: false
-  expire: 3600
+  expire: -1
   owner_feed_author: false
   owner_id: 0
 custom_sources:
@@ -2064,13 +2062,6 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_form__multiple_labels
-    map:
-      value: form_field_multiple_labels
-    settings:
-      language: null
-    unique: {  }
-  -
     target: field_frame_title
     map:
       value: frame_title
@@ -2186,13 +2177,6 @@ mappings:
     target: field_valid_lang
     map:
       value: valid_lang
-    settings:
-      language: null
-    unique: {  }
-  -
-    target: field_video_caption
-    map:
-      value: video_caption
     settings:
       language: null
     unique: {  }

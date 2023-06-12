@@ -1,19 +1,19 @@
-uuid: 6c021d9d-3c1c-407e-bbb7-36c61cfd8305
+uuid: 3912dd1d-65a3-43da-86f5-48c666439881
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_form__multiple_labels
+    - field.storage.node.field_field_form__multiple_label
     - node.type.lighthouse_report
-id: node.lighthouse_report.field_form__multiple_labels
-field_name: field_form__multiple_labels
+id: node.lighthouse_report.field_field_form__multiple_label
+field_name: field_field_form__multiple_label
 entity_type: node
 bundle: lighthouse_report
 label: 'No form fields have multiple labels'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

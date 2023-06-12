@@ -1,0 +1,33 @@
+uuid: 5f7fb5aa-528a-4f9c-bece-7080c0cf2d76
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.lighthouse_reports
+  module:
+    - node
+    - views
+  theme:
+    - claro
+id: views_block__lighthouse_reports_block_2
+theme: claro
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:lighthouse_reports-block_2'
+settings:
+  id: 'views_block:lighthouse_reports-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      url: url

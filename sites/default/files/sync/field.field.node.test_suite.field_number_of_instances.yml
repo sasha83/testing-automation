@@ -1,0 +1,25 @@
+uuid: 1bc3fae5-1e6b-4943-b4fb-aa15d2433d8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_instances
+    - node.type.test_suite
+id: node.test_suite.field_number_of_instances
+field_name: field_number_of_instances
+entity_type: node
+bundle: test_suite
+label: 'Number of Instances'
+description: 'How many consecutive instances of this test suite do you want to run when this test suite runs?  Enter 0 (zero) for indefinite loop.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -37,15 +37,15 @@ async function generatesSH() {
         
         // console.log(link);
         let reportPath = getStringOf(link);
-        let simString = '';
-        if(sim<maxTestRuns) {
-            simString = ' &';
-        } else {
-            sim = 0;
-        }
+        // let simString = '';
+        // if(sim<maxTestRuns) {
+        //     simString = ' &';
+        // } else {
+        //     sim = 0;
+        // }
 
-        shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+instanceID+'/'+reportPath+'.json'+simString);
-
+        shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+instanceID+'/'+reportPath+'.json');
+        shFile.push('echo "'+link+', '+reportPath+'.json" \n');
         sim ++;
     })
     shFile = shFile.join('\n');

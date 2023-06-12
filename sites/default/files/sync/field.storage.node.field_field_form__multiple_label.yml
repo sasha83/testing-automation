@@ -1,17 +1,15 @@
-uuid: 5d990d06-8a83-483b-828e-b68e40a0de84
+uuid: 5c8da7f1-2d4e-4cfe-a0a8-61977396146a
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_form__multiple_labels
-field_name: field_form__multiple_labels
+id: node.field_field_form__multiple_label
+field_name: field_field_form__multiple_label
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

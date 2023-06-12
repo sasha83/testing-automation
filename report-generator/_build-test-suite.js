@@ -1,3 +1,5 @@
+const { exec } = require('child_process');
+
 const util = require('util')
 const request = require('request');
 const fs = require('fs');
@@ -8,7 +10,7 @@ let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
 
-// console.log("instanceID: ", instanceID);
+
 
 let i = 0;
 process.argv.forEach(function (val, index, array) {
@@ -35,13 +37,23 @@ async function doRequest(url) {
                 domainArray.forEach(function(domain){
                     // console.log(domain);
                     shOutput.push('node _build-lighthouse-sh-file.js '+domain.field_site+' '+testSuiteID+' '+instanceID);
-                    shOutput.push('sh test-suite-id-'+testSuiteID+'_'+getStringOf(domain.field_site)+'.sh &');
+                    shOutput.push('sh test-suite-id-'+testSuiteID+'_'+getStringOf(domain.field_site)+'.sh');
                 });
                 console.log(shOutput);
+                shOutput.push('node _build-test-suite.js'+' '+testSuiteID);
                 shOutput = shOutput.join('\n');
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;
                 }) 
+                var yourscript = exec('sh '+shFilename,
+                    (error, stdout, stderr) => {
+                        console.log(stdout);
+                        console.log(stderr);
+                        if (error !== null) {
+                            console.log(`exec error: ${error}`);
+                        }
+                    });
+        
 			} else {
 				reject(error);
 			}

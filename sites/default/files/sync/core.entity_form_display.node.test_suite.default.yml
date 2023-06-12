@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.test_suite.body
     - field.field.node.test_suite.field_domains
     - field.field.node.test_suite.field_max_parallel_tests
+    - field.field.node.test_suite.field_number_of_instances
     - node.type.test_suite
   module:
     - path
@@ -46,6 +47,13 @@ content:
     weight: 123
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_number_of_instances:
+    type: number
+    weight: 124
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path

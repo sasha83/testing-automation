@@ -1,0 +1,13 @@
+uuid: f6b9de8c-3efe-4127-b358-4e84c94ee3b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+_core:
+  default_config_hash: niuhIMcFZrHE9Y8V6laYmbmI4rnUvMoj3A80EUgcs44
+id: storage_save_action
+label: 'Save storage data'
+type: storage
+plugin: 'entity:save_action:storage'
+configuration: {  }

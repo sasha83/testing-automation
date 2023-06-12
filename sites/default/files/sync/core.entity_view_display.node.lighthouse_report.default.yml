@@ -55,6 +55,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_environment
     - field.field.node.lighthouse_report.field_errors_in_console
     - field.field.node.lighthouse_report.field_fetch_time
+    - field.field.node.lighthouse_report.field_field_form__multiple_label
     - field.field.node.lighthouse_report.field_final_displayed_url
     - field.field.node.lighthouse_report.field_final_screenshot
     - field.field.node.lighthouse_report.field_final_url
@@ -64,7 +65,6 @@ dependencies:
     - field.field.node.lighthouse_report.field_focusable_controls
     - field.field.node.lighthouse_report.field_font_display
     - field.field.node.lighthouse_report.field_font_size
-    - field.field.node.lighthouse_report.field_form__multiple_labels
     - field.field.node.lighthouse_report.field_frame_title
     - field.field.node.lighthouse_report.field_gather_mode
     - field.field.node.lighthouse_report.field_geolocation_on_start
@@ -617,6 +617,13 @@ content:
     third_party_settings: {  }
     weight: 256
     region: content
+  field_field_form__multiple_label:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 295
+    region: content
   field_final_displayed_url:
     type: string
     label: above
@@ -695,14 +702,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 240
-    region: content
-  field_form__multiple_labels:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 183
     region: content
   field_frame_title:
     type: string
@@ -1637,12 +1636,11 @@ content:
     weight: 151
     region: content
   field_video_caption:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 201
+    weight: 296
     region: content
   field_viewport:
     type: number_integer

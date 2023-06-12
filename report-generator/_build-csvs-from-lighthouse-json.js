@@ -34,30 +34,36 @@ async function doRequest(url) {
                     key_domainArray.push({[domain.title]: domain.nid});
                 });
                 let processQueue = [];
+                
+                // Read all test suite folders
                 fs.readdirSync(inFolder).forEach(tsid => {
-                    testSuiteID=tsid;
-                    if(fs.lstatSync(inFolder+"/"+tsid).isDirectory()) {
-                        fs.readdirSync(inFolder+'/'+tsid).forEach(iid => {
-                            if(iid==parseInt(iid)) {
-                                instanceID=iid;
-                                if(fs.lstatSync(inFolder+"/"+tsid+"/"+iid).isDirectory()) {
-                                    fs.readdirSync(inFolder+"/"+tsid+"/"+iid).forEach(file => {
-                                        let lhReportPath = inFolder+"/"+tsid+"/"+iid+"/"+file;
-                                        // lhReportPath=lhReportPath.replace('.json','.csv');
-                                        // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
-                                        if(fs.lstatSync(lhReportPath).isDirectory()) {
+                    if(tsid==parseInt(tsid)) {
+                        testSuiteID=tsid;
+                        if(fs.lstatSync(inFolder+"/"+tsid).isDirectory()) {
+                            fs.readdirSync(inFolder+'/'+tsid).forEach(iid => {
+                                if(iid==parseInt(iid)) {
     
-    
-                                        } else {
-                                            if(file.indexOf('.json')>-1) {
-                                                processQueue.push({'testSuiteID': tsid, 'instanceID': iid, 'lhReportPath': lhReportPath});
+                                    // Read all instance ID folders
+                                    instanceID=iid;
+                                    if(fs.lstatSync(inFolder+"/"+tsid+"/"+iid).isDirectory()) {
+                                        fs.readdirSync(inFolder+"/"+tsid+"/"+iid).forEach(file => {
+                                            let lhReportPath = inFolder+"/"+tsid+"/"+iid+"/"+file;
+                                            // lhReportPath=lhReportPath.replace('.json','.csv');
+                                            // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
+                                            if(fs.lstatSync(lhReportPath).isDirectory()) {
+        
+        
+                                            } else {
+                                                if(file.indexOf('.json')>-1) {
+                                                    processQueue.push({'testSuiteID': tsid, 'instanceID': iid, 'lhReportPath': lhReportPath});
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                                    }
+        
                                 }
-    
-                            }
-                        });
+                            }); 
+                        }
                     }    
                 });
                   
@@ -131,7 +137,7 @@ async function doRequest(url) {
                         reportObjectFromJSON.main_document_url = data.mainDocumentUrl;
                         reportObjectFromJSON.final_displayed_url = data.finalDisplayedUrl;
                         reportObjectFromJSON.final_url = data.finalUrl;
-                        reportObjectFromJSON.fetch_time = data.fetchTime;
+                        reportObjectFromJSON.fetch_time = new Date(data.fetchTime).toString();
                         reportObjectFromJSON.gather_mode = data.gatherMode;
                         reportObjectFromJSON.run_warnings = JSON.stringify(data.runWarnings);
                         reportObjectFromJSON.user_agent = data.userAgent;
@@ -142,14 +148,12 @@ async function doRequest(url) {
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = process.instanceID;
                         let domain = (new URL(reportObjectFromJSON.final_url));
+
+                        // format node title
                         reportObjectFromJSON.title = data.requestedUrl+" "+process.testSuiteID+" "+process.instanceID;
 
-                        // reportObjectFromJSON.domain = key_domainArray[domain.hostname.replace('www.', '')];
                         let domainID = getDomainID(domain.origin.replace('www.', '').replace('https://', '').replace('http://', ''));
                         reportObjectFromJSON.domain_id = domainID;
-
-
-                        
                         
                         reportBasedFields.push({'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'requested_url', 'title': 'Requested URL', 'type': 'string'});

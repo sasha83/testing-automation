@@ -1,0 +1,28 @@
+uuid: d706a6a3-230e-4e7c-b2e2-2a5e2ca12d8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.summary.body
+    - node.type.summary
+  module:
+    - text
+    - user
+id: node.summary.default
+targetEntityType: node
+bundle: summary
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
