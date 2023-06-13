@@ -137,7 +137,10 @@ async function doRequest(url) {
                         reportObjectFromJSON.main_document_url = data.mainDocumentUrl;
                         reportObjectFromJSON.final_displayed_url = data.finalDisplayedUrl;
                         reportObjectFromJSON.final_url = data.finalUrl;
-                        reportObjectFromJSON.fetch_time = new Date(data.fetchTime).toString();
+                        reportObjectFromJSON.fetch_time = data.fetchTime;
+                        reportObjectFromJSON.fetch_time_timestamp = data.fetchTime;
+                        reportObjectFromJSON.fetch_time_unix = data.fetchTime;
+                        reportObjectFromJSON.detected_javascript_libraries = data.js-libraries;
                         reportObjectFromJSON.gather_mode = data.gatherMode;
                         reportObjectFromJSON.run_warnings = JSON.stringify(data.runWarnings);
                         reportObjectFromJSON.user_agent = data.userAgent;
@@ -147,6 +150,7 @@ async function doRequest(url) {
                         reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = process.instanceID;
+                        ;
                         let domain = (new URL(reportObjectFromJSON.final_url));
 
                         // format node title
@@ -172,7 +176,8 @@ async function doRequest(url) {
                         reportBasedFields.push({'machine_name': 'instance_id', 'title': 'Instance ID', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'title', 'title': 'Title', 'type': 'string'});
                         reportBasedFields.push({'machine_name': 'domain_id', 'title': 'Domain ID', 'type': 'string'});
-                        // reportBasedFields.push({'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string'});
+                        reportBasedFields.push({'machine_name': 'fetch_time_timestamp', 'title': 'Fetch Time Timestamp', 'type': 'string'});
+                        reportBasedFields.push({'machine_name': 'fetch_time_unix', 'title': 'Fetch Time Unix', 'type': 'string'});
                     
                 
                 

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_cumulative_layout_shift
-    - field.storage.node.field_fetch_time
     - node.type.lighthouse_report
   module:
     - charts
@@ -145,69 +144,6 @@ display:
           type: string
           settings:
             link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_fetch_time:
-          id: field_fetch_time
-          table: node__field_fetch_time
-          field: field_fetch_time
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -381,8 +317,7 @@ display:
         - url
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_fetch_time'
+      tags: {  }
   block_1:
     id: block_1
     display_title: 'URL - Lighthouse Reports'
@@ -519,69 +454,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_fetch_time:
-          id: field_fetch_time
-          table: node__field_fetch_time
-          field: field_fetch_time
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_cumulative_layout_shift:
           id: field_cumulative_layout_shift
           table: node__field_cumulative_layout_shift
@@ -648,8 +520,39 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      sorts:
+        created_1:
+          id: created_1
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: ASC
+          expose:
+            label: 'Authored on'
+            field_identifier: created_1
+          exposed: true
+          granularity: second
+        field_cumulative_layout_shift_value:
+          id: field_cumulative_layout_shift_value
+          table: node__field_cumulative_layout_shift
+          field: field_cumulative_layout_shift_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: 'Cumulative Layout Shift'
+            field_identifier: field_cumulative_layout_shift_value
+          exposed: true
       defaults:
         fields: false
+        sorts: false
       display_description: ''
       display_extenders: {  }
     cache_metadata:
@@ -658,11 +561,12 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_cumulative_layout_shift'
-        - 'config:field.storage.node.field_fetch_time'
   block_2:
     id: block_2
     display_title: 'URL - Lighthouse Reports - Line Chart'
@@ -799,69 +703,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_fetch_time:
-          id: field_fetch_time
-          table: node__field_fetch_time
-          field: field_fetch_time
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_cumulative_layout_shift:
           id: field_cumulative_layout_shift
           table: node__field_cumulative_layout_shift
@@ -928,6 +769,73 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       sorts:
         created:
           id: created
@@ -945,19 +853,6 @@ display:
             field_identifier: ''
           exposed: false
           granularity: second
-        field_fetch_time_value:
-          id: field_fetch_time_value
-          table: node__field_fetch_time
-          field: field_fetch_time_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
       style:
         type: chart
         options:
@@ -967,10 +862,10 @@ display:
               rendered: true
               rendered_strip: false
           chart_settings:
-            library: google
-            type: line
+            library: chartjs
+            type: pie
             fields:
-              label: field_fetch_time
+              label: field_cumulative_layout_shift
               stacking: false
               data_providers:
                 nid:
@@ -981,11 +876,11 @@ display:
                   enabled: false
                   color: '#f07c33'
                   weight: 4
-                field_fetch_time:
-                  enabled: false
-                  color: '#342e9c'
-                  weight: 4
                 field_cumulative_layout_shift:
+                  enabled: false
+                  color: '#579b17'
+                  weight: 4
+                created:
                   enabled: true
                   color: '#579b17'
                   weight: 4
@@ -1049,4 +944,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_cumulative_layout_shift'
-        - 'config:field.storage.node.field_fetch_time'

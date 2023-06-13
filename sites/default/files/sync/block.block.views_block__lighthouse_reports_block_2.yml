@@ -1,6 +1,6 @@
 uuid: 5f7fb5aa-528a-4f9c-bece-7080c0cf2d76
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.lighthouse_reports

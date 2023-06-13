@@ -32,11 +32,13 @@ dependencies:
     - field.field.node.lighthouse_report.field_config_settings
     - field.field.node.lighthouse_report.field_content_width
     - field.field.node.lighthouse_report.field_crawlable_anchors
+    - field.field.node.lighthouse_report.field_critical_request_chains
     - field.field.node.lighthouse_report.field_cumulative_layout_shift
     - field.field.node.lighthouse_report.field_custom_controls_labels
     - field.field.node.lighthouse_report.field_custom_controls_roles
     - field.field.node.lighthouse_report.field_definition_list
     - field.field.node.lighthouse_report.field_deprecations
+    - field.field.node.lighthouse_report.field_detected_javascript_librar
     - field.field.node.lighthouse_report.field_dlitem
     - field.field.node.lighthouse_report.field_doctype
     - field.field.node.lighthouse_report.field_document_title
@@ -46,10 +48,13 @@ dependencies:
     - field.field.node.lighthouse_report.field_duplicate_id_aria
     - field.field.node.lighthouse_report.field_duplicated_javascript
     - field.field.node.lighthouse_report.field_efficient_animated_content
+    - field.field.node.lighthouse_report.field_ensure_csp_xss
     - field.field.node.lighthouse_report.field_environment
     - field.field.node.lighthouse_report.field_errors_in_console
     - field.field.node.lighthouse_report.field_fetch_time
+    - field.field.node.lighthouse_report.field_field_form__multiple_label
     - field.field.node.lighthouse_report.field_final_displayed_url
+    - field.field.node.lighthouse_report.field_final_screenshot
     - field.field.node.lighthouse_report.field_final_url
     - field.field.node.lighthouse_report.field_first_contentful_paint
     - field.field.node.lighthouse_report.field_first_meaningful_paint
@@ -78,6 +83,8 @@ dependencies:
     - field.field.node.lighthouse_report.field_is_on_https
     - field.field.node.lighthouse_report.field_label
     - field.field.node.lighthouse_report.field_largest_contentful_paint
+    - field.field.node.lighthouse_report.field_largest_contentful_paint_e
+    - field.field.node.lighthouse_report.field_layout_shift_elements
     - field.field.node.lighthouse_report.field_lcp_lazy_loaded
     - field.field.node.lighthouse_report.field_legacy_javascript
     - field.field.node.lighthouse_report.field_lighthouse_version
@@ -86,7 +93,9 @@ dependencies:
     - field.field.node.lighthouse_report.field_list
     - field.field.node.lighthouse_report.field_listitem
     - field.field.node.lighthouse_report.field_logical_tab_order
+    - field.field.node.lighthouse_report.field_long_tasks
     - field.field.node.lighthouse_report.field_main_document_url
+    - field.field.node.lighthouse_report.field_main_thread_tasks
     - field.field.node.lighthouse_report.field_mainthread_work_breakdown
     - field.field.node.lighthouse_report.field_managed_focus
     - field.field.node.lighthouse_report.field_maskable_icon
@@ -94,9 +103,14 @@ dependencies:
     - field.field.node.lighthouse_report.field_meta_description
     - field.field.node.lighthouse_report.field_meta_refresh
     - field.field.node.lighthouse_report.field_meta_viewport
+    - field.field.node.lighthouse_report.field_metrics
     - field.field.node.lighthouse_report.field_modern_image_formats
+    - field.field.node.lighthouse_report.field_network_requests
+    - field.field.node.lighthouse_report.field_network_rtt
+    - field.field.node.lighthouse_report.field_network_server_latency
     - field.field.node.lighthouse_report.field_no_document_write
     - field.field.node.lighthouse_report.field_no_unload_listeners
+    - field.field.node.lighthouse_report.field_non_composited_animations
     - field.field.node.lighthouse_report.field_notification_on_start
     - field.field.node.lighthouse_report.field_object_alt
     - field.field.node.lighthouse_report.field_offscreen_content_hidden
@@ -112,7 +126,10 @@ dependencies:
     - field.field.node.lighthouse_report.field_redirects
     - field.field.node.lighthouse_report.field_render_blocking_resources
     - field.field.node.lighthouse_report.field_requested_url
+    - field.field.node.lighthouse_report.field_resource_summary
     - field.field.node.lighthouse_report.field_robots_txt
+    - field.field.node.lighthouse_report.field_screenshot_thumbnails
+    - field.field.node.lighthouse_report.field_script_treemap_data
     - field.field.node.lighthouse_report.field_server_response_time
     - field.field.node.lighthouse_report.field_service_worker
     - field.field.node.lighthouse_report.field_speed_index
@@ -136,6 +153,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_unused_javascript
     - field.field.node.lighthouse_report.field_use_landmarks
     - field.field.node.lighthouse_report.field_user_agent
+    - field.field.node.lighthouse_report.field_user_timing
     - field.field.node.lighthouse_report.field_uses_http2
     - field.field.node.lighthouse_report.field_uses_long_cache_ttl
     - field.field.node.lighthouse_report.field_uses_optimized_images
@@ -146,11 +164,13 @@ dependencies:
     - field.field.node.lighthouse_report.field_uses_text_compression
     - field.field.node.lighthouse_report.field_valid_lang
     - field.field.node.lighthouse_report.field_valid_source_maps
+    - field.field.node.lighthouse_report.field_video_caption
     - field.field.node.lighthouse_report.field_viewport
     - field.field.node.lighthouse_report.field_visual_order_follows_dom
     - node.type.lighthouse_report
   module:
     - feeds_log
+    - json_field
     - node
 third_party_settings:
   feeds_log:
@@ -978,7 +998,7 @@ custom_sources:
   fetch_time:
     value: fetch_time
     label: fetch_time
-    machine_name: field_fetch_time
+    machine_name: fetch_time
     type: csv
   gather_mode:
     value: gather_mode
@@ -1604,6 +1624,96 @@ custom_sources:
     value: definition_list
     label: definition_list
     machine_name: definition_list
+    type: csv
+  fetch_time_timestamp:
+    value: fetch_time_timestamp
+    label: fetch_time_timestamp
+    machine_name: fetch_time_timestamp
+    type: csv
+  layout_shift_elements:
+    value: layout_shift_elements
+    label: layout_shift_elements
+    machine_name: layout_shift_elements
+    type: csv
+  long_tasks:
+    value: long_tasks
+    label: long_tasks
+    machine_name: long_tasks
+    type: csv
+  non_composited_animations:
+    value: non_composited_animations
+    label: non_composited_animations
+    machine_name: non_composited_animations
+    type: csv
+  critical_request_chains:
+    value: critical_request_chains
+    label: critical_request_chains
+    machine_name: critical_request_chains
+    type: csv
+  js_libraries:
+    value: js_libraries
+    label: js_libraries
+    machine_name: js_libraries
+    type: csv
+  ensure_csp_xss:
+    value: ensure_csp_xss
+    label: ensure_csp_xss
+    machine_name: ensure_csp_xss
+    type: csv
+  csp_xss:
+    value: csp_xss
+    label: csp_xss
+    machine_name: csp_xss
+    type: csv
+  final_screenshot:
+    value: final_screenshot
+    label: final_screenshot
+    machine_name: final_screenshot
+    type: csv
+  resource_summary:
+    value: resource_summary
+    label: resource_summary
+    machine_name: resource_summary
+    type: csv
+  largest_contentful_paint_element:
+    value: largest_contentful_paint_element
+    label: largest_contentful_paint_element
+    machine_name: largest_contentful_paint_element
+    type: csv
+  network_requests:
+    value: network_requests
+    label: network_requests
+    machine_name: network_requests
+    type: csv
+  network_rtt:
+    value: network_rtt
+    label: network_rtt
+    machine_name: network_rtt
+    type: csv
+  screenshot_thumbnails:
+    value: screenshot_thumbnails
+    label: screenshot_thumbnails
+    machine_name: screenshot_thumbnails
+    type: csv
+  script_treemap_data:
+    value: script_treemap_data
+    label: script_treemap_data
+    machine_name: script_treemap_data
+    type: csv
+  network_server_latency:
+    value: network_server_latency
+    label: network_server_latency
+    machine_name: network_server_latency
+    type: csv
+  main_thread_tasks:
+    value: main_thread_tasks
+    label: main_thread_tasks
+    machine_name: main_thread_tasks
+    type: csv
+  user_timing:
+    value: user_timings
+    label: user_timings
+    machine_name: user_timing
     type: csv
 mappings:
   -
@@ -2552,13 +2662,6 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_fetch_time
-    map:
-      value: fetch_time
-    settings:
-      language: null
-    unique: {  }
-  -
     target: field_gather_mode
     map:
       value: gather_mode
@@ -2625,7 +2728,129 @@ mappings:
   -
     target: field_instance_id
     map:
-      value: instance_id
+      value: fetch_time
     settings:
       language: null
     unique: {  }
+  -
+    target: field_fetch_time
+    map:
+      value: fetch_time
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_layout_shift_elements
+    map:
+      value: layout_shift_elements
+    settings:
+      language: null
+  -
+    target: field_long_tasks
+    map:
+      value: long_tasks
+    settings:
+      language: null
+  -
+    target: field_non_composited_animations
+    map:
+      value: non_composited_animations
+    settings:
+      language: null
+  -
+    target: field_critical_request_chains
+    map:
+      value: critical_request_chains
+    settings:
+      language: null
+  -
+    target: field_detected_javascript_librar
+    map:
+      value: js_libraries
+    settings:
+      language: null
+  -
+    target: field_ensure_csp_xss
+    map:
+      value: csp_xss
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_final_screenshot
+    map:
+      value: final_screenshot
+    settings:
+      language: null
+  -
+    target: field_resource_summary
+    map:
+      value: resource_summary
+    settings:
+      language: null
+  -
+    target: field_largest_contentful_paint_e
+    map:
+      value: largest_contentful_paint_element
+    settings:
+      language: null
+  -
+    target: field_metrics
+    map:
+      value: metrics
+    settings:
+      language: null
+  -
+    target: field_network_requests
+    map:
+      value: network_requests
+    settings:
+      language: null
+  -
+    target: field_network_rtt
+    map:
+      value: network_rtt
+    settings:
+      language: null
+  -
+    target: field_field_form__multiple_label
+    map:
+      value: form_field_multiple_labels
+    settings:
+      language: null
+  -
+    target: field_screenshot_thumbnails
+    map:
+      value: screenshot_thumbnails
+    settings:
+      language: null
+  -
+    target: field_script_treemap_data
+    map:
+      value: script_treemap_data
+    settings:
+      language: null
+  -
+    target: field_network_server_latency
+    map:
+      value: network_server_latency
+    settings:
+      language: null
+  -
+    target: field_main_thread_tasks
+    map:
+      value: main_thread_tasks
+    settings:
+      language: null
+  -
+    target: field_user_timing
+    map:
+      value: user_timing
+    settings:
+      language: null
+  -
+    target: field_video_caption
+    map:
+      value: video_caption
+    settings:
+      language: null

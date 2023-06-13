@@ -615,7 +615,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 256
+    weight: 297
     region: content
   field_field_form__multiple_label:
     type: basic_string

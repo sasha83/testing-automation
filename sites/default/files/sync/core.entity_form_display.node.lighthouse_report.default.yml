@@ -568,7 +568,7 @@ content:
     third_party_settings: {  }
   field_fetch_time:
     type: string_textfield
-    weight: 276
+    weight: 317
     region: content
     settings:
       size: 60

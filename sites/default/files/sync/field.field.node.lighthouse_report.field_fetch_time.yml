@@ -1,4 +1,4 @@
-uuid: 28355d40-0760-4a92-ae95-d83129bfe262
+uuid: 88833ac9-62fa-4ae9-bb0b-a922733dd5c2
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ bundle: lighthouse_report
 label: 'Fetch Time'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
