@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.test_suite.field_domains
     - field.field.node.test_suite.field_max_parallel_tests
     - field.field.node.test_suite.field_number_of_instances
+    - field.field.node.test_suite.field_url_reference
     - node.type.test_suite
   module:
     - path
@@ -53,6 +54,16 @@ content:
     weight: 124
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_url_reference:
+    type: entity_reference_autocomplete
+    weight: 125
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   path:

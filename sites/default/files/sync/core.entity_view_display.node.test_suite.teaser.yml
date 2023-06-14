@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.test_suite.field_domains
     - field.field.node.test_suite.field_max_parallel_tests
     - field.field.node.test_suite.field_number_of_instances
+    - field.field.node.test_suite.field_url_reference
     - node.type.test_suite
   module:
     - text
@@ -34,3 +35,4 @@ hidden:
   field_domains: true
   field_max_parallel_tests: true
   field_number_of_instances: true
+  field_url_reference: true
