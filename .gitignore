@@ -30,7 +30,6 @@ npm-debug.log
 /.htaccess
 /.ht.router.php
 /autoload.php
-/composer.json
 /composer.lock
 /example.gitignore
 /index.php

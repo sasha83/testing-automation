@@ -37,7 +37,9 @@ async function doRequest(url) {
                 
                 // Read all test suite folders
                 fs.readdirSync(inFolder).forEach(tsid => {
+                    console.log(tsid);
                     if(tsid==parseInt(tsid)) {
+                        console.log('tsid==parseInt(tsid)', tsid==parseInt(tsid));
                         testSuiteID=tsid;
                         if(fs.lstatSync(inFolder+"/"+tsid).isDirectory()) {
                             fs.readdirSync(inFolder+'/'+tsid).forEach(iid => {
@@ -140,7 +142,6 @@ async function doRequest(url) {
                         reportObjectFromJSON.fetch_time = data.fetchTime;
                         reportObjectFromJSON.fetch_time_timestamp = data.fetchTime;
                         reportObjectFromJSON.fetch_time_unix = data.fetchTime;
-                        reportObjectFromJSON.detected_javascript_libraries = data.js-libraries;
                         reportObjectFromJSON.gather_mode = data.gatherMode;
                         reportObjectFromJSON.run_warnings = JSON.stringify(data.runWarnings);
                         reportObjectFromJSON.user_agent = data.userAgent;
@@ -196,7 +197,7 @@ async function doRequest(url) {
                         });
                         
                         // var fn = reportObjectFromJSON.requested_url.split("/");
-                        console.log(getStringOf(reportObjectFromJSON.requested_url));
+                        // console.log(data);
                         var outFileName = process.instanceID+"_"+process.testSuiteID+"_"+getStringOf(reportObjectFromJSON.requested_url)+'.csv';
                         // outFileName = outFileName.replace('.json', '.csv');
 

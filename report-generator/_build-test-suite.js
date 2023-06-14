@@ -30,22 +30,39 @@ async function doRequest(url) {
 	return new Promise(function (resolve, reject) {
 		request(url, function (error, res, body) {
 			if (!error && res.statusCode == 200) {
-                let domainArray = JSON.parse(body);
+                let queueArray = JSON.parse(body);
+                // console.log(queueArray);
                 let shOutput = [];
-                // console.log(domainArray);
 				resolve(body);
-                domainArray.forEach(function(domain){
-                    // console.log(domain);
-                    shOutput.push('node _build-lighthouse-sh-file.js '+domain.field_site+' '+testSuiteID+' '+instanceID);
-                    shOutput.push('sh test-suite-id-'+testSuiteID+'_'+getStringOf(domain.field_site)+'.sh');
+                queueArray.forEach(function(domain){
+                    if (domain.field_url_reference) {
+                        let urls = domain.field_url_reference.split(', ');
+                        console.log(urls);
+                        shOutput.push('mkdir '+'_lighthouse-report-queue/'+testSuiteID);
+                        shOutput.push('mkdir '+'_lighthouse-report-queue/'+testSuiteID+'/'+instanceID);
+                        urls.forEach(function(url){
+                            // lighthouse https://woodstockarts.org/classes/adult-advanced-improv-workshop/ --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/24999/1686693750785/woodstockarts.org_classes_adult-advanced-improv-workshop_.json
+                            // echo "https://woodstockarts.org/classes/adult-advanced-improv-workshop/, woodstockarts.org_classes_adult-advanced-improv-workshop_.json" 
+                            shOutput.push('lighthouse '+url+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+instanceID+'/'+getStringOf(url)+'.json');
+                            shOutput.push('echo "'+url+', '+getStringOf(url)+'.json" \n');
+                    
+                        });
+                    }
                 });
-                console.log(shOutput);
+                queueArray.forEach(function(domain){
+                    if (domain.field_site) {
+                        // console.log(domain);
+                        shOutput.push('node _build-lighthouse-sh-file.js '+domain.field_site+' '+testSuiteID+' '+instanceID);
+                        shOutput.push('sh test-suite-id-'+testSuiteID+'_'+getStringOf(domain.field_site)+'.sh');
+                    }
+                });
+
                 shOutput.push('node _build-test-suite.js'+' '+testSuiteID);
                 shOutput = shOutput.join('\n');
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;
                 }) 
-                var yourscript = exec('sh '+shFilename,
+                var runScript = exec('sh '+shFilename,
                     (error, stdout, stderr) => {
                         console.log(stdout);
                         console.log(stderr);
