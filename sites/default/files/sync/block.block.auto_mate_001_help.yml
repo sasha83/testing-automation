@@ -1,0 +1,22 @@
+uuid: a55645dc-88d6-44d5-a589-b3281aacc2c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - auto_mate_001
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: auto_mate_001_help
+theme: auto_mate_001
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

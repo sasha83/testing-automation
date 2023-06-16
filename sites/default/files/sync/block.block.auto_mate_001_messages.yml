@@ -1,0 +1,22 @@
+uuid: 0a702ee6-e341-4f88-94c6-a9ae47959c72
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - auto_mate_001
+_core:
+  default_config_hash: '-Ac3ISpIT0PQ-whzD7_dw0SdKi6dAbRFNWdSjOiVDqg'
+id: auto_mate_001_messages
+theme: auto_mate_001
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

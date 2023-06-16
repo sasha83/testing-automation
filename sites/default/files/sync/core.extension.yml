@@ -72,4 +72,6 @@ module:
 theme:
   olivero: 0
   claro: 0
+  stark: 0
+  auto_mate_001: 0
 profile: standard

@@ -1,0 +1,22 @@
+uuid: 97b9edb6-ff1f-452d-8d73-7d2722298d66
+langcode: en
+status: true
+dependencies:
+  theme:
+    - auto_mate_001
+_core:
+  default_config_hash: ACjBZI5shAMiiUpsz-inLYVXDqNNXRnSzAWV3kV_8Hw
+id: auto_mate_001_primary_local_tasks
+theme: auto_mate_001
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

@@ -1,0 +1,26 @@
+# Information added by Drupal.org packaging script on 2023-05-03
+version: '10.0.9'
+project: 'drupal'
+datestamp: 1683108678
+name: auto_mate_001
+type: theme
+base theme: claro
+description: 'Auto Mate 001 description'
+core_version_requirement: '>=10.0.1'
+libraries:
+  - auto_mate_001/global-styling
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+
+

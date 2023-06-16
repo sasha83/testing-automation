@@ -1,0 +1,22 @@
+uuid: f03f1e97-4d5e-4072-87ab-56a233e8b6b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - auto_mate_001
+_core:
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
+id: auto_mate_001_content
+theme: auto_mate_001
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

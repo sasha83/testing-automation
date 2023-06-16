@@ -2728,7 +2728,7 @@ mappings:
   -
     target: field_instance_id
     map:
-      value: fetch_time
+      value: instance_id
     settings:
       language: null
     unique: {  }

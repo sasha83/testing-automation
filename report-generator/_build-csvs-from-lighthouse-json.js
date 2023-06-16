@@ -150,7 +150,7 @@ async function doRequest(url) {
                         reportObjectFromJSON.categories = JSON.stringify(data.categories);
                         reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
-                        reportObjectFromJSON.instance_id = process.instanceID;
+                        reportObjectFromJSON.instance_id = instanceID;
                         ;
                         let domain = (new URL(reportObjectFromJSON.final_url));
 

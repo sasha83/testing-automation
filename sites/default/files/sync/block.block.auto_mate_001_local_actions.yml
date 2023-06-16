@@ -1,0 +1,20 @@
+uuid: 3f22620d-0814-4c19-bba1-58e0bbb7666a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - auto_mate_001
+_core:
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
+id: auto_mate_001_local_actions
+theme: auto_mate_001
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
