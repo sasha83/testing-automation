@@ -30,6 +30,7 @@
         "drupal/quick_data": "^2.0",
         "drupal/storage": "^1.2",
         "drupal/tamper": "^1.0@alpha",
+        "drupal/twig_tweak": "^3.2",
         "drush/drush": "^11.5"
     },
     "conflict": {
