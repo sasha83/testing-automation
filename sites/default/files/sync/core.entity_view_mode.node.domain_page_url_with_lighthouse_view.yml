@@ -1,0 +1,10 @@
+uuid: 84f974ab-aa4b-4314-af49-8892e06ce83e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.domain_page_url_with_lighthouse_view
+label: 'Domain page - URL, with Lighthouse view'
+targetEntityType: node
+cache: true

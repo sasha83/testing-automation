@@ -20,6 +20,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 /**
  * Implements hook_help().
  */
+
 function automate_core_node_presave($node) {
 	$typeName = $node->bundle();
 	if($typeName==="lighthouse_report") {
@@ -37,14 +38,9 @@ function automate_core_node_presave($node) {
         $node->created = strtotime($fetch_time);
 
 
+    
         // reference URL node, and create the URL node if doesn't exist.
-
-
-
-
         $url = $node->get('field_requested_url')->value;
-
-        // $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');    
         $ids = \Drupal::entityQuery('node')
           ->accessCheck(FALSE)
           ->condition('title', $url)
@@ -61,8 +57,12 @@ function automate_core_node_presave($node) {
             $node->set('field_url_reference', $url_node->id());
             $url_node->save();
         } else {
-            $node->set('field_url_reference', array_pop($ids));
-        }
+          $urlNode = Node::load(array_pop($ids));
+          $most_recent = $urlNode->get('field_most_recent_lighthouse_rep');
+          $urlNode->set('field_notes', $most_recent->target_id);
+          $urlNode->save();
+
+          }
     
         // $values = \Drupal::entityQuery('node')->condition('field_title', $url)->execute();
         // $node_exists = !empty($values);

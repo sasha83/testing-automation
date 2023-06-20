@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - node.type.url
   module:
     - node
@@ -187,7 +188,9 @@ display:
       style:
         type: default
       row:
-        type: fields
+        type: 'entity:node'
+        options:
+          view_mode: teaser
       query:
         type: views_query
         options:
@@ -196,7 +199,16 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_url_reference:
+          id: field_url_reference
+          table: node__field_url_reference
+          field: field_url_reference
+          relationship: none
+          group_type: group
+          admin_label: 'field_url_reference: Content'
+          plugin_id: standard
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
