@@ -1,0 +1,19 @@
+uuid: 797a74e5-fc51-48e2-8117-55d3e0cdca25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes
+    - node.type.lighthouse_report
+id: node.lighthouse_report.field_notes
+field_name: field_notes
+entity_type: node
+bundle: lighthouse_report
+label: notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

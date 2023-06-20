@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.url.body
     - field.field.node.url.field_domain
+    - field.field.node.url.field_most_recent_lighthouse_rep
+    - field.field.node.url.field_notes
     - field.field.node.url.field_path
     - node.type.url
   module:
@@ -31,4 +33,6 @@ content:
     region: content
 hidden:
   field_domain: true
+  field_most_recent_lighthouse_rep: true
+  field_notes: true
   field_path: true

@@ -1,0 +1,29 @@
+uuid: ca331c2f-a52b-48f2-a841-7861d3aa77df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_most_recent_lighthouse_rep
+    - node.type.lighthouse_report
+    - node.type.url
+id: node.url.field_most_recent_lighthouse_rep
+field_name: field_most_recent_lighthouse_rep
+entity_type: node
+bundle: url
+label: 'Most Recent Lighthouse Report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      lighthouse_report: lighthouse_report
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -114,6 +114,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_no_document_write
     - field.field.node.lighthouse_report.field_no_unload_listeners
     - field.field.node.lighthouse_report.field_non_composited_animations
+    - field.field.node.lighthouse_report.field_notes
     - field.field.node.lighthouse_report.field_notification_on_start
     - field.field.node.lighthouse_report.field_object_alt
     - field.field.node.lighthouse_report.field_offscreen_content_hidden
@@ -1125,6 +1126,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 286
+    region: content
+  field_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 298
     region: content
   field_notification_on_start:
     type: number_integer
