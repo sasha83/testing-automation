@@ -32,6 +32,7 @@
   ]
 %}
 {{ attach_library('auto_mate_001/global-styling') }}
+{{ attach_library('auto_mate_001/sortable') }}
 
 <!DOCTYPE html>
 <html{{ html_attributes }}>
@@ -49,6 +50,7 @@
     <a href="#main-content" class="visually-hidden focusable skip-link">
       {{ 'Skip to main content'|t }}
     </a>
+
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}

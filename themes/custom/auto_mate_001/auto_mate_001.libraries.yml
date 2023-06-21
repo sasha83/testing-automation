@@ -8,3 +8,12 @@ global-styling:
   css:
     component:
       css/style.css: {}
+sortable:
+  version: VERSION
+  js:
+    js/Sortable/Sortable.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+      

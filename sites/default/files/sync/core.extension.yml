@@ -26,6 +26,7 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
+  draggableviews: 0
   dynamic_page_cache: 0
   editor: 0
   feeds: 0
@@ -39,6 +40,9 @@ module:
   history: 0
   image: 0
   imce: 0
+  jquery_ui: 0
+  jquery_ui_draggable: 0
+  jquery_ui_droppable: 0
   json_field: 0
   jsonapi: 0
   link: 0
