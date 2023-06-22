@@ -17,7 +17,9 @@ console.log(1);
                 animation: 150,
                 ghostClass: 'blue-background-class'
             });
-    
-        }, 2000);
+            $('.compare').append('<input type="checkbox" value="Compare"></input>');
+        }, 500);
+
+
     });
 })(jQuery);

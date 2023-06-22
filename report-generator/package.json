@@ -27,6 +27,6 @@
     "get-sitemap-links": "^1.1.0",
     "json-diff": "^1.0.5",
     "lighthouse": "^10.2.0",
-    "sitemap-urls": "^3.0.0"
+    "sitemap-urls": "^2.0.0"
   }
 }
