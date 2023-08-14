@@ -9,16 +9,18 @@ let shFile = [];
 let domainArray = [];
 let siteMapURL;
 let instanceID;
+// let projectFolder = "/Volumes/swetlowski3tb/automate/";
+let projectFolder = "/Users/sasha/testing-automation/report-generator/";
 
 const maxTestRuns = 4;
 let i = 0;
 process.argv.forEach(function (val, index, array) {
     console.log(val, i);
-    if(i==2) {
+    if (i == 2) {
         siteMapURL = val;
-    } else if(i==3) {
+    } else if (i == 3) {
         testSuiteID = val;
-    } else if(i==4) {
+    } else if (i == 4) {
         instanceID = val;
     }
 
@@ -30,11 +32,11 @@ async function generatesSH() {
         siteMapURL
     );
     // console.log('array: ', array);        
-    shFile.push('mkdir _lighthouse-report-queue/'+testSuiteID);
-    shFile.push('mkdir _lighthouse-report-queue/'+testSuiteID+'/'+instanceID);
+    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
+    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
     let sim = 0;
-    array.forEach(function(link){
-        
+    array.forEach(function (link) {
+
         // console.log(link);
         let reportPath = getStringOf(link);
         // let simString = '';
@@ -44,14 +46,14 @@ async function generatesSH() {
         //     sim = 0;
         // }
 
-        shFile.push('lighthouse '+link+' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/'+testSuiteID+'/'+instanceID+'/'+reportPath+'.json');
-        shFile.push('echo "'+link+', '+reportPath+'.json" \n');
-        sim ++;
+        shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
+        shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
+        sim++;
     })
     shFile = shFile.join('\n');
-    fs.writeFile('test-suite-id-'+testSuiteID+'_'+getStringOf(siteMapURL)+'.sh', shFile, (err) => {
+    fs.writeFile('test-suite-id-' + testSuiteID + '_' + getStringOf(siteMapURL) + '.sh', shFile, (err) => {
         if (err) throw err;
-    })     
+    })
 }
 
 generatesSH();
@@ -65,7 +67,7 @@ function getStringOf(link) {
     reportPath = reportPath.replace('sitemap.xml', '');
     reportPath = reportPath.replaceAll('/', '_');
     reportPath = reportPath.replaceAll(' ', '_');
-    
+
     return reportPath;
 }
 

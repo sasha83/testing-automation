@@ -47,3 +47,4 @@ npm-debug.log
 /sites/default/files/feeds/log/*/items/*.json
 /sites/default/files/css/*.css
 /report-generator/_lighthouse_report_queue/*/*/*
+report-generator/_lighthouse-report-queue
