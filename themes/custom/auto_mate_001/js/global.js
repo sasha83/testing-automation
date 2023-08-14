@@ -3,7 +3,23 @@
  * Global utilities.
  *
  */
-console.log(1);
+
+(function ($) {
+    Drupal.behaviors.recentMeAutoRefresh = {
+        attach: function (context, settings) {
+            jQuery.each(Drupal.views.instances, function(i, view) {
+                console.log('view: ', view);
+                console.log('i: ', i);
+                if (view.settings.view_display_id == "lighthouse_comparison_tool") {
+                    view.settings.view_args = '27704';
+                    $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
+                }
+
+            });
+        }
+    };
+})(jQuery);
+
 (function($){
 
     window.compareArray = [];
@@ -18,7 +34,7 @@ console.log(1);
     $(document).ready(function(){
         'use strict';
         window.setTimeout(function(){
-            $('.view-lighthouse-reports .view-content tbody').attr('id', 'lightHouseReports');
+            $('.view-lighthouse-reports-url .view-content tbody').attr('id', 'lightHouseReports');
             new Sortable(lightHouseReports, {
                 animation: 150,
                 ghostClass: 'blue-background-class'
@@ -36,11 +52,18 @@ console.log(1);
                     window.compareArray = [];
                     updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
                 }
-                // updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
             });
-            
-    
+
         }, 500);
+        window.setInterval(function(){
+            if(window.compareArray.length>0) {
+                var selector = '.view-display-id-lighthouse_comparison_tool';
+                // let viewSettings = window.compareArray.join('+');
+                let viewSettings = 29165;
+                Drupal.settings.views.ajaxViews['view_display_id:lighthouse_comparison_tool'] = viewSettings;
+                $(selector).triggerHandler('RefreshView');
+            }
+        }, 5000);
     });
     async function updateCompareArray(thisID, enabled) {
         if(window.compareArray.indexOf(thisID)==-1) {
@@ -84,7 +107,8 @@ console.log(1);
         let compareObjectA = getReportObject(idA);
         let compareObjectB = getReportObject(idB);
         return compareObject;
-    }function checkQuery(field) {
+    }
+    function checkQuery(field) {
         var url = window.location.href;
         if (url.indexOf('?' + field + '=') != -1)
             return true;
