@@ -1,0 +1,23 @@
+uuid: f13dca04-9a02-49bf-be07-3f3b10bf57df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fcp_min
+    - node.type.url
+id: node.url.field_fcp_min
+field_name: field_fcp_min
+entity_type: node
+bundle: url
+label: 'FCP Min'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 1.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

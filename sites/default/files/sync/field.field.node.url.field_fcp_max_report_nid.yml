@@ -1,0 +1,23 @@
+uuid: 534c9bb5-129b-4c85-bbc0-1ce11c95843d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fcp_max_report_nid
+    - node.type.url
+id: node.url.field_fcp_max_report_nid
+field_name: field_fcp_max_report_nid
+entity_type: node
+bundle: url
+label: 'FCP Max Report NID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

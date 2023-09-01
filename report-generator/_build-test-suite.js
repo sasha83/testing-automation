@@ -23,7 +23,7 @@ process.argv.forEach(function (val, index, array) {
         testSuiteID = val;
         console.log(testSuiteID);
         // console.log("\x1b[35m", val);
-        doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
+        // doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
     }
     i++;
 });

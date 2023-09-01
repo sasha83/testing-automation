@@ -1,0 +1,23 @@
+uuid: 8beff48d-3dbd-4ee6-823c-0f37b2548a99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lcp_average
+    - node.type.url
+id: node.url.field_lcp_average
+field_name: field_lcp_average
+entity_type: node
+bundle: url
+label: 'LCP Average'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 1.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

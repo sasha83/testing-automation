@@ -1,0 +1,23 @@
+uuid: 8d5dbe0c-1ad6-4e9f-ba79-563ef5b81d9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fcp_min_report_nid
+    - node.type.url
+id: node.url.field_fcp_min_report_nid
+field_name: field_fcp_min_report_nid
+entity_type: node
+bundle: url
+label: 'FCP Min Report NID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

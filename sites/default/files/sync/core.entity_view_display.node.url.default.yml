@@ -4,10 +4,46 @@ status: true
 dependencies:
   config:
     - field.field.node.url.body
+    - field.field.node.url.feeds_item
+    - field.field.node.url.field_cls_average
+    - field.field.node.url.field_cls_max
+    - field.field.node.url.field_cls_max_lighthouse_report
+    - field.field.node.url.field_cls_max_report_nid
+    - field.field.node.url.field_cls_min
+    - field.field.node.url.field_cls_min_lighthouse_report
+    - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_fcp_average
+    - field.field.node.url.field_fcp_max
+    - field.field.node.url.field_fcp_max_lighthouse_report
+    - field.field.node.url.field_fcp_max_report_nid
+    - field.field.node.url.field_fcp_min
+    - field.field.node.url.field_fcp_min_lighthouse_report
+    - field.field.node.url.field_fcp_min_report_nid
+    - field.field.node.url.field_fmp_average
+    - field.field.node.url.field_fmp_max
+    - field.field.node.url.field_fmp_max_lighthouse_report
+    - field.field.node.url.field_fmp_max_report_nid
+    - field.field.node.url.field_fmp_min
+    - field.field.node.url.field_fmp_min_lighthouse_report
+    - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_lcp_average
+    - field.field.node.url.field_lcp_max
+    - field.field.node.url.field_lcp_max_lighthouse_report
+    - field.field.node.url.field_lcp_max_report_nid
+    - field.field.node.url.field_lcp_min
+    - field.field.node.url.field_lcp_min_lighthouse_report
+    - field.field.node.url.field_lcp_min_report_nid
     - field.field.node.url.field_most_recent_lighthouse_rep
     - field.field.node.url.field_notes
     - field.field.node.url.field_path
+    - field.field.node.url.field_tbt_average
+    - field.field.node.url.field_tbt_max
+    - field.field.node.url.field_tbt_max_lighthouse_report
+    - field.field.node.url.field_tbt_max_report_nid
+    - field.field.node.url.field_tbt_min
+    - field.field.node.url.field_tbt_min_lighthouse_report
+    - field.field.node.url.field_tbt_min_report_nid
     - node.type.url
   module:
     - text
@@ -24,6 +60,73 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  field_cls_average:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_cls_max:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_cls_max_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_cls_max_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_cls_min:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_cls_min_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_cls_min_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
   field_domain:
     type: entity_reference_label
     label: above
@@ -31,6 +134,207 @@ content:
       link: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_fcp_average:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_fcp_max:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_fcp_max_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_fcp_max_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_fcp_min:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_fcp_min_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_fcp_min_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_fmp_average:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_fmp_max:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_fmp_max_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_fmp_max_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_fmp_min:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_fmp_min_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_fmp_min_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_lcp_average:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_lcp_max:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_lcp_max_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_lcp_max_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_lcp_min:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_lcp_min_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_lcp_min_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 139
     region: content
   field_most_recent_lighthouse_rep:
     type: entity_reference_label
@@ -55,9 +359,77 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
+  field_tbt_average:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_tbt_max:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_tbt_max_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_tbt_max_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_tbt_min:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_tbt_min_lighthouse_report:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_tbt_min_report_nid:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 141
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  feeds_item: true

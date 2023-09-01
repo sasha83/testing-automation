@@ -4,10 +4,46 @@ status: true
 dependencies:
   config:
     - field.field.node.url.body
+    - field.field.node.url.feeds_item
+    - field.field.node.url.field_cls_average
+    - field.field.node.url.field_cls_max
+    - field.field.node.url.field_cls_max_lighthouse_report
+    - field.field.node.url.field_cls_max_report_nid
+    - field.field.node.url.field_cls_min
+    - field.field.node.url.field_cls_min_lighthouse_report
+    - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_fcp_average
+    - field.field.node.url.field_fcp_max
+    - field.field.node.url.field_fcp_max_lighthouse_report
+    - field.field.node.url.field_fcp_max_report_nid
+    - field.field.node.url.field_fcp_min
+    - field.field.node.url.field_fcp_min_lighthouse_report
+    - field.field.node.url.field_fcp_min_report_nid
+    - field.field.node.url.field_fmp_average
+    - field.field.node.url.field_fmp_max
+    - field.field.node.url.field_fmp_max_lighthouse_report
+    - field.field.node.url.field_fmp_max_report_nid
+    - field.field.node.url.field_fmp_min
+    - field.field.node.url.field_fmp_min_lighthouse_report
+    - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_lcp_average
+    - field.field.node.url.field_lcp_max
+    - field.field.node.url.field_lcp_max_lighthouse_report
+    - field.field.node.url.field_lcp_max_report_nid
+    - field.field.node.url.field_lcp_min
+    - field.field.node.url.field_lcp_min_lighthouse_report
+    - field.field.node.url.field_lcp_min_report_nid
     - field.field.node.url.field_most_recent_lighthouse_rep
     - field.field.node.url.field_notes
     - field.field.node.url.field_path
+    - field.field.node.url.field_tbt_average
+    - field.field.node.url.field_tbt_max
+    - field.field.node.url.field_tbt_max_lighthouse_report
+    - field.field.node.url.field_tbt_max_report_nid
+    - field.field.node.url.field_tbt_min
+    - field.field.node.url.field_tbt_min_lighthouse_report
+    - field.field.node.url.field_tbt_min_report_nid
     - node.type.url
   module:
     - path
@@ -33,6 +69,61 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_cls_average:
+    type: number
+    weight: 130
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_max:
+    type: number
+    weight: 126
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_max_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 127
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_max_report_nid:
+    type: number
+    weight: 153
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_min:
+    type: number
+    weight: 162
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_min_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 129
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cls_min_report_nid:
+    type: number
+    weight: 152
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_domain:
     type: entity_reference_autocomplete
     weight: 123
@@ -41,6 +132,171 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_average:
+    type: number
+    weight: 135
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_max:
+    type: number
+    weight: 131
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_max_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 132
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_max_report_nid:
+    type: number
+    weight: 154
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_min:
+    type: number
+    weight: 133
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_min_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 134
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fcp_min_report_nid:
+    type: number
+    weight: 155
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_average:
+    type: number
+    weight: 140
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_max:
+    type: number
+    weight: 136
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_max_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 137
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_max_report_nid:
+    type: number
+    weight: 156
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_min:
+    type: number
+    weight: 138
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_min_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 139
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fmp_min_report_nid:
+    type: number
+    weight: 157
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_average:
+    type: number
+    weight: 145
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_max:
+    type: number
+    weight: 141
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_max_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 142
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_max_report_nid:
+    type: number
+    weight: 158
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_min:
+    type: number
+    weight: 143
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_min_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 144
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lcp_min_report_nid:
+    type: number
+    weight: 159
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_most_recent_lighthouse_rep:
@@ -67,6 +323,61 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_average:
+    type: number
+    weight: 150
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_max:
+    type: number
+    weight: 146
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_max_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 147
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_max_report_nid:
+    type: number
+    weight: 160
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_min:
+    type: number
+    weight: 148
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_min_lighthouse_report:
+    type: entity_reference_autocomplete
+    weight: 149
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tbt_min_report_nid:
+    type: number
+    weight: 161
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   path:
@@ -114,4 +425,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true

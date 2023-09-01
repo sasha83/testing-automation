@@ -1,0 +1,400 @@
+uuid: 77cedd7f-aced-4cdf-9676-f0319da60a8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.url.field_cls_average
+    - field.field.node.url.field_cls_max
+    - field.field.node.url.field_cls_max_report_nid
+    - field.field.node.url.field_cls_min
+    - field.field.node.url.field_cls_min_report_nid
+    - field.field.node.url.field_fcp_average
+    - field.field.node.url.field_fcp_max
+    - field.field.node.url.field_fcp_max_report_nid
+    - field.field.node.url.field_fcp_min
+    - field.field.node.url.field_fcp_min_report_nid
+    - field.field.node.url.field_fmp_average
+    - field.field.node.url.field_fmp_max
+    - field.field.node.url.field_fmp_max_report_nid
+    - field.field.node.url.field_fmp_min
+    - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_lcp_average
+    - field.field.node.url.field_lcp_max
+    - field.field.node.url.field_lcp_max_report_nid
+    - field.field.node.url.field_lcp_min
+    - field.field.node.url.field_lcp_min_report_nid
+    - field.field.node.url.field_tbt_average
+    - field.field.node.url.field_tbt_max
+    - field.field.node.url.field_tbt_max_report_nid
+    - field.field.node.url.field_tbt_min
+    - field.field.node.url.field_tbt_min_report_nid
+    - node.type.url
+  module:
+    - feeds_log
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+label: 'URL Stats'
+id: url_stats
+description: ''
+help: ''
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: url
+  langcode: en
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: true
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  nid:
+    value: nid
+    label: nid
+    machine_name: nid
+    type: csv
+  cls_avg:
+    value: cls_avg
+    label: cls_avg
+    machine_name: cls_avg
+    type: csv
+  cls_max:
+    value: cls_max
+    label: cls_max
+    machine_name: cls_max
+    type: csv
+  cls_max_lh_nid:
+    value: cls_max_lh_nid
+    label: cls_max_lh_nid
+    machine_name: cls_max_lh_nid
+    type: csv
+  cls_min_lh_nid:
+    value: cls_min_lh_nid
+    label: cls_min_lh_nid
+    machine_name: cls_min_lh_nid
+    type: csv
+  fcp_max:
+    value: fcp_max
+    label: fcp_max
+    machine_name: fcp_max
+    type: csv
+  fcp_max_lh_nid:
+    value: fcp_max_lh_nid
+    label: fcp_max_lh_nid
+    machine_name: fcp_max_lh_nid
+    type: csv
+  fcp_min:
+    value: fcp_min
+    label: fcp_min
+    machine_name: fcp_min
+    type: csv
+  fcp_min_lh_nid:
+    value: fcp_min_lh_nid
+    label: fcp_min_lh_nid
+    machine_name: fcp_min_lh_nid
+    type: csv
+  fcp_avg:
+    value: fcp_avg
+    label: fcp_avg
+    machine_name: fcp_avg
+    type: csv
+  fmp_max:
+    value: fmp_max
+    label: fmp_max
+    machine_name: fmp_max
+    type: csv
+  fmp_max_lh_nid:
+    value: fmp_max_lh_nid
+    label: fmp_max_lh_nid
+    machine_name: fmp_max_lh_nid
+    type: csv
+  fmp_min:
+    value: fmp_min
+    label: fmp_min
+    machine_name: fmp_min
+    type: csv
+  fmp_min_lh_nid:
+    value: fmp_min_lh_nid
+    label: fmp_min_lh_nid
+    machine_name: fmp_min_lh_nid
+    type: csv
+  fmp_avg:
+    value: fmp_avg
+    label: fmp_avg
+    machine_name: fmp_avg
+    type: csv
+  lcp_max:
+    value: lcp_max
+    label: lcp_max
+    machine_name: lcp_max
+    type: csv
+  lcp_max_lh_nid:
+    value: lcp_max_lh_nid
+    label: lcp_max_lh_nid
+    machine_name: lcp_max_lh_nid
+    type: csv
+  lcp_min:
+    value: lcp_min
+    label: lcp_min
+    machine_name: lcp_min
+    type: csv
+  lcp_min_lh_nid:
+    value: lcp_min_lh_nid
+    label: lcp_min_lh_nid
+    machine_name: lcp_min_lh_nid
+    type: csv
+  lcp_avg:
+    value: lcp_avg
+    label: lcp_avg
+    machine_name: lcp_avg
+    type: csv
+  '':
+    value: cls_min
+    label: cls_min
+    machine_name: ''
+    type: csv
+  tbt_max:
+    value: tbt_max
+    label: tbt_max
+    machine_name: tbt_max
+    type: csv
+  tbt_max_lh_nid:
+    value: tbt_max_lh_nid
+    label: tbt_max_lh_nid
+    machine_name: tbt_max_lh_nid
+    type: csv
+  tbt_min:
+    value: tbt_min
+    label: tbt_min
+    machine_name: tbt_min
+    type: csv
+  tbt_min_lh_nid:
+    value: tbt_min_lh_nid
+    label: tbt_min_lh_nid
+    machine_name: tbt_min_lh_nid
+    type: csv
+  tbt_avg:
+    value: tbt_avg
+    label: tbt_avg
+    machine_name: tbt_avg
+    type: csv
+  cls_min:
+    value: cls_min
+    label: cls_min
+    machine_name: cls_min
+    type: csv
+mappings:
+  -
+    target: nid
+    map:
+      value: nid
+    settings: {  }
+    unique:
+      value: 1
+  -
+    target: field_cls_average
+    map:
+      value: cls_avg
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cls_max
+    map:
+      value: cls_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fcp_max
+    map:
+      value: fcp_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fcp_min
+    map:
+      value: fcp_min
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fcp_average
+    map:
+      value: fcp_avg
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fmp_max
+    map:
+      value: fmp_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fmp_min
+    map:
+      value: fmp_min
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fmp_average
+    map:
+      value: fmp_avg
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp_max
+    map:
+      value: lcp_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp_min
+    map:
+      value: lcp_min
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp_average
+    map:
+      value: lcp_avg
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tbt_max
+    map:
+      value: tbt_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tbt_min
+    map:
+      value: tbt_min
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tbt_average
+    map:
+      value: tbt_avg
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cls_max_report_nid
+    map:
+      value: cls_max_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cls_min_report_nid
+    map:
+      value: cls_min_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fcp_max_report_nid
+    map:
+      value: fcp_max_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fcp_min_report_nid
+    map:
+      value: fcp_min_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fmp_min_report_nid
+    map:
+      value: fmp_min_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_fmp_max_report_nid
+    map:
+      value: fmp_max_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp_max_report_nid
+    map:
+      value: lcp_max_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lcp_min_report_nid
+    map:
+      value: lcp_min_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tbt_max_report_nid
+    map:
+      value: tbt_max_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tbt_min_report_nid
+    map:
+      value: tbt_min_lh_nid
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cls_min
+    map:
+      value: cls_min
+    settings:
+      language: null
+    unique: {  }

@@ -1,0 +1,20 @@
+uuid: 91589040-9882-464f-aa21-2978678f87b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cls_max
+field_name: field_cls_max
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

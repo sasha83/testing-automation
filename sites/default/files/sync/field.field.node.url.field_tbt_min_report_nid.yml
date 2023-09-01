@@ -1,0 +1,23 @@
+uuid: 265a4467-230e-469e-b5b9-c51cc87e6947
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tbt_min_report_nid
+    - node.type.url
+id: node.url.field_tbt_min_report_nid
+field_name: field_tbt_min_report_nid
+entity_type: node
+bundle: url
+label: 'TBT Min Report NID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

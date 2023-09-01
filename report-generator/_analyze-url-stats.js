@@ -1,3 +1,4 @@
+const shell = require('shelljs')
 const childProcess = require('child_process');
 const request = require('request');
 const util = require('util')
@@ -49,26 +50,49 @@ function runScript(scriptPath, callback) {
         });
 
 }
+function run_script_out(command, args, callback) {
+        console.log("Starting Process.");
+        var child = childProcess.spawn(command, args);
 
+        var scriptOutput = "";
+
+        child.stdout.setEncoding('utf8');
+        child.stdout.on('data', function (data) {
+                console.log('stdout: ' + data);
+
+                data = data.toString();
+                scriptOutput += data;
+        });
+
+        child.stderr.setEncoding('utf8');
+        child.stderr.on('data', function (data) {
+                console.log('stderr: ' + data);
+
+                data = data.toString();
+                scriptOutput += data;
+        });
+
+        child.on('close', function (code) {
+                callback(scriptOutput, code);
+        });
+}
 
 fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
                 // do something with JSON
-                let data = JSON.stringify(json);
-                fs.writeFileSync('_urls.json', data);
-                // console.log('running update...');
-                runScript('./_update-url-stat-files.js', function (err) {
-                        if (err) throw err;
-                        console.log('finished running update-url-stat-files.js');
+                let dataString = JSON.stringify(json);
+                fs.writeFileSync('_urls.json', dataString);
+                let shFileContent = [];
+                json.forEach(function (element) {
+                        shFileContent.push('node _analyze-url.js ' + element.nid);
                 });
+                // console.log(shFileContent);
+                fs.writeFileSync('_url-analysis.sh', shFileContent.join('\n'));
 
+                childProcess.exec('sh _url-analysis.sh', function (err, stdout, stderr) {
+                        // handle err, stdout, stderr
+                });
         });
-
-
-
-
-
-
 
 
