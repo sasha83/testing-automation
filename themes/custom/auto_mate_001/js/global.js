@@ -3,7 +3,7 @@
  * Global utilities.
  *
  */
-
+//test
 (function ($) {
     Drupal.behaviors.recentMeAutoRefresh = {
         attach: function (context, settings) {
