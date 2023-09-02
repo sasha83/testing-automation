@@ -23,12 +23,11 @@ process.argv.forEach(function (val, index, array) {
         testSuiteID = val;
         console.log(testSuiteID);
         // console.log("\x1b[35m", val);
-        // doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
+        doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
     }
     i++;
 });
 
-console.log(1);
 let shFilename = 'test-suite-id-' + testSuiteID + '.sh';
 
 async function doRequest(url) {
@@ -36,7 +35,6 @@ async function doRequest(url) {
         request(url, function (error, res, body) {
             if (!error && res.statusCode == 200) {
                 let queueArray = JSON.parse(body);
-                // console.log(queueArray);
                 let shOutput = [];
                 resolve(body);
                 queueArray.forEach(function (domain) {
@@ -54,7 +52,7 @@ async function doRequest(url) {
                 });
                 queueArray.forEach(function (domain) {
                     if (domain.field_site) {
-                        // console.log(domain);
+                        console.log(domain);
                         shOutput.push('node _build-lighthouse-sh-file.js ' + domain.field_site + ' ' + testSuiteID + ' ' + instanceID);
                         shOutput.push('sh test-suite-id-' + testSuiteID + '_' + getStringOf(domain.field_site) + '.sh');
                     }
@@ -62,6 +60,7 @@ async function doRequest(url) {
 
                 shOutput.push('node _build-test-suite.js' + ' ' + testSuiteID);
                 shOutput = shOutput.join('\n');
+                console.log('shFilename', shFilename);
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;
                 })

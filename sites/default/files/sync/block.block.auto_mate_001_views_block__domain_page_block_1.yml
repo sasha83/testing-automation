@@ -12,7 +12,7 @@ dependencies:
 id: auto_mate_001_views_block__domain_page_block_1
 theme: auto_mate_001
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: 'views_block:domain_page-block_1'
 settings:

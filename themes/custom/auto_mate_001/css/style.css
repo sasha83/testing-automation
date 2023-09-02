@@ -1,3 +1,5 @@
-#lightHouseReports tr { 
-    cursor: pointer;
-}
+@use 'abstractions/mixins.scss';
+#lightHouseReports tr {
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

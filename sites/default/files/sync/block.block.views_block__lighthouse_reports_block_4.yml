@@ -2,10 +2,6 @@ uuid: a558fe7e-36c8-444a-a5e7-1c311cd228b3
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.lighthouse_reports
-  module:
-    - views
   theme:
     - auto_mate_001
 id: views_block__lighthouse_reports_block_4
