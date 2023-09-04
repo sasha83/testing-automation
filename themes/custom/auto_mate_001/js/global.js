@@ -4,49 +4,83 @@
  *
  */
 //test
+// (function ($) {
+//     Drupal.behaviors.recentMeAutoRefresh = {
+//         attach: function (context, settings) {
+//             jQuery.each(Drupal.views.instances, function (i, view) {
+//                 console.log('view: ', view);
+//                 console.log('i: ', i);
+//                 if (view.settings.view_display_id == "lighthouse_comparison_tool") {
+//                     view.settings.view_args = '27704';
+//                     $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
+//                 }
+
+//             });
+//         }
+//     };
+// })(jQuery);
+
 (function ($) {
-    Drupal.behaviors.recentMeAutoRefresh = {
-        attach: function (context, settings) {
-            jQuery.each(Drupal.views.instances, function(i, view) {
-                console.log('view: ', view);
-                console.log('i: ', i);
-                if (view.settings.view_display_id == "lighthouse_comparison_tool") {
-                    view.settings.view_args = '27704';
-                    $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
-                }
-
-            });
-        }
-    };
-})(jQuery);
-
-(function($){
 
     window.compareArray = [];
-    if(getCookie('compareArray')) {
+    if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
         console.log('window.compareArray', window.compareArray);
     } else {
         console.log('nope');
     }
-    
+    let jsonFields = [
+        // 'field--name-field-user-agent',
+        'field--name-field-environment',
+        'field--name-field-config-settings',
+        'field--name-field-category-groups',
+        'field--name-field-categories',
+        'field--name-field-critical-request-chains',
+        // 'field--name-field-ensure-csp-xss',
+        'field--name-field-final-screenshot',
+        'field--name-field-detected-javascript-librar',
+        'field--name-field-largest-contentful-paint-e',
+        'field--name-field-layout-shift-elements',
+        'field--name-field-long-tasks',
+        'field--name-field-main-thread-tasks',
+        'field--name-field-metrics',
+        'field--name-field-network-requests',
+        'field--name-field-network-rtt',
+        'field--name-field-network-server-latency',
+        'field--name-field-resource-summary',
+        'field--name-field-screenshot-thumbnails',
+        'field--name-field-script-treemap-data'
+    ];
+    jsonFields.forEach(function (e) {
+        $('.' + e + ' .field__item').html(buildJSONfield(e));
+        console.log(e);
+    });
 
-    $(document).ready(function(){
+
+
+
+    function buildJSONfield(fieldName) {
+        let fieldText = $('.' + fieldName + ' .field__item').html();
+        fieldText = JSON.parse(fieldText);
+        let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
+        return fieldJSON;
+    }
+    $(document).ready(function () {
         'use strict';
-        window.setTimeout(function(){
+        window.setTimeout(function () {
             $('.view-lighthouse-reports-url .view-content tbody').attr('id', 'lightHouseReports');
             new Sortable(lightHouseReports, {
                 animation: 150,
                 ghostClass: 'blue-background-class'
             });
-            
-            $('.compare').each(function() {
+
+            $('.compare').each(function () {
                 let thisID = $(this).attr('data-nid');
-                $(this).append('<input class="compare-toggle" type="checkbox" value="Compare" data-nid="'+thisID+'"></input>');
+                $(this).append('<input class="compare-toggle" type="checkbox" value="Compare" data-nid="' + thisID + '"></input>');
                 $(this).parents('tr').attr('data-nid', thisID);
             });
-            $('.compare-toggle').on('change', function(){
-                if(window.compareArray) {
+            $('.compare-toggle').on('change', function () {
+                if (window.compareArray) {
                     updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
                 } else {
                     window.compareArray = [];
@@ -55,8 +89,8 @@
             });
 
         }, 500);
-        window.setInterval(function(){
-            if(window.compareArray.length>0) {
+        window.setInterval(function () {
+            if (window.compareArray.length > 0) {
                 var selector = '.view-display-id-lighthouse_comparison_tool';
                 // let viewSettings = window.compareArray.join('+');
                 let viewSettings = 29165;
@@ -66,19 +100,19 @@
         }, 5000);
     });
     async function updateCompareArray(thisID, enabled) {
-        if(window.compareArray.indexOf(thisID)==-1) {
-            if(enabled==true) {
+        if (window.compareArray.indexOf(thisID) == -1) {
+            if (enabled == true) {
                 window.compareArray.push(thisID);
                 let reportObject = await getReportObjects(thisID);
                 console.log(thisID, enabled, reportObject);
-            } else {   
+            } else {
             }
         } else {
-            if(enabled==true) {}
+            if (enabled == true) { }
             else {
                 let tempArray = [];
-                window.compareArray.forEach(function(nid){
-                    if(nid!=thisID) {
+                window.compareArray.forEach(function (nid) {
+                    if (nid != thisID) {
                         tempArray.push(nid);
                     }
                 });
@@ -88,9 +122,9 @@
         updateCompareTool();
         console.log(window.compareArray);
     }
-    
+
     async function getReportObjects(thisID) {
-        let reportObject = await $.getJSON('https://automate.ddev.site/reports-by-ids?id='+thisID, {
+        let reportObject = await $.getJSON('https://automate.ddev.site/reports-by-ids?id=' + thisID, {
             format: "JSON"
         }).done(async function (data) {
         });
@@ -99,9 +133,9 @@
     async function updateCompareTool() {
         let thisID = window.compareArray.join('+');
         console.log(await getReportObjects(thisID));
-//         window.compareArray.forEach(function(thisID) {
-// )
-//         });
+        //         window.compareArray.forEach(function(thisID) {
+        // )
+        //         });
     }
     function buildCompareObject(idA, idB) {
         let compareObjectA = getReportObject(idA);
@@ -116,7 +150,7 @@
             return true;
         return false
     }
-    
+
     function setCookie(name, value, days) {
         var expires = "";
         if (days) {
@@ -126,7 +160,7 @@
         }
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
-    
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -137,7 +171,7 @@
         }
         return null;
     }
-    
+
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -147,6 +181,6 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
-    
+
 })(jQuery);
 

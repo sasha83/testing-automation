@@ -3,7 +3,8 @@
   cursor: pointer; }
 
 .view-url-stats {
-  border: 10px solid red; }
+  border: 2px solid #ddd;
+  padding: 2rem 1rem; }
   .view-url-stats .view-content .views-row {
     display: flex;
     flex: 1 1 100%; }
