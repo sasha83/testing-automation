@@ -189,7 +189,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 158
+    weight: 41
     region: content
   field_aria_allowed_attr:
     type: number_integer
@@ -198,7 +198,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 159
+    weight: 42
     region: content
   field_aria_command_name:
     type: number_integer
@@ -207,7 +207,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 160
+    weight: 43
     region: content
   field_aria_hidden_body:
     type: number_integer
@@ -216,7 +216,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 161
+    weight: 44
     region: content
   field_aria_hidden_focus:
     type: string
@@ -224,7 +224,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 162
+    weight: 45
     region: content
   field_aria_input__name:
     type: string
@@ -232,7 +232,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 163
+    weight: 46
     region: content
   field_aria_meter_name:
     type: string
@@ -240,7 +240,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 164
+    weight: 47
     region: content
   field_aria_progressbar_name:
     type: string
@@ -248,7 +248,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 165
+    weight: 48
     region: content
   field_aria_required_attr:
     type: number_integer
@@ -257,7 +257,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 166
+    weight: 49
     region: content
   field_aria_required_children:
     type: string
@@ -265,7 +265,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 167
+    weight: 50
     region: content
   field_aria_required_parent:
     type: string
@@ -273,7 +273,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 168
+    weight: 51
     region: content
   field_aria_roles:
     type: number_integer
@@ -282,7 +282,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 169
+    weight: 52
     region: content
   field_aria_toggle__name:
     type: string
@@ -290,7 +290,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 170
+    weight: 53
     region: content
   field_aria_tooltip_name:
     type: string
@@ -298,7 +298,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 171
+    weight: 54
     region: content
   field_aria_treeitem_name:
     type: string
@@ -306,7 +306,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 172
+    weight: 55
     region: content
   field_aria_valid_attr:
     type: number_integer
@@ -315,7 +315,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 174
+    weight: 57
     region: content
   field_aria_valid_attr_value:
     type: number_integer
@@ -324,7 +324,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 173
+    weight: 56
     region: content
   field_bf_cache:
     type: number_integer
@@ -333,7 +333,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 250
+    weight: 130
     region: content
   field_bootup_time:
     type: number_decimal
@@ -344,7 +344,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 129
+    weight: 25
     region: content
   field_button_name:
     type: number_integer
@@ -353,7 +353,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 175
+    weight: 58
     region: content
   field_bypass:
     type: string
@@ -361,7 +361,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 176
+    weight: 59
     region: content
   field_canonical:
     type: number_integer
@@ -370,28 +370,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 248
-    region: content
-  field_categories:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 269
-    region: content
-  field_category_:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 267
-    region: content
-  field_category_groups:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 268
+    weight: 128
     region: content
   field_charset:
     type: number_integer
@@ -400,7 +379,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 228
+    weight: 109
     region: content
   field_color_contrast:
     type: number_integer
@@ -409,14 +388,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 177
+    weight: 60
     region: content
   field_config_settings:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 266
+    weight: 139
     region: content
   field_content_width:
     type: number_integer
@@ -425,7 +404,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 123
+    weight: 19
     region: content
   field_crawlable_anchors:
     type: number_integer
@@ -434,14 +413,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 242
+    weight: 122
     region: content
   field_critical_request_chains:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 270
+    weight: 140
     region: content
   field_cumulative_layout_shift:
     type: number_decimal
@@ -452,7 +431,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 112
+    weight: 10
     region: content
   field_custom_controls_labels:
     type: string
@@ -460,7 +439,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 202
+    weight: 83
     region: content
   field_custom_controls_roles:
     type: string
@@ -468,7 +447,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 203
+    weight: 84
     region: content
   field_definition_list:
     type: string
@@ -476,7 +455,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 178
+    weight: 61
     region: content
   field_deprecations:
     type: number_integer
@@ -485,14 +464,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 127
+    weight: 23
     region: content
   field_detected_javascript_librar:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 273
+    weight: 143
     region: content
   field_dlitem:
     type: string
@@ -500,7 +479,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 179
+    weight: 62
     region: content
   field_doctype:
     type: number_integer
@@ -509,7 +488,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 227
+    weight: 108
     region: content
   field_document_title:
     type: number_integer
@@ -518,7 +497,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 180
+    weight: 63
     region: content
   field_dom_size:
     type: number_decimal
@@ -529,7 +508,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 229
+    weight: 110
     region: content
   field_domain:
     type: entity_reference_label
@@ -537,7 +516,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 289
+    weight: 158
     region: content
   field_domain_id:
     type: number_integer
@@ -546,7 +525,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 290
+    weight: 159
     region: content
   field_duplicate_id_active:
     type: string
@@ -554,7 +533,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 181
+    weight: 64
     region: content
   field_duplicate_id_aria:
     type: string
@@ -562,7 +541,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 182
+    weight: 65
     region: content
   field_duplicated_javascript:
     type: number_decimal
@@ -573,7 +552,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 225
+    weight: 106
     region: content
   field_efficient_animated_content:
     type: number_decimal
@@ -584,7 +563,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 224
+    weight: 105
     region: content
   field_ensure_csp_xss:
     type: json
@@ -592,14 +571,14 @@ content:
     settings:
       attach_library: true
     third_party_settings: {  }
-    weight: 271
+    weight: 141
     region: content
   field_environment:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 265
+    weight: 138
     region: content
   field_errors_in_console:
     type: number_integer
@@ -608,7 +587,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 113
+    weight: 11
     region: content
   field_fetch_time:
     type: string
@@ -616,14 +595,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 297
+    weight: 166
     region: content
   field_field_form__multiple_label:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 295
+    weight: 164
     region: content
   field_final_displayed_url:
     type: string
@@ -631,14 +610,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 254
+    weight: 134
     region: content
   field_final_screenshot:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 272
+    weight: 142
     region: content
   field_final_url:
     type: string
@@ -646,7 +625,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 255
+    weight: 135
     region: content
   field_first_contentful_paint:
     type: number_decimal
@@ -657,7 +636,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 104
+    weight: 4
     region: content
   field_first_meaningful_paint:
     type: number_decimal
@@ -668,7 +647,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 106
+    weight: 6
     region: content
   field_focus_traps:
     type: string
@@ -676,7 +655,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 204
+    weight: 85
     region: content
   field_focusable_controls:
     type: string
@@ -684,7 +663,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 205
+    weight: 86
     region: content
   field_font_display:
     type: number_integer
@@ -693,7 +672,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 132
+    weight: 28
     region: content
   field_font_size:
     type: number_integer
@@ -702,7 +681,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 240
+    weight: 120
     region: content
   field_frame_title:
     type: string
@@ -710,7 +689,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 184
+    weight: 66
     region: content
   field_gather_mode:
     type: string
@@ -718,7 +697,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 257
+    weight: 136
     region: content
   field_geolocation_on_start:
     type: number_integer
@@ -727,7 +706,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 230
+    weight: 111
     region: content
   field_heading_order:
     type: number_integer
@@ -736,7 +715,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 185
+    weight: 67
     region: content
   field_hreflang:
     type: number_integer
@@ -745,7 +724,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 246
+    weight: 126
     region: content
   field_html_has_lang:
     type: number_integer
@@ -754,7 +733,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 186
+    weight: 68
     region: content
   field_html_lang_valid:
     type: number_integer
@@ -763,7 +742,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 187
+    weight: 69
     region: content
   field_http_status_code:
     type: number_integer
@@ -772,7 +751,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 239
+    weight: 119
     region: content
   field_image_alt:
     type: number_integer
@@ -781,7 +760,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 188
+    weight: 70
     region: content
   field_image_aspect_ratio:
     type: number_integer
@@ -790,7 +769,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 124
+    weight: 20
     region: content
   field_image_size_responsive:
     type: number_integer
@@ -799,7 +778,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 125
+    weight: 21
     region: content
   field_input_image_alt:
     type: string
@@ -807,7 +786,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 189
+    weight: 71
     region: content
   field_inspector_issues:
     type: number_integer
@@ -816,7 +795,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 231
+    weight: 112
     region: content
   field_installable_manifest:
     type: number_integer
@@ -825,7 +804,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 119
+    weight: 15
     region: content
   field_instance_id:
     type: string
@@ -833,7 +812,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 294
+    weight: 163
     region: content
   field_interactive:
     type: number_decimal
@@ -844,7 +823,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 115
+    weight: 13
     region: content
   field_interactive_element_afford:
     type: string
@@ -852,7 +831,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 206
+    weight: 87
     region: content
   field_is_crawlable:
     type: number_integer
@@ -861,7 +840,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 243
+    weight: 123
     region: content
   field_is_on_https:
     type: number_integer
@@ -870,7 +849,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_label:
     type: number_integer
@@ -879,7 +858,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 190
+    weight: 72
     region: content
   field_largest_contentful_paint:
     type: number_decimal
@@ -890,21 +869,21 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 105
+    weight: 5
     region: content
   field_largest_contentful_paint_e:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 274
+    weight: 144
     region: content
   field_layout_shift_elements:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 275
+    weight: 145
     region: content
   field_lcp_lazy_loaded:
     type: number_integer
@@ -913,7 +892,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 145
+    weight: 33
     region: content
   field_legacy_javascript:
     type: number_decimal
@@ -924,7 +903,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 226
+    weight: 107
     region: content
   field_lighthouse_version:
     type: string
@@ -932,7 +911,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 251
+    weight: 131
     region: content
   field_link_name:
     type: number_integer
@@ -941,7 +920,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 191
+    weight: 73
     region: content
   field_link_text:
     type: number_integer
@@ -950,7 +929,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 241
+    weight: 121
     region: content
   field_list:
     type: string
@@ -958,7 +937,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 192
+    weight: 74
     region: content
   field_listitem:
     type: string
@@ -966,7 +945,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 193
+    weight: 75
     region: content
   field_logical_tab_order:
     type: string
@@ -974,14 +953,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 207
+    weight: 88
     region: content
   field_long_tasks:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 276
+    weight: 146
     region: content
   field_main_document_url:
     type: string
@@ -989,14 +968,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 253
+    weight: 133
     region: content
   field_main_thread_tasks:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 277
+    weight: 147
     region: content
   field_mainthread_work_breakdown:
     type: number_decimal
@@ -1007,7 +986,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 128
+    weight: 24
     region: content
   field_managed_focus:
     type: string
@@ -1015,7 +994,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 208
+    weight: 89
     region: content
   field_maskable_icon:
     type: number_integer
@@ -1024,7 +1003,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 122
+    weight: 18
     region: content
   field_max_potential_fid:
     type: number_decimal
@@ -1035,7 +1014,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 111
+    weight: 9
     region: content
   field_meta_description:
     type: number_integer
@@ -1044,7 +1023,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 238
+    weight: 118
     region: content
   field_meta_refresh:
     type: string
@@ -1052,7 +1031,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 194
+    weight: 76
     region: content
   field_meta_viewport:
     type: number_integer
@@ -1061,14 +1040,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 195
+    weight: 77
     region: content
   field_metrics:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 278
+    weight: 148
     region: content
   field_modern_image_formats:
     type: number_decimal
@@ -1079,28 +1058,28 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 220
+    weight: 101
     region: content
   field_network_requests:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 279
+    weight: 149
     region: content
   field_network_rtt:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 280
+    weight: 150
     region: content
   field_network_server_latency:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 281
+    weight: 151
     region: content
   field_no_document_write:
     type: number_integer
@@ -1109,7 +1088,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 232
+    weight: 113
     region: content
   field_no_unload_listeners:
     type: number_integer
@@ -1118,21 +1097,21 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 148
+    weight: 34
     region: content
   field_non_composited_animations:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 286
+    weight: 156
     region: content
   field_notes:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 298
+    weight: 167
     region: content
   field_notification_on_start:
     type: number_integer
@@ -1141,7 +1120,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 234
+    weight: 114
     region: content
   field_object_alt:
     type: string
@@ -1149,7 +1128,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 196
+    weight: 78
     region: content
   field_offscreen_content_hidden:
     type: string
@@ -1157,7 +1136,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 209
+    weight: 90
     region: content
   field_offscreen_images:
     type: number_decimal
@@ -1168,7 +1147,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 214
+    weight: 95
     region: content
   field_paste_preventing_inputs:
     type: number_integer
@@ -1177,7 +1156,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 235
+    weight: 115
     region: content
   field_performance_budget:
     type: string
@@ -1185,7 +1164,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 139
+    weight: 29
     region: content
   field_plugins:
     type: number_integer
@@ -1194,7 +1173,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 247
+    weight: 127
     region: content
   field_preload_fonts:
     type: string
@@ -1202,7 +1181,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 126
+    weight: 22
     region: content
   field_prioritize_lcp_image:
     type: number_decimal
@@ -1213,7 +1192,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 152
+    weight: 37
     region: content
   field_pwa_cross_browser:
     type: string
@@ -1221,7 +1200,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 155
+    weight: 38
     region: content
   field_pwa_each_page_has_url:
     type: string
@@ -1229,7 +1208,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 157
+    weight: 40
     region: content
   field_pwa_page_transitions:
     type: string
@@ -1237,7 +1216,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 156
+    weight: 39
     region: content
   field_redirects:
     type: number_decimal
@@ -1248,7 +1227,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 118
+    weight: 14
     region: content
   field_render_blocking_resources:
     type: number_decimal
@@ -1259,7 +1238,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 215
+    weight: 96
     region: content
   field_requested_url:
     type: string
@@ -1267,14 +1246,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 252
+    weight: 132
     region: content
   field_resource_summary:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 282
+    weight: 152
     region: content
   field_robots_txt:
     type: number_integer
@@ -1283,28 +1262,28 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 244
+    weight: 124
     region: content
   field_run_warnings:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 288
+    weight: 157
     region: content
   field_screenshot_thumbnails:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 283
+    weight: 153
     region: content
   field_script_treemap_data:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 284
+    weight: 154
     region: content
   field_server_response_time:
     type: number_integer
@@ -1313,7 +1292,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 114
+    weight: 12
     region: content
   field_service_worker:
     type: number_integer
@@ -1322,7 +1301,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   field_speed_index:
     type: number_decimal
@@ -1333,7 +1312,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 107
+    weight: 7
     region: content
   field_splash_screen:
     type: number_integer
@@ -1342,7 +1321,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 120
+    weight: 16
     region: content
   field_structured_data:
     type: string
@@ -1350,7 +1329,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 249
+    weight: 129
     region: content
   field_tabindex:
     type: number_integer
@@ -1359,7 +1338,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 197
+    weight: 79
     region: content
   field_tap_targets:
     type: number_integer
@@ -1368,7 +1347,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 245
+    weight: 125
     region: content
   field_td_headers_attr:
     type: string
@@ -1376,7 +1355,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 198
+    weight: 80
     region: content
   field_test_suite_id:
     type: number_integer
@@ -1385,7 +1364,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 292
+    weight: 161
     region: content
   field_test_suite_reference:
     type: entity_reference_label
@@ -1393,7 +1372,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 291
+    weight: 160
     region: content
   field_th_has_data_cells:
     type: string
@@ -1401,7 +1380,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 199
+    weight: 81
     region: content
   field_themed_omnibox:
     type: number_integer
@@ -1410,7 +1389,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 121
+    weight: 17
     region: content
   field_third_party_facades:
     type: string
@@ -1418,7 +1397,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 143
+    weight: 32
     region: content
   field_third_party_summary:
     type: number_integer
@@ -1427,7 +1406,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 142
+    weight: 31
     region: content
   field_timing_budget:
     type: string
@@ -1435,7 +1414,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 140
+    weight: 30
     region: content
   field_total_blocking_time:
     type: number_decimal
@@ -1446,7 +1425,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 110
+    weight: 8
     region: content
   field_total_byte_weight:
     type: number_decimal
@@ -1457,7 +1436,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 213
+    weight: 94
     region: content
   field_unminified_css:
     type: number_decimal
@@ -1468,7 +1447,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 216
+    weight: 97
     region: content
   field_unminified_javascript:
     type: number_decimal
@@ -1479,7 +1458,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 217
+    weight: 98
     region: content
   field_unsized_images:
     type: number_integer
@@ -1488,7 +1467,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 150
+    weight: 35
     region: content
   field_unused_css_rules:
     type: number_decimal
@@ -1499,7 +1478,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 218
+    weight: 99
     region: content
   field_unused_javascript:
     type: number_decimal
@@ -1510,7 +1489,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 219
+    weight: 100
     region: content
   field_url_reference:
     type: entity_reference_label
@@ -1518,7 +1497,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 293
+    weight: 162
     region: content
   field_use_landmarks:
     type: string
@@ -1526,7 +1505,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 210
+    weight: 91
     region: content
   field_user_agent:
     type: string
@@ -1534,14 +1513,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 259
+    weight: 137
     region: content
   field_user_timing:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 285
+    weight: 155
     region: content
   field_uses_http2:
     type: number_decimal
@@ -1552,7 +1531,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 236
+    weight: 116
     region: content
   field_uses_long_cache_ttl:
     type: number_decimal
@@ -1563,7 +1542,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 212
+    weight: 93
     region: content
   field_uses_optimized_images:
     type: number_decimal
@@ -1574,7 +1553,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 221
+    weight: 102
     region: content
   field_uses_passive_event_listene:
     type: number_integer
@@ -1583,7 +1562,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 237
+    weight: 117
     region: content
   field_uses_rel_preconnect:
     type: number_decimal
@@ -1594,7 +1573,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 131
+    weight: 27
     region: content
   field_uses_rel_preload:
     type: string
@@ -1602,7 +1581,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 130
+    weight: 26
     region: content
   field_uses_responsive_images:
     type: number_decimal
@@ -1613,7 +1592,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 223
+    weight: 104
     region: content
   field_uses_text_compression:
     type: number_decimal
@@ -1624,7 +1603,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 222
+    weight: 103
     region: content
   field_valid_lang:
     type: string
@@ -1632,7 +1611,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 200
+    weight: 82
     region: content
   field_valid_source_maps:
     type: number_integer
@@ -1641,14 +1620,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 151
+    weight: 36
     region: content
   field_video_caption:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 296
+    weight: 165
     region: content
   field_viewport:
     type: number_integer
@@ -1657,7 +1636,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 103
+    weight: 3
     region: content
   field_visual_order_follows_dom:
     type: string
@@ -1665,12 +1644,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 211
+    weight: 92
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   feeds_item: true
+  field_categories: true
+  field_category_: true
+  field_category_groups: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.url_stats
   module:
+    - node
     - views
   theme:
     - auto_mate_001
@@ -22,4 +23,11 @@ settings:
   context_mapping: {  }
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      url: url
