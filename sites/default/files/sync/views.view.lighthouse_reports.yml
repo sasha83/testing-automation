@@ -1210,7 +1210,7 @@ display:
         sorts: false
         filters: false
         filter_groups: false
-      use_ajax: false
+      use_ajax: true
       display_description: ''
       display_extenders: {  }
       block_description: 'URL Page - Lighthouse Reports List'
