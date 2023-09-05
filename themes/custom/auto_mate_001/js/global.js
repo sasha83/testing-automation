@@ -22,6 +22,21 @@
 
 (function ($) {
 
+
+
+
+
+    function percMeter(t) {
+        let val = t.text() * 100;
+        val = Math.round(val);
+        t.append('<div class="percentage-meter"><div class="percentage-amount" style="width: ' + val + '%; background-color: hsl(' + ((val * 120 / 100)) + ', 50%, 60%);"></div></div>');
+
+    }
+
+
+
+
+
     window.compareArray = [];
     if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
@@ -29,31 +44,52 @@
     } else {
         console.log('nope');
     }
+    let meterFields = [
+        '.view-domain-page .views-field-field-cls-average',
+        '.view-domain-page .views-field-field-fcp-average',
+        '.view-domain-page .views-field-field-fmp-average',
+        '.view-domain-page .views-field-field-lcp-average',
+        '.view-domain-page .views-field-field-tbt-average'
+    ];
+    let meterEls = meterFields.join(', ');
+    console.log(meterEls);
+    $(meterEls).each(function (i) {
+        // console.log(i);
+        percMeter($(this));
+    });
+
+
+
+
+
     let jsonFields = [
-        // 'field--name-field-user-agent',
-        'field--name-field-environment',
-        'field--name-field-config-settings',
-        // 'field--name-field-category-groups',
-        // 'field--name-field-categories',
-        'field--name-field-critical-request-chains',
-        // 'field--name-field-ensure-csp-xss',
-        'field--name-field-final-screenshot',
-        'field--name-field-detected-javascript-librar',
-        'field--name-field-largest-contentful-paint-e',
-        'field--name-field-layout-shift-elements',
-        'field--name-field-long-tasks',
-        'field--name-field-main-thread-tasks',
-        'field--name-field-metrics',
-        'field--name-field-network-requests',
-        'field--name-field-network-rtt',
-        'field--name-field-network-server-latency',
-        'field--name-field-resource-summary',
-        'field--name-field-screenshot-thumbnails',
-        'field--name-field-script-treemap-data'
+        // '.field--name-field-user-agent',
+        '.field--name-field-environment',
+        '.field--name-field-config-settings',
+        // '.field--name-field-category-groups',
+        // '.field--name-field-categories',
+        '.field--name-field-critical-request-chains',
+        // '.field--name-field-ensure-csp-xss',
+        '.field--name-field-final-screenshot',
+        '.field--name-field-detected-javascript-librar',
+        '.field--name-field-largest-contentful-paint-e',
+        '.field--name-field-layout-shift-elements',
+        '.field--name-field-long-tasks',
+        '.field--name-field-main-thread-tasks',
+        '.field--name-field-metrics',
+        '.field--name-field-network-requests',
+        '.field--name-field-network-rtt',
+        '.field--name-field-network-server-latency',
+        '.field--name-field-resource-summary',
+        '.field--name-field-screenshot-thumbnails',
+        '.field--name-field-script-treemap-data'
     ];
     jsonFields.forEach(function (e) {
-        $('.' + e + ' .field__item').html(buildJSONfield(e));
-        console.log(e);
+        if ($(e + ' .field__item').length > 0) {
+            $(e + ' .field__item').html(buildJSONfield(e));
+            console.log(e);
+
+        }
     });
 
 

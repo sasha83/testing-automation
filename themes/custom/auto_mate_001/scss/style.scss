@@ -6,6 +6,35 @@
         }
 }
 
+tr {
+        td {
+                &.views-field-title {
+                        text-align: left;
+                }
+
+                position: relative;
+                text-align: center;
+
+                .percentage-meter {
+                        position: absolute;
+                        // top: 0;
+                        left: 5%;
+                        width: 90%;
+                        height: 1rem;
+                        background: #eee;
+
+                        .percentage-amount {
+                                position: absolute;
+                                left: 0%;
+                                height: 1rem;
+                                background: #999;
+                        }
+                }
+        }
+}
+
+
+
 .view-url-stats {
         border: 2px solid #ddd;
         padding: 2rem 1rem;

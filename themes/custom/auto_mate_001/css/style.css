@@ -2,6 +2,23 @@
 #lightHouseReports tr {
   cursor: pointer; }
 
+tr td {
+  position: relative;
+  text-align: center; }
+  tr td.views-field-title {
+    text-align: left; }
+  tr td .percentage-meter {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 1rem;
+    background: #eee; }
+    tr td .percentage-meter .percentage-amount {
+      position: absolute;
+      left: 0%;
+      height: 1rem;
+      background: #999; }
+
 .view-url-stats {
   border: 2px solid #ddd;
   padding: 2rem 1rem; }
