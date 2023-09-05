@@ -147,8 +147,8 @@ async function doRequest(url) {
                         reportObjectFromJSON.user_agent = data.userAgent;
                         reportObjectFromJSON.environment = JSON.stringify(data.environment);
                         reportObjectFromJSON.config_settings = JSON.stringify(data.configSettings);
-                        reportObjectFromJSON.categories = JSON.stringify(data.categories);
-                        reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
+                        // reportObjectFromJSON.categories = JSON.stringify(data.categories);
+                        // reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = instanceID;
                         ;
@@ -171,8 +171,8 @@ async function doRequest(url) {
                         reportBasedFields.push({ 'machine_name': 'user_agent', 'title': 'User Agent', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'environment', 'title': 'Environment', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'config_settings', 'title': 'Config Settings', 'type': 'string' });
-                        reportBasedFields.push({ 'machine_name': 'categories', 'title': 'Categories', 'type': 'string' });
-                        reportBasedFields.push({ 'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string' });
+                        // reportBasedFields.push({ 'machine_name': 'categories', 'title': 'Categories', 'type': 'string' });
+                        // reportBasedFields.push({ 'machine_name': 'category_groups', 'title': 'Category Groups', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'test_suite_id', 'title': 'Test Suite ID', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'instance_id', 'title': 'Instance ID', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'title', 'title': 'Title', 'type': 'string' });

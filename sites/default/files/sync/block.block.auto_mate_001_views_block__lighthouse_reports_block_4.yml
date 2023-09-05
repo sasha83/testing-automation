@@ -1,12 +1,16 @@
-uuid: a558fe7e-36c8-444a-a5e7-1c311cd228b3
+uuid: 3c76a507-d04b-4bf3-a072-a8ff2fbc1f11
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.lighthouse_reports
+  module:
+    - views
   theme:
     - auto_mate_001
-id: views_block__lighthouse_reports_block_4
+id: auto_mate_001_views_block__lighthouse_reports_block_4
 theme: auto_mate_001
-region: drawer_bottom
+region: content
 weight: 0
 provider: null
 plugin: 'views_block:lighthouse_reports-block_4'
@@ -15,6 +19,7 @@ settings:
   label: ''
   label_display: visible
   provider: views
+  context_mapping: {  }
   views_label: ''
   items_per_page: none
 visibility: {  }

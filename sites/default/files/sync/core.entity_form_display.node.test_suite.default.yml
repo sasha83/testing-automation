@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.test_suite.field_domains
     - field.field.node.test_suite.field_max_parallel_tests
     - field.field.node.test_suite.field_number_of_instances
+    - field.field.node.test_suite.field_url_dump
     - field.field.node.test_suite.field_url_reference
     - node.type.test_suite
   module:
+    - json_field
     - path
     - text
 id: node.test_suite.default
@@ -54,6 +56,14 @@ content:
     weight: 124
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_url_dump:
+    type: json_textarea
+    weight: 126
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_url_reference:

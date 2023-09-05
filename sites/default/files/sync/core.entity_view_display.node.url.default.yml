@@ -34,6 +34,7 @@ dependencies:
     - field.field.node.url.field_lcp_min
     - field.field.node.url.field_lcp_min_lighthouse_report
     - field.field.node.url.field_lcp_min_report_nid
+    - field.field.node.url.field_lighthouse_tests_quantity
     - field.field.node.url.field_most_recent_lighthouse_rep
     - field.field.node.url.field_notes
     - field.field.node.url.field_path
@@ -67,6 +68,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_lighthouse_tests_quantity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_most_recent_lighthouse_rep:
     type: entity_reference_label

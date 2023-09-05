@@ -9,7 +9,6 @@ let shFile = [];
 let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
-// let projectFolder = "/Volumes/swetlowski3tb/automate/";
 let projectFolder = "/Users/sasha/testing-automation/report-generator/";
 
 
@@ -21,21 +20,19 @@ process.argv.forEach(function (val, index, array) {
 
     if (i == 2) {
         testSuiteID = val;
-        console.log(testSuiteID);
-        // console.log("\x1b[35m", val);
         doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
     }
     i++;
 });
 
-let shFilename = 'test-suite-id-' + testSuiteID + '.sh';
-
+let shFilename = 'test-suite-id-' + testSuiteID + '_' + instanceID + '.sh';
 async function doRequest(url) {
     return new Promise(function (resolve, reject) {
         request(url, function (error, res, body) {
             if (!error && res.statusCode == 200) {
                 let queueArray = JSON.parse(body);
                 let shOutput = [];
+                console.log(queueArray);
                 resolve(body);
                 queueArray.forEach(function (domain) {
                     if (domain.field_url_reference) {
@@ -60,6 +57,7 @@ async function doRequest(url) {
 
                 shOutput.push('node _build-test-suite.js' + ' ' + testSuiteID);
                 shOutput = shOutput.join('\n');
+                console.log('shOutput: ', shOutput);
                 console.log('shFilename', shFilename);
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;

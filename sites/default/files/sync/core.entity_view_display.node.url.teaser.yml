@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.url.field_lcp_min
     - field.field.node.url.field_lcp_min_lighthouse_report
     - field.field.node.url.field_lcp_min_report_nid
+    - field.field.node.url.field_lighthouse_tests_quantity
     - field.field.node.url.field_most_recent_lighthouse_rep
     - field.field.node.url.field_notes
     - field.field.node.url.field_path
@@ -98,6 +99,7 @@ hidden:
   field_lcp_min: true
   field_lcp_min_lighthouse_report: true
   field_lcp_min_report_nid: true
+  field_lighthouse_tests_quantity: true
   field_most_recent_lighthouse_rep: true
   field_notes: true
   field_path: true

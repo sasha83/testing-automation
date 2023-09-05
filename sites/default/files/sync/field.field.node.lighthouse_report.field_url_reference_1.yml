@@ -1,13 +1,13 @@
-uuid: ff0599c3-b12b-4922-8008-d5d7669f9cf6
+uuid: 4bcdb211-6113-4430-83aa-b29f6dad4c07
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_url_reference
+    - field.storage.node.field_url_reference_1
     - node.type.lighthouse_report
     - node.type.url
-id: node.lighthouse_report.field_url_reference
-field_name: field_url_reference
+id: node.lighthouse_report.field_url_reference_1
+field_name: field_url_reference_1
 entity_type: node
 bundle: lighthouse_report
 label: 'URL Reference'

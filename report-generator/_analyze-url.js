@@ -17,8 +17,10 @@ async function doRequest(url) {
                         if (!error && res.statusCode == 200) {
                                 let queueArray = JSON.parse(body);
                                 resolve(body);
+                                console.log('tests found: ', queueArray.length);
                                 if (queueArray.length > 0) {
                                         url_stats.nid = url_id;
+                                        url_stats.lighthouse_tests_quantity = queueArray.length;
                                         url_stats.cls = {
                                                 'max': {
                                                         'val': queueArray.sort(dynamicSort('-field_cumulative_layout_shift'))[0].field_cumulative_layout_shift,
@@ -101,6 +103,7 @@ async function doRequest(url) {
 function writeToCSV(url_stats) {
         let headers = [
                 { id: 'nid', title: 'ID' },
+                { id: 'lighthouse_tests_quantity', title: 'Lighthouse Test Quantity' },
                 { id: 'cls_max', title: 'CLS Max' },
                 { id: 'cls_max_lh_nid', title: 'CLS Max LHR ID' },
                 { id: 'cls_min', title: 'CLS Min' },
@@ -132,6 +135,7 @@ function writeToCSV(url_stats) {
         });
         let content = [{
                 'nid': url_stats.nid,
+                'lighthouse_tests_quantity': url_stats.lighthouse_tests_quantity,
                 'cls_max': url_stats.cls.max.val,
                 'cls_max_lh_nid': parseInt(url_stats.cls.max.id),
                 'cls_min': url_stats.cls.min.val,

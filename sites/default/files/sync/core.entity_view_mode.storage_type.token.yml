@@ -1,0 +1,10 @@
+uuid: 30ae5d19-23c6-421a-bdcc-04eea336e033
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage_type.token
+label: Token
+targetEntityType: storage_type
+cache: true

@@ -1,0 +1,10 @@
+uuid: ee22f446-3b01-4626-ab13-9086a6bc9dfd
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.token
+label: Token
+targetEntityType: storage
+cache: true

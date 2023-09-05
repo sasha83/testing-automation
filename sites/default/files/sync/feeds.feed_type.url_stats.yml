@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.url.field_lcp_max_report_nid
     - field.field.node.url.field_lcp_min
     - field.field.node.url.field_lcp_min_report_nid
+    - field.field.node.url.field_lighthouse_tests_quantity
     - field.field.node.url.field_tbt_average
     - field.field.node.url.field_tbt_max
     - field.field.node.url.field_tbt_max_report_nid
@@ -215,6 +216,11 @@ custom_sources:
     label: cls_min
     machine_name: cls_min
     type: csv
+  lighthouse_tests_quantity:
+    value: lighthouse_tests_quantity
+    label: lighthouse_tests_quantity
+    machine_name: lighthouse_tests_quantity
+    type: csv
 mappings:
   -
     target: nid
@@ -395,6 +401,13 @@ mappings:
     target: field_cls_min
     map:
       value: cls_min
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lighthouse_tests_quantity
+    map:
+      value: lighthouse_tests_quantity
     settings:
       language: null
     unique: {  }

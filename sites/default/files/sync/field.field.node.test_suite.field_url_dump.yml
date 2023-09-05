@@ -1,0 +1,21 @@
+uuid: 93dac800-4795-4291-8793-cb2c75b3bc65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url_dump
+    - node.type.test_suite
+  module:
+    - json_field
+id: node.test_suite.field_url_dump
+field_name: field_url_dump
+entity_type: node
+bundle: test_suite
+label: 'URL Dump'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: json
