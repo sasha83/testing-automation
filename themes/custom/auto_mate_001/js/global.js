@@ -7,6 +7,10 @@
 (function ($) {
     Drupal.behaviors.recentMeAutoRefresh = {
         attach: function (context, settings) {
+
+
+
+
             function percMeter(t) {
                 let val = t.text() * 100;
                 val = Math.round(val);
@@ -64,73 +68,72 @@
     }
 
 
+    function buildJSONfield(t) {
+        let fieldText = t.html();
+        fieldText = JSON.parse(fieldText);
+        let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
+        console.log(fieldJSON);
+        return fieldJSON;
+    }
 
 
 
 
     let jsonFields = [
         // '.field--name-field-user-agent',
-        '.field--name-field-environment',
-        '.field--name-field-config-settings',
-        // '.field--name-field-category-groups',
-        // '.field--name-field-categories',
-        '.field--name-field-critical-request-chains',
-        // '.field--name-field-ensure-csp-xss',
-        '.field--name-field-final-screenshot',
-        '.field--name-field-detected-javascript-librar',
-        '.field--name-field-largest-contentful-paint-e',
-        '.field--name-field-layout-shift-elements',
-        '.field--name-field-long-tasks',
-        '.field--name-field-main-thread-tasks',
-        '.field--name-field-metrics',
-        '.field--name-field-network-requests',
-        '.field--name-field-network-rtt',
-        '.field--name-field-network-server-latency',
-        '.field--name-field-resource-summary',
-        '.field--name-field-screenshot-thumbnails',
-        '.field--name-field-script-treemap-data'
+        '.field--name-field-environment .field__item',
+        '.field--name-field-config-settings .field__item',
+        // '.field--name-field-category-groups .field__item',
+        // '.field--name-field-categories .field__item',
+        '.field--name-field-critical-request-chains .field__item',
+        // '.field--name-field-ensure-csp-xss .field__item',
+        '.field--name-field-final-screenshot .field__item',
+        '.field--name-field-detected-javascript-librar .field__item',
+        '.field--name-field-largest-contentful-paint-e .field__item',
+        '.field--name-field-layout-shift-elements .field__item',
+        '.field--name-field-long-tasks .field__item',
+        '.field--name-field-main-thread-tasks .field__item',
+        '.field--name-field-metrics .field__item',
+        '.field--name-field-network-requests .field__item',
+        '.field--name-field-network-rtt .field__item',
+        '.field--name-field-network-server-latency .field__item',
+        '.field--name-field-resource-summary .field__item',
+        '.field--name-field-screenshot-thumbnails .field__item',
+        '.field--name-field-script-treemap-data .field__item'
     ];
-    jsonFields.forEach(function (e) {
-        if ($(e + ' .field__item').length > 0) {
-            $(e + ' .field__item').html(buildJSONfield(e));
-            console.log(e);
+    jsonFields = jsonFields.join(', ');
 
-        }
+    $(jsonFields).each(function(){
+        $(this).html(buildJSONfield($(this)));
     });
 
 
 
 
-    function buildJSONfield(fieldName) {
-        let fieldText = $('.' + fieldName + ' .field__item').html();
-        fieldText = JSON.parse(fieldText);
-        let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
-        return fieldJSON;
-    }
     $(document).ready(function () {
         'use strict';
-        window.setTimeout(function () {
-            $('.view-lighthouse-reports-url .view-content tbody').attr('id', 'lightHouseReports');
-            new Sortable(lightHouseReports, {
-                animation: 150,
-                ghostClass: 'blue-background-class'
-            });
+        // window.setTimeout(function () {
+        //     $('.view-lighthouse-reports-url .view-content tbody').attr('id', 'lightHouseReports');
+        //     new Sortable(lightHouseReports, {
+        //         animation: 150,
+        //         ghostClass: 'blue-background-class'
+        //     });
 
-            $('.compare').each(function () {
-                let thisID = $(this).attr('data-nid');
-                $(this).append('<input class="compare-toggle" type="checkbox" value="Compare" data-nid="' + thisID + '"></input>');
-                $(this).parents('tr').attr('data-nid', thisID);
-            });
-            $('.compare-toggle').on('change', function () {
-                if (window.compareArray) {
-                    updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
-                } else {
-                    window.compareArray = [];
-                    updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
-                }
-            });
+        //     $('.compare').each(function () {
+        //         let thisID = $(this).attr('data-nid');
+        //         $(this).append('<input class="compare-toggle" type="checkbox" value="Compare" data-nid="' + thisID + '"></input>');
+        //         $(this).parents('tr').attr('data-nid', thisID);
+        //     });
+        //     $('.compare-toggle').on('change', function () {
+        //         if (window.compareArray) {
+        //             updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
+        //         } else {
+        //             window.compareArray = [];
+        //             updateCompareArray($(this).attr('data-nid'), $(this).is(':checked'));
+        //         }
+        //     });
 
-        }, 500);
+        // }, 500);
         window.setInterval(function () {
             if (window.compareArray.length > 0) {
                 var selector = '.view-display-id-lighthouse_comparison_tool';
