@@ -4,21 +4,45 @@
  *
  */
 //test
-// (function ($) {
-//     Drupal.behaviors.recentMeAutoRefresh = {
-//         attach: function (context, settings) {
-//             jQuery.each(Drupal.views.instances, function (i, view) {
-//                 console.log('view: ', view);
-//                 console.log('i: ', i);
-//                 if (view.settings.view_display_id == "lighthouse_comparison_tool") {
-//                     view.settings.view_args = '27704';
-//                     $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
-//                 }
+(function ($) {
+    Drupal.behaviors.recentMeAutoRefresh = {
+        attach: function (context, settings) {
+            function percMeter(t) {
+                let val = t.text() * 100;
+                val = Math.round(val);
+                t.append('<div class="percentage-meter"><div class="percentage-amount" style="width: ' + val + '%; background-color: hsl(' + ((val * 120 / 100)) + ', 50%, 60%);"></div></div>');
+            }
 
-//             });
-//         }
-//     };
-// })(jQuery);
+            let meterFields = [
+                '.view-domain-page .views-field-field-cls-average',
+                '.view-domain-page .views-field-field-fcp-average',
+                '.view-domain-page .views-field-field-fmp-average',
+                '.view-domain-page .views-field-field-lcp-average',
+                '.view-domain-page .views-field-field-tbt-average',
+                '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-largest-contentful-paint',
+                '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-total-blocking-time',
+                '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-cumulative-layout-shift',
+                '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-first-contentful-paint',
+                '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-first-meaningful-paint'
+            ];
+            let meterEls = meterFields.join(', ');
+            console.log(meterEls);
+            $(meterEls).each(function (i) {
+                console.log(i);
+                percMeter($(this));
+            });
+            // jQuery.each(Drupal.views.instances, function (i, view) {
+            //     console.log('view: ', view);
+            //     console.log('i: ', i);
+            //     if (view.settings.view_display_id == "lighthouse_comparison_tool") {
+            //         view.settings.view_args = '27704';
+            //         $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
+            //     }
+
+            // });
+        }
+    };
+})(jQuery);
 
 (function ($) {
 
@@ -26,12 +50,6 @@
 
 
 
-    function percMeter(t) {
-        let val = t.text() * 100;
-        val = Math.round(val);
-        t.append('<div class="percentage-meter"><div class="percentage-amount" style="width: ' + val + '%; background-color: hsl(' + ((val * 120 / 100)) + ', 50%, 60%);"></div></div>');
-
-    }
 
 
 
@@ -44,19 +62,7 @@
     } else {
         console.log('nope');
     }
-    let meterFields = [
-        '.view-domain-page .views-field-field-cls-average',
-        '.view-domain-page .views-field-field-fcp-average',
-        '.view-domain-page .views-field-field-fmp-average',
-        '.view-domain-page .views-field-field-lcp-average',
-        '.view-domain-page .views-field-field-tbt-average'
-    ];
-    let meterEls = meterFields.join(', ');
-    console.log(meterEls);
-    $(meterEls).each(function (i) {
-        // console.log(i);
-        percMeter($(this));
-    });
+
 
 
 

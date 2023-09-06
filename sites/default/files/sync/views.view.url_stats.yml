@@ -45,7 +45,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'URL Stats'
+      title: 'URL Stats - (averages across all available Lighthouse reports)'
       fields:
         field_fcp_average:
           id: field_fcp_average
@@ -2006,8 +2006,8 @@ display:
         - 'config:field.storage.node.field_tbt_max'
         - 'config:field.storage.node.field_tbt_min'
         - 'config:field.storage.node.field_tbt_min_lighthouse_report'
-  block_1:
-    id: block_1
+  lighthouse_reports_url_stats:
+    id: lighthouse_reports_url_stats
     display_title: Block
     display_plugin: block
     position: 1
