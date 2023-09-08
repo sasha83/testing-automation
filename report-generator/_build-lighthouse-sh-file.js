@@ -10,7 +10,7 @@ let domainArray = [];
 let siteMapURL;
 let instanceID;
 // let projectFolder = "/Volumes/swetlowski3tb/automate/";
-let projectFolder = "/Users/sasha/testing-automation/report-generator/";
+let projectFolder = "/Users/alexandreswetlowski/testing-automation/report-generator/";
 
 const maxTestRuns = 4;
 let i = 0;

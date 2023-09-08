@@ -5,6 +5,15 @@
 th {
   text-align: center; }
 
+.views-field-field-cls-average,
+.views-field-field-fcp-average,
+.views-field-field-fmp-average,
+.views-field-field-lcp-average,
+.views-field-field-tbt-average {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: #555; }
+
 tr td {
   position: relative;
   text-align: center; }
@@ -21,6 +30,10 @@ tr td {
       left: 0%;
       height: 1rem;
       background: #999; }
+
+.block-views-blockdomain-page-domain-page-urls .view .view-content {
+  max-height: 60rem;
+  overflow: scroll; }
 
 .view-url-stats {
   border: 2px solid #ddd;

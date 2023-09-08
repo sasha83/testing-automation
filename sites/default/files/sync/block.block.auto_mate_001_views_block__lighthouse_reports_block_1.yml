@@ -12,7 +12,7 @@ dependencies:
 id: auto_mate_001_views_block__lighthouse_reports_block_1
 theme: auto_mate_001
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'views_block:lighthouse_reports-block_1'
 settings:

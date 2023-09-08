@@ -14,6 +14,7 @@
             function percMeter(t) {
                 let val = t.text() * 100;
                 val = Math.round(val);
+                // t.html('<span class="perc-value">'+val+'</span>');
                 t.append('<div class="percentage-meter"><div class="percentage-amount" style="width: ' + val + '%; background-color: hsl(' + ((val * 120 / 100)) + ', 50%, 60%);"></div></div>');
             }
 
@@ -30,9 +31,9 @@
                 '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-first-meaningful-paint'
             ];
             let meterEls = meterFields.join(', ');
-            console.log(meterEls);
+            // console.log(meterEls);
             $(meterEls).each(function (i) {
-                console.log(i);
+                // console.log(i);
                 percMeter($(this));
             });
             // jQuery.each(Drupal.views.instances, function (i, view) {
@@ -62,52 +63,57 @@
     window.compareArray = [];
     if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
-        console.log('window.compareArray', window.compareArray);
+        // console.log('window.compareArray', window.compareArray);
     } else {
-        console.log('nope');
-    }
-
-
-    function buildJSONfield(t) {
-        let fieldText = t.html();
-        fieldText = JSON.parse(fieldText);
-        let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
-        console.log(fieldJSON);
-        return fieldJSON;
+        // console.log('nope');
     }
 
 
 
 
-    let jsonFields = [
-        // '.field--name-field-user-agent',
-        '.field--name-field-environment .field__item',
-        '.field--name-field-config-settings .field__item',
-        // '.field--name-field-category-groups .field__item',
-        // '.field--name-field-categories .field__item',
-        '.field--name-field-critical-request-chains .field__item',
-        // '.field--name-field-ensure-csp-xss .field__item',
-        '.field--name-field-final-screenshot .field__item',
-        '.field--name-field-detected-javascript-librar .field__item',
-        '.field--name-field-largest-contentful-paint-e .field__item',
-        '.field--name-field-layout-shift-elements .field__item',
-        '.field--name-field-long-tasks .field__item',
-        '.field--name-field-main-thread-tasks .field__item',
-        '.field--name-field-metrics .field__item',
-        '.field--name-field-network-requests .field__item',
-        '.field--name-field-network-rtt .field__item',
-        '.field--name-field-network-server-latency .field__item',
-        '.field--name-field-resource-summary .field__item',
-        '.field--name-field-screenshot-thumbnails .field__item',
-        '.field--name-field-script-treemap-data .field__item'
-    ];
-    jsonFields = jsonFields.join(', ');
-
-    $(jsonFields).each(function(){
-        $(this).html(buildJSONfield($(this)));
-    });
+    
 
 
+
+
+    function fieldFormatterJSON() {
+        function buildJSONfield(t) {
+            let fieldText = t.html();
+            fieldText = JSON.parse(fieldText);
+            let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
+            // console.log(fieldJSON);
+            return fieldJSON;
+        }
+    
+    
+        let jsonFields = [
+            // '.field--name-field-user-agent',
+            '.field--name-field-environment .field__item',
+            '.field--name-field-config-settings .field__item',
+            // '.field--name-field-category-groups .field__item',
+            // '.field--name-field-categories .field__item',
+            '.field--name-field-critical-request-chains .field__item',
+            // '.field--name-field-ensure-csp-xss .field__item',
+            '.field--name-field-final-screenshot .field__item',
+            '.field--name-field-detected-javascript-librar .field__item',
+            '.field--name-field-largest-contentful-paint-e .field__item',
+            '.field--name-field-layout-shift-elements .field__item',
+            '.field--name-field-long-tasks .field__item',
+            '.field--name-field-main-thread-tasks .field__item',
+            '.field--name-field-metrics .field__item',
+            '.field--name-field-network-requests .field__item',
+            '.field--name-field-network-rtt .field__item',
+            '.field--name-field-network-server-latency .field__item',
+            '.field--name-field-resource-summary .field__item',
+            '.field--name-field-screenshot-thumbnails .field__item',
+            '.field--name-field-script-treemap-data .field__item'
+        ];
+        jsonFields = jsonFields.join(', ');
+    
+        $(jsonFields).each(function(){
+            $(this).html(buildJSONfield($(this)));
+        });
+    }
 
 
     $(document).ready(function () {
@@ -134,6 +140,10 @@
         //     });
 
         // }, 500);
+        fieldFormatterJSON();
+        domainPageJavaScriptResources();
+
+
         window.setInterval(function () {
             if (window.compareArray.length > 0) {
                 var selector = '.view-display-id-lighthouse_comparison_tool';
@@ -144,12 +154,48 @@
             }
         }, 5000);
     });
+    function getDomainURLData(url_ids) {
+        console.log('url_ids: ', url_ids);
+        let url_list = [];
+        url_ids.forEach(function(url_id) {
+            url_list.push(parseInt(url_id.nid));
+        });
+        console.log('url_list: ', url_list.join(','));
+        window.domain_url_list = url_list;
+    }
+    function domainPageJavaScriptResources() {  
+            let domainID = $('#page-data-block').attr('data-nid');
+            let ajaxURL = '/urls?domain_id='+domainID;
+            console.log('domainID: ', domainID);
+            console.log('ajaxURL: ', ajaxURL);
+            $.ajax({
+                url: ajaxURL,
+                context: document.body
+              }).done(function(theData) {
+                console.log('theData: ', theData);
+                window.domainURLs = theData;
+                window.domainURLData = getDomainURLData(theData);
+                $( this ).addClass( "done" );
+              });
+            // 'https://automate.ddev.site/urls?domain_id="'+domainID+'"';
+            let urlNodeData = [];
+            // let urlNodeIDs = 'https://automate.ddev.site/urls?domain_id="'+domainID+'"';
+
+            // urlNodeIDs.forEach(function() {
+            //     urlNodeData.push(getURLResourceData(urlNodeID));
+            // });
+
+    }
+    function getURLResourceData(urlNodeID) {
+        let urlResourceData = {};
+        return urlResourceData;
+    }
     async function updateCompareArray(thisID, enabled) {
         if (window.compareArray.indexOf(thisID) == -1) {
             if (enabled == true) {
                 window.compareArray.push(thisID);
                 let reportObject = await getReportObjects(thisID);
-                console.log(thisID, enabled, reportObject);
+                // console.log(thisID, enabled, reportObject);
             } else {
             }
         } else {
@@ -165,7 +211,7 @@
             }
         }
         updateCompareTool();
-        console.log(window.compareArray);
+        // console.log(window.compareArray);
     }
 
     async function getReportObjects(thisID) {
@@ -177,7 +223,7 @@
     }
     async function updateCompareTool() {
         let thisID = window.compareArray.join('+');
-        console.log(await getReportObjects(thisID));
+        // console.log(await getReportObjects(thisID));
         //         window.compareArray.forEach(function(thisID) {
         // )
         //         });

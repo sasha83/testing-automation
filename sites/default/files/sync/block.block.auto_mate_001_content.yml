@@ -11,7 +11,7 @@ _core:
 id: auto_mate_001_content
 theme: auto_mate_001
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: system_main_block
 settings:

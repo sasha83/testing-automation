@@ -27,7 +27,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Pages
+      title: 'Domain – URLs'
       fields:
         nid:
           id: nid
@@ -836,15 +836,15 @@ display:
         - 'config:field.storage.node.field_lcp_average'
         - 'config:field.storage.node.field_lighthouse_tests_quantity'
         - 'config:field.storage.node.field_tbt_average'
-  block_1:
-    id: block_1
+  domain_page_urls:
+    id: domain_page_urls
     display_title: 'Domain Page URLs'
     display_plugin: block
     position: 1
     display_options:
       display_description: ''
       display_extenders: {  }
-      block_description: Pages
+      block_description: 'Domain - URLs'
     cache_metadata:
       max-age: -1
       contexts:
