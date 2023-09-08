@@ -31,9 +31,7 @@
                 '.view-id-lighthouse_reports.view-display-id-block_4 .views-field-field-first-meaningful-paint'
             ];
             let meterEls = meterFields.join(', ');
-            // console.log(meterEls);
             $(meterEls).each(function (i) {
-                // console.log(i);
                 percMeter($(this));
             });
             // jQuery.each(Drupal.views.instances, function (i, view) {
@@ -63,7 +61,6 @@
     window.compareArray = [];
     if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
-        // console.log('window.compareArray', window.compareArray);
     } else {
         // console.log('nope');
     }
@@ -81,7 +78,6 @@
             let fieldText = t.html();
             fieldText = JSON.parse(fieldText);
             let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
-            // console.log(fieldJSON);
             return fieldJSON;
         }
     
@@ -140,8 +136,18 @@
         //     });
 
         // }, 500);
+
+
+
+
+
+
+
         fieldFormatterJSON();
         domainPageJavaScriptResources();
+
+
+
 
 
         window.setInterval(function () {
@@ -154,36 +160,109 @@
             }
         }, 5000);
     });
-    function getDomainURLData(url_ids) {
-        console.log('url_ids: ', url_ids);
-        let url_list = [];
-        url_ids.forEach(function(url_id) {
-            url_list.push(parseInt(url_id.nid));
+    function formatReportData(data) {
+        const fieldsJSON = [
+            'field_network_requests',
+            'field_detected_javascript_librar',
+            'field_script_treemap_data',
+        ];
+        fieldsJSON.forEach(function(field_name) {
+            if(data[0][field_name]) {
+                data[0][field_name] = JSON.parse(data[0][field_name].replaceAll('&quot;', '"'));
+            }
         });
-        console.log('url_list: ', url_list.join(','));
-        window.domain_url_list = url_list;
+        data[0].request_complete = true;
+        return data[0];
+    }
+    function updateDomainScriptData() {
+        window.domain_script_list = [];
+        window.domain_scripts = [];
+        window.domain_url_data.forEach(function(url){
+            url.field_script_treemap_data.nodes.forEach(function(scriptNode) {
+                if(!window.domain_script_list.includes(scriptNode.name)) {
+                    window.domain_script_list.push(scriptNode.name);
+                }
+            });
+        });
+        console.log('window.domain_script_list: ', window.domain_script_list);
+        console.log('window.domain_url_data: ', window.domain_url_data);
+    }
+    function getDomainURLData(url_ids) {
+
+        let url_list = [];
+        window.domain_url_data = [];
+        window.domain_script_list = [];
+        window.domain_script_data = [];
+
+        url_ids.forEach(function(url_id) {
+            let url_obj = {}
+            url_obj.nid = url_id.nid;   
+            window.domain_url_data.push = url_obj;
+            let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id='+url_id.nid;
+    
+            $.ajax({
+                url: reportURL,
+                context: document.body
+              }).done(function(theData) {
+                let formattedData = formatReportData(theData);
+                window.domain_url_data[url_id.nid] = formattedData;
+                updateDomainScriptData();
+                updateJSResourcesBlock();
+                $( this ).addClass( "done" );
+              });
+    
+        });
+
+
+
+    }
+    function updateJSResourcesBlock(domainJSData) {
+        let jsRecEl = $('.view-display-id-domain_page_url_js_resources');
+        jsRecEl.empty();
+        jsRecEl.append('<div class="domain-js-resources"></div>');
+        jsRecEl.find('.domain-js-resources').append('<table class="domain-urls"><thead></thead><tbody></tbody></table>');
+        jsRecEl.find('.domain-js-resources').append('<table class="domain-scripts"><thead></thead><tbody></tbody></table>');
+
+        window.domain_url_data.forEach(function(d) {
+            jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('<tr data-nid="'+d.nid+'"><td class="url-data-link" data-nid="'+d.nid+'">'+d.field_requested_url+'</td></tr>');
+        });
+
+        window.domain_script_list.sort();
+        window.domain_script_list.forEach(function(s){
+            jsRecEl.find('.domain-scripts tbody').append('<tr data-script-url="'+s+'"><td class="script-data-link" data-script-url="'+s+'">'+s+'</td></tr>');
+        });
+        
+        
+        
+        
+        $('.url-data-link').on('click', function(url){
+            let t = $(this);
+            console.log(t.attr('data-nid'));
+        });
+        $('.script-data-link').on('click', function(script){
+            let t = $(this);
+            console.log(t.attr('data-script-url'));
+        });
+
+
+        
     }
     function domainPageJavaScriptResources() {  
             let domainID = $('#page-data-block').attr('data-nid');
-            let ajaxURL = '/urls?domain_id='+domainID;
-            console.log('domainID: ', domainID);
-            console.log('ajaxURL: ', ajaxURL);
+            let domainURL = '/urls?domain_id='+domainID;
             $.ajax({
-                url: ajaxURL,
+                url: domainURL,
                 context: document.body
               }).done(function(theData) {
-                console.log('theData: ', theData);
                 window.domainURLs = theData;
-                window.domainURLData = getDomainURLData(theData);
+                getDomainURLData(theData);
                 $( this ).addClass( "done" );
               });
-            // 'https://automate.ddev.site/urls?domain_id="'+domainID+'"';
-            let urlNodeData = [];
-            // let urlNodeIDs = 'https://automate.ddev.site/urls?domain_id="'+domainID+'"';
 
-            // urlNodeIDs.forEach(function() {
-            //     urlNodeData.push(getURLResourceData(urlNodeID));
-            // });
+            
+            
+                
+
 
     }
     function getURLResourceData(urlNodeID) {
@@ -195,7 +274,6 @@
             if (enabled == true) {
                 window.compareArray.push(thisID);
                 let reportObject = await getReportObjects(thisID);
-                // console.log(thisID, enabled, reportObject);
             } else {
             }
         } else {
@@ -211,7 +289,6 @@
             }
         }
         updateCompareTool();
-        // console.log(window.compareArray);
     }
 
     async function getReportObjects(thisID) {
@@ -223,10 +300,6 @@
     }
     async function updateCompareTool() {
         let thisID = window.compareArray.join('+');
-        // console.log(await getReportObjects(thisID));
-        //         window.compareArray.forEach(function(thisID) {
-        // )
-        //         });
     }
     function buildCompareObject(idA, idB) {
         let compareObjectA = getReportObject(idA);

@@ -1,22 +1,22 @@
-uuid: b0feadad-3282-4ace-9f8e-7d399540063b
+uuid: 26afa401-cf28-496f-a831-5d4d80795f6a
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - views.view.javascript_resources
+    - views.view.domain_page
   module:
     - node
     - views
   theme:
     - auto_mate_001
-id: views_block__javascript_resources_js_resources_block_1
+id: views_block__domain_page_domain_page_url_js_resources
 theme: auto_mate_001
 region: content
 weight: 0
 provider: null
-plugin: 'views_block:javascript_resources-js_resources_block_1'
+plugin: 'views_block:domain_page-domain_page_url_js_resources'
 settings:
-  id: 'views_block:javascript_resources-js_resources_block_1'
+  id: 'views_block:domain_page-domain_page_url_js_resources'
   label: ''
   label_display: visible
   provider: views
@@ -30,4 +30,4 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
-      url: url
+      domain: domain

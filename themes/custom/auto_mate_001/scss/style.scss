@@ -1,5 +1,46 @@
 @use 'abstractions/mixins.scss';
 
+
+
+
+.view-display-id-domain_page_url_js_resources {
+        // display: flex;
+        flex-direction: row;
+}
+.domain-js-resources {
+        // display: flex;
+        td { 
+                height: 2rem;
+                // flex: 1 1 100%;
+                text-align: left;
+                cursor: pointer;
+        }
+        .domain-urls {
+                // display: flex;
+                // flex: 1 0 50%;
+                width: 50%;
+                float: left;
+                tbody {
+                        flex: 1 0 100%;
+                }
+                td { 
+                }
+        }
+        .domain-scripts {
+                display: flex;
+                flex: 1 0 50%;
+                width: 50%;
+                float: left;
+                tbody {
+                        flex: 1 0 100%;
+                }
+                td { 
+                }
+        }
+}
+
+
+
 #lightHouseReports {
         tr {
                 cursor: pointer;

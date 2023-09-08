@@ -576,22 +576,6 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          order: DESC
-          expose:
-            label: 'Authored on'
-            field_identifier: created
-          exposed: true
-          granularity: second
         field_cls_average_value:
           id: field_cls_average_value
           table: node__field_cls_average
@@ -836,6 +820,97 @@ display:
         - 'config:field.storage.node.field_lcp_average'
         - 'config:field.storage.node.field_lighthouse_tests_quantity'
         - 'config:field.storage.node.field_tbt_average'
+  domain_page_url_js_resources:
+    id: domain_page_url_js_resources
+    display_title: 'Domain Page URLs - JS Resources'
+    display_plugin: block
+    position: 1
+    display_options:
+      title: 'Domain – URLs - JS Resources'
+      fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      sorts: {  }
+      defaults:
+        title: false
+        fields: false
+        sorts: false
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Domain - URLs - JS Resources'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   domain_page_urls:
     id: domain_page_urls
     display_title: 'Domain Page URLs'

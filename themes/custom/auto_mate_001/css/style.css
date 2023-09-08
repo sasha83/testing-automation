@@ -1,4 +1,24 @@
 @use 'abstractions/mixins.scss';
+.view-display-id-domain_page_url_js_resources {
+  flex-direction: row; }
+
+.domain-js-resources td {
+  height: 2rem;
+  text-align: left;
+  cursor: pointer; }
+.domain-js-resources .domain-urls {
+  width: 50%;
+  float: left; }
+  .domain-js-resources .domain-urls tbody {
+    flex: 1 0 100%; }
+.domain-js-resources .domain-scripts {
+  display: flex;
+  flex: 1 0 50%;
+  width: 50%;
+  float: left; }
+  .domain-js-resources .domain-scripts tbody {
+    flex: 1 0 100%; }
+
 #lightHouseReports tr {
   cursor: pointer; }
 
