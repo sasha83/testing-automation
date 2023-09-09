@@ -16,6 +16,8 @@
   flex: 1 0 50%;
   width: 50%;
   float: left; }
+  .domain-js-resources .domain-scripts .script-data-link-row.active {
+    background: blue; }
   .domain-js-resources .domain-scripts tbody {
     flex: 1 0 100%; }
 

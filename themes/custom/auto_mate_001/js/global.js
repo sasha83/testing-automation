@@ -160,21 +160,9 @@
             }
         }, 5000);
     });
-    function formatReportData(data) {
-        const fieldsJSON = [
-            'field_network_requests',
-            'field_detected_javascript_librar',
-            'field_script_treemap_data',
-        ];
-        fieldsJSON.forEach(function(field_name) {
-            if(data[0][field_name]) {
-                data[0][field_name] = JSON.parse(data[0][field_name].replaceAll('&quot;', '"'));
-            }
-        });
-        data[0].request_complete = true;
-        return data[0];
-    }
+
     function updateDomainScriptData() {
+        window.domain_script_data = [];
         window.domain_script_list = [];
         window.domain_scripts = [];
         window.domain_url_data.forEach(function(url){
@@ -184,34 +172,48 @@
                 }
             });
         });
-        console.log('window.domain_script_list: ', window.domain_script_list);
-        console.log('window.domain_url_data: ', window.domain_url_data);
+        // console.log('window.domain_script_list: ', window.domain_script_list);
+        // console.log('window.domain_url_data: ', window.domain_url_data);
     }
     function getDomainURLData(url_ids) {
-
+    
         let url_list = [];
         window.domain_url_data = [];
-        window.domain_script_list = [];
-        window.domain_script_data = [];
 
         url_ids.forEach(function(url_id) {
             let url_obj = {}
             url_obj.nid = url_id.nid;   
             window.domain_url_data.push = url_obj;
             let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id='+url_id.nid;
-    
+            let currentURLID = url_id.nid;
             $.ajax({
                 url: reportURL,
                 context: document.body
               }).done(function(theData) {
                 let formattedData = formatReportData(theData);
                 window.domain_url_data[url_id.nid] = formattedData;
+                window.domain_url_data[url_id.nid].url_id = currentURLID;
                 updateDomainScriptData();
                 updateJSResourcesBlock();
                 $( this ).addClass( "done" );
               });
     
         });
+
+        let formatReportData = function (data) {
+            const fieldsJSON = [
+                'field_network_requests',
+                'field_detected_javascript_librar',
+                'field_script_treemap_data',
+            ];
+            fieldsJSON.forEach(function(field_name) {
+                if(data[0][field_name] && data[0][field_name]!=undefined) {
+                    data[0][field_name] = JSON.parse(data[0][field_name].replaceAll('&quot;', '"'));
+                }
+            });
+            data[0].request_complete = true;
+            return data[0];
+        }
 
 
 
@@ -224,28 +226,47 @@
         jsRecEl.find('.domain-js-resources').append('<table class="domain-scripts"><thead></thead><tbody></tbody></table>');
 
         window.domain_url_data.forEach(function(d) {
-            jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('<tr data-nid="'+d.nid+'"><td class="url-data-link" data-nid="'+d.nid+'">'+d.field_requested_url+'</td></tr>');
+            jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('<tr class="url-data-link-row" data-nid="'+d.url_id+'"><td class="url-data-link" data-nid="'+d.url_id+'">'+d.field_requested_url+'</td></tr>');
         });
 
         window.domain_script_list.sort();
         window.domain_script_list.forEach(function(s){
-            jsRecEl.find('.domain-scripts tbody').append('<tr data-script-url="'+s+'"><td class="script-data-link" data-script-url="'+s+'">'+s+'</td></tr>');
+            jsRecEl.find('.domain-scripts tbody').append('<tr class="script-data-link-row" data-script-url="'+s+'"><td class="script-data-link" data-script-url="'+s+'">'+s+'</td></tr>');
         });
         
         
         
         
         $('.url-data-link').on('click', function(url){
-            let t = $(this);
-            console.log(t.attr('data-nid'));
+            setActiveURLState($(this).attr('data-nid'));
         });
         $('.script-data-link').on('click', function(script){
             let t = $(this);
-            console.log(t.attr('data-script-url'));
+            // console.log(t.attr('data-script-url'));
         });
 
 
-        
+
+    }
+    function setScriptAsActiveChild(script) {
+        $('tr.script-data-link-row[data-script-url="'+script.name.trim()+'"]').addClass('active');
+        $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').addClass('active');
+        console.log(script);
+    }
+    function deactivateAllScripts() {
+        $('.script-data-link-row').removeClass('active');
+        $('td.script-data-link').removeClass('active');
+    }
+    function setActiveURLState(nid) {
+        console.log(window.domain_url_data[nid].field_script_treemap_data.nodes);
+        window.activeURL = nid;
+        let url_scripts = window.domain_url_data[nid].field_script_treemap_data.nodes;
+        deactivateAllScripts();
+        url_scripts.forEach(function(script) {
+            console.log('setting -> ', script);
+            setScriptAsActiveChild(script);
+        });
+
     }
     function domainPageJavaScriptResources() {  
             let domainID = $('#page-data-block').attr('data-nid');

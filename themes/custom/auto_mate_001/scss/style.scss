@@ -31,6 +31,12 @@
                 flex: 1 0 50%;
                 width: 50%;
                 float: left;
+                .script-data-link-row {
+                        &.active {
+                                background: blue;
+                        }
+
+                }
                 tbody {
                         flex: 1 0 100%;
                 }
