@@ -2,24 +2,86 @@
 .view-display-id-domain_page_url_js_resources {
   flex-direction: row; }
 
+.domain-js-resources:after {
+  content: '.';
+  font-size: 0;
+  clear: both;
+  display: block; }
+.domain-js-resources table {
+  margin: 0;
+  padding: 0; }
+  .domain-js-resources table tbody {
+    margin: 0;
+    padding: 0; }
+.domain-js-resources tr {
+  background-color: transparent;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
 .domain-js-resources td {
-  height: 2rem;
   text-align: left;
-  cursor: pointer; }
+  cursor: pointer;
+  height: .7rem;
+  margin: 0;
+  padding: 0 .5;
+  font-size: .675rem;
+  font-weight: bold;
+  color: #999; }
+  .domain-js-resources td .percentage-meter {
+    display: none; }
+  .domain-js-resources td.active {
+    height: 1.125rem;
+    font-size: 1rem;
+    color: black; }
+    .domain-js-resources td.active .usage {
+      display: block; }
+    .domain-js-resources td.active .usage-data {
+      display: block; }
+    .domain-js-resources td.active .percentage-meter {
+      display: block; }
+  .domain-js-resources td .usage {
+    display: none;
+    height: .75rem;
+    width: 100%;
+    position: relative; }
+    .domain-js-resources td .usage .used {
+      transition-timing-function: ease-in-out;
+      transition: width .5s;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: green; }
+  .domain-js-resources td .usage-data {
+    display: none; }
 .domain-js-resources .domain-urls {
   width: 50%;
-  float: left; }
-  .domain-js-resources .domain-urls tbody {
-    flex: 1 0 100%; }
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0; }
+  .domain-js-resources .domain-urls tr.url-data-link-row.active {
+    background-color: white; }
 .domain-js-resources .domain-scripts {
-  display: flex;
-  flex: 1 0 50%;
   width: 50%;
-  float: left; }
+  float: right;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
   .domain-js-resources .domain-scripts .script-data-link-row.active {
-    background: blue; }
-  .domain-js-resources .domain-scripts tbody {
-    flex: 1 0 100%; }
+    background: white; }
+    .domain-js-resources .domain-scripts .script-data-link-row.active .usage {
+      background-color: #fff; }
+  .domain-js-resources .domain-scripts .script-data-link-row:not(.active) .usage .used {
+    width: 0 !important; }
+  .domain-js-resources .domain-scripts .script-data-link-row .script-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    width: 400px;
+    white-space: nowrap; }
 
 #lightHouseReports tr {
   cursor: pointer; }
@@ -52,6 +114,17 @@ tr td {
       left: 0%;
       height: 1rem;
       background: #999; }
+  tr td .usage-data {
+    display: block;
+    background-color: #ddd;
+    height: 1rem; }
+    tr td .usage-data span {
+      font-size: .75rem;
+      font-weight: bold; }
+      tr td .usage-data span.used-bytes {
+        float: left; }
+      tr td .usage-data span.total-bytes {
+        float: right; }
 
 .block-views-blockdomain-page-domain-page-urls .view .view-content {
   max-height: 60rem;

@@ -4,41 +4,131 @@
 
 
 .view-display-id-domain_page_url_js_resources {
-        // display: flex;
+
         flex-direction: row;
 }
 .domain-js-resources {
-        // display: flex;
+        // background-color: #ddd;
+
+        &:after {
+                content: '.'; font-size: 0; clear: both; display: block;
+        }
+        table {
+                margin: 0; padding: 0;
+                tbody {
+                        margin: 0; padding: 0;
+                }
+        }
+        tr {
+                background-color: transparent;
+                width: 100%;
+                margin: 0; padding: 0;
+        }
         td { 
-                height: 2rem;
+                
                 // flex: 1 1 100%;
                 text-align: left;
                 cursor: pointer;
+                // height: 1rem;
+                height: .7rem;
+                margin: 0;
+                padding: 0 .5;
+                font-size: .675rem;
+                font-weight: bold;
+                color: #999;
+                .percentage-meter {
+                        display: none;
+                }
+                &.active {
+                        height: 1.125rem;
+                        font-size: 1rem;
+                        color: black;
+                        .usage {
+                                display: block;
+                        }
+                        .usage-data {
+                                display: block;
+                        }
+                        .percentage-meter {display: block;}
+
+                        
+                }
+                .usage {
+                        display: none;
+                        height: .75rem;
+                        width: 100%;
+                        position: relative;
+                        .used {
+                                transition-timing-function: ease-in-out;
+                                transition: width .5s;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                background-color: green;
+                        }
+                }
+                .usage-data {
+                        display: none;
+                }
+
         }
         .domain-urls {
                 // display: flex;
                 // flex: 1 0 50%;
                 width: 50%;
                 float: left;
+                display: block;
+                margin: 0; padding: 0;
+                tr.url-data-link-row {
+                        &.active {
+                                // margin: .25rem;
+                                background-color: white;
+                        }
+                }
                 tbody {
-                        flex: 1 0 100%;
+                        // flex: 1 0 100%;
                 }
-                td { 
-                }
+                // td.url-data-link { 
+                //         font-size: .5rem;
+                //         .active & {
+                //                 font-size: .75rem;
+                //         }
+                // }
         }
         .domain-scripts {
-                display: flex;
-                flex: 1 0 50%;
                 width: 50%;
-                float: left;
+                float: right;
+                display: block;
+                overflow: hidden;
+                margin: 0; padding: 0;
                 .script-data-link-row {
+                        
                         &.active {
-                                background: blue;
+                                background: white;
+                                .usage {
+                                        background-color: #fff;
+                                }
+        
+                        } &:not(.active) {
+                                .usage {
+                                        .used {
+                                                width: 0 !important;
+                                        }       
+                                }         
                         }
+                        .script-name {
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                display: inline-block;
+                                width: 400px;
+                                white-space: nowrap;
+                        }
+
 
                 }
                 tbody {
-                        flex: 1 0 100%;
                 }
                 td { 
                 }
@@ -87,6 +177,17 @@ tr {
                                 left: 0%;
                                 height: 1rem;
                                 background: #999;
+                        }
+                }
+                .usage-data {
+                        display: block;
+                        background-color: #ddd;
+                        height: 1rem;
+                        span {
+                                font-size: .75rem;
+                                font-weight: bold;
+                                &.used-bytes { float: left;}
+                                &.total-bytes { float: right;}
                         }
                 }
         }

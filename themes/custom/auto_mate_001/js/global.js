@@ -11,8 +11,14 @@
 
 
 
-            function percMeter(t) {
-                let val = t.text() * 100;
+            function percMeter(t, perc) {
+                let val;
+                if(!perc) {
+                    val = t.text() * 100;
+                } else {
+                    val = perc * 100;;
+                }
+
                 val = Math.round(val);
                 // t.html('<span class="perc-value">'+val+'</span>');
                 t.append('<div class="percentage-meter"><div class="percentage-amount" style="width: ' + val + '%; background-color: hsl(' + ((val * 120 / 100)) + ', 50%, 60%);"></div></div>');
@@ -231,7 +237,19 @@
 
         window.domain_script_list.sort();
         window.domain_script_list.forEach(function(s){
-            jsRecEl.find('.domain-scripts tbody').append('<tr class="script-data-link-row" data-script-url="'+s+'"><td class="script-data-link" data-script-url="'+s+'">'+s+'</td></tr>');
+            jsRecEl.find('.domain-scripts tbody').append('\
+            <tr class="script-data-link-row" data-script-url="'+s+'">\
+            <td class="script-data-link" data-script-url="'+s+'">\
+            <span class="script-name">'+s+'</span>\
+            <div class="usage">\
+            <div class="used"></div>\
+            </div>\
+            <div class="usage-data">\
+            <span class="used-bytes"></span>\
+            <span class="total-bytes"></span>\
+            </div>\
+            </td>\
+            </tr>');
         });
         
         
@@ -249,21 +267,38 @@
 
     }
     function setScriptAsActiveChild(script) {
+        if(script.unusedBytes) {
+            let used = script.resourceBytes - script.unusedBytes;
+            let usedPercentage = (used/script.resourceBytes*100);
+            console.log(script);
+            console.log('usedPercentage: ', usedPercentage);    
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%', 'background': 'hsl(' + (usedPercentage * 120 / 100)+', 50%, 60%)'});
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%'});
+
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used-bytes').html(used);
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.total-bytes').html(script.resourceBytes);
+        }
         $('tr.script-data-link-row[data-script-url="'+script.name.trim()+'"]').addClass('active');
         $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').addClass('active');
-        console.log(script);
+
+        // $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.useage').css('');
+        // console.log(script);
     }
     function deactivateAllScripts() {
         $('.script-data-link-row').removeClass('active');
         $('td.script-data-link').removeClass('active');
     }
     function setActiveURLState(nid) {
-        console.log(window.domain_url_data[nid].field_script_treemap_data.nodes);
+        // console.log(window.domain_url_data[nid].field_script_treemap_data.nodes);
+        $('tr.url-data-link-row').removeClass('active');
+        $('td.url-data-link').removeClass('active');
+        $('tr[data-nid="'+nid+'"]').addClass('active');
+        $('td[data-nid="'+nid+'"]').addClass('active');
         window.activeURL = nid;
         let url_scripts = window.domain_url_data[nid].field_script_treemap_data.nodes;
         deactivateAllScripts();
         url_scripts.forEach(function(script) {
-            console.log('setting -> ', script);
+            // console.log('setting -> ', script);
             setScriptAsActiveChild(script);
         });
 
