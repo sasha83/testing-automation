@@ -36,8 +36,11 @@
                 font-size: .675rem;
                 font-weight: bold;
                 color: #999;
+                transition-duration: .5s;
                 .percentage-meter {
-                        display: none;
+                        height: 0;
+                        transition-duration: .5s;
+                        // display: none;
                 }
                 &.active {
                         height: 1.125rem;
@@ -49,7 +52,10 @@
                         .usage-data {
                                 display: block;
                         }
-                        .percentage-meter {display: block;}
+                        .percentage-meter {
+                                // display: block;
+                                height: auto;
+                        }
 
                         
                 }
@@ -110,7 +116,11 @@
                                 .usage {
                                         background-color: #fff;
                                 }
-        
+                                &.active-parent {
+                                        .usage, .usage-data {
+                                                display: none;
+                                        }
+                                }
                         } &:not(.active) {
                                 .usage {
                                         .used {
@@ -118,11 +128,12 @@
                                         }       
                                 }         
                         }
+                        
                         .script-name {
                                 text-overflow: ellipsis;
                                 overflow: hidden;
                                 display: inline-block;
-                                width: 400px;
+                                width: 600px;
                                 white-space: nowrap;
                         }
 

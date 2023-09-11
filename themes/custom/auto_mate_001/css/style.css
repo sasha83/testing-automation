@@ -26,9 +26,11 @@
   padding: 0 .5;
   font-size: .675rem;
   font-weight: bold;
-  color: #999; }
+  color: #999;
+  transition-duration: .5s; }
   .domain-js-resources td .percentage-meter {
-    display: none; }
+    height: 0;
+    transition-duration: .5s; }
   .domain-js-resources td.active {
     height: 1.125rem;
     font-size: 1rem;
@@ -38,7 +40,7 @@
     .domain-js-resources td.active .usage-data {
       display: block; }
     .domain-js-resources td.active .percentage-meter {
-      display: block; }
+      height: auto; }
   .domain-js-resources td .usage {
     display: none;
     height: .75rem;
@@ -74,13 +76,15 @@
     background: white; }
     .domain-js-resources .domain-scripts .script-data-link-row.active .usage {
       background-color: #fff; }
+    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage, .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage-data {
+      display: none; }
   .domain-js-resources .domain-scripts .script-data-link-row:not(.active) .usage .used {
     width: 0 !important; }
   .domain-js-resources .domain-scripts .script-data-link-row .script-name {
     text-overflow: ellipsis;
     overflow: hidden;
     display: inline-block;
-    width: 400px;
+    width: 600px;
     white-space: nowrap; }
 
 #lightHouseReports tr {
