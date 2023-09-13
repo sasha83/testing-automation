@@ -37,9 +37,9 @@ async function doRequest(url) {
 
                 // Read all test suite folders
                 fs.readdirSync(inFolder).forEach(tsid => {
-                    console.log(tsid);
+                    // console.log(tsid);
                     if (tsid == parseInt(tsid)) {
-                        console.log('tsid==parseInt(tsid)', tsid == parseInt(tsid));
+                        // console.log('tsid==parseInt(tsid)', tsid == parseInt(tsid));
                         testSuiteID = tsid;
                         if (fs.lstatSync(inFolder + "/" + tsid).isDirectory()) {
                             fs.readdirSync(inFolder + '/' + tsid).forEach(iid => {

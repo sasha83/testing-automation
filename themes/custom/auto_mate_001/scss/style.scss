@@ -1,7 +1,10 @@
 @use 'abstractions/mixins.scss';
 
 @mixin clearfix {
-        content: '.'; font-size: 0; clear: both; display: block;
+        content: '.';
+        font-size: 0;
+        clear: both;
+        display: block;
 }
 
 
@@ -10,25 +13,33 @@
 
         flex-direction: row;
 }
+
 .domain-js-resources {
         // background-color: #ddd;
 
         &:after {
                 @include clearfix;
         }
+
         table {
-                margin: 0; padding: 0;
+                margin: 0;
+                padding: 0;
+
                 tbody {
-                        margin: 0; padding: 0;
+                        margin: 0;
+                        padding: 0;
                 }
         }
+
         tr {
                 background-color: transparent;
                 width: 100%;
-                margin: 0; padding: 0;
+                margin: 0;
+                padding: 0;
         }
-        td { 
-                
+
+        td {
+
                 // flex: 1 1 100%;
                 text-align: left;
                 cursor: pointer;
@@ -40,36 +51,43 @@
                 font-weight: bold;
                 color: #999;
                 transition-duration: .5s;
+
                 .percentage-meter {
                         height: 0;
                         transition-duration: .5s;
                         // display: none;
                 }
+
                 &.active {
                         height: 1.125rem;
                         font-size: 1rem;
                         color: black;
+
                         &.active-child {
                                 .usage {
                                         display: block;
                                 }
+
                                 .usage-data {
                                         display: block;
                                 }
+
                                 .percentage-meter {
                                         // display: block;
                                         height: auto;
                                 }
-                                        
+
                         }
 
-                        
+
                 }
+
                 .usage {
                         display: none;
                         height: .75rem;
                         width: 100%;
                         position: relative;
+
                         .used {
                                 transition-timing-function: ease-in-out;
                                 transition: width .5s;
@@ -81,27 +99,33 @@
                                 background-color: green;
                         }
                 }
+
                 .usage-data {
                         display: none;
                 }
 
         }
+
         .domain-urls {
                 // display: flex;
                 // flex: 1 0 50%;
                 width: 50%;
                 float: left;
                 display: block;
-                margin: 0; padding: 0;
+                margin: 0;
+                padding: 0;
+
                 tr.url-data-link-row {
                         &.active {
                                 // margin: .25rem;
                                 background-color: white;
                         }
                 }
+
                 tbody {
                         // flex: 1 0 100%;
                 }
+
                 // td.url-data-link { 
                 //         font-size: .5rem;
                 //         .active & {
@@ -109,32 +133,41 @@
                 //         }
                 // }
         }
+
         .domain-scripts {
                 width: 50%;
                 float: right;
                 display: block;
                 overflow: hidden;
-                margin: 0; padding: 0;
+                margin: 0;
+                padding: 0;
+
                 .script-data-link-row {
-                        
+
                         &.active {
                                 background: white;
+
                                 .usage {
                                         background-color: #fff;
                                 }
+
                                 &.active-parent {
-                                        .usage, .usage-data {
+
+                                        .usage,
+                                        .usage-data {
                                                 display: none;
                                         }
                                 }
-                        } &:not(.active) {
+                        }
+
+                        &:not(.active) {
                                 .usage {
                                         .used {
                                                 width: 0 !important;
-                                        }       
-                                }         
+                                        }
+                                }
                         }
-                        
+
                         .script-name {
                                 text-overflow: ellipsis;
                                 overflow: hidden;
@@ -145,10 +178,10 @@
 
 
                 }
-                tbody {
-                }
-                td { 
-                }
+
+                tbody {}
+
+                td {}
         }
 }
 
@@ -163,6 +196,7 @@
 th {
         text-align: center;
 }
+
 .views-field-field-cls-average,
 .views-field-field-fcp-average,
 .views-field-field-fmp-average,
@@ -170,8 +204,9 @@ th {
 .views-field-field-tbt-average {
         font-size: 1.25em;
         font-weight: 500;
-        color: #555; 
+        color: #555;
 }
+
 tr {
         td {
                 &.views-field-title {
@@ -180,6 +215,12 @@ tr {
 
                 position: relative;
                 text-align: center;
+
+                &.active-child {
+                        .inactive-data {
+                                display: none;
+                        }
+                }
 
                 .percentage-meter {
                         position: absolute;
@@ -196,12 +237,24 @@ tr {
                                 background: #999;
                         }
                 }
+
+                .inactive-data {
+                        &::after {
+                                @include clearfix;
+                        }
+
+                        .resource-bytes {
+                                float: right;
+                        }
+                }
+
                 .usage-data {
                         display: block;
                         background-color: #eee;
+
                         // height: auto;
                         &::after {
-                                @include clearfix;                                
+                                @include clearfix;
                         }
 
                         span {
@@ -209,15 +262,19 @@ tr {
                                 font-size: .75rem;
                                 padding: .25rem .5rem;
                                 font-weight: bold;
+
                                 &.used-bytes {
                                         float: left;
+
                                         &::after {
                                                 margin-left: .25rem;
                                                 content: 'used bytes';
                                         }
                                 }
+
                                 &.total-bytes {
                                         float: right;
+
                                         &::after {
                                                 margin-left: .25rem;
                                                 content: 'total bytes';
@@ -237,6 +294,7 @@ tr {
                 }
         }
 }
+
 .view-url-stats {
         border: 2px solid #ddd;
         padding: 2rem 1rem;

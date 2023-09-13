@@ -86,6 +86,8 @@ function getStringOf(link) {
     reportPath = reportPath.replace('www.', '');
     reportPath = reportPath.replace('sitemap.xml', '');
     reportPath = reportPath.replaceAll('/', '_');
+    reportPath = reportPath.replaceAll('?', '_');
+    reportPath = reportPath.replaceAll('=', '_');
     reportPath = reportPath.replaceAll(' ', '_');
 
     return reportPath;

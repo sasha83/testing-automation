@@ -87,7 +87,7 @@ fetch(url, settings)
                 json.forEach(function (element) {
                         shFileContent.push('node _analyze-url.js ' + element.nid);
                 });
-                shFileContent.push('node _analyze-url-stats.js');
+
                 // console.log(shFileContent);
                 fs.writeFileSync('_url-analysis.sh', shFileContent.join('\n'));
 

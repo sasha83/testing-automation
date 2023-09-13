@@ -13,7 +13,7 @@
 
             function percMeter(t, perc) {
                 let val;
-                if(!perc) {
+                if (!perc) {
                     val = t.text() * 100;
                 } else {
                     val = perc * 100;;
@@ -68,13 +68,13 @@
     if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
     } else {
-        
+
     }
 
 
 
 
-    
+
 
 
 
@@ -86,8 +86,8 @@
             let fieldJSON = '<pre>' + JSON.stringify(fieldText, null, "\t") + '</pre>';
             return fieldJSON;
         }
-    
-    
+
+
         let jsonFields = [
             // '.field--name-field-user-agent',
             '.field--name-field-environment .field__item',
@@ -111,8 +111,8 @@
             '.field--name-field-script-treemap-data .field__item'
         ];
         jsonFields = jsonFields.join(', ');
-    
-        $(jsonFields).each(function(){
+
+        $(jsonFields).each(function () {
             $(this).html(buildJSONfield($(this)));
         });
     }
@@ -171,34 +171,37 @@
         window.domain_script_data = [];
         window.domain_script_list = [];
         window.domain_scripts = [];
-        window.domain_url_data.forEach(function(url){
-            console.log(url);
-            if(url && url!=undefined && url.field_script_treemap_data) {
-                url.field_script_treemap_data.nodes.forEach(function(scriptNode) {
-                    if(!window.domain_script_list.includes(scriptNode.name)) {
+        window.domain_url_data.forEach(function (url) {
+
+            if (url && url != undefined && url.field_script_treemap_data) {
+                url.field_script_treemap_data.nodes.forEach(function (scriptNode) {
+                    if (!window.domain_script_list.includes(scriptNode.name)) {
                         window.domain_script_list.push(scriptNode.name);
+                        window.domain_script_data[scriptNode.name] = {};
+                        window.domain_script_data[scriptNode.name].resourceBytes = scriptNode.resourceBytes;
                     }
+                    // $('.script-data-link[data-script-url="' + scriptNode.name + '"] .inactive-data .total-bytes').attr('data-test', scriptNode.resourceBytes)
                 });
-                    
+
             }
         });
     }
     function getDomainURLData(url_ids) {
-    
+
         let url_list = [];
         window.domain_url_data = [];
 
-        url_ids.forEach(function(url_id) {
+        url_ids.forEach(function (url_id) {
             let url_obj = {}
-            url_obj.nid = url_id.nid;   
+            url_obj.nid = url_id.nid;
             window.domain_url_data.push = url_obj;
-            let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id='+url_id.nid;
+            let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id=' + url_id.nid;
             let currentURLID = url_id.nid;
             $.ajax({
                 url: reportURL,
                 context: document.body
-              }).done(function(theData) {
-                if(theData.length>0) {
+            }).done(function (theData) {
+                if (theData.length > 0) {
 
                     let formattedData = formatReportData(theData);
                     window.domain_url_data[url_id.nid] = formattedData;
@@ -207,35 +210,36 @@
 
                     updateDomainScriptData();
                     updateJSResourcesBlock();
-                    $( this ).addClass( "done" );
-    
+                    $(this).addClass("done");
+
                 }
-              });
-    
+            });
+
         });
 
         let formatReportData = function (data) {
 
-            if(data.length>0) {
+            if (data.length > 0) {
                 const fieldsJSON = [
                     // 'field_network_requests',
                     // 'field_detected_javascript_librar',
                     'field_script_treemap_data'
                 ];
-                fieldsJSON.forEach(function(field_name) {
-                    if(data[0][field_name] && data[0][field_name]!=undefined) {
+                fieldsJSON.forEach(function (field_name) {
+                    if (data[0][field_name] && data[0][field_name] != undefined) {
                         data[0][field_name] = JSON.parse(data[0][field_name].replaceAll('&quot;', '"'));
                     }
                 });
                 data[0].request_complete = true;
                 return data[0];
-    
+
             }
         }
 
 
 
     }
+
     function updateJSResourcesBlock(domainJSData) {
         let jsRecEl = $('.view-display-id-domain_page_url_js_resources');
         jsRecEl.empty();
@@ -243,11 +247,11 @@
         jsRecEl.find('.domain-js-resources').append('<table class="domain-urls"><thead></thead><tbody></tbody></table>');
         jsRecEl.find('.domain-js-resources').append('<table class="domain-scripts"><thead></thead><tbody></tbody></table>');
 
-        window.domain_url_data.forEach(function(d) {
-            if(d && d!=undefined && d.url_id) {
+        window.domain_url_data.forEach(function (d) {
+            if (d && d != undefined && d.url_id) {
                 jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('\
-                <tr class="url-data-link-row testing-stuff" data-nid="'+d.url_id+'">\
-                <td class="url-data-link" data-nid="'+d.url_id+'">'+d.field_requested_url+'\
+                <tr class="url-data-link-row testing-stuff" data-nid="'+ d.url_id + '">\
+                <td class="url-data-link" data-nid="'+ d.url_id + '">' + d.field_requested_url + '\
                 <div class="usage">\
                 <div class="used"></div>\
                 </div>\
@@ -257,18 +261,23 @@
                 </div>\
                 </td>\
                 </tr>');
-    
+
             }
         });
 
         window.domain_script_list.sort();
-        window.domain_script_list.forEach(function(s){
+        window.domain_script_list.forEach(function (s) {
+            // console.log('*****************', s);
+            // $('.script-data-link[data-script-url="' + scriptNode.name + '"]').attr('data-resource-bytes', scriptNode.resourceBytes);
             jsRecEl.find('.domain-scripts tbody').append('\
-            <tr class="script-data-link-row" data-script-url="'+s+'">\
-            <td class="script-data-link" data-script-url="'+s+'">\
-            <span class="script-name">'+s+'</span>\
+            <tr class="script-data-link-row" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
+            <td class="script-data-link" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
+            <span class="script-name">'+ s + '</span>\
             <div class="usage">\
             <div class="used"></div>\
+            </div>\
+            <div class="inactive-data">\
+            <span class="resource-bytes">'+ numberWithCommas(window.domain_script_data[s].resourceBytes) + ' bytes</span>\
             </div>\
             <div class="usage-data">\
             <span class="used-bytes"></span>\
@@ -277,14 +286,14 @@
             </td>\
             </tr>');
         });
-        
-        
-        
-        
-        $('.url-data-link').on('click', function(url){
+
+
+
+
+        $('.url-data-link').on('click', function (url) {
             setURLAsActiveParentState($(this).attr('data-nid'));
         });
-        $('.script-data-link').on('click', function(script){
+        $('.script-data-link').on('click', function (script) {
             let t = $(this);
             setActiveScriptState(t.attr('data-script-url'));
 
@@ -296,52 +305,35 @@
     function setURLAsActiveParentState(nid) {
         $('tr.url-data-link-row').removeClass('active active-child active-parent');
         $('td.url-data-link').removeClass('active active-child active-parent');
-        $('tr.url-data-link-row[data-nid="'+nid+'"]').addClass('active active-parent');
-        $('td.url-data-link[data-nid="'+nid+'"]').addClass('active active-parent');
+        $('tr.url-data-link-row[data-nid="' + nid + '"]').addClass('active active-parent');
+        $('td.url-data-link[data-nid="' + nid + '"]').addClass('active active-parent');
         window.activeURL = nid;
         let url_scripts = window.domain_url_data[nid].field_script_treemap_data.nodes;
         $('tr.script-data-link-row').removeClass('active active-child active-parent');
         $('td.script-data-link').removeClass('active active-child active-parent');
-        url_scripts.forEach(function(script) {
-
+        url_scripts.forEach(function (script) {
             setScriptAsActiveChild(script);
         });
 
     }
     function setURLAsActiveChildState(nid, script) {
-        $('tr.url-data-link-row[data-nid="'+nid+'"]').addClass('active active-child');
-        $('td.url-data-link[data-nid="'+nid+'"]').addClass('active active-child');
+        $('tr.url-data-link-row[data-nid="' + nid + '"]').addClass('active active-child');
+        $('td.url-data-link[data-nid="' + nid + '"]').addClass('active active-child');
 
         let url = window.domain_url_data[nid];
-        let url_script_usage={};
-        window.domain_url_data[nid].field_script_treemap_data.nodes.forEach(function(scriptNode){
-            if(scriptNode.name==script) {
+        let url_script_usage = {};
+        window.domain_url_data[nid].field_script_treemap_data.nodes.forEach(function (scriptNode) {
+            if (scriptNode.name == script) {
                 url_script_usage.unusedBytes = scriptNode.unusedBytes;
                 url_script_usage.usedBytes = scriptNode.resourceBytes - url_script_usage.unusedBytes;
                 url_script_usage.resourceBytes = scriptNode.resourceBytes;
-                url_script_usage.usedPercentage = (scriptNode.resourceBytes-scriptNode.unusedBytes)/scriptNode.resourceBytes*100;
+                url_script_usage.usedPercentage = (scriptNode.resourceBytes - scriptNode.unusedBytes) / scriptNode.resourceBytes * 100;
             }
         });
-        console.log(url_script_usage);
-        $('td.url-data-link[data-nid="'+nid+'"]').find('.used').css({'width': url_script_usage.usedPercentage+'%', 'background': 'hsl(' + (url_script_usage.usedPercentage * 120 / 100)+', 50%, 60%)'});
-        $('td.url-data-link[data-nid="'+nid+'"]').find('.used-bytes').html(numberWithCommas(url_script_usage.usedBytes));
-        $('td.url-data-link[data-nid="'+nid+'"]').find('.total-bytes').html(numberWithCommas(url_script_usage.resourceBytes));
-        
-        // $('td.url-data-link[data-nid="'+nid+'"]').find()
-
-        // if(script.unusedBytes) {
-        //     let used = script.resourceBytes - script.unusedBytes;
-        //     let usedPercentage = (used/script.resourceBytes*100);
-        //     console.log(script);
-        //     console.log('usedPercentage: ', usedPercentage);    
-        //     $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%', 'background': 'hsl(' + (usedPercentage * 120 / 100)+', 50%, 60%)'});
-        //     $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%'});
-
-        //     $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used-bytes').html(used);
-        //     $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.total-bytes').html(script.resourceBytes);
-        // }
-        // $('tr.script-data-link-row[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
-        // $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
+        // console.log(url_script_usage);
+        $('td.url-data-link[data-nid="' + nid + '"]').find('.used').css({ 'width': url_script_usage.usedPercentage + '%', 'background': 'hsl(' + (url_script_usage.usedPercentage * 120 / 100) + ', 50%, 60%)' });
+        $('td.url-data-link[data-nid="' + nid + '"]').find('.used-bytes').html(numberWithCommas(url_script_usage.usedBytes));
+        $('td.url-data-link[data-nid="' + nid + '"]').find('.total-bytes').html(numberWithCommas(url_script_usage.resourceBytes));
 
     }
     function setActiveScriptState(script) {
@@ -350,56 +342,56 @@
         $('tr.script-data-link-row').removeClass('active active-child active-parent');
         $('td.script-data-link').removeClass('active active-child active-parent');
 
-        $('tr.script-data-link-row[data-script-url="'+script+'"]').addClass('active active-parent');
-        $('td.script-data-link[data-script-url="'+script+'"]').addClass('active active-parent');
+        $('tr.script-data-link-row[data-script-url="' + script + '"]').addClass('active active-parent');
+        $('td.script-data-link[data-script-url="' + script + '"]').addClass('active active-parent');
 
-        window.domain_url_data.forEach(function(url){
-            if(url.field_script_treemap_data.nodes) {
+        window.domain_url_data.forEach(function (url) {
+            if (url.field_script_treemap_data.nodes) {
                 let url_scripts = url.field_script_treemap_data.nodes;
-                url_scripts.forEach(function(url_script){
-                    if(url_script.name==script) {
+                url_scripts.forEach(function (url_script) {
+                    if (url_script.name == script) {
 
                         setURLAsActiveChildState(url.url_id, script);
                     }
-    
+
                 });
-    
+
             }
         });
 
     }
     function setScriptAsActiveChild(script) {
-        if(script.unusedBytes) {
+        if (script.unusedBytes) {
             let used = script.resourceBytes - script.unusedBytes;
-            let usedPercentage = (used/script.resourceBytes*100);
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%', 'background': 'hsl(' + (usedPercentage * 120 / 100)+', 50%, 60%)'});
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%'});
+            let usedPercentage = (used / script.resourceBytes * 100);
+            $('td.script-data-link[data-script-url="' + script.name.trim() + '"]').find('.used').css({ 'width': usedPercentage + '%', 'background': 'hsl(' + (usedPercentage * 120 / 100) + ', 50%, 60%)' });
+            $('td.script-data-link[data-script-url="' + script.name.trim() + '"]').find('.used').css({ 'width': usedPercentage + '%' });
 
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used-bytes').html(numberWithCommas(used));
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.total-bytes').html(numberWithCommas(script.resourceBytes));
+            $('td.script-data-link[data-script-url="' + script.name.trim() + '"]').find('.used-bytes').html(numberWithCommas(used));
+            $('td.script-data-link[data-script-url="' + script.name.trim() + '"]').find('.total-bytes').html(numberWithCommas(script.resourceBytes));
         }
-        $('tr.script-data-link-row[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
-        $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
+        $('tr.script-data-link-row[data-script-url="' + script.name.trim() + '"]').addClass('active active-child');
+        $('td.script-data-link[data-script-url="' + script.name.trim() + '"]').addClass('active active-child');
 
         // $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.useage').css('');
 
     }
-    function domainPageJavaScriptResources() {  
-            let domainID = $('#page-data-block').attr('data-nid');
-            let domainURL = '/urls?domain_id='+domainID;
-            $.ajax({
-                url: domainURL,
-                context: document.body
-              }).done(function(theData) {
-                window.domainURLs = theData;
+    function domainPageJavaScriptResources() {
+        let domainID = $('#page-data-block').attr('data-nid');
+        let domainURL = '/urls?domain_id=' + domainID;
+        $.ajax({
+            url: domainURL,
+            context: document.body
+        }).done(function (theData) {
+            window.domainURLs = theData;
 
-                getDomainURLData(theData);
-                $( this ).addClass( "done" );
-              });
+            getDomainURLData(theData);
+            $(this).addClass("done");
+        });
 
-            
-            
-                
+
+
+
 
 
     }

@@ -3,19 +3,15 @@ const GetSitemapLinks = require("get-sitemap-links").default;
 const util = require('util')
 const request = require('request');
 const fs = require('fs');
-let testSuiteID = 1091;
-let testNodes;
+let testSuiteID;
 let shFile = [];
-let domainArray = [];
 let siteMapURL;
 let instanceID;
-// let projectFolder = "/Volumes/swetlowski3tb/automate/";
 let projectFolder = "~/testing-automation/report-generator";
 
 const maxTestRuns = 4;
 let i = 0;
 process.argv.forEach(function (val, index, array) {
-    console.log(val, i);
     if (i == 2) {
         siteMapURL = val;
     } else if (i == 3) {
@@ -26,32 +22,34 @@ process.argv.forEach(function (val, index, array) {
 
     i++;
 });
-console.log(siteMapURL, testSuiteID, instanceID);
+
 function getSample(links, sampleSize) {
     let sampled = [];
     links.forEach(function (link) {
-
         let linkReduced = link.split('/');
-        linkReduced.pop();
-        linkReduced = linkReduced.join('/');
-        console.log('link:', link);
-        console.log('linkReduced:', linkReduced);
-        let match = false;
-        let found = 0;
-        sampled.forEach(function (sampleLink) {
-            let sampleLinkReduced = sampleLink.split('/')
-            sampleLinkReduced.pop();
-            sampleLinkReduced = sampleLinkReduced.join('/');
-            if (linkReduced == sampleLinkReduced) {
-                found++;
-                match = true;
+        if (linkReduced.length > 4) {
+            linkReduced.pop();
+            linkReduced = linkReduced.join('/');
+            let match = false;
+            let found = 0;
+            sampled.forEach(function (sampleLink) {
+                let sampleLinkReduced = sampleLink.split('/')
+                sampleLinkReduced.pop();
+                sampleLinkReduced = sampleLinkReduced.join('/');
+                if (linkReduced == sampleLinkReduced) {
+                    found++;
+                    match = true;
+                }
+            });
+            if (match == true && found < sampleSize) {
+                sampled.push(link);
+            } else if (match == false) {
+                sampled.push(link);
             }
-        });
-        if (match == true && found < sampleSize) {
-            sampled.push(link);
-        } else if (match == false) {
+        } else {
             sampled.push(link);
         }
+
 
 
 
@@ -65,23 +63,28 @@ async function generatesSH() {
     let links = await GetSitemapLinks(
         siteMapURL
     );
-    // console.log('array: ', array);        
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID);
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
-
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID);
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID + '/' + instanceID);
     let sim = 0;
     links = getSample(links, 3);
+    let link_i = 0;
     links.forEach(function (link) {
+        link_i++;
         let reportPath = getStringOf(link);
+        shFile.push('echo "running ' + link_i + ' of ' + links.length + '..."  ' + link + ' > ' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
         shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
         shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
         shFile.push('node _build-csvs-from-lighthouse-json.js');
         sim++;
     })
+    shFile.push('ddev drush feeds:import 1 -y');
+    shFile.push('node _analyze-url-stats.js');
+    shFile.push('sh _url-analysis.sh');
+    shFile.push('ddev drush feeds:import 2  -y');
     shFile = shFile.join('\n');
-    fs.writeFile('test-suite-id-' + testSuiteID + '_' + getStringOf(siteMapURL) + '.sh', shFile, (err) => {
+    fs.writeFile('test-suite-id-' + testSuiteID + '_' + getStringOf(links[0]) + '.sh', shFile, (err) => {
         if (err) throw err;
     })
 }
