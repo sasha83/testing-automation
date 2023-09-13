@@ -76,7 +76,8 @@
     background: white; }
     .domain-js-resources .domain-scripts .script-data-link-row.active .usage {
       background-color: #fff; }
-    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage, .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage-data {
+    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage,
+    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage-data {
       display: none; }
   .domain-js-resources .domain-scripts .script-data-link-row:not(.active) .usage .used {
     width: 0 !important; }
@@ -131,7 +132,6 @@ tr td {
         float: right; }
 
 .block-views-blockdomain-page-domain-page-urls .view .view-content {
-  max-height: 60rem;
   overflow: scroll; }
 
 .view-url-stats {

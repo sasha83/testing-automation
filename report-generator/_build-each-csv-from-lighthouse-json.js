@@ -202,9 +202,6 @@ async function doRequest(url) {
                         // outFileName = outFileName.replace('.json', '.csv');
 
                         writeToCSV(outFolder + '/' + outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
-                        let archiveFilename = process.lhReportPath.replace('_lighthouse-report-queue', '_lighthouse-archive');
-                        fs.renameSync(process.lhReportPath, archiveFilename);
-
                         // outputCSV
                         outfile++;
                     }
