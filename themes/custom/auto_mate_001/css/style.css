@@ -35,11 +35,11 @@
     height: 1.125rem;
     font-size: 1rem;
     color: black; }
-    .domain-js-resources td.active .usage {
+    .domain-js-resources td.active.active-child .usage {
       display: block; }
-    .domain-js-resources td.active .usage-data {
+    .domain-js-resources td.active.active-child .usage-data {
       display: block; }
-    .domain-js-resources td.active .percentage-meter {
+    .domain-js-resources td.active.active-child .percentage-meter {
       height: auto; }
   .domain-js-resources td .usage {
     display: none;
@@ -120,15 +120,27 @@ tr td {
       background: #999; }
   tr td .usage-data {
     display: block;
-    background-color: #ddd;
-    height: 1rem; }
+    background-color: #eee; }
+    tr td .usage-data::after {
+      content: '.';
+      font-size: 0;
+      clear: both;
+      display: block; }
     tr td .usage-data span {
+      display: block;
       font-size: .75rem;
+      padding: .25rem .5rem;
       font-weight: bold; }
       tr td .usage-data span.used-bytes {
         float: left; }
+        tr td .usage-data span.used-bytes::after {
+          margin-left: .25rem;
+          content: 'used bytes'; }
       tr td .usage-data span.total-bytes {
         float: right; }
+        tr td .usage-data span.total-bytes::after {
+          margin-left: .25rem;
+          content: 'total bytes'; }
 
 .block-views-blockdomain-page-domain-page-urls .view .view-content {
   max-height: 60rem;

@@ -41,8 +41,8 @@
                 percMeter($(this));
             });
             // jQuery.each(Drupal.views.instances, function (i, view) {
-            //     console.log('view: ', view);
-            //     console.log('i: ', i);
+
+
             //     if (view.settings.view_display_id == "lighthouse_comparison_tool") {
             //         view.settings.view_args = '27704';
             //         $('.view-display-id-lighthouse_comparison_tool').trigger('RefreshView');
@@ -68,7 +68,7 @@
     if (getCookie('compareArray')) {
         window.compareArray = getCookie('compareArray');
     } else {
-        // console.log('nope');
+        
     }
 
 
@@ -182,8 +182,6 @@
                     
             }
         });
-        // console.log('window.domain_script_list: ', window.domain_script_list);
-        // console.log('window.domain_url_data: ', window.domain_url_data);
     }
     function getDomainURLData(url_ids) {
     
@@ -196,18 +194,17 @@
             window.domain_url_data.push = url_obj;
             let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id='+url_id.nid;
             let currentURLID = url_id.nid;
-            console.log('reportURL:', reportURL);
             $.ajax({
                 url: reportURL,
                 context: document.body
               }).done(function(theData) {
                 if(theData.length>0) {
-                    console.log('theData:', theData);
+
                     let formattedData = formatReportData(theData);
                     window.domain_url_data[url_id.nid] = formattedData;
-                    console.log('window.domain_url_data[url_id.nid]:',window.domain_url_data[url_id.nid]);
+
                     window.domain_url_data[url_id.nid].url_id = currentURLID;
-                    console.log('window.domain_url_data[url_id.nid].url_id:', window.domain_url_data[url_id.nid].url_id);
+
                     updateDomainScriptData();
                     updateJSResourcesBlock();
                     $( this ).addClass( "done" );
@@ -218,7 +215,7 @@
         });
 
         let formatReportData = function (data) {
-            console.log('data:',data);
+
             if(data.length>0) {
                 const fieldsJSON = [
                     // 'field_network_requests',
@@ -249,8 +246,8 @@
         window.domain_url_data.forEach(function(d) {
             if(d && d!=undefined && d.url_id) {
                 jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('\
-                <tr class="url-data-link-row" data-nid="'+d.url_id+'">\
-                <td class="url-data-link" data-nid="'+d.url_id+'">'+d.field_requested_url+'</td>\
+                <tr class="url-data-link-row testing-stuff" data-nid="'+d.url_id+'">\
+                <td class="url-data-link" data-nid="'+d.url_id+'">'+d.field_requested_url+'\
                 <div class="usage">\
                 <div class="used"></div>\
                 </div>\
@@ -258,6 +255,7 @@
                 <span class="used-bytes"></span>\
                 <span class="total-bytes"></span>\
                 </div>\
+                </td>\
                 </tr>');
     
             }
@@ -284,18 +282,18 @@
         
         
         $('.url-data-link').on('click', function(url){
-            setActiveURLState($(this).attr('data-nid'));
+            setURLAsActiveParentState($(this).attr('data-nid'));
         });
         $('.script-data-link').on('click', function(script){
             let t = $(this);
             setActiveScriptState(t.attr('data-script-url'));
-            // console.log(t.attr('data-script-url'));
+
         });
 
 
 
     }
-    function setActiveURLState(nid) {
+    function setURLAsActiveParentState(nid) {
         $('tr.url-data-link-row').removeClass('active active-child active-parent');
         $('td.url-data-link').removeClass('active active-child active-parent');
         $('tr.url-data-link-row[data-nid="'+nid+'"]').addClass('active active-parent');
@@ -305,17 +303,30 @@
         $('tr.script-data-link-row').removeClass('active active-child active-parent');
         $('td.script-data-link').removeClass('active active-child active-parent');
         url_scripts.forEach(function(script) {
-            // console.log('setting -> ', script);
+
             setScriptAsActiveChild(script);
         });
 
     }
-    function setActiveChildURLState(nid) {
+    function setURLAsActiveChildState(nid, script) {
         $('tr.url-data-link-row[data-nid="'+nid+'"]').addClass('active active-child');
         $('td.url-data-link[data-nid="'+nid+'"]').addClass('active active-child');
 
         let url = window.domain_url_data[nid];
-        console.log(url);
+        let url_script_usage={};
+        window.domain_url_data[nid].field_script_treemap_data.nodes.forEach(function(scriptNode){
+            if(scriptNode.name==script) {
+                url_script_usage.unusedBytes = scriptNode.unusedBytes;
+                url_script_usage.usedBytes = scriptNode.resourceBytes - url_script_usage.unusedBytes;
+                url_script_usage.resourceBytes = scriptNode.resourceBytes;
+                url_script_usage.usedPercentage = (scriptNode.resourceBytes-scriptNode.unusedBytes)/scriptNode.resourceBytes*100;
+            }
+        });
+        console.log(url_script_usage);
+        $('td.url-data-link[data-nid="'+nid+'"]').find('.used').css({'width': url_script_usage.usedPercentage+'%', 'background': 'hsl(' + (url_script_usage.usedPercentage * 120 / 100)+', 50%, 60%)'});
+        $('td.url-data-link[data-nid="'+nid+'"]').find('.used-bytes').html(numberWithCommas(url_script_usage.usedBytes));
+        $('td.url-data-link[data-nid="'+nid+'"]').find('.total-bytes').html(numberWithCommas(url_script_usage.resourceBytes));
+        
         // $('td.url-data-link[data-nid="'+nid+'"]').find()
 
         // if(script.unusedBytes) {
@@ -343,38 +354,35 @@
         $('td.script-data-link[data-script-url="'+script+'"]').addClass('active active-parent');
 
         window.domain_url_data.forEach(function(url){
-            console.log('url: ', url);
             if(url.field_script_treemap_data.nodes) {
                 let url_scripts = url.field_script_treemap_data.nodes;
                 url_scripts.forEach(function(url_script){
                     if(url_script.name==script) {
-                        console.log(url.url_id, url.field_requested_url);
-                        setActiveChildURLState(url.url_id);
+
+                        setURLAsActiveChildState(url.url_id, script);
                     }
     
                 });
     
             }
         });
-        console.log(script);
+
     }
     function setScriptAsActiveChild(script) {
         if(script.unusedBytes) {
             let used = script.resourceBytes - script.unusedBytes;
             let usedPercentage = (used/script.resourceBytes*100);
-            console.log(script);
-            console.log('usedPercentage: ', usedPercentage);    
             $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%', 'background': 'hsl(' + (usedPercentage * 120 / 100)+', 50%, 60%)'});
             $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used').css({'width': usedPercentage+'%'});
 
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used-bytes').html(used);
-            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.total-bytes').html(script.resourceBytes);
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.used-bytes').html(numberWithCommas(used));
+            $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.total-bytes').html(numberWithCommas(script.resourceBytes));
         }
         $('tr.script-data-link-row[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
         $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').addClass('active active-child');
 
         // $('td.script-data-link[data-script-url="'+script.name.trim()+'"]').find('.useage').css('');
-        // console.log(script);
+
     }
     function domainPageJavaScriptResources() {  
             let domainID = $('#page-data-block').attr('data-nid');
@@ -384,7 +392,7 @@
                 context: document.body
               }).done(function(theData) {
                 window.domainURLs = theData;
-                console.log('theData1:', theData);
+
                 getDomainURLData(theData);
                 $( this ).addClass( "done" );
               });
@@ -475,6 +483,9 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
-
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 })(jQuery);
+
 
