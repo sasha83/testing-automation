@@ -73,7 +73,7 @@ async function generatesSH() {
     links.forEach(function (link) {
         link_i++;
         let reportPath = getStringOf(link);
-        shFile.push('echo "running ' + link_i + ' of ' + links.length + '...  ' + link + ' > ' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json"');
+        shFile.push('\n echo "running ' + link_i + ' of ' + links.length + '...  ' + link + ' > ' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json"');
         shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
         shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
         shFile.push('node _build-csvs-from-lighthouse-json.js');

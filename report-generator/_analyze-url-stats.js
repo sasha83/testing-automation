@@ -87,7 +87,7 @@ fetch(url, settings)
                 let i = 0;
                 json.forEach(function (element) {
                         i++;
-                        shFileContent.push('echo ' + i + ' of ' + json.length;
+                        shFileContent.push('echo "' + i + ' of ' + json.length + '"');
                         shFileContent.push('node _analyze-url.js ' + element.nid);
                 });
 

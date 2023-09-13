@@ -152,7 +152,7 @@ async function doRequest(url) {
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = instanceID;
                         ;
-                        let domain = (new URL(reportObjectFromJSON.final_url));
+                        let domain = (new URL(reportObjectFromJSON.requested_url));
 
                         // format node title
                         reportObjectFromJSON.title = data.requestedUrl + " " + process.testSuiteID + " " + process.instanceID;
