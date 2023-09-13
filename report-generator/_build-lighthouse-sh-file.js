@@ -10,7 +10,7 @@ let domainArray = [];
 let siteMapURL;
 let instanceID;
 // let projectFolder = "/Volumes/swetlowski3tb/automate/";
-let projectFolder = "/Users/alexandreswetlowski/testing-automation/report-generator/";
+let projectFolder = "~/testing-automation/report-generator";
 
 const maxTestRuns = 4;
 let i = 0;
@@ -27,27 +27,57 @@ process.argv.forEach(function (val, index, array) {
     i++;
 });
 console.log(siteMapURL, testSuiteID, instanceID);
+function getSample(links, sampleSize) {
+    let sampled = [];
+    links.forEach(function (link) {
+
+        let linkReduced = link.split('/');
+        linkReduced.pop();
+        linkReduced = linkReduced.join('/');
+        console.log('link:', link);
+        console.log('linkReduced:', linkReduced);
+        let match = false;
+        let found = 0;
+        sampled.forEach(function (sampleLink) {
+            let sampleLinkReduced = sampleLink.split('/')
+            sampleLinkReduced.pop();
+            sampleLinkReduced = sampleLinkReduced.join('/');
+            if (linkReduced == sampleLinkReduced) {
+                found++;
+                match = true;
+            }
+        });
+        if (match == true && found < sampleSize) {
+            sampled.push(link);
+        } else if (match == false) {
+            sampled.push(link);
+        }
+
+
+
+    });
+    console.log('links: ', links);
+    console.log('sampled: ', sampled);
+    console.log('sampled.length: ', sampled.length);
+    return sampled;
+}
 async function generatesSH() {
-    const array = await GetSitemapLinks(
+    let links = await GetSitemapLinks(
         siteMapURL
     );
     // console.log('array: ', array);        
-    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
-    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID + '/' + instanceID);
     let sim = 0;
-    array.forEach(function (link) {
-
-        // console.log(link);
+    links = getSample(links, 3);
+    links.forEach(function (link) {
         let reportPath = getStringOf(link);
-        // let simString = '';
-        // if(sim<maxTestRuns) {
-        //     simString = ' &';
-        // } else {
-        //     sim = 0;
-        // }
-
         shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
         shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
+        shFile.push('node _build-csvs-from-lighthouse-json.js');
         sim++;
     })
     shFile = shFile.join('\n');
