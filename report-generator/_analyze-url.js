@@ -17,7 +17,7 @@ async function doRequest(url) {
                         if (!error && res.statusCode == 200) {
                                 let queueArray = JSON.parse(body);
                                 resolve(body);
-                                console.log('tests found: ', queueArray.length);
+                                console.log('tests found: ', queueArray.length, 'in: ', url,);
                                 if (queueArray.length > 0) {
                                         url_stats.nid = url_id;
                                         url_stats.lighthouse_tests_quantity = queueArray.length;
@@ -87,7 +87,7 @@ async function doRequest(url) {
                                         };
 
                                         writeToCSV(url_stats);
-                                        console.log('url_stats: ', url_stats);
+                                        // console.log('url_stats: ', url_stats);
 
                                 }
                         } else {
