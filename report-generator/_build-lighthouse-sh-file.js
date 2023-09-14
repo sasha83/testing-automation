@@ -84,7 +84,7 @@ async function generatesSH() {
     shFile.push('sh _url-analysis.sh');
     shFile.push('ddev drush feeds:import 2  -y');
     shFile = shFile.join('\n');
-    fs.writeFile('test-suite-id-' + testSuiteID + '_' + getStringOf(links[0]) + '.sh', shFile, (err) => {
+    fs.writeFile('test-' + testSuiteID + '_' + instanceID + '.sh', shFile, (err) => {
         if (err) throw err;
     })
 }

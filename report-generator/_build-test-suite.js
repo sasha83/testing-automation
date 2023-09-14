@@ -9,7 +9,7 @@ let shFile = [];
 let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
-let projectFolder = "/Users/sasha/testing-automation/report-generator/";
+let projectFolder = "/Users/alexandreswetlowski/testing-automation/report-generator/";
 
 
 process.on('uncaughtException', function (err) {
@@ -36,10 +36,10 @@ async function doRequest(url) {
                 resolve(body);
                 queueArray.forEach(function (domain) {
                     if (domain.field_url_reference) {
-                        let urls = domain.field_url_reference.split(', ');
-                        console.log(urls);
+
                         shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
                         shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+                        let urls = domain.field_url_reference.split(', ');
                         urls.forEach(function (url) {
                             shOutput.push('lighthouse ' + url + ' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + getStringOf(url) + '.json');
                             shOutput.push('echo "' + url + ', ' + getStringOf(url) + '.json" \n');
@@ -51,11 +51,11 @@ async function doRequest(url) {
                     if (domain.field_site) {
                         console.log(domain);
                         shOutput.push('node _build-lighthouse-sh-file.js ' + domain.field_site + ' ' + testSuiteID + ' ' + instanceID);
-                        shOutput.push('sh test-suite-id-' + testSuiteID + '_' + getStringOf(domain.field_site) + '.sh');
+                        shOutput.push('sh test-' + testSuiteID + '_' + instanceID + '.sh');
                     }
                 });
 
-                shOutput.push('node _build-test-suite.js' + ' ' + testSuiteID);
+                // shOutput.push('node _build-test-suite.js' + ' ' + testSuiteID);
                 shOutput = shOutput.join('\n');
                 console.log('shOutput: ', shOutput);
                 console.log('shFilename', shFilename);
