@@ -29,6 +29,7 @@
     "json-diff": "^1.0.5",
     "lighthouse": "^10.2.0",
     "shelljs": "^0.8.5",
+    "sitemap-check": "^0.0.2",
     "sitemap-urls": "^2.0.0"
   }
 }
