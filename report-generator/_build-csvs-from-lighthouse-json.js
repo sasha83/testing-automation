@@ -200,6 +200,7 @@ async function doRequest(url) {
                         // console.log(data);
                         var outFileName = process.instanceID + "_" + process.testSuiteID + "_" + getStringOf(reportObjectFromJSON.requested_url) + '.csv';
                         // outFileName = outFileName.replace('.json', '.csv');
+                        update_delete_queue(outFileName);
 
                         writeToCSV(outFolder + '/' + outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
                         let archiveFilename = process.lhReportPath.replace('_lighthouse-report-queue', '_lighthouse-archive');
@@ -216,6 +217,14 @@ async function doRequest(url) {
             }
         });
     });
+}
+function update_delete_queue() {
+    // const data = fs.readFileSync('./delete_queue.sh');
+
+    // // Display the file data
+    // console.log(data);
+
+
 }
 function getDomainID(domainString) {
     let domainID;
