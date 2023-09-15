@@ -6,6 +6,7 @@ const fs = require('fs');
 let testSuiteID;
 let shFile = [];
 let siteMapURL;
+
 let instanceID;
 let projectFolder = "~/testing-automation/report-generator";
 
@@ -23,7 +24,7 @@ process.argv.forEach(function (val, index, array) {
     i++;
 });
 
-function getSample(links, sampleSize) {
+function reduceSample(links, sampleSize) {
     let sampled = [];
     links.forEach(function (link) {
         let linkReduced = link.split('/');
@@ -60,6 +61,7 @@ function getSample(links, sampleSize) {
     return sampled;
 }
 async function generatesSH() {
+    let delete_queue = [];
     let links = await GetSitemapLinks(
         siteMapURL
     );
@@ -68,19 +70,24 @@ async function generatesSH() {
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID);
     shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID + '/' + instanceID);
     let sim = 0;
-    links = getSample(links, 3);
+    links = reduceSample(links, 3);
     let link_i = 0;
     links.forEach(function (link) {
         link_i++;
         let reportPath = getStringOf(link);
         shFile.push('\n echo "running ' + link_i + ' of ' + links.length + '...  ' + link + ' > ' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json"');
-        shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
+        let testFile = projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json';
+        delete_queue.push(instanceID + '_' + testSuiteID + reportPath + '.csv');
+        shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + testFile);
         shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
         shFile.push('node _build-csvs-from-lighthouse-json.js');
         sim++;
     })
     shFile.push('ddev drush feeds:import 1 -y');
     shFile.push('node _analyze-url-stats.js');
+    delete_queue.forEach(function (q) {
+        shFile.push('rm ../sites/' + q);
+    });
     shFile.push('sh _url-analysis.sh');
     shFile.push('ddev drush feeds:import 2  -y');
     shFile = shFile.join('\n');
@@ -90,6 +97,7 @@ async function generatesSH() {
 }
 
 generatesSH();
+
 
 function getStringOf(link) {
     let reportPath = link;

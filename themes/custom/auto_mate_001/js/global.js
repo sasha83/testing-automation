@@ -243,7 +243,7 @@
     }
 
     function updateJSResourcesBlock(domainJSData) {
-        window.data_url_list=[];
+        window.data_url_list = [];
         let jsRecEl = $('.view-display-id-domain_page_url_js_resources');
         jsRecEl.empty();
         jsRecEl.append('<div class="domain-js-resources"></div>');
@@ -253,7 +253,7 @@
         window.domain_url_data.forEach(function (d) {
             if (d && d != undefined && d.url_id) {
                 window.data_url_list.push(d.field_requested_url);
-                console.log(d.field_requested_url);
+                // console.log(d.field_requested_url);
                 jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('\
                 <tr class="url-data-link-row testing-stuff" data-nid="'+ d.url_id + '">\
                 <td class="url-data-link" data-nid="'+ d.url_id + '">' + d.field_requested_url + '\
@@ -274,7 +274,7 @@
         window.domain_script_list.forEach(function (s) {
             // console.log('*****************', s);
             // console.log(window.domain_url_list, s);
-            if(!window.domain_url_list.includes(s)) {
+            if (!window.domain_url_list.includes(s)) {
                 // $('.script-data-link[data-script-url="' + scriptNode.name + '"]').attr('data-resource-bytes', scriptNode.resourceBytes);
                 jsRecEl.find('.domain-scripts tbody').append('\
                 <tr class="script-data-link-row" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
@@ -353,6 +353,7 @@
         $('td.script-data-link[data-script-url="' + script + '"]').addClass('active active-parent');
 
         window.domain_url_data.forEach(function (url) {
+            console.log('url:', url);
             if (url.field_script_treemap_data.nodes) {
                 let url_scripts = url.field_script_treemap_data.nodes;
                 url_scripts.forEach(function (url_script) {

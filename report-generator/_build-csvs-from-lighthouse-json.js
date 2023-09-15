@@ -5,6 +5,7 @@ const fs = require("fs");
 const { readFile } = require('fs/promises')
 const { report } = require('process');
 const { parse } = require("csv-parse");
+const { doesNotMatch } = require('assert');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 let fieldString = [];
 
@@ -29,6 +30,7 @@ async function doRequest(url) {
         request(url, function (error, res, body) {
             if (!error && res.statusCode == 200) {
                 domainArray = JSON.parse(body);
+                console.log('domainArray = ', domainArray);
                 key_domainArray = [];
                 domainArray.forEach(function (domain) {
                     key_domainArray.push({ [domain.title]: domain.nid });
@@ -157,7 +159,7 @@ async function doRequest(url) {
                         // format node title
                         reportObjectFromJSON.title = data.requestedUrl + " " + process.testSuiteID + " " + process.instanceID;
 
-                        let domainID = getDomainID(domain.origin.replace('www.', '').replace('https://', '').replace('http://', ''));
+                        let domainID = getDomainID(domain.origin);
                         reportObjectFromJSON.domain_id = domainID;
 
                         reportBasedFields.push({ 'machine_name': 'lighthouse_version', 'title': 'Lighthouse Version', 'type': 'string' });
@@ -204,7 +206,7 @@ async function doRequest(url) {
 
                         writeToCSV(outFolder + '/' + outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
                         let archiveFilename = process.lhReportPath.replace('_lighthouse-report-queue', '_lighthouse-archive');
-                        fs.renameSync(process.lhReportPath, archiveFilename);
+                        // fs.renameSync(process.lhReportPath, archiveFilename);
 
                         // outputCSV
                         outfile++;
@@ -218,19 +220,25 @@ async function doRequest(url) {
         });
     });
 }
-function update_delete_queue() {
+function update_delete_queue(outFileName) {
+
     // const data = fs.readFileSync('./delete_queue.sh');
 
     // // Display the file data
-    // console.log(data);
+    // console.log(outFileName);
 
 
+}
+function removeTrailSlash(string) {
+    if (string[string.length - 1] == '/') string = string.slice(0, -1);
+    return string
 }
 function getDomainID(domainString) {
     let domainID;
     domainArray.forEach(function (domain) {
-        if (domain.title == domainString) {
-
+        console.log('domain.field_root', removeTrailSlash(domain.field_root));
+        console.log('domainString', removeTrailSlash(domainString));
+        if (removeTrailSlash(domain.field_root) == removeTrailSlash(domainString)) {
             domainID = domain.nid;
         }
 
