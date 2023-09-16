@@ -190,13 +190,11 @@
 
         let url_list = [];
         window.domain_url_data = [];
-        window.domain_url_list = [];
 
         url_ids.forEach(function (url_id) {
             let url_obj = {}
             url_obj.nid = url_id.nid;
-            window.domain_url_data.push(url_obj);
-            window.domain_url_list.push(url_obj.field_requested_url);
+            window.domain_url_data.push = url_obj;
             let reportURL = '/url-lighthouse-reports-rest/js-resources?url_id=' + url_id.nid;
             let currentURLID = url_id.nid;
             $.ajax({
@@ -243,7 +241,6 @@
     }
 
     function updateJSResourcesBlock(domainJSData) {
-        window.data_url_list = [];
         let jsRecEl = $('.view-display-id-domain_page_url_js_resources');
         jsRecEl.empty();
         jsRecEl.append('<div class="domain-js-resources"></div>');
@@ -252,8 +249,6 @@
 
         window.domain_url_data.forEach(function (d) {
             if (d && d != undefined && d.url_id) {
-                window.data_url_list.push(d.field_requested_url);
-                // console.log(d.field_requested_url);
                 jsRecElURLs = jsRecEl.find('table.domain-urls tbody').append('\
                 <tr class="url-data-link-row testing-stuff" data-nid="'+ d.url_id + '">\
                 <td class="url-data-link" data-nid="'+ d.url_id + '">' + d.field_requested_url + '\
@@ -273,26 +268,23 @@
         window.domain_script_list.sort();
         window.domain_script_list.forEach(function (s) {
             // console.log('*****************', s);
-            // console.log(window.domain_url_list, s);
-            if (!window.domain_url_list.includes(s)) {
-                // $('.script-data-link[data-script-url="' + scriptNode.name + '"]').attr('data-resource-bytes', scriptNode.resourceBytes);
-                jsRecEl.find('.domain-scripts tbody').append('\
-                <tr class="script-data-link-row" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
-                <td class="script-data-link" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
-                <span class="script-name">'+ s + '</span>\
-                <div class="usage">\
-                <div class="used"></div>\
-                </div>\
-                <div class="inactive-data">\
-                <span class="resource-bytes">'+ numberWithCommas(window.domain_script_data[s].resourceBytes) + ' bytes</span>\
-                </div>\
-                <div class="usage-data">\
-                <span class="used-bytes"></span>\
-                <span class="total-bytes"></span>\
-                </div>\
-                </td>\
-                </tr>');
-            }
+            // $('.script-data-link[data-script-url="' + scriptNode.name + '"]').attr('data-resource-bytes', scriptNode.resourceBytes);
+            jsRecEl.find('.domain-scripts tbody').append('\
+            <tr class="script-data-link-row" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
+            <td class="script-data-link" data-script-url="'+ s + '" data-script-resource-bytes="' + window.domain_script_data[s].resourceBytes + '">\
+            <span class="script-name">'+ s + '</span>\
+            <div class="usage">\
+            <div class="used"></div>\
+            </div>\
+            <div class="inactive-data">\
+            <span class="resource-bytes">'+ numberWithCommas(window.domain_script_data[s].resourceBytes) + ' bytes</span>\
+            </div>\
+            <div class="usage-data">\
+            <span class="used-bytes"></span>\
+            <span class="total-bytes"></span>\
+            </div>\
+            </td>\
+            </tr>');
         });
 
 
@@ -338,6 +330,7 @@
                 url_script_usage.usedPercentage = (scriptNode.resourceBytes - scriptNode.unusedBytes) / scriptNode.resourceBytes * 100;
             }
         });
+        // console.log(url_script_usage);
         $('td.url-data-link[data-nid="' + nid + '"]').find('.used').css({ 'width': url_script_usage.usedPercentage + '%', 'background': 'hsl(' + (url_script_usage.usedPercentage * 120 / 100) + ', 50%, 60%)' });
         $('td.url-data-link[data-nid="' + nid + '"]').find('.used-bytes').html(numberWithCommas(url_script_usage.usedBytes));
         $('td.url-data-link[data-nid="' + nid + '"]').find('.total-bytes').html(numberWithCommas(url_script_usage.resourceBytes));
@@ -353,7 +346,6 @@
         $('td.script-data-link[data-script-url="' + script + '"]').addClass('active active-parent');
 
         window.domain_url_data.forEach(function (url) {
-            console.log('url:', url);
             if (url.field_script_treemap_data.nodes) {
                 let url_scripts = url.field_script_treemap_data.nodes;
                 url_scripts.forEach(function (url_script) {
