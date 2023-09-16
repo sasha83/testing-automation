@@ -1,22 +1,12 @@
-
 const request = require('request');
-const util = require('util')
 const fs = require("fs");
 const { readFile } = require('fs/promises')
-const { report } = require('process');
 const { parse } = require("csv-parse");
 const { doesNotMatch } = require('assert');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-let fieldString = [];
 
 let testSuiteID;
 let instanceID;
-let lighthouseCSVimport = [];
-let reportObject = {};
-let reportCustomSources = [];
-let reportHeaders = [];
-let reportMappings = [];
-let usedKeys = {}
 const outFolder = '../sites/default/files/_lighthouse_report_staging';
 const inFolder = './_lighthouse-report-queue';
 
@@ -30,7 +20,7 @@ async function doRequest(url) {
         request(url, function (error, res, body) {
             if (!error && res.statusCode == 200) {
                 domainArray = JSON.parse(body);
-                console.log('domainArray = ', domainArray);
+                // console.log('domainArray = ', domainArray);
                 key_domainArray = [];
                 domainArray.forEach(function (domain) {
                     key_domainArray.push({ [domain.title]: domain.nid });
@@ -39,9 +29,7 @@ async function doRequest(url) {
 
                 // Read all test suite folders
                 fs.readdirSync(inFolder).forEach(tsid => {
-                    // console.log(tsid);
                     if (tsid == parseInt(tsid)) {
-                        // console.log('tsid==parseInt(tsid)', tsid == parseInt(tsid));
                         testSuiteID = tsid;
                         if (fs.lstatSync(inFolder + "/" + tsid).isDirectory()) {
                             fs.readdirSync(inFolder + '/' + tsid).forEach(iid => {
@@ -52,36 +40,20 @@ async function doRequest(url) {
                                     if (fs.lstatSync(inFolder + "/" + tsid + "/" + iid).isDirectory()) {
                                         fs.readdirSync(inFolder + "/" + tsid + "/" + iid).forEach(file => {
                                             let lhReportPath = inFolder + "/" + tsid + "/" + iid + "/" + file;
-                                            // lhReportPath=lhReportPath.replace('.json','.csv');
-                                            // console.log(inFolder+"/"+testSuiteID+"/"+instanceID+"/"+file);
-                                            if (fs.lstatSync(lhReportPath).isDirectory()) {
-
-
-                                            } else {
+                                            if (!fs.lstatSync(lhReportPath).isDirectory()) {
                                                 if (file.indexOf('.json') > -1) {
                                                     processQueue.push({ 'testSuiteID': tsid, 'instanceID': iid, 'lhReportPath': lhReportPath });
                                                 }
+
                                             }
                                         });
                                     }
-
                                 }
                             });
                         }
                     }
                 });
 
-
-
-                // report-generator/_pre_lh-report-feed-yml.txt
-                // ../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml
-                // let preYMLFile = "_pre_lh-report-feed-yml.txt";
-                // let outputYMLFile = "../sites/default/files/sync/feeds.feed_type.lighthouse_report_import.yml";
-
-                // const rawdata = fs.readFileSync('./test-reports/_lighthouse-report-template-example.json');
-                // const data = JSON.parse(rawdata);
-
-                let outfile = 0;
 
                 processQueue.forEach(function (process) {
                     let lhJSONFilename = process.lhJSONFilename;
@@ -91,28 +63,17 @@ async function doRequest(url) {
                     let reportBasedFields = [];
                     let reportMappingsFromJSON = [];
                     let reportCustomSourcesFromJSON = [];
-
+                    let outfile = '';
                     reportObjectFromJSON = {};
                     reportHeadersFromJSON = [];
                     reportBasedFields = [];
-                    // console.log('process: ', process);
-                    // var outFileName = process.lhJSONFilename.substring(lhJSONFilename.lastIndexOf('/')+1);
-
-
-
-
-
-
                     if (process.lhReportPath.indexOf('.json') > -1) {
-
                         const rawdata = fs.readFileSync(process.lhReportPath);
-
                         const data = JSON.parse(rawdata);
 
                         // add attributes from data.audits object
                         Object.keys(data.audits).forEach(function (key) {
                             let fieldTypeFromJSON = data.audits[key].scoreDisplayMode;
-
                             if (fieldTypeFromJSON == "string") {
                                 reportObjectFromJSON[key] = String(data.audits[key].score);
                             } else if (fieldTypeFromJSON == "integer") {
@@ -122,11 +83,7 @@ async function doRequest(url) {
                             } else {
                                 reportObjectFromJSON[key] = data.audits[key].score;
                             }
-
                             reportBasedFields.push({ 'machine_name': key, 'title': cleanTitles(data.audits[key].title), 'type': fieldType(fieldTypeFromJSON) });
-                            // }
-
-
                         });
 
 
@@ -153,7 +110,6 @@ async function doRequest(url) {
                         // reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
                         reportObjectFromJSON.instance_id = instanceID;
-                        ;
                         let domain = (new URL(reportObjectFromJSON.requested_url));
 
                         // format node title
@@ -182,52 +138,24 @@ async function doRequest(url) {
                         reportBasedFields.push({ 'machine_name': 'fetch_time_timestamp', 'title': 'Fetch Time Timestamp', 'type': 'string' });
                         reportBasedFields.push({ 'machine_name': 'fetch_time_unix', 'title': 'Fetch Time Unix', 'type': 'string' });
 
-
-
-
-
-
-
-
-
-                        // build the Quick Add Fields config
-
-                        // let reportOutputForCSV = {};
                         reportBasedFields.forEach(function (reportField) {
                             reportHeadersFromJSON.push({ id: reportField.machine_name, title: reportField.machine_name.replace(new RegExp("-", "g"), '_') })
                             // fieldStringNew.push(reportField.machine_name.replace(new RegExp("-", "g"), '_')+'|'+reportField.title+'|'+reportField.type);
                         });
 
-                        // var fn = reportObjectFromJSON.requested_url.split("/");
-                        // console.log(data);
                         var outFileName = process.instanceID + "_" + process.testSuiteID + "_" + getStringOf(reportObjectFromJSON.requested_url) + '.csv';
-                        // outFileName = outFileName.replace('.json', '.csv');
-                        update_delete_queue(outFileName);
-
                         writeToCSV(outFolder + '/' + outFileName, reportHeadersFromJSON, [reportObjectFromJSON]);
                         let archiveFilename = process.lhReportPath.replace('_lighthouse-report-queue', '_lighthouse-archive');
-                        // fs.renameSync(process.lhReportPath, archiveFilename);
+                        fs.renameSync(process.lhReportPath, archiveFilename);
 
-                        // outputCSV
                         outfile++;
                     }
-
                 });
-
             } else {
                 reject(error);
             }
         });
     });
-}
-function update_delete_queue(outFileName) {
-
-    // const data = fs.readFileSync('./delete_queue.sh');
-
-    // // Display the file data
-    // console.log(outFileName);
-
-
 }
 function removeTrailSlash(string) {
     if (string[string.length - 1] == '/') string = string.slice(0, -1);
@@ -236,8 +164,6 @@ function removeTrailSlash(string) {
 function getDomainID(domainString) {
     let domainID;
     domainArray.forEach(function (domain) {
-        console.log('domain.field_root', removeTrailSlash(domain.field_root));
-        console.log('domainString', removeTrailSlash(domainString));
         if (removeTrailSlash(domain.field_root) == removeTrailSlash(domainString)) {
             domainID = domain.nid;
         }
@@ -247,10 +173,7 @@ function getDomainID(domainString) {
 }
 
 
-doRequest('http://automate.ddev.site/domains').then(function () {
-
-});
-
+doRequest('http://automate.ddev.site/domains').then(function () { });
 
 function getStringOf(link) {
     let reportPath = link;
@@ -273,7 +196,7 @@ function writeToCSV(filename, headers, content) {
     });
     csvWriter
         .writeRecords(content)
-        .then(() => console.log('The CSV file was written successfully'));
+        .then(() => console.log('generated: ', filename));
 
 }
 function cleanTitles(title) {
