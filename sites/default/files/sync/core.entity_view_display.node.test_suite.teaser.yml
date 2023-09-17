@@ -6,8 +6,9 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.test_suite.body
     - field.field.node.test_suite.field_domains
-    - field.field.node.test_suite.field_max_parallel_tests
     - field.field.node.test_suite.field_number_of_instances
+    - field.field.node.test_suite.field_report_summaries
+    - field.field.node.test_suite.field_sitemap_urls
     - field.field.node.test_suite.field_url_dump
     - field.field.node.test_suite.field_url_reference
     - node.type.test_suite
@@ -34,7 +35,8 @@ content:
     region: content
 hidden:
   field_domains: true
-  field_max_parallel_tests: true
   field_number_of_instances: true
+  field_report_summaries: true
+  field_sitemap_urls: true
   field_url_dump: true
   field_url_reference: true

@@ -5,7 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.storage.node.field_root
-    - field.storage.node.field_site
+    - field.storage.node.field_sitemap_urls
+    - field.storage.node.field_url_dump
     - field.storage.node.field_url_reference
   module:
     - node
@@ -129,9 +130,9 @@ display:
           exposed: false
           granularity: second
       arguments:
-        nid:
-          id: nid
-          table: node_field_revision
+        nid_1:
+          id: nid_1
+          table: node_field_data
           field: nid
           relationship: none
           group_type: group
@@ -242,74 +243,11 @@ display:
     position: 2
     display_options:
       fields:
-        field_root:
-          id: field_root
-          table: node__field_root
-          field: field_root
-          relationship: field_domains
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         nid:
           id: nid
-          table: node_field_revision
+          table: node_field_data
           field: nid
-          relationship: none
+          relationship: field_domains
           group_type: group
           admin_label: ''
           entity_type: node
@@ -360,7 +298,7 @@ display:
           type: number_integer
           settings:
             thousand_separator: ''
-            prefix_suffix: false
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -371,10 +309,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_site:
-          id: field_site
-          table: node__field_site
-          field: field_site
+        field_root:
+          id: field_root
+          table: node__field_root
+          field: field_root
           relationship: field_domains
           group_type: group
           admin_label: ''
@@ -495,6 +433,131 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
+          separator: '|'
+          field_api_classes: false
+        field_url_dump:
+          id: field_url_dump
+          table: node__field_url_dump
+          field: field_url_dump
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_sitemap_urls:
+          id: field_sitemap_urls
+          table: node__field_sitemap_urls
+          field: field_sitemap_urls
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
           separator: ', '
           field_api_classes: false
       pager:
@@ -511,7 +574,16 @@ display:
         type: data_field
         options:
           field_options:
-            title:
+            nid:
+              alias: domain_nid
+              raw_output: false
+            field_root:
+              alias: domain_root_path
+              raw_output: false
+            field_url_reference:
+              alias: ''
+              raw_output: false
+            field_url_dump:
               alias: ''
               raw_output: false
       defaults:
@@ -531,5 +603,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_root'
-        - 'config:field.storage.node.field_site'
+        - 'config:field.storage.node.field_sitemap_urls'
+        - 'config:field.storage.node.field_url_dump'
         - 'config:field.storage.node.field_url_reference'

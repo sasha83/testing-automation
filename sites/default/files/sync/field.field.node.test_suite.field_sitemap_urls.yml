@@ -1,0 +1,19 @@
+uuid: 5d103160-05e6-4bb6-a8cb-abff13ef0d79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sitemap_urls
+    - node.type.test_suite
+id: node.test_suite.field_sitemap_urls
+field_name: field_sitemap_urls
+entity_type: node
+bundle: test_suite
+label: 'Sitemap URLs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

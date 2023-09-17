@@ -82,6 +82,7 @@ async function doRequest(url) {
                     console.log(queueArray[0].field_url_reference);
                     queueArray[0].field_url_reference = queueArray[0].field_url_reference.split('|');
                     queueArray[0].field_url_reference.forEach(function (url) {
+                        shOutput.push('echo "generating lighthouse report for: ' + url) + '"';
                         shOutput.push(format_url_commaind(url));
                         delete_queue.push(testSuiteID + '_' + instanceID + '_' + getStringOf(url) + '.csv');
                     });
@@ -92,6 +93,8 @@ async function doRequest(url) {
                     queueArray[0].field_url_dump = queueArray[0].field_url_dump.split('\r\n');
                     console.log('queueArray[0].field_url_dump: ', queueArray[0].field_url_dump);
                     queueArray[0].field_url_dump.forEach(function (url) {
+                        shOutput.push('echo "generating lighthouse report for: ' + url + '"');
+                        shOutput.push('node _build-csvs-from-lighthouse-json.js');
                         shOutput.push(format_url_commaind(url));
                         delete_queue.push(testSuiteID + '_' + instanceID + '_' + getStringOf(url) + '.csv');
                     });
@@ -109,7 +112,7 @@ async function doRequest(url) {
                 });
                 shOutput = shOutput.join('\n');
 
-                console.log('shOutput: ', shOutput);
+                // console.log('shOutput: ', shOutput);
                 const shFilename = 'test-suite-' + testSuiteID + '_' + instanceID + '.sh';
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;

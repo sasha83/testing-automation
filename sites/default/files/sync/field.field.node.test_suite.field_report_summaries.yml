@@ -1,29 +1,29 @@
-uuid: 6b49496f-a530-4fa3-b08e-56f3950d9d31
+uuid: b6fe0c06-6643-414e-8129-3dcab6dccea7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_domains
-    - node.type.domain
+    - field.storage.node.field_report_summaries
+    - node.type.summary
     - node.type.test_suite
-id: node.test_suite.field_domains
-field_name: field_domains
+id: node.test_suite.field_report_summaries
+field_name: field_report_summaries
 entity_type: node
 bundle: test_suite
-label: Domain
+label: 'Report Summaries'
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      domain: domain
+      summary: summary
     sort:
       field: _none
       direction: ASC
-    auto_create: true
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

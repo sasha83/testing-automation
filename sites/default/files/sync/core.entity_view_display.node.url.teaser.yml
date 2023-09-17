@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.url.field_cls_min_lighthouse_report
     - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_domain_id_temp
     - field.field.node.url.field_fcp_average
     - field.field.node.url.field_fcp_max
     - field.field.node.url.field_fcp_max_lighthouse_report
@@ -78,6 +79,7 @@ hidden:
   field_cls_min_lighthouse_report: true
   field_cls_min_report_nid: true
   field_domain: true
+  field_domain_id_temp: true
   field_fcp_average: true
   field_fcp_max: true
   field_fcp_max_lighthouse_report: true

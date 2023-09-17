@@ -1,5 +1,4 @@
 const GetSitemapLinks = require("get-sitemap-links").default;
-
 const util = require('util')
 const request = require('request');
 const fs = require('fs');
@@ -55,8 +54,8 @@ function reduceSample(links, sampleSize) {
 
 
     });
-    console.log('links: ', links);
-    console.log('sampled: ', sampled);
+    console.log('sitemap links: ', links);
+    console.log('sampled links: ', sampled);
     console.log('sampled.length: ', sampled.length);
     return sampled;
 }

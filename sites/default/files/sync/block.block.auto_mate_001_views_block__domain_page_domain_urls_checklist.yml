@@ -1,22 +1,22 @@
-uuid: c9544457-532a-400b-bc4a-41ab1b746682
+uuid: 0f0f9577-856b-4b4c-af74-00f162c9e349
 langcode: en
 status: false
 dependencies:
   config:
-    - views.view.lighthouse_reports
+    - views.view.domain_page
   module:
     - node
     - views
   theme:
     - auto_mate_001
-id: auto_mate_001_views_block__lighthouse_reports_block_2
+id: auto_mate_001_views_block__domain_page_domain_urls_checklist
 theme: auto_mate_001
 region: content
-weight: 1
+weight: -3
 provider: null
-plugin: 'views_block:lighthouse_reports-block_2'
+plugin: 'views_block:domain_page-domain_urls_checklist'
 settings:
-  id: 'views_block:lighthouse_reports-block_2'
+  id: 'views_block:domain_page-domain_urls_checklist'
   label: ''
   label_display: visible
   provider: views
@@ -30,4 +30,4 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
-      url: url
+      domain: domain

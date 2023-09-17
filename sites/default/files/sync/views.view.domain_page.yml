@@ -556,7 +556,6 @@ display:
         type: none
         options:
           offset: 0
-          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -1042,3 +1041,1090 @@ display:
         - 'config:field.storage.node.field_lcp_average'
         - 'config:field.storage.node.field_lighthouse_tests_quantity'
         - 'config:field.storage.node.field_tbt_average'
+  domain_urls_checklist:
+    id: domain_urls_checklist
+    display_title: 'Domain Page URLs - Checklist'
+    display_plugin: block
+    position: 1
+    display_options:
+      title: 'Domain - URLs - Checklist'
+      fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      sorts:
+        field_requested_url_value:
+          id: field_requested_url_value
+          table: node__field_requested_url
+          field: field_requested_url_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            url: url
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_lighthouse_tests_quantity_value:
+          id: field_lighthouse_tests_quantity_value
+          table: node__field_lighthouse_tests_quantity
+          field: field_lighthouse_tests_quantity_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: 'not empty'
+          value:
+            min: ''
+            max: ''
+            value: '0'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_accesskeys_value:
+          id: field_accesskeys_value
+          table: node__field_accesskeys
+          field: field_accesskeys_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_accesskeys_value_op
+            label: 'accesskey values are unique (field_accesskeys)'
+            description: ''
+            use_operator: false
+            operator: field_accesskeys_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_accesskeys_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_paste_preventing_inputs_value:
+          id: field_paste_preventing_inputs_value
+          table: node__field_paste_preventing_inputs
+          field: field_paste_preventing_inputs_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_paste_preventing_inputs_value_op
+            label: 'Allows users to paste into input fields (field_paste_preventing_inputs)'
+            description: ''
+            use_operator: false
+            operator: field_paste_preventing_inputs_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_paste_preventing_inputs_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_valid_attr_value:
+          id: field_aria_valid_attr_value
+          table: node__field_aria_valid_attr
+          field: field_aria_valid_attr_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_valid_attr_value_op
+            label: 'aria attributes are valid and not misspelled (field_aria_valid_attr)'
+            description: ''
+            use_operator: false
+            operator: field_aria_valid_attr_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_valid_attr_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_valid_attr_value_value:
+          id: field_aria_valid_attr_value_value
+          table: node__field_aria_valid_attr_value
+          field: field_aria_valid_attr_value_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_valid_attr_value_value_op
+            label: 'aria attributes have valid values (field_aria_valid_attr_value)'
+            description: ''
+            use_operator: false
+            operator: field_aria_valid_attr_value_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_valid_attr_value_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_allowed_attr_value:
+          id: field_aria_allowed_attr_value
+          table: node__field_aria_allowed_attr
+          field: field_aria_allowed_attr_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_allowed_attr_value_op
+            label: 'aria attributes match their roles (field_aria_allowed_attr)'
+            description: ''
+            use_operator: false
+            operator: field_aria_allowed_attr_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_allowed_attr_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_duplicate_id_aria_value:
+          id: field_duplicate_id_aria_value
+          table: node__field_duplicate_id_aria
+          field: field_duplicate_id_aria_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_duplicate_id_aria_value_op
+            label: 'ARIA IDs are unique (field_duplicate_id_aria)'
+            description: ''
+            use_operator: false
+            operator: field_duplicate_id_aria_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_duplicate_id_aria_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_input__name_value:
+          id: field_aria_input__name_value
+          table: node__field_aria_input__name
+          field: field_aria_input__name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_input__name_value_op
+            label: 'ARIA input fields have accessible names (field_aria_input__name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_input__name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_input__name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_meter_name_value:
+          id: field_aria_meter_name_value
+          table: node__field_aria_meter_name
+          field: field_aria_meter_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_meter_name_value_op
+            label: 'ARIA meter elements have accessible names (field_aria_meter_name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_meter_name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_meter_name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_progressbar_name_value:
+          id: field_aria_progressbar_name_value
+          table: node__field_aria_progressbar_name
+          field: field_aria_progressbar_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_progressbar_name_value_op
+            label: 'ARIA progressbar elements have accessible names (field_aria_progressbar_name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_progressbar_name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_progressbar_name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_toggle__name_value:
+          id: field_aria_toggle__name_value
+          table: node__field_aria_toggle__name
+          field: field_aria_toggle__name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_toggle__name_value_op
+            label: 'ARIA toggle fields have accessible names (field_aria_toggle__name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_toggle__name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_toggle__name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_tooltip_name_value:
+          id: field_aria_tooltip_name_value
+          table: node__field_aria_tooltip_name
+          field: field_aria_tooltip_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_tooltip_name_value_op
+            label: 'ARIA tooltip elements have accessible names (field_aria_tooltip_name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_tooltip_name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_tooltip_name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_treeitem_name_value:
+          id: field_aria_treeitem_name_value
+          table: node__field_aria_treeitem_name
+          field: field_aria_treeitem_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_treeitem_name_value_op
+            label: 'ARIA treeitem elements have accessible names (field_aria_treeitem_name)'
+            description: ''
+            use_operator: false
+            operator: field_aria_treeitem_name_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_treeitem_name_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_hidden_focus_value:
+          id: field_aria_hidden_focus_value
+          table: node__field_aria_hidden_focus
+          field: field_aria_hidden_focus_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_hidden_focus_value_op
+            label: 'ariahidden"true" elements do not contain focusable descendents (field_aria_hidden_focus)'
+            description: ''
+            use_operator: false
+            operator: field_aria_hidden_focus_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_hidden_focus_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_aria_hidden_body_value:
+          id: field_aria_hidden_body_value
+          table: node__field_aria_hidden_body
+          field: field_aria_hidden_body_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aria_hidden_body_value_op
+            label: 'ariahidden"true" is not present on the document body (field_aria_hidden_body)'
+            description: ''
+            use_operator: false
+            operator: field_aria_hidden_body_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_aria_hidden_body_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_http_status_code_value:
+          id: field_http_status_code_value
+          table: node__field_http_status_code
+          field: field_http_status_code_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_http_status_code_value_op
+            label: 'Page has successful HTTP status code (field_http_status_code)'
+            description: ''
+            use_operator: false
+            operator: field_http_status_code_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_http_status_code_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_meta_refresh_value:
+          id: field_meta_refresh_value
+          table: node__field_meta_refresh
+          field: field_meta_refresh_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_meta_refresh_value_op
+            label: 'The document does not use meta httpequiv"refresh" (field_meta_refresh)'
+            description: ''
+            use_operator: false
+            operator: field_meta_refresh_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_meta_refresh_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_uses_http2_value:
+          id: field_uses_http2_value
+          table: node__field_uses_http2
+          field: field_uses_http2_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_uses_http2_value_op
+            label: 'Use HTTP (field_uses_http2)'
+            description: ''
+            use_operator: false
+            operator: field_uses_http2_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_uses_http2_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_is_on_https_value:
+          id: field_is_on_https_value
+          table: node__field_is_on_https
+          field: field_is_on_https_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_is_on_https_value_op
+            label: 'Uses HTTPS (field_is_on_https)'
+            description: ''
+            use_operator: false
+            operator: field_is_on_https_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_is_on_https_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              client: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        title: false
+        use_ajax: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      use_ajax: true
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Domain - URLs - Checklist'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

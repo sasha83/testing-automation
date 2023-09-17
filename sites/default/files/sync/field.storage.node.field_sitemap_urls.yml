@@ -1,15 +1,17 @@
-uuid: c7bb175c-9e7f-4248-acf6-546b32413515
+uuid: 4db6031e-19c5-432a-ab42-e569e1b5ac97
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_url_dump
-field_name: field_url_dump
+id: node.field_sitemap_urls
+field_name: field_sitemap_urls
 entity_type: node
-type: string_long
+type: string
 settings:
+  max_length: 1024
   case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: -1

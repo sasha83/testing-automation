@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.url.field_cls_min_lighthouse_report
     - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_domain_id_temp
     - field.field.node.url.field_fcp_average
     - field.field.node.url.field_fcp_max
     - field.field.node.url.field_fcp_max_lighthouse_report
@@ -68,6 +69,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_domain_id_temp:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_lighthouse_tests_quantity:
     type: number_integer

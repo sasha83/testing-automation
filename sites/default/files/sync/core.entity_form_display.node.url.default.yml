@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.url.field_cls_min_lighthouse_report
     - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_domain_id_temp
     - field.field.node.url.field_fcp_average
     - field.field.node.url.field_fcp_max
     - field.field.node.url.field_fcp_max_lighthouse_report
@@ -133,6 +134,13 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_id_temp:
+    type: number
+    weight: 164
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_fcp_average:
