@@ -12,7 +12,7 @@ dependencies:
 id: views_block__domain_page_domain_page_url_js_resources
 theme: auto_mate_001
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: 'views_block:domain_page-domain_page_url_js_resources'
 settings:

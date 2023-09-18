@@ -12,7 +12,7 @@ dependencies:
 id: url_stats_lighthouse_reports_url_stats
 theme: auto_mate_001
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: 'views_block:url_stats-lighthouse_reports_url_stats'
 settings:

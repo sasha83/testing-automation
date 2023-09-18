@@ -1,6 +1,6 @@
-uuid: 0f0f9577-856b-4b4c-af74-00f162c9e349
+uuid: e65b6155-7c89-4f53-ad37-ff3bbb6212e4
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - views.view.domain_page
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - auto_mate_001
-id: auto_mate_001_views_block__domain_page_domain_urls_checklist
+id: block_domain_urls_checklist_field_redirects
 theme: auto_mate_001
-region: content
-weight: -3
+region: domain_quick_data
+weight: 0
 provider: null
-plugin: 'views_block:domain_page-domain_urls_checklist'
+plugin: 'views_block:domain_page-domain_urls_checklist_field_redirects'
 settings:
-  id: 'views_block:domain_page-domain_urls_checklist'
+  id: 'views_block:domain_page-domain_urls_checklist_field_redirects'
   label: ''
   label_display: visible
   provider: views

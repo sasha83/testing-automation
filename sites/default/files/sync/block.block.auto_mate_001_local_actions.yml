@@ -9,7 +9,7 @@ _core:
 id: auto_mate_001_local_actions
 theme: auto_mate_001
 region: content
-weight: -8
+weight: -9
 provider: null
 plugin: local_actions_block
 settings:
