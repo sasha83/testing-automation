@@ -18,6 +18,7 @@ regions:
   help: Help
   content: Content
   page_top: 'Page top'
+  domain_quick_data: 'Domain Quick Data'
   page_bottom: 'Page bottom'
   sidebar_first: 'First sidebar'
   drawer_bottom: 'Drawer Bottom'
