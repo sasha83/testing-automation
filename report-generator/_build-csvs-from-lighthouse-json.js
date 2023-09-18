@@ -35,7 +35,7 @@ async function doRequest(url) {
                             fs.readdirSync(inFolder + '/' + tsid).forEach(iid => {
                                 if (iid == parseInt(iid)) {
 
-                                    // Read all instance ID foldersa
+                                    // Read all instance ID folders
                                     instanceID = iid;
                                     if (fs.lstatSync(inFolder + "/" + tsid + "/" + iid).isDirectory()) {
                                         fs.readdirSync(inFolder + "/" + tsid + "/" + iid).forEach(file => {
@@ -169,6 +169,7 @@ function getDomainID(domainString) {
         }
 
     });
+    console.log('domainString:', domainString);
     return domainID;
 }
 
