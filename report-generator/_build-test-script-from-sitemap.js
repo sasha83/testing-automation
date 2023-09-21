@@ -51,7 +51,7 @@ async function generatesSH() {
                 siteMapURL
         );
         let sim = 0;
-        links = reduceSample(links, 3);
+        links = reduceSample(links, 2);
         let link_i = 0;
         links.forEach(function (link) {
                 link_i++;
@@ -61,10 +61,11 @@ async function generatesSH() {
                 shFile.push(format_url_commaind(link));
                 shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
                 shFile.push('node _build-csvs-from-lighthouse-json.js');
-                sim++;
+                sim++;        
         })
         console.log(shFile);
-        fs.writeFile('test-sitemap-' + testSuiteID + '_' + instanceID + '.sh', shFile.join('\n'), (err) => {
+        let sitemap_file = siteMapURL.split('/').pop();
+        fs.writeFile('test-sitemap-' + testSuiteID + '_' + instanceID + '_' + sitemap_file.replace('.xml', '') + '.sh', shFile.join('\n'), (err) => {
                 if (err) throw err;
         })
 }
@@ -131,6 +132,8 @@ function getStringOf(link) {
         reportPath = reportPath.replace('sitemap.xml', '');
         reportPath = reportPath.replaceAll('/', '_');
         reportPath = reportPath.replaceAll(' ', '_');
+        reportPath = reportPath.replaceAll('(', '_');
+        reportPath = reportPath.replaceAll(')', '_');
 
         return reportPath;
 }

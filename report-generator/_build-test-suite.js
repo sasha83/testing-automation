@@ -9,7 +9,7 @@ let shFile = [];
 let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
-let projectFolder = "/Users/sasha/testing-automation/report-generator/";
+let projectFolder = "~/testing-automation/report-generator/";
 let delete_queue = [];
 
 
@@ -72,8 +72,9 @@ async function doRequest(url) {
                 if (queueArray[0].field_sitemap_urls) {
                     queueArray[0].field_sitemap_urls = queueArray[0].field_sitemap_urls.split(',');
                     queueArray[0].field_sitemap_urls.forEach(function (sitemap_url) {
+                        let sitemap_file = sitemap_url.split('/').pop();
                         shOutput.push('node _build-test-script-from-sitemap.js' + ' ' + sitemap_url + ' ' + +testSuiteID + ' ' + instanceID + ' ' + domainID);
-                        shOutput.push('sh test-sitemap-' + testSuiteID + '_' + instanceID + '.sh');
+                        shOutput.push('sh test-sitemap-' + testSuiteID + '_' + instanceID + '_' + sitemap_file.replace('.xml', '') + '.sh');
                         shOutput.push('rm test-sitemap-' + testSuiteID + '_' + instanceID + '.sh');
                     });
                 }

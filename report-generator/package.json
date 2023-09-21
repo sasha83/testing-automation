@@ -28,8 +28,10 @@
     "get-sitemap-links": "^1.1.0",
     "json-diff": "^1.0.5",
     "lighthouse": "^10.2.0",
+    "lighthouse-compare-urls": "^1.0.4",
     "shelljs": "^0.8.5",
     "sitemap-check": "^0.0.2",
+    "sitemap-generator": "^8.5.1",
     "sitemap-urls": "^2.0.0"
   }
 }
