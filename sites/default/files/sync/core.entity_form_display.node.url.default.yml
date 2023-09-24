@@ -28,6 +28,7 @@ dependencies:
     - field.field.node.url.field_fmp_min
     - field.field.node.url.field_fmp_min_lighthouse_report
     - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_js_resources
     - field.field.node.url.field_lcp_average
     - field.field.node.url.field_lcp_max
     - field.field.node.url.field_lcp_max_lighthouse_report
@@ -252,6 +253,13 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_js_resources:
+    type: boolean_checkbox
+    weight: 165
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_lcp_average:
     type: number

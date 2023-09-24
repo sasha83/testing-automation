@@ -35,4 +35,7 @@
     "sitemap-generator-cli": "^7.5.0",
     "sitemap-urls": "^2.0.0"
   }
+  "config": {
+    "project-folder"
+  }
 }

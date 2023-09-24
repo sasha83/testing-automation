@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.test_suite_rest_domain
     - field.field.node.domain.body
+    - field.field.node.domain.field_generated_sitemaps
+    - field.field.node.domain.field_official_sitemaps
     - field.field.node.domain.field_root
     - node.type.domain
   module:
@@ -24,4 +26,6 @@ content:
     region: content
 hidden:
   body: true
+  field_generated_sitemaps: true
+  field_official_sitemaps: true
   links: true

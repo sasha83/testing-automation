@@ -1,6 +1,6 @@
 uuid: 4307e5f9-996a-4fdd-9df1-e04b8287a4cf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.domain_page
@@ -10,7 +10,7 @@ dependencies:
     - auto_mate_001
 id: block_domain_urls_checklist_field_meta_description
 theme: auto_mate_001
-region: domain_quick_data
+region: header
 weight: 0
 provider: null
 plugin: 'views_block:domain_page-domain_urls_checklist_field_meta_description'

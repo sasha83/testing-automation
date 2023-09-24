@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.url.field_fmp_min
     - field.field.node.url.field_fmp_min_lighthouse_report
     - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_js_resources
     - field.field.node.url.field_lcp_average
     - field.field.node.url.field_lcp_max
     - field.field.node.url.field_lcp_max_lighthouse_report
@@ -94,6 +95,7 @@ hidden:
   field_fmp_min: true
   field_fmp_min_lighthouse_report: true
   field_fmp_min_report_nid: true
+  field_js_resources: true
   field_lcp_average: true
   field_lcp_max: true
   field_lcp_max_lighthouse_report: true

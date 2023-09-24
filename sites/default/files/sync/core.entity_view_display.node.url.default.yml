@@ -28,6 +28,7 @@ dependencies:
     - field.field.node.url.field_fmp_min
     - field.field.node.url.field_fmp_min_lighthouse_report
     - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_js_resources
     - field.field.node.url.field_lcp_average
     - field.field.node.url.field_lcp_max
     - field.field.node.url.field_lcp_max_lighthouse_report
@@ -78,6 +79,16 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_js_resources:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_lighthouse_tests_quantity:
     type: number_integer

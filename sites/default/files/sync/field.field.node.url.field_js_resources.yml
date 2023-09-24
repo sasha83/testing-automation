@@ -1,0 +1,23 @@
+uuid: 2c3d5251-f3bd-4d0d-8999-fad9952cbe40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_js_resources
+    - node.type.url
+id: node.url.field_js_resources
+field_name: field_js_resources
+entity_type: node
+bundle: url
+label: 'Include in JS resources report'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 39797061-105d-4ae2-9a4f-88e67720457c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_js_resources
+field_name: field_js_resources
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
