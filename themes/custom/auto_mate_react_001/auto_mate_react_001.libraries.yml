@@ -1,0 +1,26 @@
+global-styling:
+  version: VERSION
+  js:
+    js/global.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    component:
+      css/style.css: {}
+sortable:
+  version: VERSION
+  js:
+    js/Sortable/Sortable.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+react_app:
+  version: VERSION
+  js:
+    js/dist/main.min.js: {minified: true}
+
+react_app_dev:
+  version: VERSION
+  js:
+    js/dist_dev/main.min.js: {minified: true}
