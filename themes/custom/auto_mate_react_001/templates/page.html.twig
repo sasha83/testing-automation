@@ -54,17 +54,6 @@
 	{% endif %}
 	{{ page.pre_content }}
 	<main class="page-content clearfix" role="main">
-		<div class="visually-hidden">
-			<a id="main-content" tabindex="-1"></a>
-		</div>
-		{{ page.highlighted }}
-		{% if page.help %}
-			<div class="help">
-				{{ page.help }}
-			</div>
-		{% endif %}
-
-		{{ page.content }}
+    <div id="react-app" class="block">React app will load here.</div>
 	</main>
-	<section class="footer-drawer">{{ drupal_view('lighthouse_reports', 'lighthouse_comparison_tool') }}</section>
 </div>

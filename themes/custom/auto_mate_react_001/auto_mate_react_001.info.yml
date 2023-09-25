@@ -9,6 +9,8 @@ description: 'Auto Mate React 001 description'
 core_version_requirement: '>=10.0.1'
 libraries:
   - auto_mate_react_001/global-styling
+  - auto_mate_react_001/react_app
+
 
 regions:
   header: 'Header'
