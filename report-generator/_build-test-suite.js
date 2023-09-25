@@ -9,8 +9,27 @@ let shFile = [];
 let domainArray = [];
 let siteMapURL;
 let instanceID = Date.now();
-// let projectFolder = "/Volumes/swetlowski3tb/automate/";
-let projectFolder = "/Users/sasha/testing-automation/report-generator/";
+let projectFolder = "~/testing-automation/report-generator/";
+let delete_queue = [];
+
+
+
+
+
+
+
+
+// Test suite      
+//         -one requred domain
+//         -any existing URLs
+//         -any non-existing URLs
+//         -any sitemapURLs
+//         -URL dump field
+
+
+
+
+
 
 
 process.on('uncaughtException', function (err) {
@@ -21,59 +40,86 @@ process.argv.forEach(function (val, index, array) {
 
     if (i == 2) {
         testSuiteID = val;
-        console.log(testSuiteID);
-        // console.log("\x1b[35m", val);
         doRequest("http://automate.ddev.site/test-suite-rest?test_suite_id=" + testSuiteID)
     }
     i++;
 });
 
-console.log(1);
-let shFilename = 'test-suite-id-' + testSuiteID + '.sh';
+let shFilename = 'test-suite-id-' + testSuiteID + '_' + instanceID + '.sh';
 
+function format_url_commaind(url) {
+    let url_commaind = ('lighthouse ' + url + ' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + getStringOf(url) + '.json')
+    return url_commaind;
+}
 async function doRequest(url) {
     return new Promise(function (resolve, reject) {
         request(url, function (error, res, body) {
             if (!error && res.statusCode == 200) {
                 let queueArray = JSON.parse(body);
-                // console.log(queueArray);
                 let shOutput = [];
+                let domainID = queueArray[0].domain_nid;
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue');
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-archive/');
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-archive/' + testSuiteID);
+                shOutput.push('mkdir ' + projectFolder + '_lighthouse-archive/' + testSuiteID + '/' + instanceID);
+
+                console.log(queueArray);
                 resolve(body);
-                queueArray.forEach(function (domain) {
-                    if (domain.field_url_reference) {
-                        let urls = domain.field_url_reference.split(', ');
-                        console.log(urls);
-                        shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
-                        shOutput.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
-                        urls.forEach(function (url) {
-                            shOutput.push('lighthouse ' + url + ' --quiet --chrome-flags="--headless" --output json --output-path _lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + getStringOf(url) + '.json');
-                            shOutput.push('echo "' + url + ', ' + getStringOf(url) + '.json" \n');
 
-                        });
-                    }
-                });
-                queueArray.forEach(function (domain) {
-                    if (domain.field_site) {
-                        // console.log(domain);
-                        shOutput.push('node _build-lighthouse-sh-file.js ' + domain.field_site + ' ' + testSuiteID + ' ' + instanceID);
-                        shOutput.push('sh test-suite-id-' + testSuiteID + '_' + getStringOf(domain.field_site) + '.sh');
-                    }
-                });
 
-                shOutput.push('node _build-test-suite.js' + ' ' + testSuiteID);
+                if (queueArray[0].field_sitemap_urls) {
+                    queueArray[0].field_sitemap_urls = queueArray[0].field_sitemap_urls.split(',');
+                    queueArray[0].field_sitemap_urls.forEach(function (sitemap_url) {
+                        let sitemap_file = sitemap_url.split('/').pop();
+                        shOutput.push('node _build-test-script-from-sitemap.js' + ' ' + sitemap_url + ' ' + +testSuiteID + ' ' + instanceID + ' ' + domainID);
+                        shOutput.push('sh test-sitemap-' + testSuiteID + '_' + instanceID + '_' + sitemap_file.replace('.xml', '') + '.sh');
+                        shOutput.push('rm test-sitemap-' + testSuiteID + '_' + instanceID + '.sh');
+                    });
+                }
+
+                if (queueArray[0].field_url_reference) {
+                    console.log(queueArray[0].field_url_reference);
+                    queueArray[0].field_url_reference = queueArray[0].field_url_reference.split('|');
+                    queueArray[0].field_url_reference.forEach(function (url) {
+                        shOutput.push('echo "generating lighthouse report for: ' + url) + '"';
+                        shOutput.push(format_url_commaind(url));
+                        delete_queue.push(testSuiteID + '_' + instanceID + '_' + getStringOf(url) + '.csv');
+                    });
+                }
+
+
+                if (queueArray[0].field_url_dump) {
+                    queueArray[0].field_url_dump = queueArray[0].field_url_dump.split('\r\n');
+                    console.log('queueArray[0].field_url_dump: ', queueArray[0].field_url_dump);
+                    queueArray[0].field_url_dump.forEach(function (url) {
+                        shOutput.push('echo "generating lighthouse report for: ' + url + '"');
+                        shOutput.push('node _build-csvs-from-lighthouse-json.js');
+                        shOutput.push(format_url_commaind(url));
+                        delete_queue.push(testSuiteID + '_' + instanceID + '_' + getStringOf(url) + '.csv');
+                    });
+                }
+
+
+
+                shOutput.push('ddev drush feeds:import 1 -y');
+                shOutput.push('node _analyze-url-stats.js');
+                shOutput.push('sh _url-analysis.sh');
+                shOutput.push('ddev drush feeds:import 2  -y');
+
+                delete_queue.forEach(function (q) {
+                    shOutput.push('rm ../sites/default/files/_lighthouse-report-staging/' + q);
+                });
                 shOutput = shOutput.join('\n');
+
+                // console.log('shOutput: ', shOutput);
+                const shFilename = 'test-suite-' + testSuiteID + '_' + instanceID + '.sh';
                 fs.writeFile(shFilename, shOutput, (err) => {
                     if (err) throw err;
                 })
-                console.log('sh ' + shFilename);
-                // var runScript = exec('sh ' + shFilename,
-                //     (error, stdout, stderr) => {
-                //         console.log(stdout);
-                //         console.log(stderr);
-                //         if (error !== null) {
-                //             console.log(`exec error: ${error}`);
-                //         }
-                //     });
+                console.log('\n\nRun this...\nsh ', shFilename);
+
 
             } else {
                 reject(error);
@@ -89,6 +135,8 @@ function getStringOf(link) {
     reportPath = reportPath.replace('www.', '');
     reportPath = reportPath.replace('sitemap.xml', '');
     reportPath = reportPath.replaceAll('/', '_');
+    reportPath = reportPath.replaceAll('?', '_');
+    reportPath = reportPath.replaceAll('=', '_');
     reportPath = reportPath.replaceAll(' ', '_');
 
     return reportPath;

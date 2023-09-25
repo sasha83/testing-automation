@@ -1,0 +1,23 @@
+uuid: 26e83049-055a-431f-8f48-42dc9f618ca3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_id_temp
+    - node.type.url
+id: node.url.field_domain_id_temp
+field_name: field_domain_id_temp
+entity_type: node
+bundle: url
+label: 'Domain ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

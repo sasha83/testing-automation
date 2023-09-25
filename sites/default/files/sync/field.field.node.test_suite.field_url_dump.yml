@@ -1,0 +1,19 @@
+uuid: 2bec512d-325c-4fac-af3a-d8c9da86d43d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url_dump
+    - node.type.test_suite
+id: node.test_suite.field_url_dump
+field_name: field_url_dump
+entity_type: node
+bundle: test_suite
+label: 'URL Dump'
+description: 'Add a list of URLs, one per line'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+uuid: c7bb175c-9e7f-4248-acf6-546b32413515
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_url_dump
+field_name: field_url_dump
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

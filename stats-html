@@ -1,0 +1,68 @@
+<div class="stat-container">
+        <div class="stat-average" data-value="{{ field_fcp_average }}" data-property="field_fcp_average">{{
+                field_fcp_average }}</div>
+        <div class="stat-range">
+                <a href="#"><span class="label">Lowest</span><span class="value value-min">{{ field_fcp_min }}</a>
+                <a href="#"><span class="label">Highest</span><span class="value value-max">{{ field_fcp_max }}</a>
+        </div>
+</div>
+<div class="stat-container">
+        <div class="stat-average" data-value="{{ field_fmp_average }}" data-property="field_fmp_average">{{
+                field_fmp_average }}</div>
+        <div class="stat-range">
+                <a href="#"><span class="label">Lowest</span><span class="value value-min">{{ field_fmp_min }}</a>
+                <a href="#"><span class="label">Highest</span><span class="value value-max">{{ field_fmp_max }}</a>
+        </div>
+</div>
+<div class="stat-container">
+        <div class="stat-average" data-value="{{ field_lcp_average }}" data-property="field_lcp_average">{{
+                field_lcp_average
+                }}</div>
+        <div class="stat-range">
+                <a href="#"><span class="label">Lowest</span><span class="value value-min">{{ field_lcp_min }}</a>
+                <a href="#"><span class="label">Highest</span><span class="value value-max">{{ field_lcp_max }}</a>
+        </div>
+</div>
+<div class="stat-container">
+        <div class="stat-average" data-value="{{ field_cls_average }}" data-property="field_cls_average">{{
+                field_cls_average }}</div>
+        <div class="stat-range">
+                <a href="#"><span class="label">Lowest</span><span class="value value-min">{{ field_cls_min }}</a>
+                <a href="#"><span class="label">Highest</span><span class="value value-max">{{ field_cls_max }}</a>
+        </div>
+</div>
+<div class="stat-container">
+        <div class="stat-average" data-value="{{ field_tbt_average }}" data-property="field_tbt_average">{{
+                field_tbt_average }}</div>
+        <div class="stat-range">
+                <a href="#"><span class="label">Lowest</span><span class="value value-min">{{ field_tbt_min }}</a>
+                <a href="#"><span class="label">Highest</span><span class="value value-max">{{ field_tbt_max }}</a>
+        </div>
+</div>
+<!-- {{ field_fcp_average }} ==
+{{ field_fcp_min }} ==
+{{ field_fcp_min_lighthouse_report }} ==
+{{ field_fcp_max }} ==
+{{ field_fcp_max_lighthouse_report }} ==
+{{ field_fmp_average }} ==
+{{ field_fmp_min }} ==
+{{ field_fmp_min_lighthouse_report }} ==
+{{ field_fmp_max }} ==
+{{ field_fmp_max_lighthouse_report }} ==
+{{ field_lcp_average }} ==
+{{ field_lcp_min }} ==
+{{ field_lcp_min_lighthouse_report }} ==
+{{ field_lcp_max }} ==
+{{ field_lcp_max_lighthouse_report }} ==
+{{ field_cls_average }} ==
+{{ field_cls_min }} ==
+{{ field_cls_min_lighthouse_report }} ==
+{{ field_cls_max }} ==
+{{ field_cls_max_lighthouse_report }} ==
+{{ field_tbt_average }} ==
+{{ field_tbt_min }} ==
+{{ field_tbt_max }} ==
+{{ field_tbt_min_lighthouse_report }} ==
+{{ nothing }} == Custom text
+{{ arguments.nid }} == Content: ID title
+{{ raw_arguments.nid }} == Content: ID input -->

@@ -10,9 +10,9 @@ id: node.test_suite.field_domains
 field_name: field_domains
 entity_type: node
 bundle: test_suite
-label: Domains
+label: Domain
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

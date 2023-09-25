@@ -1,0 +1,92 @@
+node _generate-lighthouse-report.js URL Domain TestSuiteID InstanceID
+    URL
+    Domain
+        (optional, uses domain from URL (everything after http:// or https://, and before first following slash) if domain is not provided)
+    Test Suite ID
+        (optional)
+    Instance ID
+        (optional)
+
+
+
+
+
+
+
+
+get LH report
+modify json data
+convert to csv in files folder
+move json to archive folder on 3tb drive
+run feed for that csv, or run once per hour on the folder
+run URL analysis
+run URL feed
+run Domain analysis
+run Domain feed.
+delete csv
+
+<!-- ex sh file for a URL -->
+node _generate-lighthouse-report.js skillpointe.com/about skillpointe.com 1091 1234567890
+node _process-lighthouse-report.js skillpointe.com/about skillpointe.com 1091 1234567890
+node _generate-csv-file.js url_domain_testSuiteID_instanceID.json 
+<!-- ex sh file for a URL -->
+
+example: node _generate-lighthouse-report.js skillpointe.com/about skillpointe.com 1091 1234567890
+    output_filename [url_domain_testSuiteID_instanceID.json]
+example: node _generate-csv-file.js url_domain_testSuiteID_instanceID.json 
+    NewFileName (optional)
+        if not provided, use same filename, add csv.  example: url_domain_testSuiteID_instanceID.json.csv 
+
+
+
+
+
+
+
+
+
+<!-- sh file for a domain -->
+node _generate-lighthouse-report.js skillpointe.com/about skillpointe.com 1091 1234567890
+
+
+
+
+
+
+
+
+
+
+
+
+
+test suite
+    Domain (uses sitemap.xml URI)
+    URL array
+    URL dump field
+Domain
+    get sitemap 
+    build sh process for all sitemap entries
+url
+    generate LH report
+    Check if domain exists for the URL
+        Create domain node if needed.
+        Add the domain reference
+    convert JSON report to CSV
+    Move it to the files folder
+    Delete the JSON file
+    run the feed
+    Delete the CSV
+
+
+
+JSON to CSV processor
+    generate a sh file which will process each JSON file as a separate process.
+        1) format the CSV filename based on URL + test suite ID + instance ID.
+        2) format the data as needed
+            a) add domain ref node ID
+            b) add URL ref node ID
+            c) add test suite ref node ID
+            d) add instance ID
+        3) 
+        4) save to the 

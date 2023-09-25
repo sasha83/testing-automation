@@ -1,0 +1,29 @@
+uuid: f5e0ef37-1afd-4f1d-8550-a75c71ce3186
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fcp_min_lighthouse_report
+    - node.type.lighthouse_report
+    - node.type.url
+id: node.url.field_fcp_min_lighthouse_report
+field_name: field_fcp_min_lighthouse_report
+entity_type: node
+bundle: url
+label: 'FCP Min Lighthouse Report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      lighthouse_report: lighthouse_report
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

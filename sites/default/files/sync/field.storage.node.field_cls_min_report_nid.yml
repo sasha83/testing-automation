@@ -1,0 +1,20 @@
+uuid: 87f5196d-7ab2-4526-b2bf-e7638d12cfc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cls_min_report_nid
+field_name: field_cls_min_report_nid
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

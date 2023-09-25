@@ -4,8 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.domain.body
+    - field.field.node.domain.field_generated_sitemaps
+    - field.field.node.domain.field_official_sitemaps
     - field.field.node.domain.field_root
-    - field.field.node.domain.field_site
     - node.type.domain
   module:
     - path
@@ -31,17 +32,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_root:
+  field_generated_sitemaps:
     type: string_textfield
-    weight: 122
+    weight: 124
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_site:
+  field_official_sitemaps:
     type: string_textfield
     weight: 123
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_root:
+    type: string_textfield
+    weight: 122
     region: content
     settings:
       size: 60

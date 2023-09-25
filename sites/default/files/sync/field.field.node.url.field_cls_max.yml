@@ -1,0 +1,23 @@
+uuid: 294082fc-d21a-4508-8ddb-9fd3315527b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cls_max
+    - node.type.url
+id: node.url.field_cls_max
+field_name: field_cls_max
+entity_type: node
+bundle: url
+label: 'CLS Max'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 1.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

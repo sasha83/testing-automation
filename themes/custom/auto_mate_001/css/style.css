@@ -1,3 +1,193 @@
-#lightHouseReports tr { 
-    cursor: pointer;
-}
+@use 'abstractions/mixins.scss';
+.view-display-id-domain_page_url_js_resources {
+  flex-direction: row; }
+
+.domain-js-resources:after {
+  content: '.';
+  font-size: 0;
+  clear: both;
+  display: block; }
+.domain-js-resources table {
+  margin: 0;
+  padding: 0; }
+  .domain-js-resources table tbody {
+    margin: 0;
+    padding: 0; }
+.domain-js-resources tr {
+  background-color: transparent;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+.domain-js-resources td {
+  text-align: left;
+  cursor: pointer;
+  height: .7rem;
+  margin: 0;
+  padding: 0 .5;
+  font-size: .675rem;
+  font-weight: bold;
+  color: #999;
+  transition-duration: .5s; }
+  .domain-js-resources td .percentage-meter {
+    height: 0;
+    transition-duration: .5s; }
+  .domain-js-resources td.active {
+    height: 1.125rem;
+    font-size: 1rem;
+    color: black; }
+    .domain-js-resources td.active.active-child .usage {
+      display: block; }
+    .domain-js-resources td.active.active-child .usage-data {
+      display: block; }
+    .domain-js-resources td.active.active-child .percentage-meter {
+      height: auto; }
+  .domain-js-resources td .usage {
+    display: none;
+    height: .75rem;
+    width: 100%;
+    position: relative; }
+    .domain-js-resources td .usage .used {
+      transition-timing-function: ease-in-out;
+      transition: width .5s;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: green; }
+  .domain-js-resources td .usage-data {
+    display: none; }
+.domain-js-resources .domain-urls {
+  width: 50%;
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0; }
+  .domain-js-resources .domain-urls tr.url-data-link-row.active {
+    background-color: white; }
+.domain-js-resources .domain-scripts {
+  width: 50%;
+  float: right;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+  .domain-js-resources .domain-scripts .script-data-link-row.active {
+    background: white; }
+    .domain-js-resources .domain-scripts .script-data-link-row.active .usage {
+      background-color: #fff; }
+    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage,
+    .domain-js-resources .domain-scripts .script-data-link-row.active.active-parent .usage-data {
+      display: none; }
+  .domain-js-resources .domain-scripts .script-data-link-row:not(.active) .usage .used {
+    width: 0 !important; }
+  .domain-js-resources .domain-scripts .script-data-link-row .script-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    width: 600px;
+    white-space: nowrap; }
+
+#lightHouseReports tr {
+  cursor: pointer; }
+
+th {
+  text-align: center; }
+
+.views-field-field-cls-average,
+.views-field-field-fcp-average,
+.views-field-field-fmp-average,
+.views-field-field-lcp-average,
+.views-field-field-tbt-average {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: #555; }
+
+tr td {
+  position: relative;
+  text-align: center; }
+  tr td.views-field-title {
+    text-align: left; }
+  tr td.active-child .inactive-data {
+    display: none; }
+  tr td .percentage-meter {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 1rem;
+    background: #eee; }
+    tr td .percentage-meter .percentage-amount {
+      position: absolute;
+      left: 0%;
+      height: 1rem;
+      background: #999; }
+  tr td .inactive-data::after {
+    content: '.';
+    font-size: 0;
+    clear: both;
+    display: block; }
+  tr td .inactive-data .resource-bytes {
+    float: right; }
+  tr td .usage-data {
+    display: block;
+    background-color: #eee; }
+    tr td .usage-data::after {
+      content: '.';
+      font-size: 0;
+      clear: both;
+      display: block; }
+    tr td .usage-data span {
+      display: block;
+      font-size: .75rem;
+      padding: .25rem .5rem;
+      font-weight: bold; }
+      tr td .usage-data span.used-bytes {
+        float: left; }
+        tr td .usage-data span.used-bytes::after {
+          margin-left: .25rem;
+          content: 'used bytes'; }
+      tr td .usage-data span.total-bytes {
+        float: right; }
+        tr td .usage-data span.total-bytes::after {
+          margin-left: .25rem;
+          content: 'total bytes'; }
+
+.block-views-blockdomain-page-domain-page-urls .view .view-content {
+  max-height: 60rem;
+  overflow: scroll; }
+
+.view-url-stats {
+  border: 2px solid #ddd;
+  padding: 2rem 1rem; }
+  .view-url-stats .view-content .views-row {
+    display: flex;
+    flex: 1 1 100%; }
+    .view-url-stats .view-content .views-row .views-col {
+      display: flex;
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      flex-direction: row; }
+      .view-url-stats .view-content .views-row .views-col > .views-field {
+        text-align: center;
+        display: flex;
+        flex: 1 1 20%;
+        flex-direction: column; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .views-label {
+          font-weight: bold; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-average {
+          font-size: 3rem;
+          font-weight: 500; }
+          .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap; }
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .label {
+              display: flex;
+              flex: 1 1 100%; }
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .value {
+              display: flex;
+              flex: 1 1 100%; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-range {
+          flex: 1 1 100%; }
+
+/*# sourceMappingURL=style.css.map */

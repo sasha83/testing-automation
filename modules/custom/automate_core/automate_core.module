@@ -1,5 +1,5 @@
 <?php
-
+//test
 /**
  * @file
  * Contains clearesult_register.module.
@@ -49,20 +49,25 @@ function automate_core_node_presave($node) {
 
         // $urls = $nodeStorage->loadMultiple($ids);
         // print_r($ids);
+        // var_export($ids);
         if(sizeof($ids)<1) {
             $url_node = Node::create(['type' => 'url']);
             $url_node->set('title', $url);
             $url_node->set('field_domain', $domain_id);
             $url_node->enforceIsNew(FALSE);
-            $node->set('field_url_reference', $url_node->id());
             $url_node->save();
+            $urlRef = $url_node->id();
+            $node->set('field_notes', $urlRef);
+            $node->set('field_url_reference_1', $urlRef);
+
         } else {
           $urlNode = Node::load(array_pop($ids));
           $most_recent = $urlNode->get('field_most_recent_lighthouse_rep');
-          $urlNode->set('field_notes', $most_recent->target_id);
+          // $urlNode->set('field_notes', $most_recent->target_id);
           $urlNode->save();
-
-          }
+          $urlRef = $urlNode->id();
+          $node->set('field_url_reference_1', $urlRef);
+        }
     
         // $values = \Drupal::entityQuery('node')->condition('field_title', $url)->execute();
         // $node_exists = !empty($values);
@@ -76,6 +81,37 @@ function automate_core_node_presave($node) {
 
 
 	}
+	if($typeName==="url") {
+    $field_id = $node->get('field_cls_max_report_nid')->value;
+    $node->set('field_cls_max_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_cls_min_report_nid')->value;
+    $node->set('field_cls_min_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_fcp_max_report_nid')->value;
+    $node->set('field_fcp_max_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_fcp_min_report_nid')->value;
+    $node->set('field_fcp_min_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_fmp_max_report_nid')->value;
+    $node->set('field_fmp_max_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_fmp_min_report_nid')->value;
+    $node->set('field_fmp_min_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_lcp_max_report_nid')->value;
+    $node->set('field_lcp_max_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_lcp_min_report_nid')->value;
+    $node->set('field_lcp_min_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_tbt_max_report_nid')->value;
+    $node->set('field_tbt_max_lighthouse_report', $field_id);
+
+    $field_id = $node->get('field_tbt_min_report_nid')->value;
+    $node->set('field_tbt_min_lighthouse_report', $field_id);
+  }
 //   elseif ($typeName==="program") {
 //     // Set rabbit hole settings to display page if the program has a degree type of "earn/learn"
 //     /** @var \Drupal\taxonomy\TermInterface $degree_type_term  */

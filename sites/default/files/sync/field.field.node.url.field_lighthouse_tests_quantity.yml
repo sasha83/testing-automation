@@ -1,0 +1,23 @@
+uuid: 2f298238-a183-438b-bacf-cf16a78d97e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lighthouse_tests_quantity
+    - node.type.url
+id: node.url.field_lighthouse_tests_quantity
+field_name: field_lighthouse_tests_quantity
+entity_type: node
+bundle: url
+label: 'Lighthouse Tests Quantity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

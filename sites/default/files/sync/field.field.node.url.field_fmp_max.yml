@@ -1,0 +1,23 @@
+uuid: 55c988fc-d705-4d40-a3d2-186d35b8ab6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fmp_max
+    - node.type.url
+id: node.url.field_fmp_max
+field_name: field_fmp_max
+entity_type: node
+bundle: url
+label: 'FMP Max'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 1.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

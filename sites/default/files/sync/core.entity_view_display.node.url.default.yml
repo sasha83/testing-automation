@@ -4,10 +4,49 @@ status: true
 dependencies:
   config:
     - field.field.node.url.body
+    - field.field.node.url.feeds_item
+    - field.field.node.url.field_cls_average
+    - field.field.node.url.field_cls_max
+    - field.field.node.url.field_cls_max_lighthouse_report
+    - field.field.node.url.field_cls_max_report_nid
+    - field.field.node.url.field_cls_min
+    - field.field.node.url.field_cls_min_lighthouse_report
+    - field.field.node.url.field_cls_min_report_nid
     - field.field.node.url.field_domain
+    - field.field.node.url.field_domain_id_temp
+    - field.field.node.url.field_fcp_average
+    - field.field.node.url.field_fcp_max
+    - field.field.node.url.field_fcp_max_lighthouse_report
+    - field.field.node.url.field_fcp_max_report_nid
+    - field.field.node.url.field_fcp_min
+    - field.field.node.url.field_fcp_min_lighthouse_report
+    - field.field.node.url.field_fcp_min_report_nid
+    - field.field.node.url.field_fmp_average
+    - field.field.node.url.field_fmp_max
+    - field.field.node.url.field_fmp_max_lighthouse_report
+    - field.field.node.url.field_fmp_max_report_nid
+    - field.field.node.url.field_fmp_min
+    - field.field.node.url.field_fmp_min_lighthouse_report
+    - field.field.node.url.field_fmp_min_report_nid
+    - field.field.node.url.field_js_resources
+    - field.field.node.url.field_lcp_average
+    - field.field.node.url.field_lcp_max
+    - field.field.node.url.field_lcp_max_lighthouse_report
+    - field.field.node.url.field_lcp_max_report_nid
+    - field.field.node.url.field_lcp_min
+    - field.field.node.url.field_lcp_min_lighthouse_report
+    - field.field.node.url.field_lcp_min_report_nid
+    - field.field.node.url.field_lighthouse_tests_quantity
     - field.field.node.url.field_most_recent_lighthouse_rep
     - field.field.node.url.field_notes
     - field.field.node.url.field_path
+    - field.field.node.url.field_tbt_average
+    - field.field.node.url.field_tbt_max
+    - field.field.node.url.field_tbt_max_lighthouse_report
+    - field.field.node.url.field_tbt_max_report_nid
+    - field.field.node.url.field_tbt_min
+    - field.field.node.url.field_tbt_min_lighthouse_report
+    - field.field.node.url.field_tbt_min_report_nid
     - node.type.url
   module:
     - text
@@ -22,7 +61,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_domain:
     type: entity_reference_label
@@ -30,7 +69,35 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 3
+    region: content
+  field_domain_id_temp:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_js_resources:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_lighthouse_tests_quantity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_most_recent_lighthouse_rep:
     type: entity_reference_label
@@ -38,14 +105,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 105
+    weight: 5
     region: content
   field_notes:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 104
+    weight: 4
     region: content
   field_path:
     type: string
@@ -53,11 +120,47 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
-hidden: {  }
+hidden:
+  feeds_item: true
+  field_cls_average: true
+  field_cls_max: true
+  field_cls_max_lighthouse_report: true
+  field_cls_max_report_nid: true
+  field_cls_min: true
+  field_cls_min_lighthouse_report: true
+  field_cls_min_report_nid: true
+  field_fcp_average: true
+  field_fcp_max: true
+  field_fcp_max_lighthouse_report: true
+  field_fcp_max_report_nid: true
+  field_fcp_min: true
+  field_fcp_min_lighthouse_report: true
+  field_fcp_min_report_nid: true
+  field_fmp_average: true
+  field_fmp_max: true
+  field_fmp_max_lighthouse_report: true
+  field_fmp_max_report_nid: true
+  field_fmp_min: true
+  field_fmp_min_lighthouse_report: true
+  field_fmp_min_report_nid: true
+  field_lcp_average: true
+  field_lcp_max: true
+  field_lcp_max_lighthouse_report: true
+  field_lcp_max_report_nid: true
+  field_lcp_min: true
+  field_lcp_min_lighthouse_report: true
+  field_lcp_min_report_nid: true
+  field_tbt_average: true
+  field_tbt_max: true
+  field_tbt_max_lighthouse_report: true
+  field_tbt_max_report_nid: true
+  field_tbt_min: true
+  field_tbt_min_lighthouse_report: true
+  field_tbt_min_report_nid: true

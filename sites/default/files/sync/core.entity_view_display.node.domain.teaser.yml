@@ -5,8 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.domain.body
+    - field.field.node.domain.field_generated_sitemaps
+    - field.field.node.domain.field_official_sitemaps
     - field.field.node.domain.field_root
-    - field.field.node.domain.field_site
     - node.type.domain
   module:
     - text
@@ -30,5 +31,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_generated_sitemaps: true
+  field_official_sitemaps: true
   field_root: true
-  field_site: true

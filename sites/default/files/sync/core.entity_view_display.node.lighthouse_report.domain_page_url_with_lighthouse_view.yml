@@ -158,7 +158,7 @@ dependencies:
     - field.field.node.lighthouse_report.field_unsized_images
     - field.field.node.lighthouse_report.field_unused_css_rules
     - field.field.node.lighthouse_report.field_unused_javascript
-    - field.field.node.lighthouse_report.field_url_reference
+    - field.field.node.lighthouse_report.field_url_reference_1
     - field.field.node.lighthouse_report.field_use_landmarks
     - field.field.node.lighthouse_report.field_user_agent
     - field.field.node.lighthouse_report.field_user_timing
@@ -409,7 +409,7 @@ hidden:
   field_unsized_images: true
   field_unused_css_rules: true
   field_unused_javascript: true
-  field_url_reference: true
+  field_url_reference_1: true
   field_use_landmarks: true
   field_user_agent: true
   field_user_timing: true

@@ -1,0 +1,23 @@
+uuid: 14af396d-aaa5-479f-a120-f31f7397e4e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lcp_min_report_nid
+    - node.type.url
+id: node.url.field_lcp_min_report_nid
+field_name: field_lcp_min_report_nid
+entity_type: node
+bundle: url
+label: 'LCP Min Report NID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,21 +1,17 @@
 const GetSitemapLinks = require("get-sitemap-links").default;
-
 const util = require('util')
 const request = require('request');
 const fs = require('fs');
-let testSuiteID = 1091;
-let testNodes;
+let testSuiteID;
 let shFile = [];
-let domainArray = [];
 let siteMapURL;
+
 let instanceID;
-// let projectFolder = "/Volumes/swetlowski3tb/automate/";
-let projectFolder = "/Users/sasha/testing-automation/report-generator/";
+let projectFolder = "~/testing-automation/report-generator";
 
 const maxTestRuns = 4;
 let i = 0;
 process.argv.forEach(function (val, index, array) {
-    console.log(val, i);
     if (i == 2) {
         siteMapURL = val;
     } else if (i == 3) {
@@ -26,37 +22,81 @@ process.argv.forEach(function (val, index, array) {
 
     i++;
 });
-console.log(siteMapURL, testSuiteID, instanceID);
+
+function reduceSample(links, sampleSize) {
+    let sampled = [];
+    links.forEach(function (link) {
+        let linkReduced = link.split('/');
+        if (linkReduced.length > 4) {
+            linkReduced.pop();
+            linkReduced = linkReduced.join('/');
+            let match = false;
+            let found = 0;
+            sampled.forEach(function (sampleLink) {
+                let sampleLinkReduced = sampleLink.split('/')
+                sampleLinkReduced.pop();
+                sampleLinkReduced = sampleLinkReduced.join('/');
+                if (linkReduced == sampleLinkReduced) {
+                    found++;
+                    match = true;
+                }
+            });
+            if (match == true && found < sampleSize) {
+                sampled.push(link);
+            } else if (match == false) {
+                sampled.push(link);
+            }
+        } else {
+            sampled.push(link);
+        }
+
+
+
+
+    });
+    console.log('sitemap links: ', links);
+    console.log('sampled links: ', sampled);
+    console.log('sampled.length: ', sampled.length);
+    return sampled;
+}
 async function generatesSH() {
-    const array = await GetSitemapLinks(
+    let delete_queue = [];
+    let links = await GetSitemapLinks(
         siteMapURL
     );
-    // console.log('array: ', array);        
-    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID);
-    shFile.push('mkdir ' + projectFolder + '_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID);
+    shFile.push('mkdir ' + projectFolder + '/_lighthouse-archive/' + testSuiteID + '/' + instanceID);
     let sim = 0;
-    array.forEach(function (link) {
-
-        // console.log(link);
+    links = reduceSample(links, 3);
+    let link_i = 0;
+    links.forEach(function (link) {
+        link_i++;
         let reportPath = getStringOf(link);
-        // let simString = '';
-        // if(sim<maxTestRuns) {
-        //     simString = ' &';
-        // } else {
-        //     sim = 0;
-        // }
-
-        shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json');
+        shFile.push('\n echo "running ' + link_i + ' of ' + links.length + '...  ' + link + ' > ' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json"');
+        let testFile = projectFolder + '/_lighthouse-report-queue/' + testSuiteID + '/' + instanceID + '/' + reportPath + '.json';
+        delete_queue.push(instanceID + '_' + testSuiteID + reportPath + '.csv');
+        shFile.push('lighthouse ' + link + ' --quiet --chrome-flags="--headless" --output json --output-path ' + testFile);
         shFile.push('echo "' + link + ', ' + reportPath + '.json" \n');
+        shFile.push('node _build-csvs-from-lighthouse-json.js');
         sim++;
     })
+    shFile.push('ddev drush feeds:import 1 -y');
+    shFile.push('node _analyze-url-stats.js');
+    delete_queue.forEach(function (q) {
+        shFile.push('rm ../sites/' + q);
+    });
+    shFile.push('sh _url-analysis.sh');
+    shFile.push('ddev drush feeds:import 2  -y');
     shFile = shFile.join('\n');
-    fs.writeFile('test-suite-id-' + testSuiteID + '_' + getStringOf(siteMapURL) + '.sh', shFile, (err) => {
+    fs.writeFile('test-' + testSuiteID + '_' + instanceID + '.sh', shFile, (err) => {
         if (err) throw err;
     })
 }
 
 generatesSH();
+
 
 function getStringOf(link) {
     let reportPath = link;
@@ -67,6 +107,8 @@ function getStringOf(link) {
     reportPath = reportPath.replace('sitemap.xml', '');
     reportPath = reportPath.replaceAll('/', '_');
     reportPath = reportPath.replaceAll(' ', '_');
+    reportPath = reportPath.replaceAll('(', '_');
+    reportPath = reportPath.replaceAll(')', '_');
 
     return reportPath;
 }

@@ -5,12 +5,13 @@ dependencies:
   config:
     - field.field.node.test_suite.body
     - field.field.node.test_suite.field_domains
-    - field.field.node.test_suite.field_max_parallel_tests
     - field.field.node.test_suite.field_number_of_instances
+    - field.field.node.test_suite.field_report_summaries
+    - field.field.node.test_suite.field_sitemap_urls
+    - field.field.node.test_suite.field_url_dump
     - field.field.node.test_suite.field_url_reference
     - node.type.test_suite
   module:
-    - options
     - text
     - user
 id: node.test_suite.default
@@ -33,13 +34,6 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
-  field_max_parallel_tests:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 103
-    region: content
   field_number_of_instances:
     type: number_integer
     label: above
@@ -48,6 +42,29 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_report_summaries:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_sitemap_urls:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_url_dump:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_url_reference:
     type: entity_reference_label

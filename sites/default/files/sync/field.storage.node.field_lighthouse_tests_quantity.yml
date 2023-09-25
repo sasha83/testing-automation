@@ -1,0 +1,20 @@
+uuid: c254bf5a-e2c3-4e05-936b-e4f13b9d7d79
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lighthouse_tests_quantity
+field_name: field_lighthouse_tests_quantity
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

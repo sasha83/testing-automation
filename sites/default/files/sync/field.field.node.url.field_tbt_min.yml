@@ -1,0 +1,23 @@
+uuid: 69de6d4a-d404-436a-8b64-cadaf73c1350
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tbt_min
+    - node.type.url
+id: node.url.field_tbt_min
+field_name: field_tbt_min
+entity_type: node
+bundle: url
+label: 'TBT Min'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 1.0
+  prefix: ''
+  suffix: ''
+field_type: decimal
