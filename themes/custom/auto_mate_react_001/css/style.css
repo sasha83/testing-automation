@@ -156,38 +156,48 @@ tr td {
   max-height: 60rem;
   overflow: scroll; }
 
-.view-url-stats {
+.view-url-stats,
+.block-url-stats-block {
   border: 2px solid #ddd;
   padding: 2rem 1rem; }
-  .view-url-stats .view-content .views-row {
+  .view-url-stats .view-content .views-row,
+  .block-url-stats-block .view-content .views-row {
     display: flex;
     flex: 1 1 100%; }
-    .view-url-stats .view-content .views-row .views-col {
+    .view-url-stats .view-content .views-row .views-col,
+    .block-url-stats-block .view-content .views-row .views-col {
       display: flex;
       flex: 1 1 100%;
       flex-wrap: wrap;
       flex-direction: row; }
-      .view-url-stats .view-content .views-row .views-col > .views-field {
+      .view-url-stats .view-content .views-row .views-col > .views-field,
+      .block-url-stats-block .view-content .views-row .views-col > .views-field {
         text-align: center;
         display: flex;
         flex: 1 1 20%;
         flex-direction: column; }
-        .view-url-stats .view-content .views-row .views-col > .views-field .views-label {
+        .view-url-stats .view-content .views-row .views-col > .views-field .views-label,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .views-label {
           font-weight: bold; }
-        .view-url-stats .view-content .views-row .views-col > .views-field .stat-average {
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-average,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average {
           font-size: 3rem;
           font-weight: 500; }
-          .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a {
+          .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a,
+          .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap; }
-            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .label {
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .label,
+            .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a .label {
               display: flex;
               flex: 1 1 100%; }
-            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .value {
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .value,
+            .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a .value {
               display: flex;
               flex: 1 1 100%; }
-        .view-url-stats .view-content .views-row .views-col > .views-field .stat-range {
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-range,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-range {
           flex: 1 1 100%; }
 
 /*# sourceMappingURL=style.css.map */
