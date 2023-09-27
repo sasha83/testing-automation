@@ -13,7 +13,7 @@ function JSResources(props) {
         });
     
         return <div className='block block-js-resources-block'>
-            <BlockTitle title="Resources"/>
+            <BlockTitle title="JavaScript Resources"/>
             <BlockContent
                 blockName="js-resources"
                 content={
