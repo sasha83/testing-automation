@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useLocation } from 'react';
 import axios from 'axios';
-import './App.css';
 import PageDomain from './Pages/PageDomain';
 
 export default function App() {
@@ -12,6 +11,12 @@ export default function App() {
         .then(data => setURLData(data.data))
         .catch(error => console.log(error));
      }, []);
-     console.log(nodeID, urlData);
+    //  React.useEffect(() => {
+    //     axios
+    //     .get("http://automate.ddev.site/url-lighthouse-reports-rest/js-resources?url_id="+parseInt(nodeID))
+    //     .then(data => setLHRData(data.data))
+    //     .catch(error => console.log(error));
+    //  }, []);
+
      return <><PageDomain url-data={urlData}/></>
 }

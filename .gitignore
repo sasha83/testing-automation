@@ -41,6 +41,7 @@ npm-debug.log
 /web.config
 *.csv
 *.sh
+*.scssc
 /report-generator/*/*/*.json
 /report-generator/*.csv
 /report-generator/*.json

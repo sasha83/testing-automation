@@ -5,10 +5,10 @@ import BlockContent from '../UIElements/BlockContent';
 
 function JSResources(props) {
     if(props["url-data"]&&props["url-data"]!=null) {
-        console.log('props: ', props["url-data"]);
+        // console.log('props: ', props["url-data"]);
         let urls = props["url-data"];
         const urlList = urls.map((url, index) => {
-            console.log('url:', url);
+            // console.log('url:', url);
             return <tr key={url.nid}><td>{url.title[0].value}</td></tr>;
         });
     
