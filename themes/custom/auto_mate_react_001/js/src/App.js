@@ -11,12 +11,6 @@ export default function App() {
         .then(data => setURLData(data.data))
         .catch(error => console.log(error));
      }, []);
-    //  React.useEffect(() => {
-    //     axios
-    //     .get("http://automate.ddev.site/url-lighthouse-reports-rest/js-resources?url_id="+parseInt(nodeID))
-    //     .then(data => setLHRData(data.data))
-    //     .catch(error => console.log(error));
-    //  }, []);
-
+    
      return <><PageDomain url-data={urlData}/></>
 }
