@@ -1,4 +1,3 @@
-\
 import React, { useState, useEffect, useLocation } from 'react';
 
 function URLFontResources(props) {

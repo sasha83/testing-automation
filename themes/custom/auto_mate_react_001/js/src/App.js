@@ -4,6 +4,8 @@ import PageDomain from './Pages/PageDomain';
 
 export default function App() {
     const [urlData, setURLData] = useState(null);
+    const [LHRData, setLHRData] = useState(null);
+
     const nodeID = location.pathname.split("/").pop();
     React.useEffect(() => {
         axios
@@ -11,6 +13,6 @@ export default function App() {
         .then(data => setURLData(data.data))
         .catch(error => console.log(error));
      }, []);
-    
-     return <><PageDomain url-data={urlData}/></>
+     console.log("urlData:", urlData);
+     return <><PageDomain url-data={urlData} lhr-data={LHRData} set-url-data={setURLData} set-lhr-data={LHRData}/></>
 }

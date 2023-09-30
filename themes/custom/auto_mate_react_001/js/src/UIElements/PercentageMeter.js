@@ -1,7 +1,17 @@
 import React from 'react';
 
 export default function PercentageMeter(props) {
-    return <div className="percentage-meter">
+    const outerWidth = props['outer-width'];
+    const setWidth = function(w) {
+        if(w&&w!=undefined&&w!=null) {
+            return w;
+        } else { 
+            return 'auto';
+        }
+    }
+    return (<div
+        className="percentage-meter"
+        style={{ 'width': setWidth(outerWidth)}}>
         <div 
             className="percentage-amount"
             style={{
@@ -9,5 +19,5 @@ export default function PercentageMeter(props) {
                 backgroundColor: "hsl(" + (props.value * 120 ) + ", 50%, 60%)"
             }}>
         </div>
-    </div>;
+    </div>);
 }

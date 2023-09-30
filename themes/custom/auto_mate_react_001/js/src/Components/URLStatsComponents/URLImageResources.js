@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLocation } from 'react';
 
-function URLIMGResources(props) {
+function URLImageResources(props) {
     return <></>;
 }
 
-export default URLIMGResources; 
+export default URLImageResources; 

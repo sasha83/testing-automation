@@ -53,6 +53,7 @@ table.lighthouse-reports-listing {
         td {
 
                 // flex: 1 1 100%;
+                
                 text-align: left;
                 cursor: pointer;
                 // height: 1rem;
@@ -61,8 +62,9 @@ table.lighthouse-reports-listing {
                 padding: 0 .5;
                 font-size: .675rem;
                 font-weight: bold;
-                color: #999;
+
                 transition-duration: .5s;
+
 
                 .percentage-meter {
                         height: 0;
@@ -136,6 +138,11 @@ table.lighthouse-reports-listing {
 
                 tbody {
                         // flex: 1 0 100%;
+                        td {                a {
+                                color: red;
+                                // display: table-cell;
+                                vertical-align: middle;
+                        }}
                 }
 
                 // td.url-data-link { 
@@ -363,3 +370,5 @@ tr {
                 }
         }
 }
+
+td {vertical-align: middle; a { display: table-cell;}}

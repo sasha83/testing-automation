@@ -7,6 +7,9 @@ import { func } from 'prop-types';
 
 function PageDomain(props) {
     const urlData = props["url-data"];
+    const setURLData = props["set-url-data"];
+    const LHRData = props["lhr-data"];
+    const setLHRData = props["set-lhr-data"];
     const [sidebar, setSidebar] = useState();
     const [activeElements, setActiveElements] = useState({
         "activeParentURL": "",
@@ -30,7 +33,11 @@ function PageDomain(props) {
                     url-data={urlData}
                     active-elements={activeElements}
                     state-setters={setActiveElements}
-                    set-sidebar={setSidebar}/>
+                    set-sidebar={setSidebar}
+                    set-url-data={setURLData}
+                    lhr-data={LHRData}
+                    set-lhr-data={setLHRData}
+                    />
             </main>
             <aside className='sidebar'>
 
