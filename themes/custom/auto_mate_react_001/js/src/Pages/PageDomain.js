@@ -6,11 +6,8 @@ import './PageDomain.css';
 import { func } from 'prop-types';
 
 function PageDomain(props) {
-    const urlData = props["url-data"];
-    const setURLData = props["set-url-data"];
-    const LHRData = props["lhr-data"];
-    const setLHRData = props["set-lhr-data"];
-    const [sidebar, setSidebar] = useState();
+    // const urlData = props["url-data"];
+    const GlobalState = props["GlobalState"];
     const [activeElements, setActiveElements] = useState({
         "activeParentURL": "",
         "activeChildURLs": [],
@@ -23,20 +20,17 @@ function PageDomain(props) {
     // const [activeChildResources, setActiveChildResources] = useState('asdf');
     const mainClass = classNames({
         'main-content': true,
-        'side-bar-open': sidebar
+        'side-bar-open': GlobalState.sidebar
     });
 
         return (<>
 
             <main className={mainClass}>
                 <URLStats
-                    url-data={urlData}
+
                     active-elements={activeElements}
                     state-setters={setActiveElements}
-                    set-sidebar={setSidebar}
-                    set-url-data={setURLData}
-                    lhr-data={LHRData}
-                    set-lhr-data={setLHRData}
+                    GlobalState={GlobalState}
                     />
             </main>
             <aside className='sidebar'>

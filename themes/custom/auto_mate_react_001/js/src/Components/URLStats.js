@@ -15,16 +15,11 @@ import { func } from 'prop-types';
 
 
 function URLStats(props) {
-    // const setActiveURL = props['url-setter'];
-    const setSidebar=props["set-sidebar"];
-    const setLHRData = props["set-lhr-data"];
     const testDisplayedData = {};
-
-    if(props["url-data"]&&props["url-data"]!=null) {
-        let urls = props["url-data"];
-        const setURLData = props["set-url-data"];
+    const GlobalState = props["GlobalState"];
+    if(GlobalState.urlData&&GlobalState.urlData!=null) {
         let urlListUpdated = [];
-        const urlList = urls.map((url, index) => {
+        const urlList = GlobalState.urlData.map((url, index) => {
             // console.log(url);
             url.test = url.nid;
             if(!url.JSResources) url.JSResources={
@@ -47,7 +42,7 @@ function URLStats(props) {
                                 <tbody>
                                     <tr>
                                         <td>
-                                            {url.JSResources.enabled==true && (<URLJSResources js-resources={url.JSResources} set-url-data={setURLData}/>)}
+                                            {url.JSResources.enabled==true && (<URLJSResources js-resources={url.JSResources} GlobalState={GlobalState}/>)}
                                             {url.CSSResources.enabled && (<URLCSSResources/>)}
                                             {url.FontResources.enabled && (<URLFontResources/>)}
                                             {url.ImageResources.enabled && (<URLImageResources/>)}
@@ -60,7 +55,7 @@ function URLStats(props) {
                         <td><Checkbox checked={url.CSSResources.enabled}/></td>
                         <td><Checkbox checked={url.FontResources.enabled}/></td>
                         <td><Checkbox checked={url.ImageResources.enabled}/></td>
-                        <td><LighthouseReportsListing url-nid={url.nid} set-lhr-data={url.setLHRData} lhr-data={url.LHRData}/></td>
+                        <td><LighthouseReportsListing url-nid={url.nid} GlobalState={GlobalState}/></td>
                         <td>{url.field_cls_average}<PercentageMeter value={url.field_cls_average} outer-width="90%"/></td>
                         <td>{url.field_fcp_average}<PercentageMeter value={url.field_fcp_average} outer-width="90%"/></td>
                         <td>{url.field_fmp_average}<PercentageMeter value={url.field_fmp_average} outer-width="90%"/></td>
@@ -94,7 +89,7 @@ function URLStats(props) {
                     blockName="url-stats"
                     content={
                         <>
-                            <ViewFilters set-sidebar={setSidebar} data-example={urls[0]}/>
+                            <ViewFilters GlobalState={GlobalState} data-example={GlobalState.urlData[0]}/>
                             <div className="view-content">
                                 <table className="views-table views-view-table cols-8">
                                     <thead>
