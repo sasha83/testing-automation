@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAGA,kBAAmB;EACf,KAAK,EAAE,GAAG",
+"sources": ["PageDomain.scss"],
 "names": [],
 "file": "PageDomain.css"
 }

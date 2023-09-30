@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import BlockTitle from '../UIElements/BlockTitle';
 import BlockContent from '../UIElements/BlockContent';
 
