@@ -8,34 +8,23 @@ import { func } from 'prop-types';
 function PageDomain(props) {
     // const urlData = props["url-data"];
     const GlobalState = props["GlobalState"];
-    const [activeElements, setActiveElements] = useState({
-        "activeParentURL": "",
-        "activeChildURLs": [],
-        "activeParentResource": "",
-        "activeChildResources": []
-    });
-    // const [activeParentURL, setActiveParentURL] = useState('asdf');
-    // const [activeChildURLs, setActiveChildURLs] = useState('asdf');
-    // const [activeParentResource, setActiveParentResource] = useState('asdf');
-    // const [activeChildResources, setActiveChildResources] = useState('asdf');
     const mainClass = classNames({
         'main-content': true,
         'side-bar-open': GlobalState.sidebar
     });
 
         return (<>
-
             <main className={mainClass}>
-                <URLStats
+                <section className='content-top'>
 
-                    active-elements={activeElements}
-                    state-setters={setActiveElements}
-                    GlobalState={GlobalState}
-                    />
+                </section>
+                (GlobalState.LHRData&&GlobalState.LHRData.length>0) && (<URLStats GlobalState={GlobalState}/>)
+                
+                <section className='content-bottom'></section>
             </main>
             <aside className='sidebar'>
-
             </aside>
+
         </>
     );
 }

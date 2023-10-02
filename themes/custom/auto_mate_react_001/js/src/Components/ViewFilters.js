@@ -8,7 +8,6 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 function ViewFilters(props) {
-    console.log('props:',props);
     const setSidebar = props['set-sidebar'];
     const [checked1, setChecked1] = React.useState(true);
     const [checked2, setChecked2] = React.useState(true);
