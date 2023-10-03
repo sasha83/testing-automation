@@ -4,6 +4,7 @@ import BlockTitle from '../UIElements/BlockTitle';
 import BlockContent from '../UIElements/BlockContent';
 import PercentageMeter from '../UIElements/PercentageMeter';
 import LighthouseReportsListing from './URLStatsComponents/LighthouseReportsListing';
+import Timeline from './URLStatsComponents/Timeline';
 import Checkbox from '@mui/material/Checkbox';
 
 import URLJSResources from './URLStatsComponents/URLJSResources';
@@ -42,6 +43,7 @@ function URLStats(props) {
                             <table className='url-resources'>
                                 <tbody>
                                     <tr>
+                                        {/* Resources */}
                                         <td>
                                             {url.JSResources.enabled==true && (<URLJSResources js-resources={url.JSResources}/>)}
                                             {url.CSSResources.enabled==true && (<URLCSSResources GlobalState={GlobalState}/>)}
@@ -61,7 +63,7 @@ function URLStats(props) {
                         {uiState.columns.CSSResources==true && (<td><Checkbox checked={url.CSSResources.enabled} onChange={function(){url.CSSResources.enabled=!url.CSSResources.enabled;}}/></td>)}
                         {uiState.columns.FontResources==true && (<td><Checkbox checked={url.FontResources.enabled} onChange={function(){url.FontResources.enabled=!url.FontResources.enabled;}}/></td>)}
                         {uiState.columns.ImageResources==true && (<td><Checkbox checked={url.ImageResources.enabled} onChange={function(){url.ImageResources.enabled=!url.ImageResources.enabled;}}/></td>)}
-                        {uiState.columns.lhr==true && (<td><LighthouseReportsListing lighthouse-reports={url.lhrData}/></td>)}
+                        {uiState.columns.lhr==true && (<td><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState}/></td>)}
                         {uiState.columns.cls==true && (<td>{url.field_cls_average}<PercentageMeter value={url.field_cls_average} outer-width="90%"/></td>)}
                         {uiState.columns.fcp==true && (<td>{url.field_fcp_average}<PercentageMeter value={url.field_fcp_average} outer-width="90%"/></td>)}
                         {uiState.columns.fmp==true && (<td>{url.field_fmp_average}<PercentageMeter value={url.field_fmp_average} outer-width="90%"/></td>)}
@@ -86,16 +88,6 @@ function URLStats(props) {
         (uiState.columns.fmp==true) && theadings.push("FMP Average");
         (uiState.columns.lcp==true) && theadings.push("LCP Average");
         (uiState.columns.tbt==true) && theadings.push("TBT Average");
-        // "JS Resources",
-        // "CSS Resources",
-        // "Font Resources",
-        // "Image Resources",
-        // "Available Lighthouse Reports",
-        // "CLS Average",
-        // "FCP Average",
-        // "FMP Average",
-        // "LCP Average",
-        // "TBT Average",
 
         const th = theadings.map((label, index) => {
             return <th key={index}>{label}</th>});
@@ -107,6 +99,7 @@ function URLStats(props) {
                     blockName="url-stats"
                     content={
                         <>
+                            <Timeline GlobalState={GlobalState}/>
                             <ViewFilters GlobalState={GlobalState} data-example={urlData[0]}/>
                             <div className="view-content">
                                 <table className="views-table views-view-table cols-8">

@@ -18,7 +18,8 @@ function PageDomain(props) {
                 <section className='content-top'>
 
                 </section>
-                (GlobalState.LHRData&&GlobalState.LHRData.length>0) && (<URLStats GlobalState={GlobalState}/>)
+                {/* (GlobalState.LHRData&&GlobalState.LHRData.length>0) && {<URLStats GlobalState={GlobalState}/>)} */}
+                <URLStats GlobalState={GlobalState}/>
                 
                 <section className='content-bottom'></section>
             </main>

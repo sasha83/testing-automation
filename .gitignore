@@ -42,6 +42,8 @@ npm-debug.log
 *.csv
 *.sh
 *.scssc
+main.min.js
+main.min.js.map
 /report-generator/*/*/*.json
 /report-generator/*.csv
 /report-generator/*.json

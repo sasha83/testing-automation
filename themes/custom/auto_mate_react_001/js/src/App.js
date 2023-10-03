@@ -74,16 +74,23 @@ export default function App() {
      }, []);
      let urlDataTemp = [];
      let lhrDataTemp = [];
+     const rando = Math.random();
+    //  console.log('rando:', rando);
+    //  console.log('(rando<=.5)',(rando<=.5));
      if(LHRData && LHRData!=undefined && LHRData.length>0 && urlData && urlData!=undefined && urlData.length>0) {
 
+        // find selected/active Lighthouse Reports within URLs
         urlData.forEach((url) => {
             if(url.lhrData==undefined) {
                 url.lhrData=[];
             }
+            let lhrindex = 0;
             LHRData.forEach((lhr) => {
                 if(lhr.field_url_reference_1==url.nid) {
+                    lhr.enabledUI = (Math.random()<=.5),
                     url.lhrData.push(lhr);
                 }
+                lhrindex++;
             });
             urlDataTemp.push(url);
         });

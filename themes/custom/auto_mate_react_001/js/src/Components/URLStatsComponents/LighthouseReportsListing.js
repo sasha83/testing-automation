@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useLocation } from 'react';
+import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
 
 function LighthouseReportsListing(props) {
-    console.log(props);
+    // console.log(props);
+    const GlobalState=props["GlobalState"];
     const LHRData = props["lighthouse-reports"];
     if(LHRData&&LHRData!=undefined&&LHRData.length>0) {
         const lhrListings = LHRData.map((lhreport, index) => {
-            return <tr key={index}><td>{lhreport.field_instance_id}</td><td>{lhreport.field_fetch_time}</td></tr>;
+            return <tr key={index}><td><Checkbox checked={lhreport.enabledUI}/></td><td>{lhreport.field_instance_id}</td><td>{lhreport.field_fetch_time}</td></tr>;
         });
         return <table className="lighthouse-reports-listing"><tbody>{lhrListings}</tbody></table>;    
     } else {
@@ -14,4 +16,4 @@ function LighthouseReportsListing(props) {
     }
 }
 
-export default LighthouseReportsListing;
+export default LighthouseReportsListing;    
