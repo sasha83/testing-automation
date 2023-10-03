@@ -8,6 +8,9 @@ npm-debug.log
 .DS_Store
 
 
+/themes/custom/auto-mate-react-001/js/dist/main.min.js
+/themes/custom/auto-mate-react-001/js/dist/main.min.js.map
+
 /report-generator/lighthouse
 /vendor
 /core
@@ -42,8 +45,6 @@ npm-debug.log
 *.csv
 *.sh
 *.scssc
-main.min.js
-main.min.js.map
 /report-generator/*/*/*.json
 /report-generator/*.csv
 /report-generator/*.json

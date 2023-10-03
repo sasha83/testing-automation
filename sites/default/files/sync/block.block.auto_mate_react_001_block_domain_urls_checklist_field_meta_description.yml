@@ -1,0 +1,25 @@
+uuid: 2822c7dc-f817-414f-ac38-91f7165c7abc
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.domain_page
+  module:
+    - views
+  theme:
+    - auto_mate_react_001
+id: auto_mate_react_001_block_domain_urls_checklist_field_meta_description
+theme: auto_mate_react_001
+region: header
+weight: 0
+provider: null
+plugin: 'views_block:domain_page-domain_urls_checklist_field_meta_description'
+settings:
+  id: 'views_block:domain_page-domain_urls_checklist_field_meta_description'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

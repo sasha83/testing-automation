@@ -1,0 +1,33 @@
+uuid: 0b96fbb9-bad4-40ea-8504-b5b9be989503
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.lighthouse_reports
+  module:
+    - node
+    - views
+  theme:
+    - auto_mate_react_001
+id: auto_mate_react_001_views_block__lighthouse_reports_block_1
+theme: auto_mate_react_001
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:lighthouse_reports-block_1'
+settings:
+  id: 'views_block:lighthouse_reports-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      domain: domain

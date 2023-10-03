@@ -1,0 +1,22 @@
+uuid: 3d5917f3-200e-4bee-8b05-024c9aab1ba0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - auto_mate_react_001
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: auto_mate_react_001_breadcrumbs
+theme: auto_mate_react_001
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }
