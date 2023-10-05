@@ -50,16 +50,83 @@ export default function App() {
         'tbt': true,
 
     }
+    const dashboardDataTypes = [
+        {
+            title: 'JavaScript Resources',
+            enabled: true,
+        }, {
+            title: 'CSS Resources',
+            enabled: false,
+        }, {
+            title: 'Font Resources',
+            enabled: true,
+        }, {
+            title: 'Image Resources',
+            enabled: true,
+        }, {
+            title: 'Lighthouse Reports',
+            enabled: true,
+        }, {
+            title: 'Cumulative Layout Shift',
+            enabled: true,
+        }, {
+            title: 'First Contentful Paint',
+            enabled: true,
+        }, {
+            title: 'First Meaningful Paint',
+            enabled: true,
+        }, {
+            title: 'Largest Contentful Paint',
+            enabled: true,
+        }, {
+            title: 'Total Blocking Time',
+            enabled: true,
+        }
+    ];
     const [urlData, setURLData] = useState(null);
     const [LHRData, setLHRData] = useState(null);
+    const [testData, setTestData] = useState({});
     const [uiState, setUIState] = useState({
-        'columns': columnsInit
+        'columns': columnsInit,
+        'dashboardDataTypes': dashboardDataTypes
     })
+
+
+
+    const handleClick = function(){
+        GlobalState.setTestData({test: 123});
+        console.log(GlobalState.testData);
+    }
+    const handleResourcesChange = function(resourceTitle, checkedValue) {
+        console.log('resourceTitle: ', resourceTitle);
+        console.log('uiState:', uiState);
+        let uiStateTemp = uiState;
+        // let uiState = GlobalState.uiState;
+        uiStateTemp.dashboardDataTypes = GlobalState.uiState.dashboardDataTypes.map((dashboardDataType, index) => {
+                console.log("dashboardDataType.enabled", dashboardDataType.enabled);
+                if(dashboardDataType.title==resourceTitle) {
+                    dashboardDataType.enabled=checkedValue;
+                }
+                return dashboardDataType;
+            });
+
+        GlobalState.setUIState(uiStateTemp);
+        GlobalState.setURLData(urlData);
+    
+
+        // GlobalState.setUIState(uiState);
+        // console.log('GlobalState.uiState:', GlobalState.uiState);
+    }
+
+
     const GlobalState = {
         nodeID, urlData, setURLData,
         LHRData, setLHRData,
         uiState, setUIState,
+        testData, setTestData,
+        handleClick,
     };
+    
     React.useEffect(() => {
         axios
         .get("http://automate.ddev.site/domain-urls-rest?domain_id="+parseInt(nodeID))
@@ -97,6 +164,6 @@ export default function App() {
         setURLData(urlDataTemp);
         setLHRData([]);
     }
-    return <><PageDomain GlobalState={GlobalState}/></>
+    return <><PageDomain handleResourcesChange={handleResourcesChange} GlobalState={GlobalState}/></>
 }
 

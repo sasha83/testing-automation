@@ -5,25 +5,48 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+
 
 
 function ViewFilters(props) {
-    const setSidebar = props['set-sidebar'];
-    const [checked1, setChecked1] = React.useState(true);
-    const [checked2, setChecked2] = React.useState(true);
-    // const [included, setIncluded] = React.useState(true);
-    // setSidebar(checked1);
-    
+    console.log('ViewFilters');
+// onChange={GlobalState.handleResourcesChange} 
+    const handleResourcesChange=props["handleResourcesChange"];
+
+    const GlobalState=props["GlobalState"];
+    console.log('GlobalState.uiState:', GlobalState.uiState);
+
+
+    // console.log('this:', this);
+    const checkboxes = GlobalState.uiState.dashboardDataTypes.map((dashboardDataType, index) => {
+        // console.log('dashboardDataType: ', dashboardDataType);
+        // return <Checkbox label={dashboardDataType["title"]}/>;
+
+        console.log('ViewFilters2');
+
+        return <FormControlLabel
+            key={index}
+            label={dashboardDataType.title}
+            control={
+                <Checkbox
+                    checked={dashboardDataType.enabled}
+                    onChange={()=>{
+                        handleResourcesChange(dashboardDataType.title, !dashboardDataType.enabled);
+
+                    }}/>
+            }
+        />
+
+
+
+
+    });
+    // console.log('checkboxes: ', checkboxes);
     return (
         <div>
-        <Checkbox
-            checked={checked1}
-            onChange={(e) => setChecked1(e.target.checked)}
-        />
-        <Checkbox
-            checked={checked2}
-            onChange={(e) => setChecked2(e.target.checked)}
-        />
+            {checkboxes}
         </div>);
 }
 

@@ -7,7 +7,7 @@ function Timeline(props) {
     const {urlData} = props["GlobalState"];
     let activeLHRData = [];
     // let urlDataTemp=[];
-    urlData.forEach(function(url) {
+    urlData.map(function(url) {
         // console.log('url.lhrData:',url.lhrData);
         if(url.lhrData) {
             // let lhrDataTemp=[];
@@ -31,7 +31,7 @@ function Timeline(props) {
         //     return <p>{url.nid}</p>;
         // });
     
-    console.log(activeLHRData);
+    // console.log(activeLHRData);
     return <div>{ activeLHRData.join('') }</div>;
 }
 
