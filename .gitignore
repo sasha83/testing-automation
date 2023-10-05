@@ -51,3 +51,8 @@ report-generator/_lighthouse-report-queue
 report-generator/_lighthouse-archive
 sites/default/files/test-report-json/flooranddecor.com_2019-why-wood-pdf.html.json
 sites/default/files/test-report-json/flooranddecor.com_2020-home-tile-and-flooring-trends.html.json
+themes/custom/auto_mate_react_001/.sass-cache/38d205f7e40d6a9178687b220c4da1dc32cad87e/style.scssc
+themes/custom/auto_mate_react_001/.sass-cache/4662116c0ef9301edfcf5e0a8589e5c03c87544b/style.scssc
+themes/custom/auto_mate_react_001/.sass-cache/742dd130f6a926257f376295480eb28ab181e4ce/_mixins.scssc
+themes/custom/auto_mate_react_001/.sass-cache/742dd130f6a926257f376295480eb28ab181e4ce/_variables.scssc
+themes/custom/auto_mate_react_001/.sass-cache/8c285077e2683fa165d08e63785f599c9dd90218/PageDomain.scssc
