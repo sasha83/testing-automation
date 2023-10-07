@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useLocation } from 'react';
 import axios from 'axios';
 import PageDomain from './Pages/PageDomain';
+import createStore from "teaful";
+const { useStore } = createStore();
+
 
 export default function App() {
 
