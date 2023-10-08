@@ -8,6 +8,7 @@ import { func } from 'prop-types';
 function PageDomain(props) {
     // const urlData = props["url-data"];
     const GlobalState = props["GlobalState"];
+    const updateGlobalState = props["updateGlobalState"];
     const handleResourcesChange=props["handleResourcesChange"];
     const mainClass = classNames({
         'main-content': true,
@@ -20,7 +21,7 @@ function PageDomain(props) {
 
                 </section>
                 {/* (GlobalState.LHRData&&GlobalState.LHRData.length>0) && {<URLStats GlobalState={GlobalState}/>)} */}
-                <URLStats GlobalState={GlobalState} handleResourcesChange={handleResourcesChange}/>
+                <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange}/>
                 
                 <section className='content-bottom'></section>
             </main>

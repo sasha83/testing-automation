@@ -10,37 +10,36 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 
+
 function ViewFilters(props) {
-    console.log('ViewFilters');
-// onChange={GlobalState.handleResourcesChange} 
-    const handleResourcesChange=props["handleResourcesChange"];
-
+    // const index = props["index"];
     const GlobalState=props["GlobalState"];
-    console.log('GlobalState.uiState:', GlobalState.uiState);
+    const updateGlobalState=props["updateGlobalState"];
+    const handleResourcesChange=props["handleResourcesChange"];
+    // console.log('GlobalState.uiState:', GlobalState.uiState);
 
 
-    // console.log('this:', this);
+    console.log('GlobalState: ', GlobalState);
     const checkboxes = GlobalState.uiState.dashboardDataTypes.map((dashboardDataType, index) => {
         // console.log('dashboardDataType: ', dashboardDataType);
         // return <Checkbox label={dashboardDataType["title"]}/>;
 
-        console.log('ViewFilters2');
+        console.log(dashboardDataType.title, 'index: ', index, dashboardDataType.enabled);
+        if(dashboardDataType.filter_exposed==true) {
+            return (<FormControlLabel
+                key={index}
+                label={dashboardDataType.title}
+                control={
+                    <Checkbox
+                        checked={dashboardDataType.enabled}
+                        onChange={()=>{
+                            console.log('here');
+                            handleResourcesChange(index, !dashboardDataType.enabled, GlobalState, updateGlobalState);
 
-        return <FormControlLabel
-            key={index}
-            label={dashboardDataType.title}
-            control={
-                <Checkbox
-                    checked={dashboardDataType.enabled}
-                    onChange={()=>{
-                        handleResourcesChange(dashboardDataType.title, !dashboardDataType.enabled);
-
-                    }}/>
-            }
-        />
-
-
-
+                        }}/>
+                }
+            />);
+        }
 
     });
     // console.log('checkboxes: ', checkboxes);

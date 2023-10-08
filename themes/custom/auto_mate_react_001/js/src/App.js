@@ -1,41 +1,12 @@
 import React, { useState, useEffect, useLocation } from 'react';
 import axios from 'axios';
 import PageDomain from './Pages/PageDomain';
-import createStore from "teaful";
-const { useStore } = createStore();
-
+import { useImmer } from 'use-immer'
+import { func } from 'prop-types';
 
 export default function App() {
 
     const nodeID = location.pathname.split("/").pop();
-
-
-    // const getFullLHRList(GlobalState) {
-    //     const {setLHRData} = props["GlobalState"];
-    //     React.useEffect(() => {
-    //         axios
-    //         .get("http://automate.ddev.site/domain-urls-rest?domain_id="+parseInt(nodeID))
-    //         .then(data => setLHRData(data.data))
-    //         .catch(error => console.log(error));
-    //      }, []);
-    // }
-    // const updateURLJSData(urlID) {
-
-    //     // get the lhrs of this url, 
-    //     // see if they're checked/enabled, 
-    //     //     see if the data is there for the checked/enabled ones,
-    //     //         request data from 'lhr-data-js-resources/?lhr_id="LHRID"' if not
-
-
-    //     React.useEffect(() => {
-    //         axios
-    //         .get("http://automate.ddev.site/lhr-data-js-resources/?lhr_id="LHRID")
-    //         .then(data => setLHRData(data.data))
-    //         .catch(error => console.log(error));
-    //     }, []);
-    //     console.log("urlData:", urlData);
-
-    // }
 
 
 
@@ -55,118 +26,117 @@ export default function App() {
     }
     const dashboardDataTypes = [
         {
+            title: 'URL',
+            filter_exposed: true,
+            enabled: true,
+        }, {
             title: 'JavaScript Resources',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'CSS Resources',
+            filter_exposed: true,
             enabled: false,
         }, {
             title: 'Font Resources',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'Image Resources',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'Lighthouse Reports',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'Cumulative Layout Shift',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'First Contentful Paint',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'First Meaningful Paint',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'Largest Contentful Paint',
+            filter_exposed: true,
             enabled: true,
         }, {
             title: 'Total Blocking Time',
+            filter_exposed: true,
             enabled: true,
         }
     ];
     const [urlData, setURLData] = useState(null);
     const [LHRData, setLHRData] = useState(null);
-    const [testData, setTestData] = useState({});
-    const [uiState, setUIState] = useState({
-        'columns': columnsInit,
-        'dashboardDataTypes': dashboardDataTypes
-    })
+    // const [uiState, setUIState] = useState({
+    //     'columns': columnsInit,
+    //     'dashboardDataTypes': dashboardDataTypes
+    // })
+
+    const [uiState, updateUIState] = useImmer(dashboardDataTypes)
 
 
-
-    const handleClick = function(){
-        GlobalState.setTestData({test: 123});
-        console.log(GlobalState.testData);
-    }
-    const handleResourcesChange = function(resourceTitle, checkedValue) {
-        console.log('resourceTitle: ', resourceTitle);
-        console.log('uiState:', uiState);
-        let uiStateTemp = uiState;
-        // let uiState = GlobalState.uiState;
-        uiStateTemp.dashboardDataTypes = GlobalState.uiState.dashboardDataTypes.map((dashboardDataType, index) => {
-                console.log("dashboardDataType.enabled", dashboardDataType.enabled);
-                if(dashboardDataType.title==resourceTitle) {
-                    dashboardDataType.enabled=checkedValue;
-                }
-                return dashboardDataType;
+    const handleResourcesChange = function(resourceIndex, checkedValue, GlobalState, updateGlobalState) {
+        // console.log();
+        console.log('pre GlobalState:', GlobalState, resourceIndex, checkedValue);
+        if(GlobalState.uiState.dashboardDataTypes[resourceIndex].enabled) {
+            updateGlobalState(draft => {
+                draft.uiState.dashboardDataTypes[resourceIndex].enabled=checkedValue;
             });
-
-        GlobalState.setUIState(uiStateTemp);
-        GlobalState.setURLData(urlData);
-    
-
-        // GlobalState.setUIState(uiState);
-        // console.log('GlobalState.uiState:', GlobalState.uiState);
+        }
+        console.log('post GlobalState:', GlobalState);
     }
+    const [GlobalState, updateGlobalState] = useImmer({
+        nodeID: nodeID,
+        urlData: [],
+        uiState: {
+            dashboardDataTypes: dashboardDataTypes
+        },
+        LHRData: [],
+        updateUIState: updateUIState,
+    });
 
-
-    const GlobalState = {
-        nodeID, urlData, setURLData,
-        LHRData, setLHRData,
-        uiState, setUIState,
-        testData, setTestData,
-        handleClick,
-    };
-    
+    const handleURLData=function(urlData, GlobalState) {
+        updateGlobalState(draft => {
+            draft.urlData=urlData;
+        })
+        // console.log(GlobalState);
+    }
+    const handleLHRData=function(LHRData, GlobalState) {
+        updateGlobalState(draft => {
+            draft.LHRData=LHRData;
+        })
+    }
+    // const handleUIState=function(uiState, GlobalState) {
+    //     updateGlobalState(draft => {
+    //         draft.uiState=uiState;
+    //     })
+    // };
+//         nodeID, urlData, setURLData,
+//         LHRData, setLHRData,
+//         uiState, updateUIState,
+// // 
     React.useEffect(() => {
         axios
         .get("http://automate.ddev.site/domain-urls-rest?domain_id="+parseInt(nodeID))
-        .then(data => setURLData(data.data))
+        .then(data => handleURLData(data.data, GlobalState))
         .catch(error => console.log(error));
      }, []);
      React.useEffect(() => {
         axios
         .get("http://automate.ddev.site/domain-lhrs-rest?domain_id="+parseInt(nodeID))
-        .then(data => setLHRData(data.data))
+        .then(data => handleLHRData(data.data, GlobalState))
         .catch(error => console.log(error));
      }, []);
      let urlDataTemp = [];
      let lhrDataTemp = [];
      const rando = Math.random();
-    //  console.log('rando:', rando);
-    //  console.log('(rando<=.5)',(rando<=.5));
-     if(LHRData && LHRData!=undefined && LHRData.length>0 && urlData && urlData!=undefined && urlData.length>0) {
-
-        // find selected/active Lighthouse Reports within URLs
-        urlData.forEach((url) => {
-            if(url.lhrData==undefined) {
-                url.lhrData=[];
-            }
-            let lhrindex = 0;
-            LHRData.forEach((lhr) => {
-                if(lhr.field_url_reference_1==url.nid) {
-                    lhr.enabledUI = (Math.random()<=.5),
-                    url.lhrData.push(lhr);
-                }
-                lhrindex++;
-            });
-            urlDataTemp.push(url);
-        });
-        setURLData(urlDataTemp);
-        setLHRData([]);
-    }
-    return <><PageDomain handleResourcesChange={handleResourcesChange} GlobalState={GlobalState}/></>
+    //  console.log('GlobalState:', GlobalState);
+    return <><PageDomain handleResourcesChange={handleResourcesChange} GlobalState={GlobalState} updateGlobalState={updateGlobalState}/></>
 }
 

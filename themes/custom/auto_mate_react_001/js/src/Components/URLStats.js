@@ -17,22 +17,22 @@ import { func } from 'prop-types';
 
 function URLStats(props) {
     const GlobalState = props["GlobalState"];
+    const updateGlobalState = props["updateGlobalState"];
     const handleResourcesChange=props["handleResourcesChange"];
     // const {urlData, lhrData, setURLData, setLHRData, uiState} = GlobalState;
 
     if(GlobalState.urlData&&Array.isArray(GlobalState.urlData)&&GlobalState.urlData.length>0) {
         let urlListUpdated = [];
         const urlList = GlobalState.urlData.map((url, index) => {
-            url.test = url.nid;
 
-            if(!url.JSResources) {
-                url.JSResources={
-                    enabled: false,
-                }
-            }
-            if(!url.CSSResources) url.CSSResources={enabled: false}
-            if(!url.FontResources) url.FontResources={enabled: false}
-            if(!url.ImageResources) url.ImageResources={enabled: false}
+            // if(!url.JSResources) {
+            //     url.JSResources={
+            //         enabled: false,
+            //     }
+            // }
+            // if(!url.CSSResources) url.CSSResources={enabled: false}
+            // if(!url.FontResources) url.FontResources={enabled: false}
+            // if(!url.ImageResources) url.ImageResources={enabled: false}
             urlListUpdated.push(url);
 
             return (
@@ -100,7 +100,7 @@ function URLStats(props) {
                     content={
                         <>
                             <Timeline GlobalState={GlobalState}/>
-                            <ViewFilters handleResourcesChange={handleResourcesChange} GlobalState={GlobalState}/>
+                            <ViewFilters handleResourcesChange={handleResourcesChange} GlobalState={GlobalState} updateGlobalState={updateGlobalState}/>
                             <div className="view-content">
                                 <table className="views-table views-view-table cols-8">
                                     <thead>
