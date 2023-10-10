@@ -32,29 +32,19 @@ export default function App() {
                 jsResourcesEnabledURLs.splice(index, 1);
             }
         }
-        console.log('uiState: ', uiState);
-        console.log('uiState.activeJSResourcesURLs: ', uiState.activeJSResourcesURLs);
         updateUIState(draft => {
             draft.activeJSResourcesURLs=jsResourcesEnabledURLs;
         });
-        console.log('jsResourcesEnabledURLs.length:', jsResourcesEnabledURLs.length);
-        console.log('uiState: ', uiState);
     
         if(jsResourcesEnabledURLs.length>0) {
-            console.log('jsResourcesEnabledURLs:',jsResourcesEnabledURLs);
             updateUIState(draft => {
                 draft.sidebar = true;
             });
         } else {
-            console.log('jsResourcesEnabledURLs:',jsResourcesEnabledURLs);
             updateUIState(draft => {
                 draft.sidebar = false;
             });
         }
-
-        
-        
-
     }
     // const handleSidebar(enable) {
     //     updateUIState(draft => { draft.sidebar=enable; });
@@ -168,7 +158,6 @@ export default function App() {
     //  let urlDataTemp = [];
     //  let lhrDataTemp = [];
      const rando = Math.random();
-    //  console.log('GlobalState:', GlobalState);
     return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/></>
 }
 

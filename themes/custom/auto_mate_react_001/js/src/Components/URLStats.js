@@ -21,8 +21,7 @@ function URLStats(props) {
     const uiState=props["uiState"];
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props["handleJSResourcesSelectedURLs"];
-    // const {urlData, lhrData, setURLData, setLHRData, uiState} = GlobalState;
-    console.log(uiState);
+
     if(GlobalState.urlData&&Array.isArray(GlobalState.urlData)&&GlobalState.urlData.length>0) {
         let urlListUpdated = [];
         const urlList = GlobalState.urlData.map((url, urlIndex) => {
@@ -78,7 +77,6 @@ function URLStats(props) {
         const th = uiState.dashboardDataTypes.map((dataType, index) => {
             if(dataType.enabled==true) return <th key={index}>{dataType.title}</th>});
 
-        // console.log('URLStats - uiState.dashboardDataTypes', uiState.dashboardDataTypes);
         return (
             <div className="block block-url-stats-block">
                 <BlockTitle title="URL Stats"/>
