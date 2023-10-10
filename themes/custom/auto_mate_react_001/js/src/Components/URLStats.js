@@ -36,7 +36,7 @@ function URLStats(props) {
                     } else if(dataType.data_type=='lighthouse_list') {
                         return (<td><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState}/></td>);
                     } else if(dataType.data_type=='meter') {
-                        return(<td><PercentageMeter value={url[dataType.parameter]} outer-width="90%"/></td>);
+                        return(<td>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%"/></td>);
                     }
                 }
             });
