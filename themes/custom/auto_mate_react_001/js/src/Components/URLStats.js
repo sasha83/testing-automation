@@ -18,27 +18,34 @@ import { func } from 'prop-types';
 function URLStats(props) {
     const GlobalState = props["GlobalState"];
     const updateGlobalState = props["updateGlobalState"];
+    const uiState=props["uiState"];
     const handleResourcesChange=props["handleResourcesChange"];
+    const handleJSResourcesSelectedURLs=props["handleJSResourcesSelectedURLs"];
     // const {urlData, lhrData, setURLData, setLHRData, uiState} = GlobalState;
 
     if(GlobalState.urlData&&Array.isArray(GlobalState.urlData)&&GlobalState.urlData.length>0) {
         let urlListUpdated = [];
-        const urlList = GlobalState.urlData.map((url, index) => {
+        const urlList = GlobalState.urlData.map((url, urlIndex) => {
 
-            // if(!url.JSResources) {
-            //     url.JSResources={
-            //         enabled: false,
-            //     }
-            // }
-            // if(!url.CSSResources) url.CSSResources={enabled: false}
-            // if(!url.FontResources) url.FontResources={enabled: false}
-            // if(!url.ImageResources) url.ImageResources={enabled: false}
+            const dataColumns = uiState.dashboardDataTypes.map((dataType, uiStateIndex) => {
+                if(dataType.enabled==true) {
+                    if(dataType.data_type=='other') {
+                        // return (<td><p>other here</p></td>);
+                    } else if(dataType.data_type=='checkbox') {
+                        return(<td><Checkbox onChange={() => {handleJSResourcesSelectedURLs(parseInt(url.nid))}}/></td>);
+                    } else if(dataType.data_type=='lighthouse_list') {
+                        return (<td><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState}/></td>);
+                    } else if(dataType.data_type=='meter') {
+                        return(<td><PercentageMeter value={url[dataType.parameter]} outer-width="90%"/></td>);
+                    }
+                }
+            });
+
             urlListUpdated.push(url);
-
             return (
                 <tr 
                     className="views-field views-field-title"
-                    key={index}>
+                    key={urlIndex}>
                         <td><Checkbox/></td>
                         <td className='views-field views-field-title'>
                             <a href={url.view_node}>{url.title}</a>
@@ -46,18 +53,13 @@ function URLStats(props) {
                             <table className='url-resources'>
                                 <tbody>
                                     <tr>
-                                        {/* URL Resources */}
-                                        {/* <td>
-                                            {url.JSResources.enabled==true && (<URLJSResources js-resources={url.JSResources}/>)}
-                                            {url.CSSResources.enabled==true && (<URLCSSResources GlobalState={GlobalState}/>)}
-                                            {url.FontResources.enabled==true && (<URLFontResources GlobalState={GlobalState}/>)}
-                                            {url.ImageResources.enabled==true && (<URLImageResources GlobalState={GlobalState}/>)}
-                                        </td> */}
+                                        {/* URL Resources will go here!!!*/}
                                     </tr>
                                 </tbody>
                             </table>
                         </td>
 
+                         {dataColumns}
                         {/* {uiState.columns.JSResources==true && (<td><Checkbox checked={url.JSResources.enabled}/></td>)}
                         {uiState.columns.CSSResources==true && (<td><Checkbox checked={url.CSSResources.enabled} onChange={GlobalState.handleResourcesChange}/></td>)}
                         {uiState.columns.FontResources==true && (<td><Checkbox checked={url.FontResources.enabled} onChange={function(){url.FontResources.enabled=!url.FontResources.enabled;}}/></td>)}
@@ -69,29 +71,13 @@ function URLStats(props) {
                         {uiState.columns.lcp==true && (<td>{url.field_lcp_average}<PercentageMeter value={url.field_lcp_average} outer-width="90%"/></td>)}
                         {uiState.columns.tbt==true && (<td>{url.field_tbt_average}<PercentageMeter value={url.field_tbt_average} outer-width="90%"/></td>)} */}
                 </tr>);
-            ;
 
         });
-        // setURLData(urlListUpdated);
-        let theadings = [
-            "Active",
-            "URL",
-        ];
-        // (GlobalState.uiState.columns.JSResources==true) && theadings.push("JS Resources");
-        // (GlobalState.uiState.columns.CSSResources==true) && theadings.push("CSS Resources");
-        // (GlobalState.uiState.columns.FontResources==true) && theadings.push("Font Resources");
-        // (GlobalState.uiState.columns.ImageResources==true) && theadings.push("Image Resources");
-        // (GlobalState.uiState.columns.lhr==true) && theadings.push("Available Lighthouse Reports");
-        // (GlobalState.uiState.columns.cls==true) && theadings.push("CLS Average");
-        // (GlobalState.uiState.columns.fcp==true) && theadings.push("FCP Average");
-        // (GlobalState.uiState.columns.fmp==true) && theadings.push("FMP Average");
-        // (GlobalState.uiState.columns.lcp==true) && theadings.push("LCP Average");
-        // (GlobalState.uiState.columns.tbt==true) && theadings.push("TBT Average");
 
-        const th = theadings.map((label, index) => {
-            return <th key={index}>{label}</th>});
+        const th = uiState.dashboardDataTypes.map((dataType, index) => {
+            if(dataType.enabled==true) return <th key={index}>{dataType.title}</th>});
 
-        console.log('URLStats - GlobalState.uiState.dashboardDataTypes', GlobalState.uiState.dashboardDataTypes);
+        // console.log('URLStats - uiState.dashboardDataTypes', uiState.dashboardDataTypes);
         return (
             <div className="block block-url-stats-block">
                 <BlockTitle title="URL Stats"/>
@@ -100,7 +86,7 @@ function URLStats(props) {
                     content={
                         <>
                             <Timeline GlobalState={GlobalState}/>
-                            <ViewFilters handleResourcesChange={handleResourcesChange} GlobalState={GlobalState} updateGlobalState={updateGlobalState}/>
+                            <ViewFilters handleResourcesChange={handleResourcesChange} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState}/>
                             <div className="view-content">
                                 <table className="views-table views-view-table cols-8">
                                     <thead>

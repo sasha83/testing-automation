@@ -16,15 +16,17 @@ function ViewFilters(props) {
     const GlobalState=props["GlobalState"];
     const updateGlobalState=props["updateGlobalState"];
     const handleResourcesChange=props["handleResourcesChange"];
+    const uiState=props["uiState"];
+
     // console.log('GlobalState.uiState:', GlobalState.uiState);
 
 
-    console.log('GlobalState: ', GlobalState);
-    const checkboxes = GlobalState.uiState.dashboardDataTypes.map((dashboardDataType, index) => {
+    // console.log('GlobalState: ', GlobalState);
+    const checkboxes = uiState.dashboardDataTypes.map((dashboardDataType, index) => {
         // console.log('dashboardDataType: ', dashboardDataType);
         // return <Checkbox label={dashboardDataType["title"]}/>;
 
-        console.log(dashboardDataType.title, 'index: ', index, dashboardDataType.enabled);
+        // console.log(dashboardDataType.title, 'index: ', index, dashboardDataType.enabled);
         if(dashboardDataType.filter_exposed==true) {
             return (<FormControlLabel
                 key={index}
@@ -33,8 +35,8 @@ function ViewFilters(props) {
                     <Checkbox
                         checked={dashboardDataType.enabled}
                         onChange={()=>{
-                            console.log('here');
-                            handleResourcesChange(index, !dashboardDataType.enabled, GlobalState, updateGlobalState);
+                            console.log('dashboardDataType.enabled:', dashboardDataType.enabled);
+                            handleResourcesChange(index, !dashboardDataType.enabled);
 
                         }}/>
                 }

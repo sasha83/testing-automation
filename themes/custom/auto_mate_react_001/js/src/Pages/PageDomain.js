@@ -9,7 +9,9 @@ function PageDomain(props) {
     // const urlData = props["url-data"];
     const GlobalState = props["GlobalState"];
     const updateGlobalState = props["updateGlobalState"];
+    const uiState=props["uiState"];
     const handleResourcesChange=props["handleResourcesChange"];
+    const handleJSResourcesSelectedURLs=props['handleJSResourcesSelectedURLs']
     const mainClass = classNames({
         'main-content': true,
         'side-bar-open': GlobalState.sidebar
@@ -21,7 +23,7 @@ function PageDomain(props) {
 
                 </section>
                 {/* (GlobalState.LHRData&&GlobalState.LHRData.length>0) && {<URLStats GlobalState={GlobalState}/>)} */}
-                <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange}/>
+                <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
                 
                 <section className='content-bottom'></section>
             </main>
