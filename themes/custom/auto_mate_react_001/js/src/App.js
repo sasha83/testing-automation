@@ -75,12 +75,12 @@ export default function App() {
         }, {
             title: 'Font Resources',
             filter_exposed: true,
-            enabled: true,
+            enabled: false,
             data_type: 'checkbox'
         }, {
             title: 'Image Resources',
             filter_exposed: true,
-            enabled: true,
+            enabled: false,
             data_type: 'checkbox'
         }, {
             title: 'Lighthouse Reports',

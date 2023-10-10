@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import './PageDomain.css';
 // import JSResources from '../Components/JSResources';
 import { func } from 'prop-types';
+import JSResources from '../Components/JSResources';
 
 function PageDomain(props) {
     // const urlData = props["url-data"];
@@ -12,7 +13,6 @@ function PageDomain(props) {
     const uiState=props["uiState"];
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props['handleJSResourcesSelectedURLs']
-    console.log('uiState.sidebar', uiState.sidebar);
     const appContainerClass = classNames({
         'main-content': true,
         'sidebar-open': uiState.sidebar
@@ -29,6 +29,7 @@ function PageDomain(props) {
                 <section className='content-bottom'></section>
             </main>
             <aside className='sidebar'>
+                <JSResources  GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
             </aside>
 
         </div>

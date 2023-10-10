@@ -11,19 +11,18 @@
         position: fixed;
         top: 0;
         left: 100%;
-        width: 0%;
+        width: 25%;
         height: 100%;
-        transition: width .5s;
-        transition: left .5s;
+        transition-property: left;
+        transition-duration: .5s;
     }
 
     &.sidebar-open {
         .content-main {
-            width: 70%;
+            width: 75%;
         }
         .sidebar {
-            left: 70%;
-            width: 30%;
+            left: 75%;
         }
     }
 

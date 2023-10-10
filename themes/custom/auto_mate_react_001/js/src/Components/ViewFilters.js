@@ -12,21 +12,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 function ViewFilters(props) {
-    // const index = props["index"];
     const GlobalState=props["GlobalState"];
     const updateGlobalState=props["updateGlobalState"];
     const handleResourcesChange=props["handleResourcesChange"];
     const uiState=props["uiState"];
 
-    // console.log('GlobalState.uiState:', GlobalState.uiState);
-
-
-    // console.log('GlobalState: ', GlobalState);
     const checkboxes = uiState.dashboardDataTypes.map((dashboardDataType, index) => {
-        // console.log('dashboardDataType: ', dashboardDataType);
-        // return <Checkbox label={dashboardDataType["title"]}/>;
-
-        // console.log(dashboardDataType.title, 'index: ', index, dashboardDataType.enabled);
         if(dashboardDataType.filter_exposed==true) {
             return (<FormControlLabel
                 key={index}
@@ -35,7 +26,6 @@ function ViewFilters(props) {
                     <Checkbox
                         checked={dashboardDataType.enabled}
                         onChange={()=>{
-                            console.log('dashboardDataType.enabled:', dashboardDataType.enabled);
                             handleResourcesChange(index, !dashboardDataType.enabled);
 
                         }}/>
