@@ -12,25 +12,26 @@ function PageDomain(props) {
     const uiState=props["uiState"];
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props['handleJSResourcesSelectedURLs']
-    const mainClass = classNames({
+    console.log('uiState.sidebar', uiState.sidebar);
+    const appContainerClass = classNames({
         'main-content': true,
-        'side-bar-open': GlobalState.sidebar
+        'sidebar-open': uiState.sidebar
     });
 
-        return (<>
-            <main className={mainClass}>
+        return (<div id="page-container" className={appContainerClass}>
+            <main>
                 <section className='content-top'>
 
                 </section>
-                {/* (GlobalState.LHRData&&GlobalState.LHRData.length>0) && {<URLStats GlobalState={GlobalState}/>)} */}
-                <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
-                
+                <section className='content-main'>
+                    <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
+                </section>
                 <section className='content-bottom'></section>
             </main>
             <aside className='sidebar'>
             </aside>
 
-        </>
+        </div>
     );
 }
 

@@ -1,6 +1,27 @@
 @import '../scss/abstractions/_variables';
 @import '../scss/abstractions/_mixins';
 
-main.side-bar-open {
-    width: 70%;
+#page-container {
+    .content-main {
+        width: 100%;
+    }
+    .sidebar {
+        background-color: rgba(0, 0, 0, .8);
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 0%;
+        height: 100%;
+    }
+
+    &.sidebar-open {
+        .content-main {
+            width: 70%;
+        }
+        .sidebar {
+            left: 70%;
+            width: 30%;
+        }
+    }
+
 }

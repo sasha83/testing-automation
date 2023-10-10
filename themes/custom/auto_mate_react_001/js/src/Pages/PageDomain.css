@@ -1,4 +1,16 @@
-main.side-bar-open {
+#page-container .content-main {
+  width: 100%; }
+#page-container .sidebar {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 0%;
+  height: 100%; }
+#page-container.sidebar-open .content-main {
   width: 70%; }
+#page-container.sidebar-open .sidebar {
+  left: 70%;
+  width: 30%; }
 
 /*# sourceMappingURL=PageDomain.css.map */

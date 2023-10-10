@@ -22,21 +22,22 @@ function URLStats(props) {
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props["handleJSResourcesSelectedURLs"];
     // const {urlData, lhrData, setURLData, setLHRData, uiState} = GlobalState;
-
+    console.log(uiState);
     if(GlobalState.urlData&&Array.isArray(GlobalState.urlData)&&GlobalState.urlData.length>0) {
         let urlListUpdated = [];
         const urlList = GlobalState.urlData.map((url, urlIndex) => {
-
             const dataColumns = uiState.dashboardDataTypes.map((dataType, uiStateIndex) => {
                 if(dataType.enabled==true) {
                     if(dataType.data_type=='other') {
                         // return (<td><p>other here</p></td>);
-                    } else if(dataType.data_type=='checkbox') {
-                        return(<td><Checkbox onChange={() => {handleJSResourcesSelectedURLs(parseInt(url.nid))}}/></td>);
+                    } else if(dataType.data_type=='jsresources') {
+                        return(<td><Checkbox onChange={e => {handleJSResourcesSelectedURLs(parseInt(url.nid), e)}}/></td>);
                     } else if(dataType.data_type=='lighthouse_list') {
                         return (<td><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState}/></td>);
                     } else if(dataType.data_type=='meter') {
                         return(<td>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%"/></td>);
+                    } else {
+                        return <td></td>;
                     }
                 }
             });
