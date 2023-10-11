@@ -12,7 +12,8 @@
   transition-duration: .5s;
   -webkit-box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5);
-  box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5); }
+  box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5);
+  overflow: scroll; }
 #page-container.sidebar-open .content-main {
   width: 75%; }
 #page-container.sidebar-open .sidebar {
