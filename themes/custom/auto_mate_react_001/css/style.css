@@ -1,4 +1,9 @@
 @use 'abstractions/mixins.scss';
+.block-js-resources-block {
+  margin: 3rem; }
+  .block-js-resources-block td {
+    text-align: left; }
+
 .view-display-id-domain_page_url_js_resources {
   flex-direction: row; }
 
@@ -168,10 +173,18 @@ tr td {
   max-height: 60rem;
   overflow: scroll; }
 
+.url-stats-view-filters {
+  max-width: 900px; }
+
 .view-url-stats,
 .block-url-stats-block {
-  border: 2px solid #ddd;
   padding: 2rem 1rem; }
+  .view-url-stats .block-url-stats-content label,
+  .block-url-stats-block .block-url-stats-content label {
+    width: 25%; }
+    .view-url-stats .block-url-stats-content label span,
+    .block-url-stats-block .block-url-stats-content label span {
+      font-weight: bold; }
   .view-url-stats .view-content .views-row,
   .block-url-stats-block .view-content .views-row {
     display: flex;

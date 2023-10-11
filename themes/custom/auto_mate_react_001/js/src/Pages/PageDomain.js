@@ -17,7 +17,7 @@ function PageDomain(props) {
         'main-content': true,
         'sidebar-open': uiState.sidebar
     });
-
+    console.log('GlobalState:', GlobalState);
         return (<div id="page-container" className={appContainerClass}>
             <main>
                 <section className='content-top'>
@@ -29,7 +29,7 @@ function PageDomain(props) {
                 <section className='content-bottom'></section>
             </main>
             <aside className='sidebar'>
-                <JSResources  GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
+                <JSResources  GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} />
             </aside>
 
         </div>

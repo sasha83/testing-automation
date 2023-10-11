@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLocation } from 'react';
-import ViewFilters from '../Components/ViewFilters';
+import ViewFilters from './URLStatsComponents/ViewFilters';
 import BlockTitle from '../UIElements/BlockTitle';
 import BlockContent from '../UIElements/BlockContent';
 import PercentageMeter from '../UIElements/PercentageMeter';
@@ -7,10 +7,6 @@ import LighthouseReportsListing from './URLStatsComponents/LighthouseReportsList
 import Timeline from './URLStatsComponents/Timeline';
 import Checkbox from '@mui/material/Checkbox';
 
-import URLJSResources from './URLStatsComponents/URLJSResources';
-import URLCSSResources from './URLStatsComponents/URLCSSResources';
-import URLImageResources from './URLStatsComponents/URLImageResources';
-import URLFontResources from './URLStatsComponents/URLFontResources';
 
 import { func } from 'prop-types';
 

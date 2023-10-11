@@ -8,7 +8,10 @@
 }
 
 
-
+.block-js-resources-block {
+        margin: 3rem;
+        td {text-align: left;}
+}
 .view-display-id-domain_page_url_js_resources {
 
         flex-direction: row;
@@ -313,10 +316,21 @@ tr {
                 }
         }
 }
-
+.url-stats-view-filters {
+        max-width: 900px;
+}
 .view-url-stats,
 .block-url-stats-block {
-        border: 2px solid #ddd;
+        .block-url-stats-content {
+                label {
+                        width: 25%;
+                        span {
+                                font-weight: bold;
+                        }
+                        // margin-right: 4rem;
+                }
+        }
+        // border: 2px solid #ddd;
         padding: 2rem 1rem;
 
         .view-content {

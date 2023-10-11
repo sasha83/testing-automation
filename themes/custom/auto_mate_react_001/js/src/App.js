@@ -96,13 +96,13 @@ export default function App() {
         }, {
             title: 'First Contentful Paint',
             filter_exposed: true,
-            enabled: true,
+            enabled: false,
             data_type: 'meter',
             parameter: 'field_fcp_average'
         }, {
             title: 'First Meaningful Paint',
             filter_exposed: true,
-            enabled: true,
+            enabled: false,
             data_type: 'meter',
             parameter: 'field_fmp_average'
         }, {
