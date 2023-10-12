@@ -51,7 +51,7 @@ function URLStats(props) {
                 // console.log('node:', node);
                 // console.log('mostRecentLHR:', mostRecentLHR[0]);
                 // console.log('foundInScriptTreemapData:', foundInScriptTreemapData);
-                if(foundInScriptTreemapData[0].name) {
+                if(foundInScriptTreemapData[0]!=undefined && foundInScriptTreemapData[0].name!=undefined) {
                     return <tr><td>{foundInScriptTreemapData[0].name}</td><td>unusedBytes: {foundInScriptTreemapData[0].unusedBytes}</td><td>totalBytes: {foundInScriptTreemapData[0].resourceBytes}</td></tr>;
                 }
 
