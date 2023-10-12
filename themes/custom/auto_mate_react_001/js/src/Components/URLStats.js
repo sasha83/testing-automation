@@ -6,10 +6,14 @@ import PercentageMeter from '../UIElements/PercentageMeter';
 import LighthouseReportsListing from './URLStatsComponents/LighthouseReportsListing';
 import Timeline from './URLStatsComponents/Timeline';
 import Checkbox from '@mui/material/Checkbox';
+import './URLStats.css';
 
 
 import { func } from 'prop-types';
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function URLStats(props) {
     const GlobalState = props["GlobalState"];
@@ -46,13 +50,13 @@ function URLStats(props) {
             // getURLScriptData(LHRData, url.nid, activeScript);
             const urlResourceListing = activeJSResourceNodes.map((node, index) => {
                 const mostRecentLHR = LHRData.filter((lhr) => lhr.field_url_reference_1 == url.nid);
-
                 const foundInScriptTreemapData = mostRecentLHR[0].field_script_treemap_data.filter((script) => script.name==node.name);
-                // console.log('node:', node);
-                // console.log('mostRecentLHR:', mostRecentLHR[0]);
-                // console.log('foundInScriptTreemapData:', foundInScriptTreemapData);
                 if(foundInScriptTreemapData[0]!=undefined && foundInScriptTreemapData[0].name!=undefined) {
-                    return <tr><td>{foundInScriptTreemapData[0].name}</td><td>unusedBytes: {foundInScriptTreemapData[0].unusedBytes}</td><td>totalBytes: {foundInScriptTreemapData[0].resourceBytes}</td></tr>;
+                    const unusedBytes=foundInScriptTreemapData[0].unusedBytes;
+                    const totalBytes=foundInScriptTreemapData[0].resourceBytes;
+                    const usedBytes=foundInScriptTreemapData[0].resourceBytes-unusedBytes;
+                    const usedPerc=usedBytes/totalBytes*100;
+                    return <tr><td className='url-js-resource-name'>{foundInScriptTreemapData[0].name}</td><td className='url-js-resource-usage'><PercentageMeter value={usedBytes/totalBytes} outer-width="100%"/><span className='meter-label'>{numberWithCommas(usedBytes)} of {numberWithCommas(totalBytes)} used</span></td></tr>;
                 }
 
                 // if(LHRData.filter((lhr) => {lhr.field_url_reference_1==url.nid && lhr.field_script_treemap_data.))

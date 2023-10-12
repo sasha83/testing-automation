@@ -1,0 +1,17 @@
+.url-js-resources td.url-js-resource-name {
+  text-align: left;
+  font-size: .75em;
+  font-weight: bold; }
+.url-js-resources td.url-js-resource-usage {
+  width: 240px;
+  font-size: .75em;
+  font-weight: bold; }
+  .url-js-resources td.url-js-resource-usage .percentage-meter {
+    left: 0;
+    position: relative; }
+  .url-js-resources td.url-js-resource-usage .meter-label {
+    text-align: right;
+    display: block;
+    clear: both; }
+
+/*# sourceMappingURL=URLStats.css.map */
