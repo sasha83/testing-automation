@@ -9,14 +9,19 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 import { func } from 'prop-types';
+import JSResources from './JSResources';
 
 
 function URLStats(props) {
     const GlobalState = props["GlobalState"];
+    const urlData=GlobalState.urlData;
+    const LHRData=GlobalState.LHRData;
     const updateGlobalState = props["updateGlobalState"];
     const uiState=props["uiState"];
+    const activeJSResourcesURLs=uiState.activeJSResourcesURLs;
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props["handleJSResourcesSelectedURLs"];
+    const handleJSResource=props["handleJSResource"];
 
     if(GlobalState.urlData&&Array.isArray(GlobalState.urlData)&&GlobalState.urlData.length>0) {
         let urlListUpdated = [];
@@ -38,6 +43,11 @@ function URLStats(props) {
             });
 
             urlListUpdated.push(url);
+            // getURLScriptData(LHRData, url.nid, activeScript);
+            const resourceListing = activeJSResourcesURLs.map((urlID, index) => {
+                return <tr key={urlID}><td>{urlID}</td></tr>;
+            });
+    
             return (
                 <tr 
                     className="views-field views-field-title"
@@ -48,9 +58,7 @@ function URLStats(props) {
                             
                             <table className='url-resources'>
                                 <tbody>
-                                    <tr>
-                                        {/* URL Resources will go here!!!*/}
-                                    </tr>
+                                    {resourceListing}
                                 </tbody>
                             </table>
                         </td>

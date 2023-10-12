@@ -2,16 +2,6 @@
 .MuiSvgIcon-root {
   font-size: 2.5rem !important; }
 
-.block-js-resources-block {
-  margin: 3rem; }
-  .block-js-resources-block td {
-    text-align: left; }
-    .block-js-resources-block td.js-resource-name {
-      max-width: 200px;
-      overflow: hidden; }
-    .block-js-resources-block td.js-resource-size {
-      font-weight: bold; }
-
 .view-display-id-domain_page_url_js_resources {
   flex-direction: row; }
 
@@ -180,9 +170,6 @@ tr td {
 .block-views-blockdomain-page-domain-page-urls .view .view-content {
   max-height: 60rem;
   overflow: scroll; }
-
-.url-stats-view-filters {
-  max-width: 900px; }
 
 .view-url-stats,
 .block-url-stats-block {

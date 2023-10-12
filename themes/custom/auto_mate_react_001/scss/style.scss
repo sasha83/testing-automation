@@ -10,19 +10,7 @@
         font-size: 2.5rem !important;
 }
 
-.block-js-resources-block {
-        margin: 3rem;
 
-        td {text-align: left;
-                &.js-resource-name {
-                        max-width: 200px;
-                        overflow: hidden;
-                }
-                &.js-resource-size {
-                        font-weight: bold;
-                }
-        }
-}
 .view-display-id-domain_page_url_js_resources {
 
         flex-direction: row;
@@ -326,9 +314,6 @@ tr {
                         overflow: scroll;
                 }
         }
-}
-.url-stats-view-filters {
-        max-width: 900px;
 }
 .view-url-stats,
 .block-url-stats-block {

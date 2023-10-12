@@ -8,6 +8,20 @@ export default function App() {
 
     const nodeID = location.pathname.split("/").pop();
 
+    const [activeJSResources, updateActiveJSResources] = useImmer([]);
+    const handleJSResource=function(LHRData, URLData, node) {
+        // WORK HERE!!!!!!
+        console.log('handleJSResource:');
+        console.log('URLData:', URLData);
+        console.log('LHRData:', LHRData);
+        console.log('node:', node);
+        // const getURLScriptData=function(LHRData, URLID, scriptName) {
+        //     const urlLHRData = LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(URLID));
+        //     const scriptTreemapData = JSON.parse(urlLHRData[0].field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
+        //     const scriptData = scriptTreemapData.filter((script)=>{script.name==scriptName});
+        //     console.log('scriptData:', scriptData);
+        // }
+    }
 
     const handleURLData=function(urlData) {
         updateGlobalState(draft => {
@@ -15,8 +29,15 @@ export default function App() {
         })
     }
     const handleLHRData=function(LHRData) {
+        console.log('LHRData:', LHRData);
+        const parsedLHRData = LHRData.map((lhr)=>{
+            const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
+            lhr.field_script_treemap_data=scriptTreemapData;
+            return lhr;
+        });
+        console.log('parsedLHRData:', parsedLHRData);
         updateGlobalState(draft => {
-            draft.LHRData=LHRData;
+            draft.LHRData=parsedLHRData;
         })
     }
     const handleJSResourcesSelectedURLs = function(urlID, e) {
@@ -45,6 +66,14 @@ export default function App() {
                 draft.sidebar = false;
             });
         }
+    }
+    const handleJSActiveResources = function(node, LHRData, URLData) {
+        // mergeLHRtoURLData(LHRData, URLData);
+        // console.log('node:', node);
+        // console.log(LHRData);
+        // updateUIState(draft => {
+
+        // }
     }
     // const handleSidebar(enable) {
     //     updateUIState(draft => { draft.sidebar=enable; });
@@ -158,6 +187,6 @@ export default function App() {
     //  let urlDataTemp = [];
     //  let lhrDataTemp = [];
      const rando = Math.random();
-    return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/></>
+    return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource}/></>
 }
 

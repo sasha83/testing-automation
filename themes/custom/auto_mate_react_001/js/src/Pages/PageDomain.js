@@ -11,6 +11,7 @@ function PageDomain(props) {
     const GlobalState = props["GlobalState"];
     const updateGlobalState = props["updateGlobalState"];
     const uiState=props["uiState"];
+    const handleJSResource=props["handleJSResource"];
     const handleResourcesChange=props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs=props['handleJSResourcesSelectedURLs']
     const appContainerClass = classNames({
@@ -24,12 +25,12 @@ function PageDomain(props) {
 
                 </section>
                 <section className='content-main'>
-                    <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs}/>
+                    <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource}/>
                 </section>
                 <section className='content-bottom'></section>
             </main>
             <aside className='sidebar'>
-                <JSResources  GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} />
+                <JSResources  GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleJSResource={handleJSResource}/>
             </aside>
 
         </div>

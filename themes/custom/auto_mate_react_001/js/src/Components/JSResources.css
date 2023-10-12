@@ -1,0 +1,16 @@
+.block-js-resources-block {
+  margin: 3rem; }
+  .block-js-resources-block .scripts-q {
+    font-weight: bold;
+    font-size: 1.25em;
+    text-align: right; }
+  .block-js-resources-block td {
+    text-align: left; }
+    .block-js-resources-block td.js-resource-name {
+      max-width: 200px;
+      overflow: hidden; }
+    .block-js-resources-block td.js-resource-size {
+      font-weight: bold;
+      text-align: right; }
+
+/*# sourceMappingURL=JSResources.css.map */

@@ -3,7 +3,7 @@ import BlockTitle from '../UIElements/BlockTitle';
 import BlockContent from '../UIElements/BlockContent';
 import Checkbox from '@mui/material/Checkbox';
 import PercentageMeter from '../UIElements/PercentageMeter';
-
+import './JSResources.css';
 
 // first: get lhr data connected to urls
 
@@ -24,38 +24,29 @@ function numberWithCommas(x) {
 }
 
 function JSResources(props) {
-    // if(props["activeJSResourcesURLs"]&&props["activeJSResourcesURLs"].length>0) {
     const uiState=props["uiState"];
     const GlobalState=props["GlobalState"];
     const urlData=GlobalState.urlData;
     const LHRData=GlobalState.LHRData;
-    // console.log('urlData:', urlData);
-    // console.log('LHRData:', LHRData);
+    const handleJSResource=props["handleJSResource"];
     if(uiState.activeJSResourcesURLs.length>0) {
         const activeJSResourcesURLs=uiState.activeJSResourcesURLs;
-        // console.log('activeJSResourcesURLs:', activeJSResourcesURLs);
         const urlList = activeJSResourcesURLs.map((urlID, index) => {
             const url=urlData.filter((urlDat) => urlDat.nid==urlID);
-            // console.log('url:', url);
             return <tr key={url[0].nid}><td><Checkbox/></td><td>{url[0].nid}</td><td>{url[0].title}</td></tr>;
         });
 
-        // JSON.parse(data[0][field_name].replaceAll('&quot;', '"'));
         const resourceNodesByID=activeJSResourcesURLs.map((urlID, index) => {
             const mostRecent=LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(urlID));
-            // console.log('mostRecent[0].field_script_treemap_data:', JSON.parse(mostRecent[0].field_script_treemap_data.replaceAll('&quot;', '"')), urlID);            
-            return {nid: urlID, nodes: JSON.parse(mostRecent[0].field_script_treemap_data.replaceAll('&quot;', '"')).nodes};
+            console.log('mostRecent', mostRecent);
+            return {nid: urlID, nodes: mostRecent[0].field_script_treemap_data}
         });
-        console.log('resourceNodesByID:', resourceNodesByID);
         let globalJSResources=[];
         let uniqueJSResources=[];
         resourceNodesByID.map((url, index) => {
-            console.log('url:', url);
-            // uniqueJSResources.push({nid: url.nid, nodes: []});
             url.nodes.map((JSnode, JSnodeIndex) => {
                 const findName = globalJSResources.filter((resource) => resource.name==JSnode.name);
                 if(findName.length==0) globalJSResources.push({name: JSnode.name, bytes: JSnode.resourceBytes});
-                // if(globalJSResources.indexOf(JSnode.name)==-1) globalJSResources.push({name: JSnode.name, bytes: JSnode.resourceBytes});
             });
         });
         function compareBytes( a, b ) {
@@ -71,16 +62,25 @@ function JSResources(props) {
         globalJSResources.sort( compareBytes );
           
         const globalJSNodes=globalJSResources.map((node, index) => {
-            return (<tr><Checkbox/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
+            return (<tr><Checkbox onChange={() => { handleJSResource(LHRData, urlData, node) }}/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
         
         console.log('globalJSResources:', globalJSResources);
+        // let byteTotal=0;
+        // const totalJSBytes = globalJSNodes.map((node) => {
+        //     byteTotal+=node.
+        // });
         return (<div className='block block-js-resources-block'>
             <BlockTitle title="JavaScript Resources"/>
             <BlockContent
                 blockName="js-resources"
                 content={
-                    <table><tbody>{globalJSNodes}</tbody></table>
+                    <>
+                    <table>
+                        <thead><th></th><th></th><th className='scripts-q'>{globalJSNodes.length} scripts</th></thead>
+                        <tbody>{globalJSNodes}</tbody>
+                    </table>
+                    </>
                 }
             /></div>);
     
