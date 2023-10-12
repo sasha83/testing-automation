@@ -9,11 +9,6 @@ export default function App() {
     const nodeID = location.pathname.split("/").pop();
 
     const handleJSResource=function(URLData, LHRData, node, e) {
-        // WORK HERE!!!!!!
-        // console.log('handleJSResource:');
-        // console.log('URLData:', URLData);
-        // console.log('LHRData:', LHRData);
-        // console.log('node:', node);
         const enable = e.target.checked;
         let enabledJSResourceNodes=[];
         if(enable==true) {
@@ -24,20 +19,11 @@ export default function App() {
 
         } else {
             enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode)=>{ return uiActiveNode; });
-            // console.log('uiState.activeJSResourceNodes:', uiState.activeJSResourceNodes);
-            // console.log('enabledJSResourceNodes:', enabledJSResourceNodes);
-            // console.log('node:', node);
             const index = enabledJSResourceNodes.filter((enUIActiveNode)=>{ enUIActiveNode.name==node.name});
             if (index > -1) {
                 enabledJSResourceNodes.splice(index, 1);
             }
         }
-        // const getURLScriptData=function(LHRData, URLID, scriptName) {
-        //     const urlLHRData = LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(URLID));
-        //     const scriptTreemapData = JSON.parse(urlLHRData[0].field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
-        //     const scriptData = scriptTreemapData.filter((script)=>{script.name==scriptName});
-        //     console.log('scriptData:', scriptData);
-        // }
         updateUIState(draft => {
             draft.activeJSResourceNodes=enabledJSResourceNodes;
         });
@@ -71,12 +57,18 @@ export default function App() {
     }
 
     const handleURLData=function(urlData) {
+        console.log('urlData', urlData);
         updateGlobalState(draft => {
             draft.urlData=urlData;
         })
     }
     const handleLHRData=function(LHRData) {
-        // console.log('LHRData:', LHRData);
+        console.log('LHRData:', LHRData);
+        // LHRData.forEach(function(lhr){
+        //     console.log('*********lhr', lhr);
+        //     console.log('*********lhr.field_script_treemap_data',lhr.field_script_treemap_data.replaceAll('&quot;', '"'));
+        //     console.log('*********lhr.field_script_treemap_data parsed', JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes);
+        // });
         const parsedLHRData = LHRData.map((lhr)=>{
             const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
             lhr.field_script_treemap_data=scriptTreemapData;
@@ -195,8 +187,6 @@ export default function App() {
         .then(data => handleLHRData(data.data))
         .catch(error => console.log(error));
      }, []);
-    //  let urlDataTemp = [];
-    //  let lhrDataTemp = [];
      const rando = Math.random();
     return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource}/></>
 }

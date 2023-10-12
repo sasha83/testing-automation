@@ -29,7 +29,7 @@ function JSResources(props) {
     const urlData=GlobalState.urlData;
     const LHRData=GlobalState.LHRData;
     const handleJSResource=props["handleJSResource"];
-    console.log('uiState.activeJSResourceNodes:',uiState.activeJSResourceNodes);
+    console.log('GlobalState in JSResources', GlobalState);
     if(uiState.activeJSResourcesURLs.length>0) {
         const activeJSResourcesURLs=uiState.activeJSResourcesURLs;
         const urlList = activeJSResourcesURLs.map((urlID, index) => {
@@ -39,8 +39,10 @@ function JSResources(props) {
 
         const resourceNodesByID=activeJSResourcesURLs.map((urlID, index) => {
             const mostRecent=LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(urlID));
-            // console.log('mostRecent', mostRecent);
-            return {nid: urlID, nodes: mostRecent[0].field_script_treemap_data}
+            if(mostRecent.length>0) {
+                return {nid: urlID, nodes: mostRecent[0].field_script_treemap_data}
+            }
+
         });
         let globalJSResources=[];
         let uniqueJSResources=[];

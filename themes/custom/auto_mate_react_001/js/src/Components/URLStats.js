@@ -63,8 +63,6 @@ function URLStats(props) {
 
                 // return <tr key={urlID}><td>{urlID}</td></tr>;
             });
-            console.log('url:', url);
-            console.log('urlResourceListing:', urlResourceListing);
             return (
                 <tr 
                     className="views-field views-field-title"
@@ -75,29 +73,11 @@ function URLStats(props) {
                             
                             <table className='url-js-resources'>
                                 <tbody>
-                                    {
-                                        // each URL
-                                        // needs to see if any of the selected JS Resources
-                                            // are in the script treemap data of the latest LHR 
-                                            // that has a url reference value of the current URL ID.
-                                    }
-
                                     {urlResourceListing}
                                 </tbody>
                             </table>
                         </td>
-
                          {dataColumns}
-                        {/* {uiState.columns.JSResources==true && (<td><Checkbox checked={url.JSResources.enabled}/></td>)}
-                        {uiState.columns.CSSResources==true && (<td><Checkbox checked={url.CSSResources.enabled} onChange={GlobalState.handleResourcesChange}/></td>)}
-                        {uiState.columns.FontResources==true && (<td><Checkbox checked={url.FontResources.enabled} onChange={function(){url.FontResources.enabled=!url.FontResources.enabled;}}/></td>)}
-                        {uiState.columns.ImageResources==true && (<td><Checkbox checked={url.ImageResources.enabled} onChange={function(){url.ImageResources.enabled=!url.ImageResources.enabled;}}/></td>)}
-                        {uiState.columns.lhr==true && (<td><LighthouseReportsListing handleClick={handleClick} lighthouse-reports={url.lhrData} GlobalState={GlobalState}/></td>)}
-                        {uiState.columns.cls==true && (<td>{url.field_cls_average}<PercentageMeter value={url.field_cls_average} outer-width="90%"/></td>)}
-                        {uiState.columns.fcp==true && (<td>{url.field_fcp_average}<PercentageMeter value={url.field_fcp_average} outer-width="90%"/></td>)}
-                        {uiState.columns.fmp==true && (<td>{url.field_fmp_average}<PercentageMeter value={url.field_fmp_average} outer-width="90%"/></td>)}
-                        {uiState.columns.lcp==true && (<td>{url.field_lcp_average}<PercentageMeter value={url.field_lcp_average} outer-width="90%"/></td>)}
-                        {uiState.columns.tbt==true && (<td>{url.field_tbt_average}<PercentageMeter value={url.field_tbt_average} outer-width="90%"/></td>)} */}
                 </tr>);
 
         });

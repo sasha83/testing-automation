@@ -3366,6 +3366,50 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_lighthouse_tests_quantity_value_1:
+          id: field_lighthouse_tests_quantity_value_1
+          table: node__field_lighthouse_tests_quantity
+          field: field_lighthouse_tests_quantity_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '>'
+          value:
+            min: ''
+            max: ''
+            value: '0'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -4082,6 +4126,45 @@ display:
               content_editor: '0'
               administrator: '0'
               client: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_script_treemap_data_value:
+          id: field_script_treemap_data_value
+          table: node__field_script_treemap_data
+          field: field_script_treemap_data_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: 'not empty'
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
             placeholder: ''
           is_grouped: false
           group_info:
