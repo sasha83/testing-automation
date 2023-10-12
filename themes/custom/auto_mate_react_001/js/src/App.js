@@ -8,37 +8,39 @@ export default function App() {
 
     const nodeID = location.pathname.split("/").pop();
 
-    const [activeJSResources, updateActiveJSResources] = useImmer([]);
-    const handleJSResource=function(LHRData, URLData, node) {
+    const handleJSResource=function(URLData, LHRData, node, e) {
         // WORK HERE!!!!!!
-        console.log('handleJSResource:');
-        console.log('URLData:', URLData);
-        console.log('LHRData:', LHRData);
-        console.log('node:', node);
+        // console.log('handleJSResource:');
+        // console.log('URLData:', URLData);
+        // console.log('LHRData:', LHRData);
+        // console.log('node:', node);
+        const enable = e.target.checked;
+        let enabledJSResourceNodes=[];
+        if(enable==true) {
+            if(uiState.activeJSResourceNodes.filter((uiActiveNode) => { uiActiveNode.name==node.name}).length==0) {
+                enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode)=>{ return uiActiveNode; });
+                enabledJSResourceNodes.push(node);
+            } 
+
+        } else {
+            enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode)=>{ return uiActiveNode; });
+            // console.log('uiState.activeJSResourceNodes:', uiState.activeJSResourceNodes);
+            // console.log('enabledJSResourceNodes:', enabledJSResourceNodes);
+            // console.log('node:', node);
+            const index = enabledJSResourceNodes.filter((enUIActiveNode)=>{ enUIActiveNode.name==node.name});
+            if (index > -1) {
+                enabledJSResourceNodes.splice(index, 1);
+            }
+        }
         // const getURLScriptData=function(LHRData, URLID, scriptName) {
         //     const urlLHRData = LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(URLID));
         //     const scriptTreemapData = JSON.parse(urlLHRData[0].field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
         //     const scriptData = scriptTreemapData.filter((script)=>{script.name==scriptName});
         //     console.log('scriptData:', scriptData);
         // }
-    }
-
-    const handleURLData=function(urlData) {
-        updateGlobalState(draft => {
-            draft.urlData=urlData;
-        })
-    }
-    const handleLHRData=function(LHRData) {
-        console.log('LHRData:', LHRData);
-        const parsedLHRData = LHRData.map((lhr)=>{
-            const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
-            lhr.field_script_treemap_data=scriptTreemapData;
-            return lhr;
+        updateUIState(draft => {
+            draft.activeJSResourceNodes=enabledJSResourceNodes;
         });
-        console.log('parsedLHRData:', parsedLHRData);
-        updateGlobalState(draft => {
-            draft.LHRData=parsedLHRData;
-        })
     }
     const handleJSResourcesSelectedURLs = function(urlID, e) {
         const enable = e.target.checked;
@@ -67,17 +69,24 @@ export default function App() {
             });
         }
     }
-    const handleJSActiveResources = function(node, LHRData, URLData) {
-        // mergeLHRtoURLData(LHRData, URLData);
-        // console.log('node:', node);
-        // console.log(LHRData);
-        // updateUIState(draft => {
 
-        // }
+    const handleURLData=function(urlData) {
+        updateGlobalState(draft => {
+            draft.urlData=urlData;
+        })
     }
-    // const handleSidebar(enable) {
-    //     updateUIState(draft => { draft.sidebar=enable; });
-    // }
+    const handleLHRData=function(LHRData) {
+        // console.log('LHRData:', LHRData);
+        const parsedLHRData = LHRData.map((lhr)=>{
+            const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
+            lhr.field_script_treemap_data=scriptTreemapData;
+            return lhr;
+        });
+        // console.log('parsedLHRData:', parsedLHRData);
+        updateGlobalState(draft => {
+            draft.LHRData=parsedLHRData;
+        })
+    }
     const dashboardDataTypes = [
         {
             title: 'Active',
@@ -149,9 +158,11 @@ export default function App() {
         }
     ];
     const activeJSResourcesURLs = [];
+    const activeJSResourceNodes = [];
     const [uiState, updateUIState] = useImmer({
         'dashboardDataTypes': dashboardDataTypes,
         'activeJSResourcesURLs': activeJSResourcesURLs,
+        'activeJSResourceNodes': activeJSResourceNodes,
         'sidebar': false
     })
     const [mainClasses, updateMainClasses] = useImmer({

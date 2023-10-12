@@ -29,6 +29,7 @@ function JSResources(props) {
     const urlData=GlobalState.urlData;
     const LHRData=GlobalState.LHRData;
     const handleJSResource=props["handleJSResource"];
+    console.log('uiState.activeJSResourceNodes:',uiState.activeJSResourceNodes);
     if(uiState.activeJSResourcesURLs.length>0) {
         const activeJSResourcesURLs=uiState.activeJSResourcesURLs;
         const urlList = activeJSResourcesURLs.map((urlID, index) => {
@@ -38,7 +39,7 @@ function JSResources(props) {
 
         const resourceNodesByID=activeJSResourcesURLs.map((urlID, index) => {
             const mostRecent=LHRData.filter((LHRDat) => parseInt(LHRDat.field_url_reference_1)==parseInt(urlID));
-            console.log('mostRecent', mostRecent);
+            // console.log('mostRecent', mostRecent);
             return {nid: urlID, nodes: mostRecent[0].field_script_treemap_data}
         });
         let globalJSResources=[];
@@ -62,14 +63,14 @@ function JSResources(props) {
         globalJSResources.sort( compareBytes );
           
         const globalJSNodes=globalJSResources.map((node, index) => {
-            return (<tr><Checkbox onChange={() => { handleJSResource(LHRData, urlData, node) }}/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
+            return (<tr><Checkbox onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }}/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
         
-        console.log('globalJSResources:', globalJSResources);
+        // console.log('globalJSResources:', globalJSResources);
         let byteTotal=0;
         const totalJSBytes = globalJSResources.map((node) => {
             byteTotal+=node.bytes;
-            console.log('byteTotal:', byteTotal);
+            // console.log('byteTotal:', byteTotal);
         });
         return (<div className='block block-js-resources-block'>
             <BlockTitle title="JavaScript Resources"/>
