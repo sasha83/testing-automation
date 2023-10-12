@@ -66,10 +66,11 @@ function JSResources(props) {
         });
         
         console.log('globalJSResources:', globalJSResources);
-        // let byteTotal=0;
-        // const totalJSBytes = globalJSNodes.map((node) => {
-        //     byteTotal+=node.
-        // });
+        let byteTotal=0;
+        const totalJSBytes = globalJSResources.map((node) => {
+            byteTotal+=node.bytes;
+            console.log('byteTotal:', byteTotal);
+        });
         return (<div className='block block-js-resources-block'>
             <BlockTitle title="JavaScript Resources"/>
             <BlockContent
@@ -77,7 +78,7 @@ function JSResources(props) {
                 content={
                     <>
                     <table>
-                        <thead><th></th><th></th><th className='scripts-q'>{globalJSNodes.length} scripts</th></thead>
+                        <thead><th className='scripts-q'>{globalJSNodes.length} scripts</th><th></th><th className='total-bytes'>{numberWithCommas(byteTotal)}<br/>Total JS Bytes</th></thead>
                         <tbody>{globalJSNodes}</tbody>
                     </table>
                     </>

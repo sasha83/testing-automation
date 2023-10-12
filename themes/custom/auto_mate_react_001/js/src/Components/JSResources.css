@@ -3,6 +3,9 @@
   .block-js-resources-block .scripts-q {
     font-weight: bold;
     font-size: 1.25em;
+    text-align: left; }
+  .block-js-resources-block .total-bytes {
+    font-size: 1rem;
     text-align: right; }
   .block-js-resources-block td {
     text-align: left; }
