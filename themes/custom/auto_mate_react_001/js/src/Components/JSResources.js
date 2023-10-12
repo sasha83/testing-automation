@@ -66,11 +66,9 @@ function JSResources(props) {
             return (<tr><Checkbox onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }}/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
         
-        // console.log('globalJSResources:', globalJSResources);
         let byteTotal=0;
-        const totalJSBytes = globalJSResources.map((node) => {
+        globalJSResources.map((node) => {
             byteTotal+=node.bytes;
-            // console.log('byteTotal:', byteTotal);
         });
         return (<div className='block block-js-resources-block'>
             <BlockTitle title="JavaScript Resources"/>

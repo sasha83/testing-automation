@@ -44,10 +44,23 @@ function URLStats(props) {
 
             urlListUpdated.push(url);
             // getURLScriptData(LHRData, url.nid, activeScript);
-            const urlResourceListing = activeJSResourcesURLs.map((urlID, index) => {
-                return <tr key={urlID}><td>{urlID}</td></tr>;
+            const urlResourceListing = activeJSResourceNodes.map((node, index) => {
+                const mostRecentLHR = LHRData.filter((lhr) => lhr.field_url_reference_1 == url.nid);
+
+                const foundInScriptTreemapData = mostRecentLHR[0].field_script_treemap_data.filter((script) => script.name==node.name);
+                // console.log('node:', node);
+                // console.log('mostRecentLHR:', mostRecentLHR[0]);
+                // console.log('foundInScriptTreemapData:', foundInScriptTreemapData);
+                if(foundInScriptTreemapData[0].name) {
+                    return <tr><td>{foundInScriptTreemapData[0].name}</td><td>unusedBytes: {foundInScriptTreemapData[0].unusedBytes}</td><td>totalBytes: {foundInScriptTreemapData[0].resourceBytes}</td></tr>;
+                }
+
+                // if(LHRData.filter((lhr) => {lhr.field_url_reference_1==url.nid && lhr.field_script_treemap_data.))
+
+                // return <tr key={urlID}><td>{urlID}</td></tr>;
             });
-    
+            console.log('url:', url);
+            console.log('urlResourceListing:', urlResourceListing);
             return (
                 <tr 
                     className="views-field views-field-title"
@@ -56,8 +69,15 @@ function URLStats(props) {
                         <td className='views-field views-field-title'>
                             <a href={url.view_node}>{url.title}</a>
                             
-                            <table className='url-resources'>
+                            <table className='url-js-resources'>
                                 <tbody>
+                                    {
+                                        // each URL
+                                        // needs to see if any of the selected JS Resources
+                                            // are in the script treemap data of the latest LHR 
+                                            // that has a url reference value of the current URL ID.
+                                    }
+
                                     {urlResourceListing}
                                 </tbody>
                             </table>
