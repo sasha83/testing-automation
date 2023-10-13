@@ -5,6 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.domain.body
+    - field.field.node.domain.field_brand_color_gray1
+    - field.field.node.domain.field_brand_color_gray2
+    - field.field.node.domain.field_brand_color_gray3
+    - field.field.node.domain.field_brand_color_primary
+    - field.field.node.domain.field_brand_color_secondary
+    - field.field.node.domain.field_brand_color_tertiary
     - field.field.node.domain.field_generated_sitemaps
     - field.field.node.domain.field_official_sitemaps
     - field.field.node.domain.field_root
@@ -31,6 +37,12 @@ content:
     weight: 100
     region: content
 hidden:
+  field_brand_color_gray1: true
+  field_brand_color_gray2: true
+  field_brand_color_gray3: true
+  field_brand_color_primary: true
+  field_brand_color_secondary: true
+  field_brand_color_tertiary: true
   field_generated_sitemaps: true
   field_official_sitemaps: true
   field_root: true

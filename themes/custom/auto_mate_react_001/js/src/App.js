@@ -5,7 +5,8 @@ import { useImmer } from 'use-immer'
 import { func } from 'prop-types';
 
 export default function App() {
-
+    const path = location.pathname.split("/");
+    console.log('path::',path);
     const nodeID = location.pathname.split("/").pop();
 
     const handleJSResource=function(URLData, LHRData, node, e) {

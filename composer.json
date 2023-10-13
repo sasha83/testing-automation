@@ -31,6 +31,7 @@
         "drupal/jquery_ui_droppable": "^2.0",
         "drupal/json_field": "^1.2",
         "drupal/quick_data": "^2.0",
+        "drupal/rabbit_hole": "^1.0@beta",
         "drupal/resave_all_nodes": "^1.0@beta",
         "drupal/save_all_nodes": "^2.0",
         "drupal/storage": "^1.2",
