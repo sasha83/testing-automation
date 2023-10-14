@@ -65,7 +65,7 @@ function JSResources(props) {
         globalJSResources.sort( compareBytes );
           
         const globalJSNodes=globalJSResources.map((node, index) => {
-            return (<tr><Checkbox onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }}/><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
+            return (<tr key={index}><td><Checkbox onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }}/></td><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
         
         let byteTotal=0;
