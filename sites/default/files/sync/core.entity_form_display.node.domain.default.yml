@@ -4,6 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.domain.body
+    - field.field.node.domain.field_brand_color_gray1
+    - field.field.node.domain.field_brand_color_gray2
+    - field.field.node.domain.field_brand_color_gray3
+    - field.field.node.domain.field_brand_color_primary
+    - field.field.node.domain.field_brand_color_secondary
+    - field.field.node.domain.field_brand_color_tertiary
     - field.field.node.domain.field_generated_sitemaps
     - field.field.node.domain.field_official_sitemaps
     - field.field.node.domain.field_root
@@ -31,6 +37,54 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_brand_color_gray1:
+    type: string_textfield
+    weight: 128
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_brand_color_gray2:
+    type: string_textfield
+    weight: 129
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_brand_color_gray3:
+    type: string_textfield
+    weight: 130
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_brand_color_primary:
+    type: string_textfield
+    weight: 125
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_brand_color_secondary:
+    type: string_textfield
+    weight: 126
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_brand_color_tertiary:
+    type: string_textfield
+    weight: 127
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_generated_sitemaps:
     type: string_textfield

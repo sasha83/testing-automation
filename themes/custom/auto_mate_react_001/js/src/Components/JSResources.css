@@ -10,7 +10,7 @@
   .block-js-resources-block td {
     text-align: left; }
     .block-js-resources-block td.js-resource-name {
-      max-width: 200px;
+      max-width: 360px;
       overflow: hidden; }
     .block-js-resources-block td.js-resource-size {
       font-weight: bold;

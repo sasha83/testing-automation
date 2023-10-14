@@ -1,0 +1,19 @@
+uuid: 1c5e2418-db2f-4578-a1ee-5d7fe2c288c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brand_color_primary
+    - node.type.domain
+id: node.domain.field_brand_color_primary
+field_name: field_brand_color_primary
+entity_type: node
+bundle: domain
+label: 'Brand Color Primary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

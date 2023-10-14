@@ -1,0 +1,27 @@
+uuid: 3ec955d4-89ef-43e0-a322-1b1f83ae8545
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_type_nid
+label: 'Content Type + NID'
+type: 'canonical_entities:node'
+pattern: '/[node:content-type]/[node:nid]'
+selection_criteria:
+  f3b894a0-ae54-40cd-a38b-54fab67c3833:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f3b894a0-ae54-40cd-a38b-54fab67c3833
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+      domain: domain
+      lighthouse_report: lighthouse_report
+      summary: summary
+      test_suite: test_suite
+      url: url
+selection_logic: and
+weight: -5
+relationships: {  }

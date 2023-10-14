@@ -1,0 +1,18 @@
+uuid: e07a4a77-e83c-4336-9521-2c2337a8f062
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Event
+type: event
+description: "An \"event\" is something to mark timing, or to mark a potential impact on a test.  \r\n\"Deployment\" is a good example.  \"Google Analytics released an update\", \"Updated Mega Menu Deployed\", \"New URL structure launched\", \"week before Christmas\", etc."
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

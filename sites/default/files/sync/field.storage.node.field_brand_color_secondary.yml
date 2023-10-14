@@ -1,0 +1,21 @@
+uuid: d8d62aae-e2b4-4105-b3ec-605e179f0855
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_brand_color_secondary
+field_name: field_brand_color_secondary
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
