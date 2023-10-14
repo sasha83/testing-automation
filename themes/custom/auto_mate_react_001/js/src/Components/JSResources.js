@@ -29,9 +29,10 @@ function JSResources(props) {
     const urlData = GlobalState.urlData;
     const LHRData = GlobalState.LHRData;
     const handleJSResource = props["handleJSResource"];
-    console.log('GlobalState in JSResources', GlobalState);
+    // console.log('GlobalState in JSResources', GlobalState);
     if (uiState.activeJSResourcesURLs.length > 0) {
         const activeJSResourcesURLs = uiState.activeJSResourcesURLs;
+        const activeJSResourceNodes = uiState.activeJSResourceNodes;
         const urlList = activeJSResourcesURLs.map((urlID, index) => {
             const url = urlData.filter((urlDat) => urlDat.nid == urlID);
             return <tr key={url[0].nid}><td><Checkbox /></td><td>{url[0].nid}</td><td>{url[0].title}</td></tr>;
@@ -63,9 +64,16 @@ function JSResources(props) {
         }
 
         globalJSResources.sort(compareBytes);
-        console.log("uiState:", uiState);
+        // console.log("uiState:", uiState);
+        // console.log("globalJSResources:", globalJSResources);
         const globalJSNodes = globalJSResources.map((node, index) => {
-            return (<tr><Checkbox onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }} /><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
+            if (activeJSResourceNodes[0] != undefined) {
+                console.log('activeJSResourceNodes', activeJSResourceNodes[0].name)
+                // console.log('NODE name', node.name)
+            }
+            const foundIn = activeJSResourceNodes.filter((n) => n.name == node.name);
+            // console.log('*************foundIn:', foundIn.length);
+            return (<tr><Checkbox checked={foundIn.length > 0} theNode={node} onChange={(e, theNode) => { handleJSResource(urlData, LHRData, node, e) }} /><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
 
         let byteTotal = 0;
