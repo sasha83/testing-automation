@@ -80,6 +80,16 @@ export default function App() {
             draft.LHRData = parsedLHRData;
         })
     }
+    const handleEventData = function(eventData) {
+
+        const parsedEventData = eventData.map((event)=>{
+            return event;
+        });
+        updateGlobalState(draft => {
+            draft.eventData = parsedEventData;
+        })
+
+    }
     const dashboardDataTypes = [
         {
             title: 'Active',
@@ -188,6 +198,13 @@ export default function App() {
             .then(data => handleLHRData(data.data))
             .catch(error => console.log(error));
     }, []);
+    React.useEffect(() => {
+        axios
+            .get("http://automate.ddev.site/events-rest")
+            .then(data => handleEventData(data.data))
+            .catch(error => console.log(error));
+    }, []);
+
     const rando = Math.random();
     return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
 }

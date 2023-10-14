@@ -4,8 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.event.body
+    - field.field.node.event.field_event
+    - field.field.node.event.field_event_timestamp
+    - field.field.node.event.field_event_type
     - node.type.event
   module:
+    - duration_field
+    - options
     - text
     - user
 id: node.event.default
@@ -19,6 +24,32 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_event:
+    type: duration_human_display
+    label: above
+    settings:
+      text_length: full
+      separator: space
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_event_timestamp:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_event_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
     region: content
   links:
     settings: {  }

@@ -1,0 +1,36 @@
+uuid: f34e8da5-904d-4e38-8c52-9ef637c5e5d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_event_type
+field_name: field_event_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Feature Deployment'
+      label: 'Feature Deployment'
+    -
+      value: 'Code Deployment'
+      label: 'Code Deployment'
+    -
+      value: 'World News'
+      label: 'World News'
+    -
+      value: Holiday
+      label: Holiday
+    -
+      value: 'Server Status'
+      label: 'Server Status'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

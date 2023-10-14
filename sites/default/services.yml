@@ -60,7 +60,7 @@ parameters:
     # - The markup of each Twig template is surrounded by HTML comments that
     #   contain theming information, such as template file name suggestions.
     # - Note that this debugging markup will cause automated tests that directly
-    #   check rendered HTML to fail. When running automated tests, 'debug'
+    #   check rendered HTML to fsail. When running automated tests, 'debug'
     #   should be set to FALSE.
     # - The dump() function can be used in Twig templates to output information
     #   about template variables.
@@ -72,7 +72,7 @@ parameters:
     #
     # Enabling Twig debugging is not recommended in production environments.
     # @default false
-    debug: true
+    debug: false
     # Twig auto-reload:
     #
     # Automatically recompile Twig templates whenever the source code changes.

@@ -26,7 +26,7 @@ function PageDomain(props) {
 
             </section>
             <section className='content-main'>
-                <DomainTimeline />
+                <DomainTimeline GlobalState={GlobalState} />
                 <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} />
             </section>
             <section className='content-bottom'></section>
