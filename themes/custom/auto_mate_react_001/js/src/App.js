@@ -9,44 +9,44 @@ export default function App() {
     console.log('path::',path);
     const nodeID = location.pathname.split("/").pop();
 
-    const handleJSResource=function(URLData, LHRData, node, e) {
+    const handleJSResource = function (URLData, LHRData, node, e, theNode) {
         const enable = e.target.checked;
-        let enabledJSResourceNodes=[];
-        if(enable==true) {
-            if(uiState.activeJSResourceNodes.filter((uiActiveNode) => { uiActiveNode.name==node.name}).length==0) {
-                enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode)=>{ return uiActiveNode; });
+        let enabledJSResourceNodes = [];
+        if (enable == true) {
+            if (uiState.activeJSResourceNodes.filter((uiActiveNode) => { uiActiveNode.name == node.name }).length == 0) {
+                enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode) => { return uiActiveNode; });
                 enabledJSResourceNodes.push(node);
-            } 
+            }
 
         } else {
-            enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode)=>{ return uiActiveNode; });
-            const index = enabledJSResourceNodes.filter((enUIActiveNode)=>{ enUIActiveNode.name==node.name});
+            enabledJSResourceNodes = uiState.activeJSResourceNodes.map((uiActiveNode) => { return uiActiveNode; });
+            const index = enabledJSResourceNodes.filter((enUIActiveNode) => { enUIActiveNode.name == node.name });
             if (index > -1) {
                 enabledJSResourceNodes.splice(index, 1);
             }
         }
         updateUIState(draft => {
-            draft.activeJSResourceNodes=enabledJSResourceNodes;
+            draft.activeJSResourceNodes = enabledJSResourceNodes;
         });
     }
-    const handleJSResourcesSelectedURLs = function(urlID, e) {
+    const handleJSResourcesSelectedURLs = function (urlID, e) {
         const enable = e.target.checked;
-        let jsResourcesEnabledURLs=[];
-        if(enable==true) {
-            jsResourcesEnabledURLs = uiState.activeJSResourcesURLs.map((url)=>{ return url; });
-            if(!jsResourcesEnabledURLs.includes(urlID)) { jsResourcesEnabledURLs.push(urlID); } 
+        let jsResourcesEnabledURLs = [];
+        if (enable == true) {
+            jsResourcesEnabledURLs = uiState.activeJSResourcesURLs.map((url) => { return url; });
+            if (!jsResourcesEnabledURLs.includes(urlID)) { jsResourcesEnabledURLs.push(urlID); }
         } else {
-            jsResourcesEnabledURLs = uiState.activeJSResourcesURLs.map((url)=>{ return url; });
+            jsResourcesEnabledURLs = uiState.activeJSResourcesURLs.map((url) => { return url; });
             const index = jsResourcesEnabledURLs.indexOf(urlID);
             if (index > -1) {
                 jsResourcesEnabledURLs.splice(index, 1);
             }
         }
         updateUIState(draft => {
-            draft.activeJSResourcesURLs=jsResourcesEnabledURLs;
+            draft.activeJSResourcesURLs = jsResourcesEnabledURLs;
         });
-    
-        if(jsResourcesEnabledURLs.length>0) {
+
+        if (jsResourcesEnabledURLs.length > 0) {
             updateUIState(draft => {
                 draft.sidebar = true;
             });
@@ -57,27 +57,27 @@ export default function App() {
         }
     }
 
-    const handleURLData=function(urlData) {
-        console.log('urlData', urlData);
+    const handleURLData = function (urlData) {
+        // console.log('urlData', urlData);
         updateGlobalState(draft => {
-            draft.urlData=urlData;
+            draft.urlData = urlData;
         })
     }
-    const handleLHRData=function(LHRData) {
-        console.log('LHRData:', LHRData);
+    const handleLHRData = function (LHRData) {
+        // console.log('LHRData:', LHRData);
         // LHRData.forEach(function(lhr){
         //     console.log('*********lhr', lhr);
         //     console.log('*********lhr.field_script_treemap_data',lhr.field_script_treemap_data.replaceAll('&quot;', '"'));
         //     console.log('*********lhr.field_script_treemap_data parsed', JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes);
         // });
-        const parsedLHRData = LHRData.map((lhr)=>{
+        const parsedLHRData = LHRData.map((lhr) => {
             const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
-            lhr.field_script_treemap_data=scriptTreemapData;
+            lhr.field_script_treemap_data = scriptTreemapData;
             return lhr;
         });
         // console.log('parsedLHRData:', parsedLHRData);
         updateGlobalState(draft => {
-            draft.LHRData=parsedLHRData;
+            draft.LHRData = parsedLHRData;
         })
     }
     const dashboardDataTypes = [
@@ -165,7 +165,7 @@ export default function App() {
 
     function handleResourcesChange(resourceIndex, checkedValue) {
         updateUIState(draft => {
-            draft.dashboardDataTypes[resourceIndex].enabled=checkedValue;
+            draft.dashboardDataTypes[resourceIndex].enabled = checkedValue;
         });
     }
     const [GlobalState, updateGlobalState] = useImmer({
@@ -178,17 +178,17 @@ export default function App() {
 
     React.useEffect(() => {
         axios
-        .get("http://automate.ddev.site/domain-urls-rest?domain_id="+parseInt(nodeID))
-        .then(data => handleURLData(data.data))
-        .catch(error => console.log(error));
-     }, []);
-     React.useEffect(() => {
+            .get("http://automate.ddev.site/domain-urls-rest?domain_id=" + parseInt(nodeID))
+            .then(data => handleURLData(data.data))
+            .catch(error => console.log(error));
+    }, []);
+    React.useEffect(() => {
         axios
-        .get("http://automate.ddev.site/domain-lhrs-rest?domain_id="+parseInt(nodeID))
-        .then(data => handleLHRData(data.data))
-        .catch(error => console.log(error));
-     }, []);
-     const rando = Math.random();
-    return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource}/></>
+            .get("http://automate.ddev.site/domain-lhrs-rest?domain_id=" + parseInt(nodeID))
+            .then(data => handleLHRData(data.data))
+            .catch(error => console.log(error));
+    }, []);
+    const rando = Math.random();
+    return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
 }
 
