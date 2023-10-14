@@ -1,0 +1,33 @@
+uuid: d19d8eb9-eeaa-4b3a-bc53-16a7c14ad976
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.domain_page
+  module:
+    - node
+    - views
+  theme:
+    - auto_mate_react_001
+id: auto_mate_react_001_views_block__domain_page_domain_page_url_js_resources
+theme: auto_mate_react_001
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:domain_page-domain_page_url_js_resources'
+settings:
+  id: 'views_block:domain_page-domain_page_url_js_resources'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      domain: domain

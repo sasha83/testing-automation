@@ -1,0 +1,22 @@
+uuid: 1237ec1f-6cca-48bd-9bf6-9898601ab34e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - auto_mate_react_001
+_core:
+  default_config_hash: ACjBZI5shAMiiUpsz-inLYVXDqNNXRnSzAWV3kV_8Hw
+id: auto_mate_react_001_primary_local_tasks
+theme: auto_mate_react_001
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

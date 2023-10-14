@@ -1,0 +1,31 @@
+.url-js-resources {
+    td {
+        &.url-js-resource-name {
+            text-align: left;
+            font-size: .75em;
+            font-weight: bold;
+        }
+        &.url-js-resource-usage {
+            width: 240px;
+            font-size: .75em;
+            font-weight: bold;
+            .percentage-meter {
+                left: 0;
+                position: relative;
+                margin-bottom: .5rem;
+            }
+            .meter-label {
+                text-align: right;
+                display: block;
+                clear: both;
+            }
+        }
+        // &.url-js-resource-unused-bytes {
+        //     text-align: right;
+        // }
+        // &.url-js-resource-total-bytes {
+        //     text-align: right;
+        // }
+
+    }
+}

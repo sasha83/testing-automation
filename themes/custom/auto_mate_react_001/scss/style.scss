@@ -1,0 +1,384 @@
+@use 'abstractions/mixins.scss';
+
+@mixin clearfix {
+        content: '.';
+        font-size: 0;
+        clear: both;
+        display: block;
+}
+.MuiSvgIcon-root {
+        font-size: 2.5rem !important;
+}
+
+
+.view-display-id-domain_page_url_js_resources {
+
+        flex-direction: row;
+}
+
+table.lighthouse-reports-listing {
+        padding: 0; margin: 0;
+        tr {
+                padding: 0;
+                td {
+                        height: 1.5em;
+                        padding: .25rem;
+                        font-size: .5em;
+                }
+        }
+}
+
+.domain-js-resources {
+        // background-color: #ddd;
+
+        &:after {
+                @include clearfix;
+        }
+
+        table {
+                margin: 0;
+                padding: 0;
+
+                tbody {
+                        margin: 0;
+                        padding: 0;
+                }
+        }
+
+        tr {
+                background-color: transparent;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+        }
+
+        td {
+
+                // flex: 1 1 100%;
+                
+                text-align: left;
+                cursor: pointer;
+                // height: 1rem;
+                height: .7rem;
+                margin: 0;
+                padding: 0 .5;
+                font-size: .675rem;
+                font-weight: bold;
+
+                transition-duration: .5s;
+
+
+                .percentage-meter {
+                        height: 0;
+                        transition-duration: .5s;
+                        // display: none;
+                }
+
+                &.active {
+                        height: 1.125rem;
+                        font-size: 1rem;
+                        color: black;
+
+                        &.active-child {
+                                .usage {
+                                        display: block;
+                                }
+
+                                .usage-data {
+                                        display: block;
+                                }
+
+                                .percentage-meter {
+                                        // display: block;
+                                        height: auto;
+                                }
+
+                        }
+
+
+                }
+
+                .usage {
+                        display: none;
+                        height: .75rem;
+                        width: 100%;
+                        position: relative;
+
+                        .used {
+                                transition-timing-function: ease-in-out;
+                                transition: width .5s;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                background-color: green;
+                        }
+                }
+
+                .usage-data {
+                        display: none;
+                }
+
+        }
+
+        .domain-urls {
+                // display: flex;
+                // flex: 1 0 50%;
+                width: 50%;
+                float: left;
+                display: block;
+                margin: 0;
+                padding: 0;
+
+                tr.url-data-link-row {
+                        &.active {
+                                // margin: .25rem;
+                                background-color: white;
+                        }
+                }
+
+                tbody {
+                        // flex: 1 0 100%;
+                        td {                a {
+                                color: red;
+                                // display: table-cell;
+                                vertical-align: middle;
+                        }}
+                }
+
+                // td.url-data-link { 
+                //         font-size: .5rem;
+                //         .active & {
+                //                 font-size: .75rem;
+                //         }
+                // }
+        }
+
+        .domain-scripts {
+                width: 50%;
+                float: right;
+                display: block;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+
+                .script-data-link-row {
+
+                        &.active {
+                                background: white;
+
+                                .usage {
+                                        background-color: #fff;
+                                }
+
+                                &.active-parent {
+
+                                        .usage,
+                                        .usage-data {
+                                                display: none;
+                                        }
+                                }
+                        }
+
+                        &:not(.active) {
+                                .usage {
+                                        .used {
+                                                width: 0 !important;
+                                        }
+                                }
+                        }
+
+                        .script-name {
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                display: inline-block;
+                                width: 600px;
+                                white-space: nowrap;
+                        }
+
+
+                }
+
+                tbody {}
+
+                td {}
+        }
+}
+
+
+
+#lightHouseReports {
+        tr {
+                cursor: pointer;
+        }
+}
+
+th {
+        text-align: center;
+}
+
+.views-field-field-cls-average,
+.views-field-field-fcp-average,
+.views-field-field-fmp-average,
+.views-field-field-lcp-average,
+.views-field-field-tbt-average {
+        font-size: 1.25em;
+        font-weight: 500;
+        color: #555;
+}
+
+tr {
+        td {
+                &.views-field-title {
+                        text-align: left;
+                }
+
+                position: relative;
+                text-align: center;
+
+                &.active-child {
+                        .inactive-data {
+                                display: none;
+                        }
+                }
+
+                .percentage-meter {
+                        position: absolute;
+                        // top: 0;
+                        left: 5%;
+                        width: 90%;
+                        height: 1rem;
+                        background: #eee;
+
+                        .percentage-amount {
+                                position: absolute;
+                                left: 0%;
+                                height: 1rem;
+                                background: #999;
+                        }
+                }
+
+                .inactive-data {
+                        &::after {
+                                @include clearfix;
+                        }
+
+                        .resource-bytes {
+                                float: right;
+                        }
+                }
+
+                .usage-data {
+                        display: block;
+                        background-color: #eee;
+
+                        // height: auto;
+                        &::after {
+                                @include clearfix;
+                        }
+
+                        span {
+                                display: block;
+                                font-size: .75rem;
+                                padding: .25rem .5rem;
+                                font-weight: bold;
+
+                                &.used-bytes {
+                                        float: left;
+
+                                        &::after {
+                                                margin-left: .25rem;
+                                                content: 'used bytes';
+                                        }
+                                }
+
+                                &.total-bytes {
+                                        float: right;
+
+                                        &::after {
+                                                margin-left: .25rem;
+                                                content: 'total bytes';
+                                        }
+                                }
+                        }
+                }
+        }
+}
+
+
+.block-views-blockdomain-page-domain-page-urls {
+        .view {
+                .view-content {
+                        max-height: 60rem;
+                        overflow: scroll;
+                }
+        }
+}
+.view-url-stats,
+.block-url-stats-block {
+        .block-url-stats-content {
+                label {
+                        width: 25%;
+                        span {
+                                font-weight: bold;
+                        }
+                        // margin-right: 4rem;
+                }
+        }
+        // border: 2px solid #ddd;
+        padding: 2rem 1rem;
+
+        .view-content {
+                .views-row {
+                        display: flex;
+                        flex: 1 1 100%;
+
+                        .views-col {
+                                display: flex;
+                                flex: 1 1 100%;
+                                flex-wrap: wrap;
+                                flex-direction: row;
+
+                                >.views-field {
+                                        text-align: center;
+                                        display: flex;
+                                        flex: 1 1 20%;
+                                        flex-direction: column;
+
+                                        .views-label {
+                                                font-weight: bold;
+                                        }
+
+                                        .stat-average {
+                                                font-size: 3rem;
+                                                font-weight: 500;
+
+                                                a {
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                        flex-wrap: wrap;
+
+                                                        .label {
+                                                                display: flex;
+                                                                flex: 1 1 100%;
+                                                        }
+
+                                                        .value {
+                                                                display: flex;
+                                                                flex: 1 1 100%;
+                                                        }
+                                                }
+                                        }
+
+                                        .stat-range {
+                                                flex: 1 1 100%;
+                                        }
+                                }
+                        }
+
+                }
+        }
+}
+
+td {vertical-align: middle; a { display: table-cell;}}

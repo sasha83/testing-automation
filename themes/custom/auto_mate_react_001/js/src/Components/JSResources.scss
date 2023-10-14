@@ -1,0 +1,23 @@
+
+.block-js-resources-block {
+    margin: 3rem;
+    .scripts-q {
+        font-weight: bold;
+        font-size: 1.25em;
+        text-align: left;
+    }
+    .total-bytes {
+        font-size: 1rem;
+        text-align: right;
+    }
+    td {text-align: left;
+            &.js-resource-name {
+                    max-width: 360px;
+                    overflow: hidden;
+            }
+            &.js-resource-size {
+                    font-weight: bold;
+                    text-align: right;
+            }
+    }
+}

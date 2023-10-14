@@ -1,0 +1,29 @@
+# Information added by Drupal.org packaging script on 2023-05-03
+version: '10.0.9'
+project: 'drupal'
+datestamp: 1695652091
+name: auto_mate_react_001
+type: theme
+base theme: claro
+description: 'Auto Mate React 001 description'
+core_version_requirement: '>=10.0.1'
+libraries:
+  - auto_mate_react_001/react_app
+
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  domain_quick_data: 'Domain Quick Data'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+  drawer_bottom: 'Drawer Bottom'
+regions_hidden:
+  - sidebar_first
+
+
