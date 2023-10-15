@@ -1,6 +1,7 @@
 #page-container .content-main {
   width: 100%;
   transition: width .5s; }
+
 #page-container .sidebar {
   background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
@@ -14,9 +15,9 @@
   -moz-box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5);
   box-shadow: -2px 2px 6px -1px rgba(0, 0, 0, 0.5);
   overflow: scroll; }
+
 #page-container.sidebar-open .content-main {
   width: 75%; }
+
 #page-container.sidebar-open .sidebar {
   left: 75%; }
-
-/*# sourceMappingURL=PageDomain.css.map */

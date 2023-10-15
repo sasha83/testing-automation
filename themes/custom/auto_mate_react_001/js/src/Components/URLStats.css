@@ -1,7 +1,57 @@
+.view-url-stats,
+.block-url-stats-block {
+  padding: 2rem 1rem; }
+  .view-url-stats .block-url-stats-content label,
+  .block-url-stats-block .block-url-stats-content label {
+    width: 25%; }
+    .view-url-stats .block-url-stats-content label span,
+    .block-url-stats-block .block-url-stats-content label span {
+      font-weight: bold; }
+  .view-url-stats .view-content .views-row,
+  .block-url-stats-block .view-content .views-row {
+    display: flex;
+    flex: 1 1 100%; }
+    .view-url-stats .view-content .views-row .views-col,
+    .block-url-stats-block .view-content .views-row .views-col {
+      display: flex;
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      flex-direction: row; }
+      .view-url-stats .view-content .views-row .views-col > .views-field,
+      .block-url-stats-block .view-content .views-row .views-col > .views-field {
+        text-align: center;
+        display: flex;
+        flex: 1 1 20%;
+        flex-direction: column; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .views-label,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .views-label {
+          font-weight: bold; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-average,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average {
+          font-size: 3rem;
+          font-weight: 500; }
+          .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a,
+          .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap; }
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .label,
+            .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a .label {
+              display: flex;
+              flex: 1 1 100%; }
+            .view-url-stats .view-content .views-row .views-col > .views-field .stat-average a .value,
+            .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-average a .value {
+              display: flex;
+              flex: 1 1 100%; }
+        .view-url-stats .view-content .views-row .views-col > .views-field .stat-range,
+        .block-url-stats-block .view-content .views-row .views-col > .views-field .stat-range {
+          flex: 1 1 100%; }
+
 .url-js-resources td.url-js-resource-name {
   text-align: left;
   font-size: .75em;
   font-weight: bold; }
+
 .url-js-resources td.url-js-resource-usage {
   width: 240px;
   font-size: .75em;
@@ -14,5 +64,3 @@
     text-align: right;
     display: block;
     clear: both; }
-
-/*# sourceMappingURL=URLStats.css.map */

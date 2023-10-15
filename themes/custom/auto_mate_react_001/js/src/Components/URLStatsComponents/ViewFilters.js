@@ -36,7 +36,7 @@ function ViewFilters(props) {
     });
     // console.log('checkboxes: ', checkboxes);
     return (
-        <div class="url-stats-view-filters">
+        <div className="url-stats-view-filters">
             {checkboxes}
         </div>);
 }

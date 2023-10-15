@@ -34,11 +34,11 @@ function URLStats(props) {
                     if (dataType.data_type == 'other') {
                         // return (<td><p>other here</p></td>);
                     } else if (dataType.data_type == 'jsresources') {
-                        return (<td><Checkbox onChange={e => { handleJSResourcesSelectedURLs(parseInt(url.nid), e) }} /></td>);
+                        return (<td key={uiStateIndex}><Checkbox onChange={e => { handleJSResourcesSelectedURLs(parseInt(url.nid), e) }} /></td>);
                     } else if (dataType.data_type == 'lighthouse_list') {
-                        return (<td><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState} /></td>);
+                        return (<td key={uiStateIndex}><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState} /></td>);
                     } else if (dataType.data_type == 'meter') {
-                        return (<td>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
+                        return (<td key={uiStateIndex}>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
                     } else {
                         return <td></td>;
                     }
