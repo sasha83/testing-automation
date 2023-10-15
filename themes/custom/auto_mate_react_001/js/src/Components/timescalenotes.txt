@@ -1,0 +1,3 @@
+timeScale = oneWeek'
+add half day on each side
+fullWidth = timeScale + oneDay 

@@ -94,13 +94,10 @@ function Timeline(props) {
         const grid = tlconfig.grid;
         const timelineElements = tlconfig.timelineElements;
         const elementAlignment = tlconfig.elementAlignment;
-
         const now = new Date();
-        console.log('now.getFullYear, now.getMonth, now.getDate:', now.getFullYear(), now.getMonth(), now.getDate());
-
-        const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-        console.log('midnight:',midnight, midnight.getTime());
+        const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
         console.log("now:", now, now.getTime());
+        console.log("lastMidnight:", lastMidnight, lastMidnight.getTime());
 
 
         return (<>
@@ -114,30 +111,31 @@ function TimelineElements(props) {
 function TimelineElement(props) {
         return (<><h4>Timeline Element</h4></>);
 }
-function GridLines(props) {
-        return (<GridLine/>);
-}
-function GridLine(props) {
-        const lPerc = props['lPerc'];
-        const gridLineStyle = {
-                left: lPerc,
-                border: "10px solid red",
-
-        }
-        return (<div className='grid-line' style={gridLineStyle}>
-                Hello world
-        </div>);
-}
 function TimelineGrid(props) {
         const grid = props['grid'];
         const timeScale=props["timeScale"];
         console.log('TimelineGrid grid', grid);
         console.log('timeScale:', timeScale);
-        
+        const gridLineStyle = {
+                border: "10px solid red",
+
+        }
+
         return (<div className='timeline-grid-container'>
                 <div className='timeline-grid'>
-                        <GridLines/>
+                        <GridLines gridLineStyle={gridLineStyle}/>
                 </div>
+        </div>);
+}
+function GridLines(props) {
+        const gridLineStyle = props["gridLineStyle"];
+        return (<GridLine/>);
+}
+function GridLine(props) {
+        const gridLineStyle = props["gridLineStyle"];
+        const x = props["x"];
+        return (<div className='grid-line' style={gridLineStyle}>
+                Hello world
         </div>);
 }
 
