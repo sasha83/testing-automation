@@ -58,24 +58,19 @@ export default function App() {
     }
 
     const handleURLData = function (urlData) {
-        // console.log('urlData', urlData);
+
         updateGlobalState(draft => {
             draft.urlData = urlData;
         })
     }
     const handleLHRData = function (LHRData) {
-        // console.log('LHRData:', LHRData);
-        // LHRData.forEach(function(lhr){
-        //     console.log('*********lhr', lhr);
-        //     console.log('*********lhr.field_script_treemap_data',lhr.field_script_treemap_data.replaceAll('&quot;', '"'));
-        //     console.log('*********lhr.field_script_treemap_data parsed', JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes);
-        // });
+
         const parsedLHRData = LHRData.map((lhr) => {
             const scriptTreemapData = JSON.parse(lhr.field_script_treemap_data.replaceAll('&quot;', '"')).nodes;
             lhr.field_script_treemap_data = scriptTreemapData;
             return lhr;
         });
-        // console.log('parsedLHRData:', parsedLHRData);
+
         updateGlobalState(draft => {
             draft.LHRData = parsedLHRData;
         })

@@ -12,6 +12,7 @@ const oneHour = 60*60;
 const defaultTLConfig = {
         timeScale: oneWeek,
         durationEffectsHeight: true,
+        elementAlignment: 'top',
         grid: {
                 weekMarkers: true,
                 dayMarkers: true,
@@ -22,22 +23,59 @@ const defaultTLConfig = {
         },
         timelineElements: [
                 {
-                        startTime: oneDay,
-                        duration: -3*oneDay,
+                        startTime: -1*oneDay,
+                        duration: 60*5,
                         color: "#333",
                 }, {
-                        startTime: 0,
-                        duration: -2*oneDay,
-                        color: "#333",
-
-                }, {
-                        startTime: 0,
-                        duration: -5*oneDay,
+                        startTime: -3*oneDay,
+                        duration: 60*60,
                         color: "#333",
 
                 }, {
-                        startTime: 0,
-                        duration: -5*oneHour,
+                        startTime: -5*oneDay,
+                        duration: oneDay,
+                        color: "#333",
+
+                }, {
+                        startTime: -2*oneHour,
+                        duration: 60,
+                        color: "#333",
+                }
+
+        ]
+
+};
+
+const defaultTLConfigB = {
+        timeScale: oneWeek,
+        durationEffectsHeight: true,
+        elementAlignment: 'bottom',
+        grid: {
+                weekMarkers: true,
+                dayMarkers: true,
+                monthMarkers: true,
+                halfDayMarkers: true,
+                quarterDayMarkers: true,
+                eighthDayMarkers: true,
+        },
+        timelineElements: [
+                {
+                        startTime: -3*oneDay,
+                        duration: 60,
+                        color: "#333",
+                }, {
+                        startTime: -12*oneHour,
+                        duration: 2*oneHour,
+                        color: "#333",
+
+                }, {
+                        startTime: -5*oneDay,
+                        duration: .5*oneHour,
+                        color: "#333",
+
+                }, {
+                        startTime: -5*oneHour,
+                        duration: 60*4,
                         color: "#333",
                 }
 
@@ -51,48 +89,85 @@ const defaultTLConfig = {
 
 
 function Timeline(props) {
+        const timeScale = props["timeScale"];
         const tlconfig = props['timeLineConfiguration'];
+        const grid = tlconfig.grid;
         const timelineElements = tlconfig.timelineElements;
+        const elementAlignment = tlconfig.elementAlignment;
+
+        const now = new Date();
+        console.log('now.getFullYear, now.getMonth, now.getDate:', now.getFullYear(), now.getMonth(), now.getDate());
+
+        const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+        console.log('midnight:',midnight, midnight.getTime());
+        console.log("now:", now, now.getTime());
+
+
         return (<>
-                <TimelineGrid/>
-                <TimelineElements/>
+                <TimelineGrid timeScale={timeScale} grid={grid}/>
+                <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements}/>
         </>);
 }
-function TimelineElements() {
+function TimelineElements(props) {
         return (<><h4>Timeline Elements</h4></>);
 }
-function TimelineElement() {
+function TimelineElement(props) {
         return (<><h4>Timeline Element</h4></>);
 }
-function TimelineGrid() {
-        return (<><h4>Timeline Grid</h4></>);
+function GridLines(props) {
+        return (<GridLine/>);
+}
+function GridLine(props) {
+        const lPerc = props['lPerc'];
+        const gridLineStyle = {
+                left: lPerc,
+                border: "10px solid red",
+
+        }
+        return (<div className='grid-line' style={gridLineStyle}>
+                Hello world
+        </div>);
+}
+function TimelineGrid(props) {
+        const grid = props['grid'];
+        const timeScale=props["timeScale"];
+        console.log('TimelineGrid grid', grid);
+        console.log('timeScale:', timeScale);
+        
+        return (<div className='timeline-grid-container'>
+                <div className='timeline-grid'>
+                        <GridLines/>
+                </div>
+        </div>);
 }
 
 
 
 function Events() {
-        const tlconfig = defaultTLConfig;
+        const tlconfig = defaultTLConfigB;
         return (<>
-                <Timeline timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek} timeLineConfiguration={tlconfig} />
         </>);
 }
  
 function Instances() {
         const tlconfig = defaultTLConfig;
         return (<>
-                <Timeline timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek} timeLineConfiguration={tlconfig} />
         </>);
 }
  
 
 
-function DomainTimeline() {
+
+function DomainTimeline(props) {
+        const GlobalState = props['GlobalState'];
         return (
                 <>
                         <h1>DomainTimeline</h1>
                         <div className="timeline-container">
-                                <Events />
-                                <Instances />
+                                <Events GlobalState={GlobalState}/>
+                                <Instances GlobalState={GlobalState}/>
                         </div>
                 </>
         );
