@@ -6,11 +6,11 @@ import PercentageMeter from '../UIElements/PercentageMeter';
 import './DomainTimeline.css';
 // import './JSResources.css';
 
-const oneWeek = 60580000;
-const oneDay = 60580000/7;
-const oneHour = 60*60;
+const oneWeek = 60*60*1000*24*7;
+const oneDay = 60*60*24*1000;
+const oneHour = 60*60*1000;
+const oneMinute = 60*1000;
 const defaultTLConfig = {
-        timeScale: oneWeek,
         durationEffectsHeight: true,
         elementAlignment: 'top',
         grid: {
@@ -47,7 +47,6 @@ const defaultTLConfig = {
 };
 
 const defaultTLConfigB = {
-        timeScale: oneWeek,
         durationEffectsHeight: true,
         elementAlignment: 'bottom',
         grid: {
@@ -106,33 +105,56 @@ function Timeline(props) {
         </>);
 }
 function TimelineElements(props) {
-        return (<><h4>Timeline Elements</h4></>);
+        return (<><TimelineElement x={-1*oneDay}/></>);
 }
 function TimelineElement(props) {
+        const xCalc = props["x"];
         return (<><h4>Timeline Element</h4></>);
 }
 function TimelineGrid(props) {
         const grid = props['grid'];
         const timeScale=props["timeScale"];
+        
         console.log('TimelineGrid grid', grid);
         console.log('timeScale:', timeScale);
         const gridLineStyle = {
-                border: "10px solid red",
-
+                backgroundColor: "#333",
+                height: "100%",
+                width: "1px",
         }
 
         return (<div className='timeline-grid-container'>
                 <div className='timeline-grid'>
-                        <GridLines gridLineStyle={gridLineStyle}/>
+                        <GridLines timeScale={timeScale} gridLineStyle={gridLineStyle} grid={grid}/>
                 </div>
         </div>);
 }
 function GridLines(props) {
+        const timeScale = props["timeScale"];
         const gridLineStyle = props["gridLineStyle"];
-        return (<GridLine/>);
+        const grid = props['grid'];
+        const nowMS = new Date().getTime();
+        const now = new Date(nowMS);
+        let lines = [];
+        const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).getTime();
+        const timeSinceMidnight = nowMS-lastMidnight;
+        lines.push({agoPerc: (nowMS-lastMidnight)/timeScale*100});
+        console.log('Gridlines timeScale:', timeScale);
+        console.log("GridLines nowMS:", nowMS);
+        console.log("GridLines now:", now);
+        console.log("GridLines lastMidnight:", lastMidnight);
+        console.log("GridLines timeSinceMidnight:", timeSinceMidnight);
+        for(let n=0;n<=timeScale;n+=oneDay) {
+                const nPerc = n/timeScale*100;
+                console.log("GridLines n:", n);
+                console.log("GridLines nPerc:", nPerc);
+        }
+        console.log(lines);
+        return (
+        <GridLine x={"1"} gridLineStyle={gridLineStyle}/>);
 }
 function GridLine(props) {
-        const gridLineStyle = props["gridLineStyle"];
+        let gridLineStyle = props["gridLineStyle"];
         const x = props["x"];
         return (<div className='grid-line' style={gridLineStyle}>
                 Hello world
