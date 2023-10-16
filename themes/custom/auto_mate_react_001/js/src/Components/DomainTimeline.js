@@ -109,7 +109,7 @@ function TimelineElements(props) {
 }
 function TimelineElement(props) {
         const xCalc = props["x"];
-        return (<><h4>Timeline Element</h4></>);
+        // return (<><h4>Timeline Element</h4></>);
 }
 function TimelineGrid(props) {
         const grid = props['grid'];
@@ -138,7 +138,6 @@ function GridLines(props) {
         let lines = [];
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).getTime();
         const timeSinceMidnight = nowMS-lastMidnight;
-        lines.push({agoPerc: (nowMS-lastMidnight)/timeScale*100});
         console.log('Gridlines timeScale:', timeScale);
         console.log("GridLines nowMS:", nowMS);
         console.log("GridLines now:", now);
@@ -146,18 +145,32 @@ function GridLines(props) {
         console.log("GridLines timeSinceMidnight:", timeSinceMidnight);
         for(let n=0;n<=timeScale;n+=oneDay) {
                 const nPerc = n/timeScale*100;
+                const theDay = new Date(lastMidnight-n);
+                lines.push({
+                        day: theDay,
+                        agoPerc: (n+timeSinceMidnight)/timeScale*100
+                })
                 console.log("GridLines n:", n);
                 console.log("GridLines nPerc:", nPerc);
         }
         console.log(lines);
-        return (
-        <GridLine x={"1"} gridLineStyle={gridLineStyle}/>);
+        const gridLines = lines.map((line) => {
+                return (<GridLine x={line.agoPerc+"%"} gridLineStyle={gridLineStyle}/>);
+        });
+        return (<>{gridLines}</>);
 }
 function GridLine(props) {
-        let gridLineStyle = props["gridLineStyle"];
-        const x = props["x"];
+        // console.log('gridLineStyle:', gridLineStyle);
+        // gridLineStyle.right = props["x"];
+        const gridLineStyle = {
+                position: 'absolute',
+                backgroundColor: "#333",
+                height: "100%",
+                width: "1px",
+                right: props["x"]
+        };                
         return (<div className='grid-line' style={gridLineStyle}>
-                Hello world
+                line
         </div>);
 }
 
@@ -166,14 +179,14 @@ function GridLine(props) {
 function Events() {
         const tlconfig = defaultTLConfigB;
         return (<>
-                <Timeline timeScale={oneWeek} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek*1.5} timeLineConfiguration={tlconfig} />
         </>);
 }
  
 function Instances() {
         const tlconfig = defaultTLConfig;
         return (<>
-                <Timeline timeScale={oneWeek} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek*1.5} timeLineConfiguration={tlconfig} />
         </>);
 }
  
