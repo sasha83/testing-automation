@@ -2,4 +2,17 @@
   position: relative;
   height: 5rem; }
 
+.timeline.align-top {
+  padding: 0 4rem 2rem 4rem; }
+.timeline.align-bottom {
+  padding: 2rem 4rem 0 4rem; }
+
+.timeline-grid .grid-line .grid-line-label {
+  position: absolute;
+  right: 0; }
+  .timeline.align-top .timeline-grid .grid-line .grid-line-label {
+    bottom: -1.5rem; }
+  .timeline.align-bottom .timeline-grid .grid-line .grid-line-label {
+    top: -1.5rem; }
+
 /*# sourceMappingURL=DomainTimeline.css.map */
