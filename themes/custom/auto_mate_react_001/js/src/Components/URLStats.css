@@ -51,7 +51,6 @@
   text-align: left;
   font-size: .75em;
   font-weight: bold; }
-
 .url-js-resources td.url-js-resource-usage {
   width: 240px;
   font-size: .75em;
@@ -64,3 +63,5 @@
     text-align: right;
     display: block;
     clear: both; }
+
+/*# sourceMappingURL=URLStats.css.map */

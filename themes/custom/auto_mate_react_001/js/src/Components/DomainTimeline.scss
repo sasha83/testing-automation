@@ -7,20 +7,26 @@
     &.align-top {
         padding: 0 4rem 2rem 4rem;
     }
+
     &.align-bottom {
         padding: 2rem 4rem 0 4rem;
 
     }
-    
+
 }
+
 .timeline-grid {
     .grid-line {
         .grid-line-label {
             position: absolute;
             right: 0;
+            white-space: nowrap;
+            font-size: .75em;
+
             .timeline.align-top & {
                 bottom: -1.5rem;
             }
+
             .timeline.align-bottom & {
                 top: -1.5rem;
             }

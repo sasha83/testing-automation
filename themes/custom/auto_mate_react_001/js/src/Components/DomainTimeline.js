@@ -7,10 +7,10 @@ import './DomainTimeline.css';
 import classNames from 'classnames';
 // import './JSResources.css';
 
-const oneWeek = 60*60*1000*24*7;
-const oneDay = 60*60*24*1000;
-const oneHour = 60*60*1000;
-const oneMinute = 60*1000;
+const oneWeek = 60 * 60 * 1000 * 24 * 7;
+const oneDay = 60 * 60 * 24 * 1000;
+const oneHour = 60 * 60 * 1000;
+const oneMinute = 60 * 1000;
 const defaultTLConfig = {
         durationEffectsHeight: true,
         elementAlignment: 'top',
@@ -25,21 +25,21 @@ const defaultTLConfig = {
         },
         timelineElements: [
                 {
-                        startTime: -1*oneDay,
-                        duration: 60*5,
+                        startTime: -1 * oneDay,
+                        duration: 60 * 5,
                         color: "#333",
                 }, {
-                        startTime: -3*oneDay,
-                        duration: 60*60,
+                        startTime: -3 * oneDay,
+                        duration: 60 * 60,
                         color: "#333",
 
                 }, {
-                        startTime: -5*oneDay,
+                        startTime: -5 * oneDay,
                         duration: oneDay,
                         color: "#333",
 
                 }, {
-                        startTime: -2*oneHour,
+                        startTime: -2 * oneHour,
                         duration: 60,
                         color: "#333",
                 }
@@ -62,22 +62,22 @@ const defaultTLConfigB = {
         },
         timelineElements: [
                 {
-                        startTime: -3*oneDay,
+                        startTime: -3 * oneDay,
                         duration: 60,
                         color: "#333",
                 }, {
-                        startTime: -12*oneHour,
-                        duration: 2*oneHour,
+                        startTime: -12 * oneHour,
+                        duration: 2 * oneHour,
                         color: "#333",
 
                 }, {
-                        startTime: -5*oneDay,
-                        duration: .5*oneHour,
+                        startTime: -5 * oneDay,
+                        duration: .5 * oneHour,
                         color: "#333",
 
                 }, {
-                        startTime: -5*oneHour,
-                        duration: 60*4,
+                        startTime: -5 * oneHour,
+                        duration: 60 * 4,
                         color: "#333",
                 }
 
@@ -102,15 +102,15 @@ function Timeline(props) {
         console.log("lastMidnight:", lastMidnight, lastMidnight.getTime());
 
 
-        return (<div className={classNames(['timeline', 'align-'+elementAlignment])}>
-                <TimelineGrid timeScale={timeScale} grid={grid} tlconfig={tlconfig}/>
-                <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements}/>
+        return (<div className={classNames(['timeline', 'align-' + elementAlignment])}>
+                <TimelineGrid timeScale={timeScale} grid={grid} tlconfig={tlconfig} />
+                <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements} />
         </div>);
 }
 function TimelineElements(props) {
         const timelineElements = props["timelineElements"];
         console.log('timelineElements:', timelineElements);
-        return (<><TimelineElement x={-1*oneDay}/></>);
+        return (<><TimelineElement x={-1 * oneDay} /></>);
 }
 function TimelineElement(props) {
         const xCalc = props["x"];
@@ -118,8 +118,8 @@ function TimelineElement(props) {
 }
 function TimelineGrid(props) {
         const grid = props['grid'];
-        const timeScale=props["timeScale"];
-        const tlconfig=props["tlconfig"];
+        const timeScale = props["timeScale"];
+        const tlconfig = props["tlconfig"];
         console.log('TimelineGrid grid', grid);
         console.log('timeScale:', timeScale);
         const gridLineStyle = {
@@ -130,7 +130,7 @@ function TimelineGrid(props) {
 
         return (<div className='timeline-grid-container'>
                 <div className='timeline-grid'>
-                        <GridLines timeScale={timeScale} gridLineStyle={gridLineStyle} grid={grid} tlconfig={tlconfig}/>
+                        <GridLines timeScale={timeScale} gridLineStyle={gridLineStyle} grid={grid} tlconfig={tlconfig} />
                 </div>
         </div>);
 }
@@ -143,35 +143,34 @@ function GridLines(props) {
         const now = new Date(nowMS);
         let lines = [];
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).getTime();
-        const timeSinceMidnight = nowMS-lastMidnight;
+        const timeSinceMidnight = nowMS - lastMidnight;
         console.log('Gridlines timeScale:', timeScale);
         console.log("GridLines nowMS:", nowMS);
         console.log("GridLines now:", now);
         console.log("GridLines lastMidnight:", lastMidnight);
         console.log("GridLines timeSinceMidnight:", timeSinceMidnight);
-        for(let n=0;n<=timeScale;n+=oneDay) {
-                const nPerc = n/timeScale*100;
-                const theDay = new Date(lastMidnight-n);
+        for (let n = 0; n <= timeScale; n += oneDay) {
+                const nPerc = n / timeScale * 100;
+                const theDay = new Date(lastMidnight - n);
                 lines.push({
                         day: theDay,
                         dayOfWeek: theDay.getDay(),
-                        agoPerc: (n+timeSinceMidnight)/timeScale*100,
+                        agoPerc: (n + timeSinceMidnight) / timeScale * 100,
                 })
                 console.log("GridLines n:", n);
                 console.log("GridLines nPerc:", nPerc);
         }
         console.log('lines:', lines);
         const gridLines = lines.map((line) => {
-                return (<GridLine x={line.agoPerc+"%"} gridLineStyle={gridLineStyle} label={line.dayOfWeek} date={line.day} showLabels={showLabels}/>);
+                return (<GridLine x={line.agoPerc + "%"} timeScale={timeScale} gridLineStyle={gridLineStyle} dow={line.dayOfWeek} date={line.day} showLabels={showLabels} />);
         });
         return (<>{gridLines}</>);
 }
 function GridLine(props) {
-        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const showLabels = props["showLabels"];
-        // console.log('gridLineStyle:', gridLineStyle);
-        // gridLineStyle.right = props["x"];
-        const label = props['label'];
+        const timeScale = props["timeScale"];
+        const dow = props['dow'];
         const theDate = props['date'];
         const date = theDate.getDate();
         const gridLineStyle = {
@@ -180,7 +179,7 @@ function GridLine(props) {
                 height: "100%",
                 width: "1px",
                 right: props["x"]
-        };                
+        };
 
 
 
@@ -188,21 +187,36 @@ function GridLine(props) {
 
 
         // if timeScale is greater than 2 weeks
-                // then don't show every day label
+        // then don't show every day label
         // if timeScale is greater than 1 month
-                // then don't show day lines
+        // then don't show day lines
         // if timeScale is greater than 3 months
-                // then show Monday lines with numbers
+        // then show Monday lines with numbers
+
+        // show date on the first/most recent line
 
 
+        console.log('theDate:', theDate);
+        if (timeScale >= oneWeek * 6) {
+                if (dow == 1) {
+                        return (<div className='grid-line' style={gridLineStyle}>
+                                {(showLabels == true) && <span class="grid-line-label">{weekday[dow]}, {theDate.getMonth() + 1}/{theDate.getDate()}</span>}</div>);
+
+                }
+
+        } else if (timeScale >= oneWeek * 2) {
+                if (dow == 1) {
+                        return (<div className='grid-line' style={gridLineStyle}>
+                                {(showLabels == true) && <span class="grid-line-label">{weekday[dow]}, {theDate.getMonth() + 1}/{theDate.getDate()}</span>}</div>);
+                } else {
+                        return (<div className='grid-line' style={gridLineStyle}></div>);
+                }
+        } else {
+                return (<div className='grid-line' style={gridLineStyle}>
+                        {(showLabels == true) && <span class="grid-line-label">{theDate.getMonth() + 1}/{theDate.getDate()}</span>}</div>);
+        }
 
 
-        return (<div className='grid-line' style={gridLineStyle}>
-
-                {/* {(showLabels==true) && <span class="grid-line-label">{weekday[label]}</span>} */}
-                {(showLabels==true) && <span class="grid-line-label">{JSON.stringify(date)}</span>}
-                
-        </div>);
 }
 
 
@@ -210,17 +224,17 @@ function GridLine(props) {
 function Events() {
         const tlconfig = defaultTLConfigB;
         return (<>
-                <Timeline timeScale={oneWeek*3} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek * 1} timeLineConfiguration={tlconfig} />
         </>);
 }
- 
+
 function Instances() {
         const tlconfig = defaultTLConfig;
         return (<>
-                <Timeline timeScale={oneWeek*3} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek * 1} timeLineConfiguration={tlconfig} />
         </>);
 }
- 
+
 
 
 
@@ -230,8 +244,8 @@ function DomainTimeline(props) {
                 <>
                         <h1>DomainTimeline</h1>
                         <div className="timeline-container">
-                                <Events GlobalState={GlobalState}/>
-                                <Instances GlobalState={GlobalState}/>
+                                <Events GlobalState={GlobalState} />
+                                <Instances GlobalState={GlobalState} />
                         </div>
                 </>
         );
