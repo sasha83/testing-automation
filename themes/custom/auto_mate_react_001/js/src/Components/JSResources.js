@@ -64,15 +64,11 @@ function JSResources(props) {
         }
 
         globalJSResources.sort(compareBytes);
-        // console.log("uiState:", uiState);
-        // console.log("globalJSResources:", globalJSResources);
         const globalJSNodes = globalJSResources.map((node, index) => {
             if (activeJSResourceNodes[0] != undefined) {
                 console.log('activeJSResourceNodes', activeJSResourceNodes[0].name)
-                // console.log('NODE name', node.name)
             }
             const foundIn = activeJSResourceNodes.filter((n) => n.name == node.name);
-            // console.log('*************foundIn:', foundIn.length);
             return (<tr><Checkbox checked={foundIn.length > 0} theNode={node} onChange={(e, theNode) => { handleJSResource(urlData, LHRData, node, e) }} /><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
 

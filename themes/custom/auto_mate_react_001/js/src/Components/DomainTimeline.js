@@ -169,9 +169,7 @@ function GridLine(props) {
                 width: "1px",
                 right: props["x"]
         };                
-        return (<div className='grid-line' style={gridLineStyle}>
-                line
-        </div>);
+        return (<div className='grid-line' style={gridLineStyle}></div>);
 }
 
 
