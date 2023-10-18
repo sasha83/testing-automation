@@ -36,7 +36,9 @@
 
 .timeline-grid .grid-line .grid-line-label {
   position: absolute;
-  right: 0; }
+  right: 0;
+  white-space: nowrap;
+  font-size: .75em; }
   .timeline.align-top .timeline-grid .grid-line .grid-line-label {
     bottom: -1.5rem; }
   .timeline.align-bottom .timeline-grid .grid-line .grid-line-label {
