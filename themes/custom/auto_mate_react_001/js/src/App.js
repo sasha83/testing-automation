@@ -77,7 +77,8 @@ export default function App() {
     }
     const handleEventData = function(eventData) {
 
-        const parsedEventData = eventData.map((event)=>{
+        const parsedEventData = eventData.map((event) => {
+            // console.log('event.field_event_timestamp:', event.field_event_timestamp.getTime());
             return event;
         });
         updateGlobalState(draft => {

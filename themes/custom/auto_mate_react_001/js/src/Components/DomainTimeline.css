@@ -28,10 +28,8 @@
   position: relative;
   height: 8rem; }
   .timeline.align-top {
-    padding: 0 4rem 2rem 4rem;
     border-top: 2px solid #eee; }
   .timeline.align-bottom {
-    padding: 2rem 4rem 0 4rem;
     border-bottom: 2px solid #eee; }
 
 .timeline-grid .grid-line .grid-line-label {

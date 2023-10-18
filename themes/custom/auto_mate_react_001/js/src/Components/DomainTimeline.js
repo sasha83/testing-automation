@@ -99,7 +99,7 @@ function Timeline(props) {
         const elementAlignment = tlconfig.elementAlignment;
         const now = new Date();
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-        console.log("******timelineElements******", timelineElements);
+        // console.log("******timelineElements******", timelineElements);
         return (<div className={classNames(['timeline', 'align-'+elementAlignment])}>
                 <TimelineGrid timeScale={timeScale} grid={grid} tlconfig={tlconfig}/>
                 <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements} timeScale={timeScale}/>
@@ -128,12 +128,12 @@ function TimelineElements(props) {
                 const startTimePerc = ((nowMS-timelineElement.startTime)/timeScale)*100+"%";
                 const widthPerc = Math.ceil(((timelineElement.duration)/timeScale)*100)+"%";
                 const elementColor = "#00f";
-                console.log("timelineElement.startTime:", timelineElement.startTime);
-                console.log("Date(timelineElement.startTime):", new Date(timelineElement.startTime));
-                console.log("timelineElement", timelineElement);
-                console.log("timeScale", timeScale);
-                console.log("startTimePerc", startTimePerc);
-                console.log("widthPerc", widthPerc);
+                // console.log("timelineElement.startTime:", timelineElement.startTime);
+                // console.log("Date(timelineElement.startTime):", new Date(timelineElement.startTime));
+                // console.log("timelineElement", timelineElement);
+                // console.log("timeScale", timeScale);
+                // console.log("startTimePerc", startTimePerc);
+                // console.log("widthPerc", widthPerc);
 
                 return (<TimelineElement x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
         });
@@ -149,7 +149,7 @@ function TimelineElement(props) {
                         width: width,
                         right: xCalc,
                         position: 'absolute',
-                        backgroundColor: "#e00",
+                        backgroundColor: "rgba(0,0,255,.3)",
                         height: "3rem",
         
                 }
@@ -179,10 +179,7 @@ function GridLines(props) {
                         dayOfWeek: theDay.getDay(),
                         agoPerc: (n+timeSinceMidnight)/timeScale*100,
                 })
-                // console.log("GridLines n:", n);
-                // console.log("GridLines nPerc:", nPerc);
         }
-        // console.log('lines:', lines);
         const gridLines = lines.map((line, index) => {
                 return (<GridLine key={index} x={line.agoPerc+"%"} gridLineStyle={gridLineStyle} label={line.dayOfWeek} date={line.day} showLabels={showLabels}/>);
         });
@@ -225,17 +222,20 @@ function GridLine(props) {
 
 
 
-function Events() {
+function Events(props) {
+        const GlobalState=props["GlobalState"];
+        console.log('GlobalState:', GlobalState);
         const tlconfig = defaultTLConfigB;
         return (<>
-                <Timeline timeScale={oneWeek*6} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek*10} timeLineConfiguration={tlconfig} />
         </>);
 }
  
-function Instances() {
+function Instances(props) {
+        const GlobalState=props["GlobalState"];
         const tlconfig = defaultTLConfig;
         return (<>
-                <Timeline timeScale={oneWeek*6} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek*10} timeLineConfiguration={tlconfig} />
         </>);
 }
  
