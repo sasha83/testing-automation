@@ -1,16 +1,18 @@
 .view-url-stats,
 .block-url-stats-block {
+        // border: 2px solid #ddd;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
         .block-url-stats-content {
                 label {
-                        width: 25%;
+                        width: 20%; margin-right: 0;
                         span {
                                 font-weight: bold;
                         }
                         // margin-right: 4rem;
                 }
         }
-        // border: 2px solid #ddd;
-        padding: 2rem 1rem;
+
 
         .view-content {
                 .views-row {

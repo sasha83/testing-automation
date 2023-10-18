@@ -1,9 +1,11 @@
 .view-url-stats,
 .block-url-stats-block {
-  padding: 2rem 1rem; }
+  padding: 2rem 1rem;
+  box-sizing: border-box; }
   .view-url-stats .block-url-stats-content label,
   .block-url-stats-block .block-url-stats-content label {
-    width: 25%; }
+    width: 20%;
+    margin-right: 0; }
     .view-url-stats .block-url-stats-content label span,
     .block-url-stats-block .block-url-stats-content label span {
       font-weight: bold; }
@@ -51,7 +53,6 @@
   text-align: left;
   font-size: .75em;
   font-weight: bold; }
-
 .url-js-resources td.url-js-resource-usage {
   width: 240px;
   font-size: .75em;
@@ -64,3 +65,5 @@
     text-align: right;
     display: block;
     clear: both; }
+
+/*# sourceMappingURL=URLStats.css.map */
