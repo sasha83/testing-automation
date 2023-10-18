@@ -14,8 +14,8 @@ const oneMinute = 60*1000;
 const tempExample = 1697626826857;
 const defaultTLConfig = {
         durationEffectsHeight: true,
-        elementAlignment: 'top',
-        showLabels: false,
+        elementAlignment: 'bottom',
+        showLabels: true,
         grid: {
                 weekMarkers: true,
                 dayMarkers: true,
@@ -23,36 +23,14 @@ const defaultTLConfig = {
                 halfDayMarkers: true,
                 quarterDayMarkers: true,
                 eighthDayMarkers: true,
-        },
-        timelineElements: [
-                {
-                        startTime: 1692626329857,
-                        duration: 60*5*1000,
-                        color: "#333",
-                }, {
-                        startTime: 1696626822857,
-                        duration: 60*60*1000,
-                        color: "#333",
-
-                }, {
-                        startTime: 1697426826851,
-                        duration: oneDay,
-                        color: "#333",
-
-                }, {
-                        startTime: 1697000000000,
-                        duration: 1200000,
-                        color: "#333",
-                }
-
-        ]
+        }
 
 };
 
 const defaultTLConfigB = {
         durationEffectsHeight: true,
-        elementAlignment: 'bottom',
-        showLabels: true,
+        elementAlignment: 'top',
+        showLabels: false,
         grid: {
                 weekMarkers: true,
                 dayMarkers: true,
@@ -99,7 +77,6 @@ function Timeline(props) {
         const elementAlignment = tlconfig.elementAlignment;
         const now = new Date();
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-        // console.log("******timelineElements******", timelineElements);
         return (<div className={classNames(['timeline', 'align-'+elementAlignment])}>
                 <TimelineGrid timeScale={timeScale} grid={grid} tlconfig={tlconfig}/>
                 <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements} timeScale={timeScale}/>
@@ -135,7 +112,7 @@ function TimelineElements(props) {
                 // console.log("startTimePerc", startTimePerc);
                 // console.log("widthPerc", widthPerc);
 
-                return (<TimelineElement x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
+                return (<TimelineElement x={startTimePerc} w={widthPerc} elementColor={elementColor} elementTitle={title}/>);
         });
         return (<div className="timeline-elements-container"><div className="timeline-elements">{elements}</div></div>);
 
@@ -186,11 +163,16 @@ function GridLines(props) {
         return (<>{gridLines}</>);
 }
 function GridLine(props) {
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        const weekdayShort = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
         const showLabels = props["showLabels"];
-        const label = props['label'];
         const theDate = props['date'];
         const date = theDate.getDate();
+
+
+        const showDay = (theDate.getDay()==1) ? true:false;
+
         const gridLineStyle = {
                 position: 'absolute',
                 backgroundColor: "#eee",
@@ -211,32 +193,62 @@ function GridLine(props) {
         // if timeScale is greater than 3 months
                 // then show Monday lines with numbers
 
-
+        let label = "";
+        if(date==1) label+=month[theDate.getMonth()]+", ";
+        label+=JSON.stringify(date);
+        if(showDay==true) label+=" ("+weekday[theDate.getDay()].toString()+")";
 
 
         return (<div className='grid-line' style={gridLineStyle}>
                 {/* {(showLabels==true) && <span class="grid-line-label">{weekday[label]}</span>} */}
-                {(showLabels==true) && <span class="grid-line-label">{JSON.stringify(date)}</span>}
+                {(showLabels==true) && <span class="grid-line-label">
+                        {label}
+                </span>}
         </div>);
 }
 
 
-
-function Events(props) {
+function groupBy(objectArray, property) {
+        return objectArray.reduce((acc, obj) => {
+                const key = obj[property];
+                if (!acc[key]) {
+                   acc[key] = [];
+                }
+                // Add object to list for given key's value
+                acc[key].push(obj);
+                return acc;
+        }, {});
+}          
+function Instances(props) {
         const GlobalState=props["GlobalState"];
-        console.log('GlobalState:', GlobalState);
-        const tlconfig = defaultTLConfigB;
+        console.log('INSTANCES GlobalState:', GlobalState);
+        let tlconfig = defaultTLConfigB;
+        const timelineElements = groupBy(GlobalState.LHRData, 'field_instance_id');
+        console.log("timelineElements grouped by instance ID:", timelineElements);
         return (<>
-                <Timeline timeScale={oneWeek*10} timeLineConfiguration={tlconfig} />
+                <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
         </>);
 }
  
-function Instances(props) {
+function Events(props) {
         const GlobalState=props["GlobalState"];
-        const tlconfig = defaultTLConfig;
-        return (<>
-                <Timeline timeScale={oneWeek*10} timeLineConfiguration={tlconfig} />
-        </>);
+        let tlconfig = defaultTLConfig;
+        if(GlobalState.eventData) {
+                const timelineElements = GlobalState.eventData.map((event)=>{
+                        return {
+                                "startTime": event.field_event_timestamp*1000,
+                                "duration": 60*60*1000,
+                                "color": "#0F0"
+                        };
+                });
+                console.log('EVENTS GlobalState:', GlobalState);
+                console.log('tlconfig:', tlconfig);
+                tlconfig.timelineElements=timelineElements;
+                return (<>
+                        <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
+                </>);
+        
+        }
 }
  
 

@@ -3,6 +3,8 @@ import axios from 'axios';
 import PageDomain from './Pages/PageDomain';
 import { useImmer } from 'use-immer'
 import { func } from 'prop-types';
+import $ from 'jquery';
+
 
 export default function App() {
     const path = location.pathname.split("/");
@@ -83,6 +85,7 @@ export default function App() {
         });
         updateGlobalState(draft => {
             draft.eventData = parsedEventData;
+            $('.timeline-container').animate({'scrollLeft': '100000%'});
         })
 
     }

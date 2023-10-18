@@ -13,6 +13,10 @@
     .timeline.align-bottom .timeline-elements-container .timeline-elements .timeline-element {
       bottom: 0; }
 
+.timeline-container {
+  overflow-x: scroll;
+  padding: 3rem; }
+
 .timeline-grid-container {
   position: absolute;
   top: 0;
@@ -26,7 +30,8 @@
 
 .timeline {
   position: relative;
-  height: 8rem; }
+  height: 8rem;
+  width: 800%; }
   .timeline.align-top {
     border-top: 2px solid #eee; }
   .timeline.align-bottom {
@@ -34,7 +39,7 @@
 
 .timeline-grid .grid-line .grid-line-label {
   position: absolute;
-  right: 0;
+  left: 0;
   white-space: nowrap;
   font-size: .75em; }
   .timeline.align-top .timeline-grid .grid-line .grid-line-label {
