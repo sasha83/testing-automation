@@ -37,6 +37,7 @@ async function doRequest(url) {
 
                                     // Read all instance ID folders
                                     instanceID = iid;
+                                    console.log("*****instanceID:", instanceID);
                                     if (fs.lstatSync(inFolder + "/" + tsid + "/" + iid).isDirectory()) {
                                         fs.readdirSync(inFolder + "/" + tsid + "/" + iid).forEach(file => {
                                             let lhReportPath = inFolder + "/" + tsid + "/" + iid + "/" + file;
@@ -109,7 +110,7 @@ async function doRequest(url) {
                         // reportObjectFromJSON.categories = JSON.stringify(data.categories);
                         // reportObjectFromJSON.category_groups = JSON.stringify(data.categoryGroups);
                         reportObjectFromJSON.test_suite_id = process.testSuiteID;
-                        reportObjectFromJSON.instance_id = instanceID;
+                        reportObjectFromJSON.instance_id = process.instanceID;
                         let domain = (new URL(reportObjectFromJSON.requested_url));
 
                         // format node title
