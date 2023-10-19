@@ -101,18 +101,11 @@ function TimelineElements(props) {
         const now = new Date();
         const nowMS = now.getTime();
         console.log('timelineElements:',timelineElements);
-        const elements = timelineElements.map((timelineElement)=> {
+        const elements = timelineElements.map((timelineElement, ind)=> {
                 const startTimePerc = ((nowMS-timelineElement.startTime)/timeScale)*100+"%";
                 const widthPerc = Math.ceil(((timelineElement.duration)/timeScale)*100)+"%";
                 const elementColor = "#00f";
-                // console.log("timelineElement.startTime:", timelineElement.startTime);
-                // console.log("Date(timelineElement.startTime):", new Date(timelineElement.startTime));
-                // console.log("timelineElement", timelineElement);
-                // console.log("timeScale", timeScale);
-                // console.log("startTimePerc", startTimePerc);
-                // console.log("widthPerc", widthPerc);
-
-                return (<TimelineElement x={startTimePerc} w={widthPerc} elementColor={elementColor} elementTitle={title}/>);
+                return (<TimelineElement key={ind} x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
         });
         return (<div className="timeline-elements-container"><div className="timeline-elements">{elements}</div></div>);
 
@@ -125,12 +118,11 @@ function TimelineElement(props) {
                 const style = {
                         width: width,
                         right: xCalc,
-                        position: 'absolute',
-                        backgroundColor: "rgba(0,0,255,.3)",
-                        height: "3rem",
         
                 }
-                return (<div className="timeline-element" style={style}></div>);
+                return (<div className="timeline-element" style={style}>
+                        <div className='timeline-element-brackets'></div>
+                </div>);
         }
         
 function GridLines(props) {
@@ -201,7 +193,7 @@ function GridLine(props) {
 
         return (<div className='grid-line' style={gridLineStyle}>
                 {/* {(showLabels==true) && <span class="grid-line-label">{weekday[label]}</span>} */}
-                {(showLabels==true) && <span class="grid-line-label">
+                {(showLabels==true) && <span className="grid-line-label">
                         {label}
                 </span>}
         </div>);
@@ -225,6 +217,8 @@ function Instances(props) {
         let tlconfig = defaultTLConfigB;
         const timelineElements = groupBy(GlobalState.LHRData, 'field_instance_id');
         console.log("timelineElements grouped by instance ID:", timelineElements);
+        let tlElements = [];
+        tlElements.forEach
         return (<>
                 <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
         </>);
@@ -258,7 +252,6 @@ function DomainTimeline(props) {
         const GlobalState = props['GlobalState'];
         return (
                 <>
-                        <h1>DomainTimeline</h1>
                         <div className="timeline-container">
                                 <Events GlobalState={GlobalState}/>
                                 <Instances GlobalState={GlobalState}/>

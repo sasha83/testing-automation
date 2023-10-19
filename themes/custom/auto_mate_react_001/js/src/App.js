@@ -122,11 +122,11 @@ export default function App() {
             filter_exposed: true,
             enabled: false,
             data_type: 'checkbox'
-        }, {
-            title: 'Lighthouse Reports',
-            filter_exposed: true,
-            enabled: true,
-            data_type: 'lighthouse_list'
+        // }, {
+        //     title: 'Lighthouse Reports',
+        //     filter_exposed: true,
+        //     enabled: true,
+        //     data_type: 'lighthouse_list'
         }, {
             title: 'Cumulative Layout Shift',
             filter_exposed: true,
@@ -171,7 +171,11 @@ export default function App() {
         'main-content': true,
         'side-bar-open': (uiState.sidebar) && true
     });
-
+    function handleActiveInstance(instanceID) {
+        updateUIState(draft => {
+            draft.activeInstance = instanceID;
+        });
+    }
     function handleResourcesChange(resourceIndex, checkedValue) {
         updateUIState(draft => {
             draft.dashboardDataTypes[resourceIndex].enabled = checkedValue;

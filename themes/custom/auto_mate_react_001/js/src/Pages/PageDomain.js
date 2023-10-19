@@ -6,6 +6,7 @@ import './PageDomain.css';
 import { func } from 'prop-types';
 import JSResources from '../Components/JSResources';
 import DomainTimeline from '../Components/DomainTimeline';
+import InstanceListing from '../Components/InstanceListing';
 
 function PageDomain(props) {
     // const urlData = props["url-data"];
@@ -27,6 +28,7 @@ function PageDomain(props) {
             </section>
             <section className='content-main'>
                 <DomainTimeline GlobalState={GlobalState} />
+                <InstanceListing GlobalState={GlobalState} />
                 <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} />
             </section>
             <section className='content-bottom'></section>
