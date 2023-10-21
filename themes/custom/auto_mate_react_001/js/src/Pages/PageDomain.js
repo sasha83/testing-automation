@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useLocation } from 'react';
-import URLStats from '../Components/URLStats';
-import classNames from 'classnames';
 import './PageDomain.css';
-// import JSResources from '../Components/JSResources';
-import { func } from 'prop-types';
+import React, { useState, useEffect, useLocation } from 'react';
+import classNames from 'classnames';
+
 import JSResources from '../Components/JSResources';
 import DomainTimeline from '../Components/DomainTimeline';
+import URLStats from '../Components/URLStats';
 import InstanceListing from '../Components/InstanceListing';
 
 function PageDomain(props) {
@@ -22,7 +21,8 @@ function PageDomain(props) {
     });
     // console.log('GlobalState:', GlobalState);
     return (<div id="page-container" className={appContainerClass}>
-        <main>
+        <main className=''>
+            <PageHeader/>
             <section className='content-top'>
 
             </section>

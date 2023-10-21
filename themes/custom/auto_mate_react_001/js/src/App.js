@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useLocation } from 'react';
 import axios from 'axios';
 import PageDomain from './Pages/PageDomain';
+import PageURL from './Pages/PageURL';
+
 import { useImmer } from 'use-immer'
 import { func } from 'prop-types';
 import $ from 'jquery';
@@ -10,6 +12,9 @@ export default function App() {
     const path = location.pathname.split("/");
     console.log('path::',path);
     const nodeID = location.pathname.split("/").pop();
+
+    const nodeType = path[path.length-2];
+    console.log('nodeType:',nodeType);
 
     const handleJSResource = function (URLData, LHRData, node, e, theNode) {
         const enable = e.target.checked;
@@ -209,6 +214,11 @@ export default function App() {
     }, []);
 
     const rando = Math.random();
-    return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
+    if(nodeType=='domain') {
+        return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
+    } else if(nodeType=='url') {
+        return <><PageURL/></>
+    }
+    
 }
 
