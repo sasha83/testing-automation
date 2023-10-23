@@ -16,6 +16,7 @@ const defaultTLConfig = {
         durationEffectsHeight: true,
         elementAlignment: 'bottom',
         showLabels: true,
+        // These don't do anything yet. just an idea.
         grid: {
                 weekMarkers: true,
                 dayMarkers: true,
@@ -103,8 +104,9 @@ function TimelineElements(props) {
         console.log('timelineElements:',timelineElements);
         const elements = timelineElements.map((timelineElement, ind)=> {
                 const startTimePerc = ((nowMS-timelineElement.startTime)/timeScale)*100+"%";
-                const widthPerc = Math.ceil(((timelineElement.duration)/timeScale)*100)+"%";
-                const elementColor = "#00f";
+                // const widthPerc = Math.ceil(((timelineElement.duration)/timeScale)*100)+"%";
+                const widthPerc = (((timelineElement.duration)/timeScale)*100)+"%";
+                const elementColor = timelineElement.color;
                 return (<TimelineElement key={ind} x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
         });
         return (<div className="timeline-elements-container"><div className="timeline-elements">{elements}</div></div>);
@@ -118,7 +120,7 @@ function TimelineElement(props) {
                 const style = {
                         width: width,
                         right: xCalc,
-        
+                        backgroundColor: elementColor
                 }
                 return (<div className="timeline-element" style={style}>
                         <div className='timeline-element-brackets'></div>
@@ -213,15 +215,24 @@ function groupBy(objectArray, property) {
 }          
 function Instances(props) {
         const GlobalState=props["GlobalState"];
-        console.log('INSTANCES GlobalState:', GlobalState);
+        // console.log('INSTANCES GlobalState:', GlobalState);
         let tlconfig = defaultTLConfigB;
-        const timelineElements = groupBy(GlobalState.LHRData, 'field_instance_id');
-        console.log("timelineElements grouped by instance ID:", timelineElements);
-        let tlElements = [];
-        tlElements.forEach
-        return (<>
-                <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
-        </>);
+        if(GlobalState.sortedInstances) {
+                let timelineElements = GlobalState.sortedInstances.map((instance) => {
+                        console.log('instance start:', new Date(instance[instance.length-1].field_fetch_time).getTime());
+                        return {
+                                startTime: new Date(instance[instance.length-1].field_fetch_time).getTime(),
+                                duration: oneHour,
+                                color: '#0F0'
+                        };
+                });
+                console.log("timelineElements from instances:", timelineElements);
+                tlconfig.timelineElements = timelineElements;
+                return (<>
+                        <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
+                </>);
+        
+        }
 }
  
 function Events(props) {
@@ -232,7 +243,7 @@ function Events(props) {
                         return {
                                 "startTime": event.field_event_timestamp*1000,
                                 "duration": 60*60*1000,
-                                "color": "#0F0"
+                                "color": "#00F"
                         };
                 });
                 console.log('EVENTS GlobalState:', GlobalState);
