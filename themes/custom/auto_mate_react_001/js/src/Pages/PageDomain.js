@@ -1,7 +1,7 @@
 import './PageDomain.css';
 import React, { useState, useEffect, useLocation } from 'react';
 import classNames from 'classnames';
-
+import PageHeader from '../Components/PageHeader';
 import JSResources from '../Components/JSResources';
 import DomainTimeline from '../Components/DomainTimeline';
 import URLStats from '../Components/URLStats';
@@ -20,9 +20,10 @@ function PageDomain(props) {
         'sidebar-open': uiState.sidebar
     });
     // console.log('GlobalState:', GlobalState);
-    return (<div id="page-container" className={appContainerClass}>
+    return (
+    <div id="page-container" className={appContainerClass}>
+        <PageHeader/>
         <main className=''>
-            <PageHeader/>
             <section className='content-top'>
 
             </section>
