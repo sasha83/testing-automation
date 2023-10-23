@@ -101,31 +101,30 @@ function TimelineElements(props) {
         const timelineElements = props["timelineElements"];
         const now = new Date();
         const nowMS = now.getTime();
-        console.log('timelineElements:',timelineElements);
         const elements = timelineElements.map((timelineElement, ind)=> {
                 const startTimePerc = ((nowMS-timelineElement.startTime)/timeScale)*100+"%";
                 // const widthPerc = Math.ceil(((timelineElement.duration)/timeScale)*100)+"%";
                 const widthPerc = (((timelineElement.duration)/timeScale)*100)+"%";
                 const elementColor = timelineElement.color;
-                return (<TimelineElement key={ind} x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
+                return (<TimelineElement actionID={timelineElement.actionID} key={ind} x={startTimePerc} w={widthPerc} elementColor={elementColor}/>);
         });
         return (<div className="timeline-elements-container"><div className="timeline-elements">{elements}</div></div>);
 
 }
 function TimelineElement(props) {
         const timeScale = props["timeScale"];
-                const xCalc = props["x"];
-                const width = props["w"];
-                const elementColor = props["elementColor"];
-                const style = {
-                        width: width,
-                        right: xCalc,
-                        backgroundColor: elementColor
-                }
-                return (<div className="timeline-element" style={style}>
-                        <div className='timeline-element-brackets'></div>
-                </div>);
+        const xCalc = props["x"];
+        const width = props["w"];
+        const elementColor = props["elementColor"];
+        const style = {
+                width: width,
+                right: xCalc,
+                backgroundColor: elementColor
         }
+        return (<div className="timeline-element" actionID={props.actionID} style={style}>
+                <div className='timeline-element-brackets'>{props.actionID}</div>
+        </div>);
+}
         
 function GridLines(props) {
         const timeScale = props["timeScale"];
@@ -137,11 +136,6 @@ function GridLines(props) {
         let lines = [];
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).getTime();
         const timeSinceMidnight = nowMS-lastMidnight;
-        // console.log('Gridlines timeScale:', timeScale);
-        // console.log("GridLines nowMS:", nowMS);
-        // console.log("GridLines now:", now);
-        // console.log("GridLines lastMidnight:", lastMidnight);
-        // console.log("GridLines timeSinceMidnight:", timeSinceMidnight);
         for(let n=0;n<=timeScale;n+=oneDay) {
                 const nPerc = n/timeScale*100;
                 const theDay = new Date(lastMidnight-n);
@@ -215,18 +209,20 @@ function groupBy(objectArray, property) {
 }          
 function Instances(props) {
         const GlobalState=props["GlobalState"];
-        // console.log('INSTANCES GlobalState:', GlobalState);
+        console.log('INSTANCES GlobalState:', GlobalState);
         let tlconfig = defaultTLConfigB;
         if(GlobalState.sortedInstances) {
                 let timelineElements = GlobalState.sortedInstances.map((instance) => {
-                        console.log('instance start:', new Date(instance[instance.length-1].field_fetch_time).getTime());
+                        // console.log('instance start:', new Date(instance[instance.length-1].field_fetch_time).getTime());
                         return {
-                                startTime: new Date(instance[instance.length-1].field_fetch_time).getTime(),
-                                duration: oneHour,
-                                color: '#0F0'
+                                "actionID": instance[instance.length-1].field_instance_id,
+                                "actionFunction": null,
+                                "startTime": new Date(instance[instance.length-1].field_fetch_time).getTime(),
+                                "duration": oneHour,
+                                "color": '#0F0'
                         };
                 });
-                console.log("timelineElements from instances:", timelineElements);
+                // console.log("timelineElements from instances:", timelineElements);
                 tlconfig.timelineElements = timelineElements;
                 return (<>
                         <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />
@@ -241,13 +237,14 @@ function Events(props) {
         if(GlobalState.eventData) {
                 const timelineElements = GlobalState.eventData.map((event)=>{
                         return {
+                                "actionID": event.nid,
+                                "actionFunction": null,
                                 "startTime": event.field_event_timestamp*1000,
                                 "duration": 60*60*1000,
                                 "color": "#00F"
                         };
                 });
-                console.log('EVENTS GlobalState:', GlobalState);
-                console.log('tlconfig:', tlconfig);
+
                 tlconfig.timelineElements=timelineElements;
                 return (<>
                         <Timeline timeScale={oneWeek*13} timeLineConfiguration={tlconfig} />

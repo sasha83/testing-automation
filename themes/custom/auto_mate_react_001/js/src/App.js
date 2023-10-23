@@ -22,11 +22,11 @@ function groupBy(objectArray, property) {
 
 export default function App() {
     const path = location.pathname.split("/");
-    console.log('path::',path);
+    // console.log('path::',path);
     const nodeID = location.pathname.split("/").pop();
 
     const nodeType = path[path.length-2];
-    console.log('nodeType:',nodeType);
+    // console.log('nodeType:',nodeType);
 
     const handleJSResource = function (URLData, LHRData, node, e, theNode) {
         const enable = e.target.checked;
@@ -116,15 +116,15 @@ export default function App() {
         // this is kind of a mess.  setting this up for the timeline component.
         let sortedInstances = [];
         instances = Object.entries(instances);
-        console.log('*******instances:', instances);
+        // console.log('*******instances:', instances);
 
 
         instances.forEach(function (instance) {
             sortedInstances.push(instance[1].sort(compareFetchTime));
-            console.log('**instance:', instance);
+            // console.log('**instance:', instance);
         });
 
-        console.log('*******sortedInstances:', sortedInstances);
+        // console.log('*******sortedInstances:', sortedInstances);
         updateGlobalState(draft => {
             draft.sortedInstances = sortedInstances;
         })
