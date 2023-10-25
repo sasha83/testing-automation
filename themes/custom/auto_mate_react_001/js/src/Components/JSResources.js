@@ -69,7 +69,7 @@ function JSResources(props) {
                 console.log('activeJSResourceNodes', activeJSResourceNodes[0].name)
             }
             const foundIn = activeJSResourceNodes.filter((n) => n.name == node.name);
-            return (<tr><Checkbox checked={foundIn.length > 0} theNode={node} onChange={(e, theNode) => { handleJSResource(urlData, LHRData, node, e) }} /><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
+            return (<tr key={index}><td><Checkbox checked={foundIn.length > 0} onChange={(e) => { handleJSResource(urlData, LHRData, node, e) }} /></td><td className='js-resource-name'>{node.name}</td><td className='js-resource-size'>{numberWithCommas(node.bytes)}</td></tr>);
         });
 
         let byteTotal = 0;
@@ -83,7 +83,7 @@ function JSResources(props) {
                 content={
                     <>
                         <table>
-                            <thead><th className='scripts-q'>{globalJSNodes.length} scripts</th><th></th><th className='total-bytes'>{numberWithCommas(byteTotal)}<br />Total JS Bytes</th></thead>
+                            <thead><tr><th className='scripts-q'>{globalJSNodes.length} scripts</th><th></th><th className='total-bytes'>{numberWithCommas(byteTotal)}<br />Total JS Bytes</th></tr></thead>
                             <tbody>{globalJSNodes}</tbody>
                         </table>
                     </>

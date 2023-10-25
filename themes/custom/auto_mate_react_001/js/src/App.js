@@ -28,7 +28,7 @@ export default function App() {
     const nodeType = path[path.length-2];
     // console.log('nodeType:',nodeType);
 
-    const handleJSResource = function (URLData, LHRData, node, e, theNode) {
+    const handleJSResource = function (URLData, LHRData, node, e) {
         const enable = e.target.checked;
         let enabledJSResourceNodes = [];
         if (enable == true) {
@@ -135,6 +135,7 @@ export default function App() {
 
 
     }
+
     const handleEventData = function(eventData) {
 
         const parsedEventData = eventData.map((event) => {
@@ -143,7 +144,7 @@ export default function App() {
         });
         updateGlobalState(draft => {
             draft.eventData = parsedEventData;
-            $('.timeline-container').animate({'scrollLeft': '100000%'});
+            $('.timeline-container').animate({'scrollLeft': '100000%'}, 100);
         })
 
     }
@@ -230,6 +231,7 @@ export default function App() {
         'side-bar-open': (uiState.sidebar) && true
     });
     function handleActiveInstance(instanceID) {
+        console.log('handleActiveInstance', instanceID);
         updateUIState(draft => {
             draft.activeInstance = instanceID;
         });
@@ -243,7 +245,8 @@ export default function App() {
         nodeID: nodeID,
         urlData: [],
         LHRData: [],
-        mainClasses, updateMainClasses
+        mainClasses, updateMainClasses,
+        handleActiveInstance: handleActiveInstance,
     });
 
 

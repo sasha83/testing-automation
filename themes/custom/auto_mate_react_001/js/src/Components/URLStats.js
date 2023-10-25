@@ -40,7 +40,7 @@ function URLStats(props) {
                     } else if (dataType.data_type == 'meter') {
                         return (<td key={uiStateIndex}>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
                     } else {
-                        return <td></td>;
+                        return <td key={uiStateIndex}></td>;
                     }
                 }
             });
@@ -55,7 +55,7 @@ function URLStats(props) {
                     const totalBytes = foundInScriptTreemapData[0].resourceBytes;
                     const usedBytes = foundInScriptTreemapData[0].resourceBytes - unusedBytes;
                     const usedPerc = usedBytes / totalBytes * 100;
-                    return <tr><td className='url-js-resource-name'>{foundInScriptTreemapData[0].name}</td><td className='url-js-resource-usage'><PercentageMeter value={usedBytes / totalBytes} outer-width="100%" /><span className='meter-label'>{numberWithCommas(usedBytes)} of {numberWithCommas(totalBytes)} used</span></td></tr>;
+                    return <tr key={index}><td className='url-js-resource-name'>{foundInScriptTreemapData[0].name}</td><td className='url-js-resource-usage'><PercentageMeter value={usedBytes / totalBytes} outer-width="100%" /><span className='meter-label'>{numberWithCommas(usedBytes)} of {numberWithCommas(totalBytes)} used</span></td></tr>;
                 }
 
                 // if(LHRData.filter((lhr) => {lhr.field_url_reference_1==url.nid && lhr.field_script_treemap_data.))

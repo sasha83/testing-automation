@@ -9,6 +9,7 @@
         width: 100%;
         height: 100%;
         .timeline-element {
+            cursor: pointer;
             position: absolute;
             height: 3rem;
             background-color: rgba(0,0,255,.2);
