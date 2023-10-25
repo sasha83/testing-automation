@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.url.body
     - field.field.node.url.feeds_item
+    - field.field.node.url.field_banner_image
     - field.field.node.url.field_cls_average
     - field.field.node.url.field_cls_max
     - field.field.node.url.field_cls_max_lighthouse_report
@@ -72,6 +73,7 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_banner_image: true
   field_cls_average: true
   field_cls_max: true
   field_cls_max_lighthouse_report: true

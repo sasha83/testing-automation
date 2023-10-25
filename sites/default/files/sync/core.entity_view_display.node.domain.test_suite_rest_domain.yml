@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.test_suite_rest_domain
     - field.field.node.domain.body
+    - field.field.node.domain.field_banner_image
     - field.field.node.domain.field_brand_color_gray1
     - field.field.node.domain.field_brand_color_gray2
     - field.field.node.domain.field_brand_color_gray3
@@ -32,6 +33,7 @@ content:
     region: content
 hidden:
   body: true
+  field_banner_image: true
   field_brand_color_gray1: true
   field_brand_color_gray2: true
   field_brand_color_gray3: true

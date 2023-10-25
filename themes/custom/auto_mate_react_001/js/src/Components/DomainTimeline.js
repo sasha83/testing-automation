@@ -71,7 +71,7 @@ const defaultTLConfigB = {
 
 function Instances(props) {
         const GlobalState=props["GlobalState"];
-        console.log('INSTANCES GlobalState:', GlobalState);
+        // console.log('INSTANCES GlobalState:', GlobalState);
         let tlconfig = defaultTLConfigB;
         if(GlobalState.sortedInstances) {
                 let timelineElements = GlobalState.sortedInstances.map((instance) => {
@@ -101,7 +101,7 @@ function Timeline(props) {
         const elementAlignment = tlconfig.elementAlignment;
         const now = new Date();
         const lastMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-        console.log("tlconfig:",tlconfig);
+        // console.log("tlconfig:",tlconfig);
         return (<div className={classNames(['timeline', 'align-'+elementAlignment])}>
                 <TimelineGrid timeScale={timeScale} grid={grid} tlconfig={tlconfig}/>
                 <TimelineElements elementAlignment={elementAlignment} timelineElements={timelineElements} timeScale={timeScale}/>
@@ -129,7 +129,7 @@ function TimelineElement(props) {
         const width = props["w"];
         const elementColor = props["elementColor"];
         const tlconfig=props["tlconfig"];
-        console.log("props.actionFunction:", props.actionFunction);
+        // console.log("props.actionFunction:", props.actionFunction);
         const style = {
                 width: width,
                 right: xCalc,

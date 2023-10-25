@@ -37,7 +37,7 @@ async function doRequest(url) {
 
                                     // Read all instance ID folders
                                     instanceID = iid;
-                                    console.log("*****instanceID:", instanceID);
+                                    // console.log("*****instanceID:", instanceID);
                                     if (fs.lstatSync(inFolder + "/" + tsid + "/" + iid).isDirectory()) {
                                         fs.readdirSync(inFolder + "/" + tsid + "/" + iid).forEach(file => {
                                             let lhReportPath = inFolder + "/" + tsid + "/" + iid + "/" + file;
@@ -170,7 +170,7 @@ function getDomainID(domainString) {
         }
 
     });
-    console.log('domainString:', domainString);
+    // console.log('domainString:', domainString);
     return domainID;
 }
 
@@ -198,7 +198,7 @@ function writeToCSV(filename, headers, content) {
     });
     csvWriter
         .writeRecords(content)
-        .then(() => console.log('generated: ', filename));
+        .then(() => console.log('generated: ', filename, '\n'));
 
 }
 function cleanTitles(title) {

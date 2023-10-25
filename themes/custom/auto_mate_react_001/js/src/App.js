@@ -273,7 +273,7 @@ export default function App() {
     if(nodeType=='domain') {
         return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
     } else if(nodeType=='url') {
-        return <><PageURL/></>
+        return <><PageURL uiState={uiState}/></>
     }
     
 }
