@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.url.body
     - field.field.node.url.feeds_item
+    - field.field.node.url.field_banner_image
     - field.field.node.url.field_cls_average
     - field.field.node.url.field_cls_max
     - field.field.node.url.field_cls_max_lighthouse_report
@@ -62,6 +63,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_banner_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_domain:
     type: entity_reference_label

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.url.body
     - field.field.node.url.feeds_item
+    - field.field.node.url.field_banner_image
     - field.field.node.url.field_cls_average
     - field.field.node.url.field_cls_max
     - field.field.node.url.field_cls_max_lighthouse_report
@@ -71,6 +72,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_banner_image:
+    type: entity_reference_autocomplete
+    weight: 166
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_cls_average:
     type: number

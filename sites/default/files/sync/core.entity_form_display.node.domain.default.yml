@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.domain.body
+    - field.field.node.domain.field_banner_image
     - field.field.node.domain.field_brand_color_gray1
     - field.field.node.domain.field_brand_color_gray2
     - field.field.node.domain.field_brand_color_gray3
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.domain.field_root
     - node.type.domain
   module:
+    - media_library
     - path
     - text
 id: node.domain.default
@@ -37,6 +39,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_banner_image:
+    type: media_library_widget
+    weight: 131
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_brand_color_gray1:
     type: string_textfield

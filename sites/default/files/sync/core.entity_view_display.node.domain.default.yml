@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.domain.body
+    - field.field.node.domain.field_banner_image
     - field.field.node.domain.field_brand_color_gray1
     - field.field.node.domain.field_brand_color_gray2
     - field.field.node.domain.field_brand_color_gray3
@@ -28,6 +29,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_banner_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 111
     region: content
   field_brand_color_gray1:
     type: string

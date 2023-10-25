@@ -26,6 +26,9 @@ settings:
     -
       value: 'Server Status'
       label: 'Server Status'
+    -
+      value: Other
+      label: Other
   allowed_values_function: ''
 module: options
 locked: false
