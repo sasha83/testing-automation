@@ -198,7 +198,7 @@ function writeToCSV(filename, headers, content) {
     });
     csvWriter
         .writeRecords(content)
-        .then(() => console.log('generated: ', filename, '\n'));
+        .then(() => console.log('generated: ', filename));
 
 }
 function cleanTitles(title) {

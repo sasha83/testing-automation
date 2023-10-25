@@ -83,8 +83,10 @@ async function doRequest(url) {
                     console.log(queueArray[0].field_url_reference);
                     queueArray[0].field_url_reference = queueArray[0].field_url_reference.split('|');
                     queueArray[0].field_url_reference.forEach(function (url) {
-                        shOutput.push('echo "generating lighthouse report for: ' + url + '"');
+
                         shOutput.push('node _build-csvs-from-lighthouse-json.js');
+                        shOutput.push('\n');
+                        shOutput.push('echo "generating lighthouse report for: ' + url + '"');
                         shOutput.push(format_url_commaind(url));
                         delete_queue.push(testSuiteID + '_' + instanceID + '_' + getStringOf(url) + '.csv');
                     });
