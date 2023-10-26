@@ -9,24 +9,22 @@ import $ from 'jquery';
 
 function groupBy(objectArray, property) {
     return objectArray.reduce((acc, obj) => {
-            const key = obj[property];
-            if (!acc[key]) {
-               acc[key] = [];
-            }
-            // Add object to list for given key's value
-            acc[key].push(obj);
-            return acc;
+        const key = obj[property];
+        if (!acc[key]) {
+            acc[key] = [];
+        }
+        // Add object to list for given key's value
+        acc[key].push(obj);
+        return acc;
     }, {});
-}          
+}
 
 
 export default function App() {
     const path = location.pathname.split("/");
-    // console.log('path::',path);
     const nodeID = location.pathname.split("/").pop();
 
-    const nodeType = path[path.length-2];
-    // console.log('nodeType:',nodeType);
+    const nodeType = path[path.length - 2];
 
     const handleJSResource = function (URLData, LHRData, node, e) {
         const enable = e.target.checked;
@@ -116,15 +114,12 @@ export default function App() {
         // this is kind of a mess.  setting this up for the timeline component.
         let sortedInstances = [];
         instances = Object.entries(instances);
-        // console.log('*******instances:', instances);
 
 
         instances.forEach(function (instance) {
             sortedInstances.push(instance[1].sort(compareFetchTime));
-            // console.log('**instance:', instance);
         });
 
-        // console.log('*******sortedInstances:', sortedInstances);
         updateGlobalState(draft => {
             draft.sortedInstances = sortedInstances;
         })
@@ -136,15 +131,14 @@ export default function App() {
 
     }
 
-    const handleEventData = function(eventData) {
+    const handleEventData = function (eventData) {
 
         const parsedEventData = eventData.map((event) => {
-            // console.log('event.field_event_timestamp:', event.field_event_timestamp.getTime());
             return event;
         });
         updateGlobalState(draft => {
             draft.eventData = parsedEventData;
-            $('.timeline-container').animate({'scrollLeft': '100000%'}, 100);
+            $('.timeline-container').animate({ 'scrollLeft': '100000%' }, 100);
         })
 
     }
@@ -181,11 +175,11 @@ export default function App() {
             filter_exposed: true,
             enabled: false,
             data_type: 'checkbox'
-        // }, {
-        //     title: 'Lighthouse Reports',
-        //     filter_exposed: true,
-        //     enabled: true,
-        //     data_type: 'lighthouse_list'
+            // }, {
+            //     title: 'Lighthouse Reports',
+            //     filter_exposed: true,
+            //     enabled: true,
+            //     data_type: 'lighthouse_list'
         }, {
             title: 'Cumulative Layout Shift',
             filter_exposed: true,
@@ -231,7 +225,6 @@ export default function App() {
         'side-bar-open': (uiState.sidebar) && true
     });
     function handleActiveInstance(instanceID) {
-        console.log('handleActiveInstance', instanceID);
         updateUIState(draft => {
             draft.activeInstance = instanceID;
         });
@@ -270,11 +263,11 @@ export default function App() {
     }, []);
 
     const rando = Math.random();
-    if(nodeType=='domain') {
-        return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>
-    } else if(nodeType=='url') {
-        return <><PageURL uiState={uiState}/></>
+    if (nodeType == 'domain') {
+        return <><PageDomain mainClasses={mainClasses} GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleResourcesChange={handleResourcesChange} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} /></>;
+    } else if (nodeType == 'url') {
+        return <><PageURL uiState={uiState} /></>;
     }
-    
+
 }
 

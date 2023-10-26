@@ -25,6 +25,10 @@ function URLStats(props) {
     const handleResourcesChange = props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs = props["handleJSResourcesSelectedURLs"];
     const handleJSResource = props["handleJSResource"];
+    const activeULData = {};
+    console.log('uiState:', uiState);
+    console.log('urlData:', urlData);
+    console.log('LHRData:', LHRData);
 
     if (GlobalState.urlData && Array.isArray(GlobalState.urlData) && GlobalState.urlData.length > 0) {
         let urlListUpdated = [];
@@ -35,8 +39,8 @@ function URLStats(props) {
                         // return (<td><p>other here</p></td>);
                     } else if (dataType.data_type == 'jsresources') {
                         return (<td key={uiStateIndex}><Checkbox onChange={e => { handleJSResourcesSelectedURLs(parseInt(url.nid), e) }} /></td>);
-                    // } else if (dataType.data_type == 'lighthouse_list') {
-                    //     return (<td key={uiStateIndex}><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState} /></td>);
+                        // } else if (dataType.data_type == 'lighthouse_list') {
+                        //     return (<td key={uiStateIndex}><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState} /></td>);
                     } else if (dataType.data_type == 'meter') {
                         return (<td key={uiStateIndex}>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
                     } else {

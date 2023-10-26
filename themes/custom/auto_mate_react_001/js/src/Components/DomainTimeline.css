@@ -13,6 +13,8 @@
       position: absolute;
       height: 3rem;
       background-color: rgba(0, 0, 255, 0.2); }
+      .timeline-elements-container .timeline-elements .timeline-element.is-active {
+        background: black !important; }
       .timeline.align-top .timeline-elements-container .timeline-elements .timeline-element {
         top: -2px; }
         .timeline.align-top .timeline-elements-container .timeline-elements .timeline-element .timeline-element-brackets {

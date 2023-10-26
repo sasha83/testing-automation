@@ -19,28 +19,28 @@ function PageDomain(props) {
         'main-content': true,
         'sidebar-open': uiState.sidebar
     });
-    // console.log('GlobalState:', GlobalState);
-    return (
-    <div id="page-container" className={appContainerClass}>
-        <PageHeader/>
-        <main className=''>
-            <section className='content-top'>
+    if (uiState != undefined) {
+        return (
+            <div id="page-container" className={appContainerClass}>
+                <PageHeader />
+                <main className=''>
+                    <section className='content-top'>
 
-            </section>
-            <section className='content-main'>
-                <DomainTimeline GlobalState={GlobalState} />
-                <InstanceListing GlobalState={GlobalState} />
-                <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} />
-            </section>
-            <section className='content-bottom'></section>
-        </main>
-        <aside className='sidebar'>
+                    </section>
+                    <section className='content-main'>
+                        <DomainTimeline GlobalState={GlobalState} uiState={uiState} />
+                        <InstanceListing GlobalState={GlobalState} uiState={uiState} />
+                        <URLStats GlobalState={GlobalState} updateGlobalState={updateGlobalState} handleResourcesChange={handleResourcesChange} uiState={uiState} handleJSResourcesSelectedURLs={handleJSResourcesSelectedURLs} handleJSResource={handleJSResource} />
+                    </section>
+                    <section className='content-bottom'></section>
+                </main>
+                <aside className='sidebar'>
+                    <JSResources GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleJSResource={handleJSResource} />
+                </aside>
 
-            <JSResources GlobalState={GlobalState} updateGlobalState={updateGlobalState} uiState={uiState} handleJSResource={handleJSResource} />
-        </aside>
-
-    </div>
-    );
+            </div>
+        );
+    }
 }
 
 export default PageDomain;
