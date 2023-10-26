@@ -185,31 +185,36 @@ export default function App() {
             filter_exposed: true,
             enabled: true,
             data_type: 'meter',
-            parameter: 'field_cls_average'
+            parameter: 'field_cls_average',
+            lhr_parameter: 'field_cumulative_layout_shift'
         }, {
             title: 'First Contentful Paint',
             filter_exposed: true,
             enabled: false,
             data_type: 'meter',
-            parameter: 'field_fcp_average'
+            parameter: 'field_fcp_average',
+            lhr_parameter: 'field_first_contentful_paint',
         }, {
             title: 'First Meaningful Paint',
             filter_exposed: true,
             enabled: false,
             data_type: 'meter',
-            parameter: 'field_fmp_average'
+            parameter: 'field_fmp_average',
+            lhr_parameter: 'field_first_meaningful_paint'
         }, {
             title: 'Largest Contentful Paint',
             filter_exposed: true,
             enabled: true,
             data_type: 'meter',
-            parameter: 'field_lcp_average'
+            parameter: 'field_lcp_average',
+            lhr_parameter: 'field_largest_contentful_paint'
         }, {
             title: 'Total Blocking Time',
             filter_exposed: true,
             enabled: true,
             data_type: 'meter',
-            parameter: 'field_tbt_average'
+            parameter: 'field_tbt_average',
+            lhr_parameter: 'field_total_blocking_time'
         }
     ];
     const activeJSResourcesURLs = [];

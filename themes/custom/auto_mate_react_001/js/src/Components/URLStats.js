@@ -25,14 +25,50 @@ function URLStats(props) {
     const handleResourcesChange = props["handleResourcesChange"];
     const handleJSResourcesSelectedURLs = props["handleJSResourcesSelectedURLs"];
     const handleJSResource = props["handleJSResource"];
-    const activeULData = {};
-    console.log('uiState:', uiState);
-    console.log('urlData:', urlData);
-    console.log('LHRData:', LHRData);
+    // console.log('uiState:', uiState);
+    // console.log('urlData:', urlData);
+
+
+
+
+
+
+    // const activeInstanceURLData = LHRData.filter((l) => { l.nid != 'ASDF' });
+    // parseInt(lhr['field_instance_id']) == parseInt(uiState.activeInstance)
+
+    // let selectedURLData = {};
+    // const asdf = LHRData.map((l) => {
+    //     console.log("parseInt(l.field_instance_id) == parseInt(uiState.activeInstance)", parseInt(l.field_instance_id) == parseInt(uiState.activeInstance));
+    //     if (parseInt(l.field_instance_id) == parseInt(uiState.activeInstance)) selectedURLData = l;
+    // });
+    // const activeInstanceURLData = LHRData.filter((l) => { parseInt(l.field_instance_id) == parseInt(uiState.activeInstance) });
+
+    // console.log('uiState.activeInstance', uiState.activeInstance);
+    // console.log('LHRData:', LHRData);
+    // console.log("activeInstanceURLData*******", activeInstanceURLData);
+    // console.log("selectedURLData******", selectedURLData);
+
+
+    function stripHTTP(str) {
+        return str.replace(/(^\w+:|^)\/\//, '');
+    }
 
     if (GlobalState.urlData && Array.isArray(GlobalState.urlData) && GlobalState.urlData.length > 0) {
         let urlListUpdated = [];
         const urlList = GlobalState.urlData.map((url, urlIndex) => {
+
+
+
+            let selectedURLData = {};
+            const findActiveLHRData = LHRData.map((l) => {
+                if (parseInt(l.field_instance_id) == parseInt(uiState.activeInstance)) {
+                    if (stripHTTP(l.field_requested_url) == stripHTTP(url.title)) selectedURLData = l;
+                }
+            });
+            console.log('url', url);
+            console.log("selectedURLData******", selectedURLData);
+
+
             const dataColumns = uiState.dashboardDataTypes.map((dataType, uiStateIndex) => {
                 if (dataType.enabled == true) {
                     if (dataType.data_type == 'other') {
@@ -42,7 +78,12 @@ function URLStats(props) {
                         // } else if (dataType.data_type == 'lighthouse_list') {
                         //     return (<td key={uiStateIndex}><LighthouseReportsListing lighthouse-reports={url.lhrData} GlobalState={GlobalState} /></td>);
                     } else if (dataType.data_type == 'meter') {
-                        return (<td key={uiStateIndex}>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
+                        if (selectedURLData == {}) {
+                            return (<td key={uiStateIndex}>{url[dataType.parameter]}<PercentageMeter value={url[dataType.parameter]} outer-width="90%" /></td>);
+                        } else {
+                            return (<td key={uiStateIndex}>{selectedURLData[dataType.lhr_parameter]}<PercentageMeter value={selectedURLData[dataType.lhr_parameter]} outer-width="90%" /></td>);
+                        }
+
                     } else {
                         return <td key={uiStateIndex}></td>;
                     }
